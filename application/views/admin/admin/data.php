@@ -30,7 +30,7 @@
           <div class="card mb-4">
             <div class="card-header">
               <a class="btn btn-primary btn-sm shadow-sm" href="<?php echo base_url('admin/Admin/add') ?>">
-                Add Admin
+                Tambah Admin / Karyawan
               </a>
             </div>
             <div class="card-body">
@@ -44,6 +44,7 @@
                       <th>No</th>
                       <th>Nama</th>
                       <th>Email</th>
+                      <th>Bagian</th>
                       <th>Alamat</th>
                       <th>Nomor Hp</th>
                       <th>Action</th>
@@ -56,13 +57,16 @@
                         <td><?= $no++ ?></td>
                         <td><?= $d['Nama'] ?></td>
                         <td><?= $d['Email'] ?></td>
+                        <td><?= $d['Pekerjaan'] ?></td>
                         <td><?= $d['Alamat'] ?></td>
                         <td><?= $d['No_Hp'] ?></td>
 
                         <td>
-                          <a class="btn btn-datatable btn-icon btn-transparent-dark" href="<?php echo base_url('admin/Admin/detail/' . $d['Id_User']) ?>"><i data-feather="plus"></i></a>
-                          <a class="btn btn-datatable btn-icon btn-transparent-dark" href="<?php echo base_url('admin/Admin/edit/' . $d['Id_User']) ?>"><i data-feather="edit-2"></i></a>
-                          <a class="btn btn-datatable btn-icon btn-transparent-dark" href="" onclick="confirm_hapus('<?php echo base_url('admin/Admin/hapus/' . $d['Id_User']) ?>')" data-toggle="modal" data-target="#modalDelete"><i data-feather="trash-2"></i></a>
+                          <a class="btn btn-datatable btn-icon btn-transparent-dark" href="<?php echo base_url('admin/Admin/detail/' . $d['Id_User']) ?>"><i data-feather="eye"></i></a>
+                          <!-- <a class="btn btn-datatable btn-icon btn-transparent-dark" href="<?php echo base_url('admin/Admin/edit/' . $d['Id_User']) ?>"><i data-feather="edit-2"></i></a> -->
+                          <?php if ($d['Pekerjaan'] === 'Karyawan') { ?>
+                            <a class="btn btn-datatable btn-icon btn-transparent-dark" href="" onclick="confirm_hapus('<?php echo base_url('admin/Admin/hapus/' . $d['Id_User']) ?>')" data-toggle="modal" data-target="#modalDelete"><i data-feather="trash-2"></i></a>
+                          <?php } ?>
                         </td>
                       </tr>
                     <?php } ?>

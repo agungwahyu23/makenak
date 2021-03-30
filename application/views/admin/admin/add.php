@@ -35,31 +35,42 @@
                 <div class="row">
                   <div class="form-group col-lg-6 col-sm-12">
                     <label>Nama Admin</label>
-                    <input class="form-control" id="name" name="name" type="text" placeholder="Nama Admin" required />
+                    <?= form_error('name', '<small class="text-danger pl-2">', '</small>'); ?>
+                    <input class="form-control" id="name" name="name" type="text" placeholder="Nama Admin"  />
                   </div>
                   <div class="form-group col-lg-6 col-sm-12">
                     <label>Email Admin</label>
-                    <input class="form-control" id="email" name="email" type="text" placeholder="Email Admin" required />
+                    <?= form_error('email', '<small class="text-danger pl-2">', '</small>'); ?>
+                    <input class="form-control" id="email" name="email" type="text" placeholder="Email Admin"  />
                   </div>
                 </div>
                 <div class="row">
                   <div class="form-group col-lg-6 col-sm-12">
                     <label>Password Admin</label>
-                    <input class="form-control" id="password" name="password" type="password" placeholder="Password Admin" required />
+                    <?= form_error('password', '<small class="text-danger pl-2">', '</small>'); ?>
+                    <input class="form-control" id="password" name="password" type="password" placeholder="Password Admin"  />
                   </div>
                   <div class="form-group col-lg-6 col-sm-12">
-                    <label>Pekerjaan</label>
-                    <input class="form-control" id="pekerjaan" name="pekerjaan" type="text" placeholder="Pekerjaan" required />
+                    <label>Bagian</label>
+                    <?= form_error('pekerjaan', '<small class="text-danger pl-2">', '</small>'); ?>
+                    <select class="form-control" name="pekerjaan">
+                      <option value="">--PILIH BAGIAN--</option>
+                      <option value="Admin">Admin</option>
+                      <option value="Karyawan">Karyawan</option>
+
+                    </select>
                   </div>
                 </div>
                 <div class="row">
                   <div class="form-group col-lg-6 col-sm-12">
                     <label>Alamat Rumah</label>
-                    <input class="form-control" id="alamat" name="alamat" type="text" placeholder="Alamat Rumah" required />
+                    <?= form_error('alamat', '<small class="text-danger pl-2">', '</small>'); ?>
+                    <input class="form-control" id="alamat" name="alamat" type="text" placeholder="Alamat Rumah"  />
                   </div>
                   <div class="form-group col-lg-6 col-sm-12">
                     <label>Nomor Hp</label>
-                    <input class="form-control" id="no_hp" name="no_hp" type="text" placeholder="Nomor Hp" required />
+                    <?= form_error('no_hp', '<small class="text-danger pl-2">', '</small>'); ?>
+                    <input class="form-control" id="no_hp" name="no_hp" type="text" placeholder="Nomor Hp"  />
                   </div>
                 </div>
               </div>

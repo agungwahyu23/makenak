@@ -34,20 +34,26 @@
                     <div class="nav-link-icon"><i data-feather="users"></i></div>
                     Our Partners
                 </a>
-                <div class="sidenav-menu-heading">Fitur Utama</div>
+                <div class="sidenav-menu-heading">Data Mak Enak</div>
+                <?php if ($Pengguna['Pekerjaan'] === 'Admin') { ?>
+                    <a class="nav-link" href="<?php echo base_url('admin/Admin') ?>">
+                        <div class="nav-link-icon"><i data-feather="grid"></i></div>
+                        Data Admin
+                    </a>
+                <?php } ?>
                 <a class="nav-link" href="<?php echo base_url('admin/Produk') ?>">
-                    <div class="nav-link-icon"><i data-feather="home"></i></div>
+                    <div class="nav-link-icon"><i data-feather="grid"></i></div>
                     Data Produk
                 </a>
                 <a class="nav-link" href="<?php echo base_url('admin/Kategori') ?>">
-                    <div class="nav-link-icon"><i data-feather="home"></i></div>
+                    <div class="nav-link-icon"><i data-feather="grid"></i></div>
                     Data Kategori Produk
                 </a>
                 <a class="nav-link" href="<?php echo base_url('admin/rekening') ?>">
-                    <div class="nav-link-icon"><i data-feather="home"></i></div>
+                    <div class="nav-link-icon"><i data-feather="grid"></i></div>
                     Data Rekening
                 </a>
-                <a class="nav-link" href="<?php echo base_url('admin/Interior') ?>">
+                <!-- <a class="nav-link" href="<?php echo base_url('admin/Interior') ?>">
                     <div class="nav-link-icon"><i data-feather="home"></i></div>
                     Desain Interior
                 </a>
@@ -59,7 +65,7 @@
                 <a class="nav-link collapsed" href="<?php echo base_url('admin/Transaksi') ?>">
                     <div class="nav-link-icon"><i data-feather="file-text"></i></div>
                     Transaksi Rumah
-                </a>
+                </a> -->
                 <!-- <a class="nav-link collapsed" href="#">
                     <div class="nav-link-icon"><i data-feather="image"></i></div>
                     Transaksi Desain Rumah

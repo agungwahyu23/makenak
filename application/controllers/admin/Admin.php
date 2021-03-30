@@ -23,10 +23,10 @@ class Admin extends CI_Controller
   public function add()
   {
     $this->form_validation->set_rules('name', 'Nama_Pengguna', 'required|trim');
-    $this->form_validation->set_rules('email', 'Email', 'required|trim|valid_email|is_unique[Pengguna.email]', [
-      'is_unique' => 'Email Already Registered!'
-    ]);
-    $this->form_validation->set_rules('password', 'Password', 'required');
+    $this->form_validation->set_rules('email', 'Email', 'required|trim|valid_email|is_unique[pengguna.Email]');
+    $this->form_validation->set_rules('password', 'Password', 'required|min_length[5]');
+    $this->form_validation->set_rules('pekerjaan', 'Bagian', 'required');
+    $this->form_validation->set_rules('no_hp', 'Nomor HP', 'required|min_length[10]|numeric');
     $this->form_validation->set_rules('alamat', 'Alamat', 'required|trim');
     if ($this->form_validation->run() == false) {
 
@@ -52,8 +52,8 @@ class Admin extends CI_Controller
       $this->db->insert('pengguna', $data);
 
       $this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert">
-     Akun Berhasil Di Tambahkan
-  </div>');
+      Akun Berhasil Di Tambahkan
+      </div>');
       redirect('admin/Admin');
     }
   }
