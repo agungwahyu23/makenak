@@ -116,106 +116,7 @@ class Produk extends CI_Controller
 		}
 	}
 
-
-
-	public function Tambah_Galeri($id)
-
-	{
-
-		$data['Pengguna'] = $this->db->get_where('pengguna', ['Id_User' =>
-
-		$this->session->userdata('Id_User')])->row_array();
-
-		$data['galeri'] =  $this->db->query("SELECT * FROM galeri WHERE Id_Rumah = '$id'")->result_array();
-
-		$this->load->view('admin/rumah/addGaleri', $data);
-	}
-
-	public function Blok($id)
-
-	{
-
-		$this->form_validation->set_rules('id_rumah', 'id_rumah', 'required');
-
-		if ($this->form_validation->run() == false) {
-
-			$data['Pengguna'] = $this->db->get_where('pengguna', ['Id_User' =>
-
-			$this->session->userdata('Id_User')])->row_array();
-
-			$data['id'] = $id;
-
-			$qry = $this->db->query("SELECT * FROM blok_rumah , kode_rumah WHERE blok_rumah.Id_Kode_Rumah = kode_rumah.Id_Kode")->result_array();
-
-			for ($i = 0; $i < count($qry); $i++) {
-
-				$angka = $qry[$i]['Id_Kode_Rumah'];
-
-				$dats[] = $angka;
-			}
-
-			// echo json_encode($dats);
-
-			if ($qry) {
-
-				$bismillah = implode(', ', $dats);
-
-				$data['selectblok'] = $this->db->query("SELECT * FROM kode_rumah WHERE Id_Kode not in ($bismillah)")->result_array();
-			} else {
-
-				$data['selectblok'] = $this->db->query("SELECT * FROM kode_rumah")->result_array();
-			}
-
-			$data['blok'] =  $this->db->query("SELECT * FROM blok_rumah , kode_rumah WHERE blok_rumah.Id_Kode_Rumah = kode_rumah.Id_Kode AND blok_rumah.Id_Rumah = '$id'")->result_array();
-
-			$this->load->view('admin/rumah/blok', $data);
-		} else {
-
-			$insert = array(
-
-				'Id_Blok' => $this->Models->randomkode(32),
-
-				'Id_Kode_Rumah' => $this->input->post('blok'),
-
-				'Id_Rumah' => $id,
-
-				'status' => 1
-
-			);
-
-			if ($this->Models->insert('blok_rumah', $insert)) {
-
-				$this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert">
-
-					Data Blok Berhasil Ditambahkan
-
-				</div>');
-
-				redirect('admin/Rumah/Blok/' . $id);
-			} else {
-
-				$this->session->set_flashdata('pesan', '<div class="alert alert-danger" role="alert">Terjadi kesalahan harap ulangi kembali</div>');
-
-				redirect('admin/Rumah/Blok/' . $id);
-			}
-		}
-	}
-
-	public function ambilData($id)
-
-	{
-
-		$data =  $this->db->query("SELECT * FROM galeri WHERE Id_Rumah = '$id'")->result_array();
-
-		echo json_encode($data);
-	}
-
-	public function hapusgaleri($id)
-
-	{
-
-		$this->Models->hapusdata('Id_Galeri', 'galeri', $id);
-	}
+	
 
 	public function unggahGambar($id)
 
@@ -449,38 +350,24 @@ class Produk extends CI_Controller
 		}
 	}
 
-	public function detail($id)
-
-	{
-
-		$data['Pengguna'] = $this->db->get_where('pengguna', ['Id_User' =>
-
-		$this->session->userdata('Id_User')])->row_array();
-
-		$data['data'] = $this->db->query("SELECT * FROM rumah WHERE Id_Rumah = '$id'")->result_array();
-
-		$data['galeri'] = $this->db->query("SELECT * FROM galeri WHERE Id_Rumah = '$id'")->result_array();
-
-		$this->load->view('admin/rumah/detail_rumah', $data);
-	}
+	
 
 	public function hapus($id)
 
 	{
 
-		$hapusku = $this->Models->hapusdata("Id_Rumah", "rumah", $id);
+		$hapus = $this->db->delete('produk', ['id' => $id]);
 
-		if ($hapusku) {
+		if ($hapus) {
 
-			$this->Models->hapusdata("Id_Rumah", "galeri", $id);
 
 			$this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert">
 
-					Data Berhasil Dihapus
+			Data Berhasil Dihapus
 
 			</div>');
 
-			redirect('admin/Rumah');
+			redirect('admin/Produk');
 		} else {
 
 			$this->session->set_flashdata('pesan', '<div class="alert alert-danger" role="alert">
@@ -489,81 +376,8 @@ class Produk extends CI_Controller
 
 							</div>');
 
-			redirect('admin/Rumah');
+			redirect('admin/Produk');
 		}
 	}
 
-	public function editStatus()
-
-	{
-
-		$post = $this->input->post('status');
-
-		$id = $this->input->post('id');
-
-		if ($post != 0) {
-
-			$this->db->set('Status', $this->input->post('status'));
-
-			$this->db->where('Id_Blok', $this->input->post('Id_Blok'));
-
-			$qry = $this->db->update('blok_rumah');
-
-			if ($qry) {
-
-				$this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert">
-
-						Data Berhasil Diubah
-
-						</div>');
-
-				redirect('admin/Rumah/Blok/' . $id);
-			} else {
-
-				$this->session->set_flashdata('pesan', '<div class="alert alert-danger" role="alert">
-
-						Gagal Ubah Status
-
-						</div>');
-
-				redirect('admin/Rumah/Blok/' . $id);
-			}
-		} else {
-
-			$this->session->set_flashdata('pesan', '<div class="alert alert-danger" role="alert">
-
-			Gagal Ubah Status Karena Belum Memilih Status
-
-			</div>');
-
-			redirect('admin/Rumah/Blok/' . $id);
-		}
-	}
-
-	public function hapusdatablok($id)
-
-	{
-
-		$hapusku = $this->Models->hapusdata("Id_Blok", "blok_rumah", $id);
-
-		if ($hapusku) {
-
-			$this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert">
-
-					Data Berhasil Dihapus
-
-			</div>');
-
-			redirect('admin/Rumah');
-		} else {
-
-			$this->session->set_flashdata('pesan', '<div class="alert alert-danger" role="alert">
-
-													Data Gagal Dihapus
-
-							</div>');
-
-			redirect('admin/Rumah');
-		}
-	}
 }

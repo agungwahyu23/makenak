@@ -39,6 +39,10 @@
                     <div class="nav-link-icon"><i data-feather="home"></i></div>
                     Data Produk
                 </a>
+                <a class="nav-link" href="<?php echo base_url('admin/Kategori') ?>">
+                    <div class="nav-link-icon"><i data-feather="home"></i></div>
+                    Data Kategori Produk
+                </a>
                 <a class="nav-link" href="<?php echo base_url('admin/Interior') ?>">
                     <div class="nav-link-icon"><i data-feather="home"></i></div>
                     Desain Interior

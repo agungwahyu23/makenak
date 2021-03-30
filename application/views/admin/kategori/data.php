@@ -21,7 +21,7 @@
             <div class="page-header-content">
               <h1 class="page-header-title">
                 <div class="page-header-icon"><i data-feather="home"></i></div>
-                <span>Data Produk</span>
+                <span>Data Kategori Produk</span>
               </h1>
             </div>
           </div>
@@ -29,8 +29,8 @@
         <div class="container-fluid mt-n10">
           <div class="card mb-4">
             <div class="card-header">
-              <a class="btn btn-primary btn-sm shadow-sm mr-3" href="<?php echo base_url('admin/Produk/add') ?>">
-                Tambah Produk
+              <a class="btn btn-primary btn-sm shadow-sm mr-3" href="<?php echo base_url('admin/Kategori/add') ?>">
+                Tambah Kategori Produk
               </a>
             </div>
             <div class="card-body">
@@ -42,32 +42,27 @@
                   <thead>
                     <tr>
                       <th>No</th>
-                      <th>Nama Produk</th>
-                      <th>Netto</th>
+                      <th>Nama Kategori</th>
+                      <!-- <th>Netto</th>
                       <th>Komposisi</th>
                       <th>Harga</th>
-                      <th>Status</th>
+                      <th>Status</th> -->
                       <!-- <th>Deskripsi</th> -->
                       <th>Action</th>
                     </tr>
                   </thead>
                   <tbody>
-                  <?php $i= 1; foreach($produk as $data ) {?>
+                  <?php $i= 1; foreach($kategori as $data ) {?>
                       <tr>
                         <td><?= $i;?></td>
-                        <td><?= $data['namaProduk']?></td>
-                        <td><?= $data['netto']?></td>
-                        <td><?= $data['komposisi']?></td>
-                        <td><?= $data['harga']?></td>
-                        <td><?= $data['status'] == 1 ? 'Tampil' : 'Tidak Tampil' ?></td>
-                        <!-- <td><?= $data['deskripsi']?></td> -->
+                        <td><?= $data['kategori']?></td>
                         <!-- <td>IDR <?= number_format($d['Harga'], 2, ",", ".") ?></td> -->
                         <td>
                           <!-- <a class="btn btn-datatable btn-icon btn-transparent-dark" href="<?php echo base_url('admin/Rumah/Blok/') ?>"><i data-feather="home"></i></a>
                           <a class="btn btn-datatable btn-icon btn-transparent-dark" href="<?php echo base_url('admin/Rumah/Tambah_Galeri/') ?>"><i data-feather="image"></i></a>
                           <a class="btn btn-datatable btn-icon btn-transparent-dark" href="<?php echo base_url('admin/Rumah/detail/') ?>"><i data-feather="plus"></i></a> -->
-                          <a class="btn btn-datatable btn-icon btn-transparent-dark" href="<?php echo base_url('admin/Produk/edit/'. $data['id']) ?>"><i data-feather="edit-2"></i></a>
-                          <a class="btn btn-datatable btn-icon btn-transparent-dark" onclick="confirm_hapus('<?php echo base_url('admin/Produk/hapus/' . $data['id']) ?>')" data-toggle="modal" data-target="#modalDelete"><i data-feather="trash-2"></i></a>
+                          <a class="btn btn-datatable btn-icon btn-transparent-dark" href="<?php echo base_url('admin/Kategori/edit/'. $data['idkategori']) ?>"><i data-feather="edit-2"></i></a>
+                          <a class="btn btn-datatable btn-icon btn-transparent-dark" onclick="confirm_hapus('<?php echo base_url('admin/Kategori/hapus/' . $data['idkategori']) ?>')" data-toggle="modal" data-target="#modalDelete"><i data-feather="trash-2"></i></a>
                         </td>
                       </tr>
                     <?php $i++; }?>
