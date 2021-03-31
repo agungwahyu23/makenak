@@ -26,7 +26,7 @@ $dataWa = substr($dataPenerima['wa'], 1);
           <div class="container-fluid">
             <div class="page-header-content">
               <h1 class="page-header-title">
-                <div class="page-header-icon"><i data-feather="file-text"></i></div>
+                <div class="page-header-icon"><i></i></div>
                 <span>Detail Pemesanan</span>
               </h1>
             </div>
