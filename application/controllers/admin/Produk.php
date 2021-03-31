@@ -47,6 +47,8 @@ class Produk extends CI_Controller
 		$this->form_validation->set_rules('komposisiProduk', 'Komposisi Produk', 'required');
 		$this->form_validation->set_rules('nettoProduk', 'Netto Produk', 'required|numeric');
 		$this->form_validation->set_rules('hargaProduk', 'Harga Produk', 'required|numeric');
+		$this->form_validation->set_rules('perDus', 'Isi Per Dus', 'required|numeric');
+		$this->form_validation->set_rules('stokProduk', 'Stok Produk', 'required|numeric');
 		$this->form_validation->set_rules('deskripsiProduk', 'Deskripsi Produk', 'required|max_length[500]');
 
 		if ($this->form_validation->run() == false) {
@@ -78,12 +80,14 @@ class Produk extends CI_Controller
 
 					'namaProduk' => $this->input->post('namaProduk'),
 					'netto' => $this->input->post('nettoProduk'),
+					'isiDus' => $this->input->post('perDus'),
 					'idKategori' => $this->input->post('kategoriProduk'),
 					'komposisi' => $this->input->post('komposisiProduk'),
 					'harga' => $this->input->post('hargaProduk'),
 					'deskripsi' => $this->input->post('deskripsiProduk'),
 					'gambar' => $foto_namaBaru,
-					'status' => 1
+					'status' => 1,
+					'stok' => $this->input->post('stokProduk')
 
 
 				);
@@ -231,7 +235,9 @@ class Produk extends CI_Controller
 		$this->form_validation->set_rules('namaProduk', 'Nama Produk', 'required');
 		$this->form_validation->set_rules('kategoriProduk', 'Kategori Produk', 'required');
 		$this->form_validation->set_rules('nettoProduk', 'Netto Produk', 'required|numeric');
+		$this->form_validation->set_rules('perDus', 'Isi Per Dus', 'required|numeric');
 		$this->form_validation->set_rules('hargaProduk', 'Harga Produk', 'required|numeric');
+		$this->form_validation->set_rules('stokProduk', 'Stok Produk', 'required|numeric');
 		$this->form_validation->set_rules('statusProduk', 'Status Produk', 'required|numeric');
 		$this->form_validation->set_rules('deskripsiProduk', 'Deskripsi Produk', 'required|max_length[500]');
 
@@ -255,8 +261,10 @@ class Produk extends CI_Controller
 			$data = [
 				'namaProduk' => $this->input->post('namaProduk'),
 				'netto' => $this->input->post('nettoProduk'),
+				'isiDus' => $this->input->post('perDus'),
 				'idKategori' => $this->input->post('kategoriProduk'),
 				'harga' => $this->input->post('hargaProduk'),
+				'stok' => $this->input->post('stokProduk'),
 				'deskripsi' => $this->input->post('deskripsiProduk'),
 				'status' => $this->input->post('statusProduk')
 			];

@@ -79,6 +79,8 @@ class Admin extends CI_Controller
         'Alamat' => $this->input->post('alamat'),
         'No_Hp' => $this->input->post('no_hp'),
       ];
+
+
       $update = $this->Models->update($data, "Id_User", "pengguna", $id);
       // echo $data;
       if ($update) {

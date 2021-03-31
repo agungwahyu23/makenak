@@ -29,7 +29,7 @@
         <div class="container-fluid mt-n10">
           <form action="" method="post" enctype="multipart/form-data">
             <div class="card mb-4">
-              <div class="card-header">tambah Produk</div>
+              <div class="card-header">Tambah Produk</div>
               <div class="card-body">
                 <div class="row">
                   <div class="form-group col-lg-6 col-sm-12">
@@ -37,18 +37,6 @@
                     <?= form_error('namaProduk', '<small class="text-danger pl-2">', '</small>'); ?>
                     <input class="form-control" name="namaProduk" type="text" placeholder="Nama Produk" />
                   </div>
-                  <!-- <div class="form-group col-lg-4 col-sm-12">
-                    <label>Blok</label>
-                    <select class="form-control" name="blok">
-                      <option value="A - 1">A - 1</option>
-                      <option value="A - 2">A - 2</option>
-                      <option value="A - 3">A - 3</option>
-                      <option value="A - 4">A - 4</option>
-                      <option value="A - 5">A - 5</option>
-                      <option value="A - 6">A - 6</option>
-                      <option value="A - 7">A - 7</option>
-                    </select>
-                  </div> -->
                   <div class="form-group col-lg-6 col-sm-12">
                     <label>Kategori Produk</label>
                     <?= form_error('kategoriProduk', '<small class="text-danger pl-2">', '</small>'); ?>
@@ -64,7 +52,7 @@
                   <div class="form-group col-lg-6 col-sm-6">
                     <label>Netto Produk</label>
                     <?= form_error('nettoProduk', '<small class="text-danger pl-2">', '</small>'); ?>
-                    <input class="form-control" name="nettoProduk" type="text" placeholder="Netto Produk" />
+                    <input class="form-control" name="nettoProduk" type="number" placeholder="Netto Produk" />
                   </div>
                   <div class="form-group col-lg-6 col-sm-6">
                     <label>Harga Produk</label>
@@ -73,7 +61,19 @@
                   </div>
                 </div>
                 <div class="row">
-                  <div class="form-group col-lg-12 col-sm-6">
+                  <div class="form-group col-lg-6 col-sm-6">
+                    <label>Isi Per Dus</label>
+                    <?= form_error('perDus', '<small class="text-danger pl-2">', '</small>'); ?>
+                    <input class="form-control" name="perDus" type="number" placeholder="isi Per Produk" />
+                  </div>
+                  <div class="form-group col-lg-6 col-sm-6">
+                    <label>Stok Produk</label>
+                    <?= form_error('stokProduk', '<small class="text-danger pl-2">', '</small>'); ?>
+                    <input class="form-control" name="stokProduk" type="number" placeholder="Stok Produk" />
+                  </div>
+                </div>
+                <div class="row">
+                <div class="form-group col-lg-12 col-sm-6">
                     <label>Komposisi</label>
                     <?= form_error('komposisiProduk', '<small class="text-danger pl-2">', '</small>'); ?>
                     <input class="form-control" name="komposisiProduk" type="text" placeholder="Komposisi Produk" />

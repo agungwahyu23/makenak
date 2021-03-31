@@ -37,12 +37,12 @@
                 <div class="sidenav-menu-heading">Data Mak Enak</div>
                 <?php if ($Pengguna['Pekerjaan'] === 'Admin') { ?>
                     <a class="nav-link" href="<?php echo base_url('admin/Admin') ?>">
-                        <div class="nav-link-icon"><i data-feather="grid"></i></div>
+                        <div class="nav-link-icon"><i data-feather="users"></i></div>
                         Data Admin
                     </a>
                 <?php } ?>
                 <a class="nav-link" href="<?php echo base_url('admin/Produk') ?>">
-                    <div class="nav-link-icon"><i data-feather="grid"></i></div>
+                    <div class="nav-link-icon"><i data-feather="box"></i></div>
                     Data Produk
                 </a>
                 <a class="nav-link" href="<?php echo base_url('admin/Kategori') ?>">
@@ -50,7 +50,7 @@
                     Data Kategori Produk
                 </a>
                 <a class="nav-link" href="<?php echo base_url('admin/rekening') ?>">
-                    <div class="nav-link-icon"><i data-feather="grid"></i></div>
+                    <div class="nav-link-icon"><i data-feather="credit-card"></i></div>
                     Data Rekening
                 </a>
                 <!-- <a class="nav-link" href="<?php echo base_url('admin/Interior') ?>">

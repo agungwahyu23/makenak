@@ -32,24 +32,11 @@
               <div class="card-header">Edit Produk</div>
               <div class="card-body">
                 <div class="row">
-                  <div class="form-group col-lg-12 col-sm-12">
+                  <div class="form-group col-lg-6 col-sm-12">
                     <label>Nama Produk</label>
                     <?= form_error('namaProduk', '<small class="text-danger pl-2">', '</small>'); ?>
                     <input class="form-control" name="namaProduk" type="text" placeholder="Nama Produk" value="<?= $produk['namaProduk'] ?>" />
                   </div>
-                  <!-- <div class="form-group col-lg-4 col-sm-12">
-                      <label>Blok</label>
-                      <select class="form-control" name="blok">
-                        <option value="<?= $d['Blok'] ?>"><?= $d['Blok'] ?></option>
-                        <option value="A - 1">A - 1</option>
-                        <option value="A - 2">A - 2</option>
-                        <option value="A - 3">A - 3</option>
-                        <option value="A - 4">A - 4</option>
-                        <option value="A - 5">A - 5</option>
-                        <option value="A - 6">A - 6</option>
-                        <option value="A - 7">A - 7</option>
-                      </select>
-                    </div> -->
                   <div class="form-group col-lg-6 col-sm-12">
                     <label>Kategori Produk</label>
                     <?= form_error('kategoriProduk', '<small class="text-danger pl-2">', '</small>'); ?>
@@ -63,15 +50,6 @@
                         <option value="Ruko">Ruko</option> -->
                     </select>
                   </div>
-                  <div class="form-group col-lg-6 col-sm-12">
-                    <label>Status Produk</label>
-                    <?= form_error('statusProduk', '<small class="text-danger pl-2">', '</small>'); ?>
-                    <select class="form-control" name="statusProduk">
-                      <option value="">--- Pilih ---</option>
-                      <option value="1" <?= $produk['status'] == 1 ? 'selected' : '' ?>>Tampil</option>
-                      <option value="2" <?= $produk['status'] == 2 ? 'selected' : '' ?>>Tidak Tampil</option>
-                    </select>
-                  </div>
                 </div>
                 <div class="row">
                   <div class="form-group col-lg-6 col-sm-6">
@@ -83,6 +61,36 @@
                     <label>Harga Produk</label>
                     <?= form_error('hargaProduk', '<small class="text-danger pl-2">', '</small>'); ?>
                     <input class="form-control" name="hargaProduk" type="number" placeholder="Harga Produk" value="<?= $produk['harga'] ?>" />
+                  </div>
+                </div>
+                <div class="row">
+                <div class="form-group col-lg-6 col-sm-6">
+                    <label>Isi Per Dus</label>
+                    <?= form_error('perDus', '<small class="text-danger pl-2">', '</small>'); ?>
+                    <input class="form-control" name="perDus" type="number" placeholder="isi Per Produk" value="<?= $produk['isiDus']?>"/>
+                  </div>
+                  <div class="form-group col-lg-6 col-sm-6">
+                    <label>Stok Produk</label>
+                    <?= form_error('stokProduk', '<small class="text-danger pl-2">', '</small>'); ?>
+                    <input class="form-control" name="stokProduk" type="number" placeholder="Harga Produk" value="<?= $produk['stok'] ?>" />
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="form-group col-lg-12 col-sm-6">
+                    <label>Komposisi Produk</label>
+                    <?= form_error('komposisiProduk', '<small class="text-danger pl-2">', '</small>'); ?>
+                    <input class="form-control" name="komposisiProduk" type="text" placeholder="Netto Produk" value="<?= $produk['komposisi'] ?>" />
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="form-group col-lg-12 col-sm-12">
+                    <label>Status Produk</label>
+                    <?= form_error('statusProduk', '<small class="text-danger pl-2">', '</small>'); ?>
+                    <select class="form-control" name="statusProduk">
+                      <option value="">--- Pilih ---</option>
+                      <option value="1" <?= $produk['status'] == 1 ? 'selected' : '' ?>>Tampil</option>
+                      <option value="2" <?= $produk['status'] == 2 ? 'selected' : '' ?>>Tidak Tampil</option>
+                    </select>
                   </div>
                 </div>
                 <div class="row">

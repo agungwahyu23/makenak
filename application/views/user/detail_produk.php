@@ -37,7 +37,7 @@
 
             <a href="<?= base_url('img/Produk/' . $detailProduk['gambar']) ?>" data-gallery="portfolioGallery" class="portfokio-lightbox">
 
-              <img src="<?= base_url('img/Produk/' . $detailProduk['gambar']) ?>" class="img-fluid" alt="">
+              <img style="width: 720px; height: 500px;" src="<?= base_url('img/Produk/' . $detailProduk['gambar']) ?>" class="img-fluid" alt="">
 
             </a>
 
@@ -48,30 +48,37 @@
           <div class="col-lg-6 d-flex flex-column justify-content-center fasilitas" data-aos="fade-up" data-aos-delay="200">
 
             <div class="content">
-                <div class="d-flex justify-content-start">
+              <div class="d-flex justify-content-start">
 
-                  <div class="house-type"><?= $detailProduk['namaProduk']?></div>
-
+                <div class="">
+                  <h5><b><?= $detailProduk['namaProduk'] ?></b></h5>
                 </div>
 
-                <p>Netto : <?= $detailProduk['netto']?></p>
+              </div>
 
-                <p><strong>Rp <?= number_format($detailProduk['harga'], 2, ",", ".") ?></strong></p>
+              <p>Netto : <?= $detailProduk['netto'] ?> Gram</p>
 
-                <p class="mt-3">
+              <p><strong>Rp <?= number_format($detailProduk['harga'], 2, ",", ".") ?></strong></p>
 
-                  Komposisi :<br>
+              <p class="mt-3">
 
-                  <?= $detailProduk['komposisi']?>
+                Komposisi :
 
-                </p>
-                <p class="mt-3">
+                <?= $detailProduk['komposisi'] ?>
 
-                <?= $detailProduk['deskripsi']?>
+              </p>
+              <p class="mt-3">
 
-                </p>
+                <?= $detailProduk['deskripsi'] ?>
+
+              </p>
+              <p class="mt-3 text-danger" >
+                Minimal pembelian di luar Jember <br> 1. Jawa Timur minimal order 1 dus atau 32 toples. <br> 2. Jawa Tengah dan Jawa Barat minimal order 3 dus atau 32 x 3 toples. <br>
+              </p>
             </div>
 
+            <!-- <div class="alert alert-light" role="alert">
+                         </div> -->
           </div>
 
 
