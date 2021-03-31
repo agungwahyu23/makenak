@@ -9,11 +9,11 @@
                     Dashboard
                 </a>
 
-                <div class="sidenav-menu-heading">Master Data</div>
-                <!-- <a class="nav-link" href="<?php echo base_url('admin/User') ?>">
+                <!-- <div class="sidenav-menu-heading">Master Data</div>
+                <a class="nav-link" href="<?php echo base_url('admin/User') ?>">
                     <div class="nav-link-icon"><i data-feather="user"></i></div>
                     User
-                </a> -->
+                </a>
                 <a class="nav-link collapsed" href="<?php echo base_url('admin/Admin') ?>">
                     <div class="nav-link-icon"><i data-feather="users"></i></div>
                     Admin Data
@@ -33,7 +33,7 @@
                 <a class="nav-link collapsed" href="<?php echo base_url('admin/Partners') ?>">
                     <div class="nav-link-icon"><i data-feather="users"></i></div>
                     Our Partners
-                </a>
+                </a> -->
                 <div class="sidenav-menu-heading">Data Mak Enak</div>
                 <?php if ($Pengguna['Pekerjaan'] === 'Admin') { ?>
                     <a class="nav-link" href="<?php echo base_url('admin/Admin') ?>">
@@ -52,6 +52,23 @@
                 <a class="nav-link" href="<?php echo base_url('admin/rekening') ?>">
                     <div class="nav-link-icon"><i data-feather="credit-card"></i></div>
                     Data Rekening
+                </a>
+
+
+
+
+                <div class="sidenav-menu-heading">Transaksi</div>
+                <a class="nav-link" href="<?php echo base_url('admin/Transaksi') ?>">
+                    <div class="nav-link-icon"><i data-feather="file-text"></i></div>
+                    Pesanan
+                </a>
+                <a class="nav-link" href="<?php echo base_url('admin/Produk') ?>">
+                    <div class="nav-link-icon"><i data-feather="box"></i></div>
+                    Dikemas
+                </a>
+                <a class="nav-link" href="<?php echo base_url('admin/Kategori') ?>">
+                    <div class="nav-link-icon"><i data-feather="grid"></i></div>
+                    Selesai
                 </a>
                 <!-- <a class="nav-link" href="<?php echo base_url('admin/Interior') ?>">
                     <div class="nav-link-icon"><i data-feather="home"></i></div>
@@ -79,14 +96,14 @@
                     <div class="nav-link-icon"><i data-feather="user"></i></div>
                     Company Profile
                 </a>
-                <a class="nav-link" href="<?= base_url('admin/Bank') ?>">
+                <!-- <a class="nav-link" href="<?= base_url('admin/Bank') ?>">
                     <div class="nav-link-icon"><i data-feather="dollar-sign"></i></div>
                     Akun Bank
                 </a>
                 <a class="nav-link collapsed" href="<?php echo base_url('admin/Masukkan') ?>">
                     <div class="nav-link-icon"><i data-feather="message-square"></i></div>
                     Masukkan User
-                </a>
+                </a> -->
                 <!-- <a class="nav-link collapsed" href="<?php echo base_url('admin/User_Profile') ?>">
                     <div class="nav-link-icon"><i data-feather="user"></i></div>
                     Profile Admin

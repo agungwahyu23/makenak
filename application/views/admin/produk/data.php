@@ -58,7 +58,7 @@
                         <td><?= $data['namaProduk']?></td>
                         <td><?= $data['netto']?></td>
                         <td><?= $data['komposisi']?></td>
-                        <td><?= $data['harga']?></td>
+                        <td>Rp. <?= number_format($data['harga'], 2, ",", ".") ?></td>
                         <td><?= $data['status'] == 1 ? 'Tampil' : 'Tidak Tampil' ?></td>
                         <!-- <td><?= $data['deskripsi']?></td> -->
                         <!-- <td>IDR <?= number_format($d['Harga'], 2, ",", ".") ?></td> -->

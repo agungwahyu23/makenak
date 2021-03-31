@@ -4,6 +4,12 @@
 <!-- Head -->
 <?php $this->load->view("admin/_partials/head.php") ?>
 
+<?php
+
+$dataWa = substr($dataPenerima['wa'], 1);
+
+?>
+
 <body class="nav-fixed">
 
   <!-- Topbar -->
@@ -21,7 +27,7 @@
             <div class="page-header-content">
               <h1 class="page-header-title">
                 <div class="page-header-icon"><i data-feather="file-text"></i></div>
-                <span>Detail Transaksi</span>
+                <span>Detail Pemesanan</span>
               </h1>
             </div>
           </div>
@@ -29,30 +35,29 @@
         <div class="container-fluid mt-n10">
           <form action="" method="post" enctype="multipart/form-data">
             <div class="card mb-4">
-              <div class="card-header">Detail Transaksi</div>
+              <div class="card-header">Detail Pemesanan</div>
               <div class="card-body">
-                <?php foreach ($data as $d) { ?>
-                  <div class="row">
-                    <div class="form-group col-lg-6 col-sm-6">
-                      <h3>Nama Lengkap</h3>
-                      <p><?= $d['Nama_Lengkap'] ?></p>
-                    </div>
-                    <div class="form-group col-lg-6 col-sm-6">
-                      <h3>Email</h3>
-                      <p><?= $d['Email'] ?></p>
-                    </div>
+                <div class="row">
+                  <div class="form-group col-lg-6 col-sm-6">
+                    <h3>Nama Penerima</h3>
+                    <p><?= $dataPenerima['namaPenerima'] ?></p>
                   </div>
-                  <div class="row mt-3">
-                    <div class="form-group col-lg-6 col-sm-6">
-                      <h3>Nomor Telepon</h3>
-                      <p><?= $d['No_Telp'] ?></p>
-                    </div>
-                    <div class="form-group col-lg-6 col-sm-6">
-                      <h3>Alamat</h3>
-                      <p><?= $d['Alamat'] ?></p>
-                    </div>
+                  <div class="form-group col-lg-6 col-sm-6">
+                    <h3>Email Penerima</h3>
+                    <p><?= $dataPenerima['emailPenerima'] ?></p>
                   </div>
-                  <div class="row">
+                </div>
+                <div class="row mt-3">
+                  <div class="form-group col-lg-6 col-sm-6">
+                    <h3>Nomor WhatsApp</h3>
+                    <p><a href="https://wa.me/+62<?= $dataWa ?>"><?= $dataPenerima['wa'] ?></a></p>
+                  </div>
+                  <div class="form-group col-lg-6 col-sm-6">
+                    <h3>Alamat</h3>
+                    <p><?= $dataPenerima['alamatPenerima'] ?>, <?= $dataPenerima['kelurahan'] ?>, <?= $dataPenerima['kecamatan'] ?>, <?= $dataPenerima['kabupaten'] ?></p>
+                  </div>
+                </div>
+                <!-- <div class="row">
                     <div class="form-group col-lg-6 col-sm-6">
                       <h3>Pekerjaan</h3>
                       <p><?= $d['Pekerjaan'] ?></p>
@@ -95,59 +100,60 @@
                         <img src="<?= base_url('uploads/Files/' . $d['Foto_Bukti_TF']) ?>" style="width:160px; cursor: zoom-in;">
                       </a>
                     </div>
+                  </div> -->
+                <hr />
+                <h1>Produk yang dipesan :</h1>
+
+                <div class="d-flex justify-content-start mb-4 align-content-center mt-3">
+                  <div class="datatable table-responsive">
+
+                    <table class="table table-bordered table-hover" id="dataTable" width="100%" cellspacing="0">
+                      <thead>
+                        <tr>
+                          <th>No</th>
+                          <th>Nama Produk</th>
+                          <th>Harga Produk</th>
+                          <th>Jumlah beli</th>
+                          <th>Total Harga</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <?php $i = 1;
+                        foreach ($detailPemesanan as $data) { ?>
+                          <tr class="table-primary">
+                            <td><?= $i ?></td>
+                            <td><?= $data['namaProduk'] ?></td>
+                            <td>Rp. <?= number_format($data['harga'], 2, ",", ".") ?></td>
+                            <td><?= $data['jumlahBeli'] ?> Toples</td>
+                            <td>Rp. <?= number_format($data['totalHarga'], 2, ",", ".") ?></td>
+                          </tr>
+                        <?php $i++;
+                        } ?>
+                        <tr>
+                          <td colspan="4" ></td>
+                          <td>Rp. <?= number_format($dataPenerima['totalBayar'], 2, ",", ".") ?></td>
+                        </tr>
+
+                      </tbody>
+                    </table>
+
                   </div>
-                  <hr />
-                  <h1>Konfirmasi Pembayaran</h1>
+                </div>
 
 
-                  <h5>Data Bangunan</h5>
-                  <div class="d-flex justify-content-start mb-4 align-content-center">
 
-                    <img src="<?= base_url('uploads/Rumah/' . $d['Banner']) ?>" width="120px">
-                    <div class="col">
-                      <div class="house-type">
-                        <?php if ($d['Tipe'] == "36") { ?>
-                          <h4><strong>Tipe : </strong> 36+</h4>
-                        <?php } else { ?>
-                          <h4><strong>Tipe : </strong> <?= $d['Tipe'] ?></h4>
-                        <?php } ?>
-
-                      </div>
-                      <div class="house-type">
-                        <h4><strong>Blok : </strong> <?= $d['Kode_Rumah'] ?></h4>
-                      </div>
-                    </div>
-                    <div class="house-type">
-                      <h4> Harga : <strong><?= number_format($d['Harga'], 2, ",", ".") ?></strong></h4>
-                    </div>
+                <div class="row mr-3">
+                  <div class="col-lg-12 col-sm-12 ">
+                    <a href="<?= base_url('admin/Transaksi/Berlangsung/') ?>" class="btn btn-success btn-sm">Terima Pembayaran</a>
+                    <a href="<?= base_url('admin/Transaksi/') ?>" class="btn btn-danger btn-sm">Kembali</a>
 
                   </div>
-                  <div class="row mr-3">
-                    <div class="col-lg-12 col-sm-12 ">
-                      <?php if ($d['Pembayaran'] == "Cash") { ?>
-                        <a href="<?= base_url('admin/Transaksi/Selesai/' . $d['Id_Transaksi']) ?>" class="btn btn-primary btn-sm">Selesaikan Transaksi</a>
-                        <a href="<?= base_url('admin/Transaksi/Tolak/' . $d['Id_Transaksi']) ?>" class="btn btn-danger btn-sm">Tolak Transaksi</a>
-                      <?php } ?>
-                      <?php if ($d['Pembayaran'] == "KPR" || $d['Pembayaran'] == "Cash Tempo") { ?>
-                        <?php if ($d['Status'] == 4) { ?>
-                          <a href="<?= base_url('admin/Transaksi/Selesai/' . $d['Id_Transaksi']) ?>" class="btn btn-primary btn-sm">Selesaikan Transaksi</a>
-                          <a href="<?= base_url('admin/Transaksi/Tolak/' . $d['Id_Transaksi']) ?>" class="btn btn-danger btn-sm">Tolak Transaksi</a>
-                        <?php } else if ($d['Status'] == 1) { ?>
-                          <a href="<?= base_url('admin/Transaksi/Berlangsung/' . $d['Id_Transaksi']) ?>" class="btn btn-success btn-sm">Terima Pembayaran</a>
-                          <a href="<?= base_url('admin/Transaksi/Tolak/' . $d['Id_Transaksi']) ?>" class="btn btn-danger btn-sm">Tolak Transaksi</a>
-                        <?php } ?>
-
-                      <?php } ?>
-                    </div>
-                  </div>
-                <?php } ?>
+                </div>
 
 
               </div>
             </div>
-            <a class="btn btn-orange" href="javascript:history.go(-1)">
-              Kembali
-            </a>
+
           </form>
         </div>
       </main>
