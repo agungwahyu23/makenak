@@ -53,6 +53,10 @@
                     <div class="nav-link-icon"><i data-feather="credit-card"></i></div>
                     Data Rekening
                 </a>
+                <a class="nav-link" href="<?php echo base_url('admin/Ongkir') ?>">
+                    <div class="nav-link-icon"><i data-feather="truck"></i></div>
+                    Data Ongkir
+                </a>
 
 
 

@@ -26,8 +26,8 @@
             <li><a href="#">Selesai</a></li>
           </ul>
         </li>
-        <li><a class="nav-link active" href="<?= base_url('KontakKami') ?>">Daftar</a></li>
-        <li><a class="nav-link active" href="<?= base_url('KontakKami') ?>">Masuk</a></li>
+        <li><a class="nav-link active" href="<?= base_url('Auth/Daftar') ?>">Daftar</a></li>
+        <li><a class="nav-link active" href="<?= base_url('Auth') ?>">Masuk</a></li>
         <!-- <li><a class="getstarted scrollto" href="<?= base_url('SignIn') ?>">Sign In</a></li> -->
       </ul>
       <i class="bi bi-list mobile-nav-toggle"></i>
