@@ -5,9 +5,9 @@
       <div class="row gy-4">
         <div class="col-lg-4 col-md-12 footer-info">
           <a href="<?= base_url('Beranda') ?>" class="logo">
-            <img src="<?= base_url('img/logo.png') ?>" alt="">
+            <img src="<?= base_url('img/icon/logo1.png') ?>" alt="">
           </a>
-          <h6 class="mt-3">Hunian modern bergaya Eropa pertama di Jember</h6>
+          
         </div>
 
         <div class="col-lg-3 col-6 footer-links">
@@ -20,11 +20,10 @@
         </div>
 
         <div class="col-lg-3 col-6 footer-links">
-          <h4>Layanan Kami</h4>
+          <h4>Bantuan</h4>
           <ul>
-            <li><i class="bi bi-chevron-right"></i> <a href="<?= base_url('Perumahan') ?>">Perumahan</a></li>
-            <li><i class="bi bi-chevron-right"></i> <a href="<?= base_url('DesainRumah') ?>">Jasa Desain Rumah</a></li>
-            <li><i class="bi bi-chevron-right"></i> <a href="<?= base_url('DesainInterior') ?>">Jasa Desain Interior</a></li>
+            <li><i class="bi bi-chevron-right"></i> <a href="<?= base_url('CaraDaftar') ?>">Cara Daftar</a></li>
+            <li><i class="bi bi-chevron-right"></i> <a href="<?= base_url('Konfirmasi') ?>">Konfirmasi Bayar</a></li>
           </ul>
         </div>
 

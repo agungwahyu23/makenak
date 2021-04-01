@@ -6,7 +6,7 @@
 }
 
 body {
-  font-family: "Open Sans", sans-serif;
+  font-family: 'Poppins';
   color: #444444;
 }
 
@@ -26,7 +26,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Nunito", sans-serif;
+  font-family: 'Poppins';
 }
 
 .gap-10 {
@@ -87,9 +87,9 @@ section {
   position: fixed;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 122px;
-  height: 66px;
-  background: url(../../img/user/section-title-bg.png) no-repeat;
+  width: 131px;
+  height: 75px;
+  background: url(../../img/user/bg-secion.png) no-repeat;
   z-index: -1;
 }
 
@@ -238,12 +238,21 @@ section {
 # Header
 --------------------------------------------------------------*/
 .header {
-  background: #000000;
+  background: rgba(0, 0, 0, 0.0);
   /* background: #000000; */
   transition: all 0.5s;
   z-index: 997;
-  padding: 15px 0;
+  padding: 15px 0px;
   border-bottom: 2px solid rgba(212, 175, 55, 0);
+}
+
+@media (max-width: 991.98px){
+  .header{
+    background: #000000;
+    padding: 15px 0;
+    box-shadow: 0px 2px 20px rgba(1, 41, 112, 0.1);
+    border-bottom: 2px solid #d4af37;
+  }
 }
 
 .header.header-scrolled {
@@ -328,9 +337,9 @@ section {
   align-items: center;
   justify-content: space-between;
   padding: 10px 0 10px 30px;
-  font-family: "Nunito", sans-serif;
+  font-family: 'Poppins';
   font-size: 16px;
-  font-weight: 700;
+  font-weight: 400;
   color: #000000;
   white-space: nowrap;
   transition: 0.3s;
@@ -608,7 +617,8 @@ section {
 .hero h2 {
   color: #ffffff;
   margin: 15px 0 0 0;
-  font-size: 26px;
+  font-size: 22px;
+  font-weight: 400;
 }
 
 .hero .btn-get-started {
@@ -643,9 +653,9 @@ section {
   text-align: right;
 }
 
-.hero .container {
+/* .hero .container {
   margin-left: 12vw;
-}
+} */
 
 @media (min-width: 1024px) {
   .hero {
@@ -694,19 +704,21 @@ section {
     margin-right: 6px !important;
   }
   .mobile-nav-toggle {
-    font-size: 2vh !important;
+    font-size: 3vh !important;
   }
   .hero {
     text-align: center;
+    height: auto;
   }
   .hero .container {
     margin-left: 0vw !important;
   }
   .hero h1 {
-    font-size: 1vh !important;
+    font-size: 32px !important;
   }
   .hero h2 {
-    font-size: 0.6vh !important;
+    font-size: 14px !important;
+    font-weight: lighter !important;
   }
   .hero .hero-img img {
     width: 100%;
@@ -1801,7 +1813,7 @@ section {
 # Type
 --------------------------------------------------------------*/
 .type {
-  background: url("../../img/ImageBackGround/ProdukKami.png") center center no-repeat;
+  background: url("../../img/ImageBackGround/produkkami.png") center center no-repeat;
   background-size: cover;
   padding: 60px 0;
   position: relative;
@@ -1843,7 +1855,8 @@ section {
   color: #444444;
   font-weight: 600;
   font-family: "Poppins", sans-serif;
-  justify-content: center;
+  justify-content: left;
+  padding-left: 25px;
   align-items: center;
   display: flex;
 }
@@ -1860,7 +1873,7 @@ section {
 }
 
 .type img {
-  padding-bottom: 40px;
+  padding-bottom: 10px;
   background-position: center center;
   background-repeat: no-repeat;
 }
@@ -1869,10 +1882,11 @@ section {
   padding: 0;
   list-style: none;
   color: #444444;
-  text-align: center;
+  text-align: left;
+  padding-left: 25px;
   line-height: 26px;
   font-size: 16px;
-  margin-bottom: 25px;
+  margin-bottom: 10px;
 }
 
 .type ul li {
@@ -1886,8 +1900,8 @@ section {
 
 .type .btn-detail {
   display: inline-block;
-  padding: 8px 40px 10px 40px;
-  margin-bottom: 40px;
+  padding: 5px 90px 5px 90px;
+  margin-bottom: 10px;
   border-radius: 50px;
   color: #000000;
   transition: none;
@@ -1908,10 +1922,11 @@ section {
 
 .type .btn-choose {
   display: inline-block;
-  padding: 8px 40px 10px 40px;
+  padding: 5px 60px 5px 60px;
   margin-bottom: 40px;
   border-radius: 50px;
   color: #000000;
+  background: #d4af37;
   transition: none;
   font-size: 16px;
   font-weight: 400;
@@ -3297,10 +3312,19 @@ section {
 }
 
 /*--------------------------------------------------------------
+# map
+--------------------------------------------------------------*/
+.map {
+  background: #ffffff;
+  padding: 0 0 30px 0;
+  font-size: 14px;
+}
+
+/*--------------------------------------------------------------
 # Footer
 --------------------------------------------------------------*/
 .footer {
-  background: #000000;
+  background: #ED1B24;
   padding: 0 0 30px 0;
   font-size: 14px;
   border-top: 2px solid #d4af37;
@@ -3389,7 +3413,7 @@ section {
   font-weight: 700;
   letter-spacing: 1px;
   color: #000000;
-  font-family: "Nunito", sans-serif;
+  font-family: 'Poppins';
   margin-top: 3px;
 }
 
@@ -3397,7 +3421,7 @@ section {
   font-size: 14px;
   line-height: 24px;
   margin-bottom: 0;
-  font-family: "Nunito", sans-serif;
+  font-family: 'Poppins';
 }
 
 .footer .footer-top .social-links a {
