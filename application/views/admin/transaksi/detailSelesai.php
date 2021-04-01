@@ -27,7 +27,7 @@ $dataWa = substr($dataPenerima['wa'], 1);
             <div class="page-header-content">
               <h1 class="page-header-title">
                 <div class="page-header-icon"><i></i></div>
-                <span>Detail Pemesanan</span>
+                <span>Barang yang sudah dikirim</span>
               </h1>
             </div>
           </div>
@@ -35,7 +35,7 @@ $dataWa = substr($dataPenerima['wa'], 1);
         <div class="container-fluid mt-n10">
           <form action="" method="post" enctype="multipart/form-data">
             <div class="card mb-4">
-              <div class="card-header">Detail Pemesanan</div>
+              <div class="card-header">Barang yang sudah dikirim</div>
               <div class="card-body">
                 <div class="row">
                   <div class="form-group col-lg-6 col-sm-6">
@@ -141,14 +141,14 @@ $dataWa = substr($dataPenerima['wa'], 1);
                 </div>
 
 
-
+<!-- 
                 <div class="row mr-3">
                   <div class="col-lg-12 col-sm-12 ">
-                    <a href="<?= base_url('admin/Transaksi/pesananDiterima/' . $dataPenerima['idTransaksi']) ?>" class="btn btn-success btn-sm">Terima Pembayaran</a>
-                    <a href="<?= base_url('admin/Transaksi/') ?>" class="btn btn-danger btn-sm">Kembali</a>
+                    <a href="<?= base_url('admin/Transaksi/selesaiDikemas/' . $dataPenerima['idTransaksi']) ?>" class="btn btn-success btn-sm">Selesai Dikemas</a>
+                    <a href="<?= base_url('admin/Transaksi/dikemas') ?>" class="btn btn-danger btn-sm">Kembali</a>
 
                   </div>
-                </div>
+                </div> -->
 
 
               </div>

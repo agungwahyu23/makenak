@@ -21,18 +21,106 @@ class Transaksi extends CI_Controller
 	}
 
 
-	public function detailPemesanan($id){
+	public function detailPemesanan($id)
+	{
 		$data['Pengguna'] = $this->db->get_where('pengguna', ['Id_User' =>
 		$this->session->userdata('Id_User')])->row_array();
 
 		$data['dataPenerima'] = $this->db->join('detailTransaksi', 'detailTransaksi.idTransaksi = transaksi.idTransaksi')->get_where('transaksi', ['transaksi.idTransaksi' => $id])->row_array();
 
-		$data['detailPemesanan'] = $this->db->join('detailTransaksi', 'detailTransaksi.idTransaksi = transaksi.idTransaksi')->join('produk', 'produk.id = detailTransaksi.idProduk')->get_where('transaksi', ['transaksi.idTransaksi' => $id])->result_array();
+		$data['detailPemesanan'] = $this->db->join('detailTransaksi', 'detailTransaksi.idTransaksi = transaksi.idTransaksi')->join('produk', 'produk.id = detailTransaksi.idProduk')->get_where('transaksi', ['transaksi.idTransaksi' => $id, 'transaksi.status' => 1])->result_array();
 
-		
+
 
 		// var_dump($data['detailPemesanan']);die;
 		$this->load->view('admin/transaksi/detail', $data);
+	}
+
+	public function pesananDiterima($id)
+	{
+		$data['Pengguna'] = $this->db->get_where('pengguna', ['Id_User' =>
+		$this->session->userdata('Id_User')])->row_array();
+
+		$pesanan = $this->db->get_where('transaksi', ['idTransaksi' => $id])->row_array();
+
+		if ($pesanan) {
+			$this->db->set(['status' => '2']);
+			$update = $this->db->update('transaksi', ['idTransaksi' => $id]);
+
+			if ($update) {
+				$this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert">
+        	Data Pemesanan Berhasil Diterima!
+     		</div>');
+			redirect('admin/Transaksi');
+			} else {
+				$this->session->set_flashdata('pesan', '<div class="alert alert-danger" role="alert">
+        	Data Pemesanan Gagal Diterima!
+     		</div>');
+				redirect('admin/Transaksi');
+			}
+		} else {
+			$this->session->set_flashdata('pesan', '<div class="alert alert-danger" role="alert">
+        	Data Pemesanan Tidak Ditemukan!
+     		</div>');
+			redirect('admin/Transaksi');
+		}
+	}
+
+
+	public function dikemas(){
+		$data['Pengguna'] = $this->db->get_where('pengguna', ['Id_User' =>
+		$this->session->userdata('Id_User')])->row_array();
+
+		$data['dikemas'] = $this->db->get_where('transaksi', ['status' => 2])->result_array();
+
+		// var_dump($data['pesanan']);die;
+
+		$this->load->view('admin/transaksi/dikemas', $data);
+	}
+
+	public function detailDikemas($id)
+	{
+		$data['Pengguna'] = $this->db->get_where('pengguna', ['Id_User' =>
+		$this->session->userdata('Id_User')])->row_array();
+
+		$data['dataPenerima'] = $this->db->join('detailTransaksi', 'detailTransaksi.idTransaksi = transaksi.idTransaksi')->get_where('transaksi', ['transaksi.idTransaksi' => $id])->row_array();
+
+		$data['detailPemesanan'] = $this->db->join('detailTransaksi', 'detailTransaksi.idTransaksi = transaksi.idTransaksi')->join('produk', 'produk.id = detailTransaksi.idProduk')->get_where('transaksi', ['transaksi.idTransaksi' => $id, 'transaksi.status' => 2])->result_array();
+
+
+
+		// var_dump($data['detailPemesanan']);die;
+		$this->load->view('admin/transaksi/detailDikemas', $data);
+	}
+
+	public function selesaiDikemas($id)
+	{
+		$data['Pengguna'] = $this->db->get_where('pengguna', ['Id_User' =>
+		$this->session->userdata('Id_User')])->row_array();
+
+		$pesanan = $this->db->get_where('transaksi', ['idTransaksi' => $id])->row_array();
+
+		if ($pesanan) {
+			$this->db->set(['status' => '3']);
+			$update = $this->db->update('transaksi', ['idTransaksi' => $id]);
+
+			if ($update) {
+				$this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert">
+        		Barang Selesai Dikemas!
+     			</div>');
+			redirect('admin/Transaksi/dikemas');
+			} else {
+				$this->session->set_flashdata('pesan', '<div class="alert alert-danger" role="alert">
+        		Terjadi Kesalahan, Silahkan Ulangi Kembali!
+     			</div>');
+				redirect('admin/Transaksi/dikemas');
+			}
+		} else {
+			$this->session->set_flashdata('pesan', '<div class="alert alert-danger" role="alert">
+        	Data Pemesanan Tidak Ditemukan!
+     		</div>');
+			redirect('admin/Transaksi/dikemas');
+		}
 	}
 
 	// public function detail($id)
@@ -45,25 +133,32 @@ class Transaksi extends CI_Controller
 	// 	$data['data'] = $this->db->query("SELECT transaksi_rumah.* , kode_rumah.Kode_Rumah , rumah.Tipe , rumah.Harga , rumah.Banner , bank.* , blok_rumah.Id_Blok FROM transaksi_rumah , blok_rumah , rumah , kode_rumah , bank WHERE transaksi_rumah.Id_Bank = bank.Id_Bank AND transaksi_rumah.Id_Blok = blok_rumah.Id_Blok AND blok_rumah.Id_Rumah = rumah.Id_Rumah AND blok_rumah.Id_Kode_Rumah = kode_rumah.Id_Kode AND transaksi_rumah.Id_Transaksi = '$id'")->result_array();
 	// 	$this->load->view('admin/transaksi/detail', $data);
 	// }
-	public function Selesai($id)
-	{
-		//ubah di db
-		$this->db->set('Status', 2);
-		$this->db->where('Id_Transaksi', $id);
-		$this->db->update('transaksi_rumah');
-		//ubah di status blok rumah
-		$data = $this->db->query("SELECT * FROM transaksi_rumah WHERE Id_Transaksi = '$id'")->row_array();
-		$idblok = $data['Id_Blok'];
-		// echo json_encode($idblok);
-		$this->db->set('status', 3);
-		$this->db->where('Id_Blok', $idblok);
-		$this->db->update('blok_rumah');
+	public function selesai(){
+		$data['Pengguna'] = $this->db->get_where('pengguna', ['Id_User' =>
+		$this->session->userdata('Id_User')])->row_array();
 
-		$this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert">
-        Transaksi Berhasil Diselesaikan
-     </div>');
-		redirect('admin/Transaksi');
+		$data['selesai'] = $this->db->get_where('transaksi', ['status' => 3])->result_array();
+
+		// var_dump($data['pesanan']);die;
+
+		$this->load->view('admin/transaksi/selesai', $data);
 	}
+
+	public function detailSelesai($id)
+	{
+		$data['Pengguna'] = $this->db->get_where('pengguna', ['Id_User' =>
+		$this->session->userdata('Id_User')])->row_array();
+
+		$data['dataPenerima'] = $this->db->join('detailTransaksi', 'detailTransaksi.idTransaksi = transaksi.idTransaksi')->get_where('transaksi', ['transaksi.idTransaksi' => $id])->row_array();
+
+		$data['detailPemesanan'] = $this->db->join('detailTransaksi', 'detailTransaksi.idTransaksi = transaksi.idTransaksi')->join('produk', 'produk.id = detailTransaksi.idProduk')->get_where('transaksi', ['transaksi.idTransaksi' => $id, 'transaksi.status' => 3])->result_array();
+
+
+
+		// var_dump($data['detailPemesanan']);die;
+		$this->load->view('admin/transaksi/detailSelesai', $data);
+	}
+
 	public function Berlangsung($id)
 	{
 		//ubah di db
@@ -103,6 +198,7 @@ class Transaksi extends CI_Controller
 	}
 	public function getExport()
 	{
+
 		$timestamp = time();
 		$id = $this->uri->segment(4);
 		$filename = 'export_transaksi_' . date('Y-m-d') . '.xls';
@@ -111,7 +207,14 @@ class Transaksi extends CI_Controller
 		header("Content-Disposition: attachment; filename=\"$filename\"");
 		header('Cache-Control: max-age=0');
 
-		$data['data'] = $this->db->query("SELECT transaksi_rumah.* , kode_rumah.Kode_Rumah , rumah.Tipe , rumah.Harga , rumah.Banner , bank.* , blok_rumah.Id_Blok FROM transaksi_rumah , blok_rumah , rumah , kode_rumah , bank WHERE transaksi_rumah.Id_Bank = bank.Id_Bank AND transaksi_rumah.Id_Blok = blok_rumah.Id_Blok AND blok_rumah.Id_Rumah = rumah.Id_Rumah AND blok_rumah.Id_Kode_Rumah = kode_rumah.Id_Kode")->result_array();
+		// $data['data'] = $this->db->query("SELECT transaksi_rumah.* , kode_rumah.Kode_Rumah , rumah.Tipe , rumah.Harga , rumah.Banner , bank.* , blok_rumah.Id_Blok FROM transaksi_rumah , blok_rumah , rumah , kode_rumah , bank WHERE transaksi_rumah.Id_Bank = bank.Id_Bank AND transaksi_rumah.Id_Blok = blok_rumah.Id_Blok AND blok_rumah.Id_Rumah = rumah.Id_Rumah AND blok_rumah.Id_Kode_Rumah = kode_rumah.Id_Kode")->result_array();
+
+		$data['data'] = $this->db->join('detailTransaksi', 'detailTransaksi.idTransaksi = transaksi.idTransaksi')->join('produk', 'produk.id = detailTransaksi.idProduk')->get_where('transaksi', ['transaksi.status' => 3])->result_array();
+
+		// var_dump($data['data']);die;
+
+		
 		$this->load->view('admin/export', $data);
+
 	}
 }

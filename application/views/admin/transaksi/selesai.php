@@ -22,21 +22,21 @@
             <div class="page-header-content">
               <h1 class="page-header-title">
                 <div class="page-header-icon"><i data-feather="file-text"></i></div>
-                <span>Pesanan</span>
+                <span>Pesanan yang sudah selesai dikirim</span>
               </h1>
             </div>
           </div>
         </div>
         <div class="container-fluid mt-n10">
           <div class="card card-header-actions mb-4">
-            <!-- <div class="card-header">
+            <div class="card-header">
               <div class="row"></div>
               <div class="no-caret">
                 <a class="btn btn-md btn-primary print_kategori" href="<?= base_url(); ?>admin/Transaksi/getExport">
                   <i data-feather="printer"></i>
                 </a>
               </div>
-            </div> -->
+            </div>
             <div class="card-body">
               <div class="col">
                 <?php echo $this->session->flashdata('pesan') ?>
@@ -56,7 +56,7 @@
                   </thead>
                   <tbody>
                     <?php $no = 1;
-                    foreach ($pesanan as $data) { ?>
+                    foreach ($selesai as $data) { ?>
                       
                         <tr class="table-primary">
                           <td><?= $no++ ?></td>
@@ -68,7 +68,7 @@
                           <a href="<?= base_url('img/BuktiPembayaran/'. $data['buktiTransfer'])?>">Lihat Bukti Pembayaran</a>
                           </td>
                           <td>
-                            <a class="btn btn-datatable btn-icon btn-transparent-dark" href="<?php echo base_url('admin/Transaksi/detailPemesanan/' . $data['idTransaksi']) ?>"><i data-feather="eye"></i></a>
+                            <a class="btn btn-datatable btn-icon btn-transparent-dark" href="<?php echo base_url('admin/Transaksi/detailSelesai/' . $data['idTransaksi']) ?>"><i data-feather="eye"></i></a>
                           </td>
                         </tr>
 

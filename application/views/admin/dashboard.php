@@ -13,7 +13,6 @@
 
 		<!-- Sidebar -->
 		<?php $this->load->view("admin/_partials/sidebar.php") ?>
-
 		<div id="layoutSidenav_content">
 			<main>
 
@@ -37,36 +36,19 @@
 						<div class="d-flex justify-content-between alert alert-success alert-dismissible fade show mt-5" role="alert">
 							<div class="col-lg-12 md-6 ">
 								<div class="align-items-center">
-									<p><strong>Pemberitahuan!</strong> Terdapat <strong><?= $totalResult ?></strong> Transaksi Terbaru Mohon Konfirmasi.</p>
+									<p><strong>Pemberitahuan!</strong> Terdapat <strong><?= $totalResult ?></strong> Pesanan Terbaru Mohon Konfirmasi.</p>
 								</div>
 								<button type="button" class="close" data-dismiss="alert" aria-label="Close">
 									<span aria-hidden="true">&times;</span>
 								</button>
 
-								<a href="<?= base_url('admin/Transaksi') ?>" class="btn btn-primary btn-sm align-items-center">Go To Transaction</a>
+								<a href="<?= base_url('admin/Transaksi') ?>" class="btn btn-primary btn-sm align-items-center">Lihat Pesanan</a>
 							</div>
 						</div>
 					<?php } ?>
 
-					<div class="row mb-4">
-						<div class="col-xxl-12 col-xl-12 col-lg-12 col-md-12 col-sm-12 col-sm-12">
-							<div class="card h-100">
-								<div class="card-header">
-									Grafik Pengunjung Website
-								</div>
-								<div class="card-body">
-									<div class="panel panel-primary">
-										<div class="panel-body" style="position: relative; height:280px; width:100%;">
-											<canvas id="website_visitor" width="100%" height="30"></canvas>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-
 					<div class="row">
-						<div class="col-xxl-3 col-lg-6">
+						<div class="col-xxl-3 col-lg-3">
 							<div class="card bg-success text-white mb-4">
 								<div class="card-body">
 									<div class="d-flex justify-content-between align-items-center">
@@ -84,7 +66,7 @@
 							</div>
 						</div>
 
-						<div class="col-xxl-3 col-lg-6">
+						<div class="col-xxl-3 col-lg-3">
 							<div class="card bg-primary text-white mb-4">
 								<div class="card-body">
 									<div class="d-flex justify-content-between align-items-center">
@@ -101,10 +83,7 @@
 								</div>
 							</div>
 						</div>
-					</div>
-
-					<div class="row">
-						<div class="col-xxl-3 col-lg-6">
+						<div class="col-xxl-3 col-lg-3">
 							<div class="card bg-warning text-white mb-4">
 								<div class="card-body">
 									<div class="d-flex justify-content-between align-items-center">
@@ -121,7 +100,7 @@
 								</div>
 							</div>
 						</div>
-						<div class="col-xxl-3 col-lg-6">
+						<div class="col-xxl-3 col-lg-3">
 							<div class="card bg-info text-white mb-4">
 								<div class="card-body">
 									<div class="d-flex justify-content-between align-items-center">
@@ -141,15 +120,19 @@
 					</div>
 
 					<div class="row">
-						<div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 mb-4">
+						<div class="col-xxl-12 col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 mb-4">
 							<div class="card h-100">
 								<div class="card-header">
-									Rumah 36+
+									Grafik Produk Terlaris
 								</div>
+								
 								<div class="card-body">
-									<input type="hidden" id="inp36tersedia" value="<?= $data36tersedia; ?>">
+									<input type="hidden" id="inp36tersedia" value="35">
+									<input type="hidden" id="inp36terbooking" value="35">
+									<input type="hidden" id="inp36terjual" value="35">
+									<!-- <input type="hidden" id="inp36tersedia" value="<?= $data36tersedia; ?>">
 									<input type="hidden" id="inp36terbooking" value="<?= $data36terbooking; ?>">
-									<input type="hidden" id="inp36terjual" value="<?= $data36terjual; ?>">
+									<input type="hidden" id="inp36terjual" value="<?= $data36terjual; ?>"> -->
 									<div class="panel panel-primary">
 										<div class="panel-body" style="position: relative; height:280px; width:100%;">
 											<canvas id="36"></canvas>
@@ -159,7 +142,7 @@
 							</div>
 
 						</div>
-						<div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 mb-4">
+						<!-- <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 mb-4">
 							<div class="card h-100">
 								<div class="card-header">
 									Rumah 40
@@ -175,7 +158,7 @@
 									</div>
 								</div>
 							</div>
-						</div>
+						</div> -->
 					</div>
 					<div class="row">
 						<div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 mb-4">
@@ -213,6 +196,23 @@
 							</div>
 						</div>
 
+					</div>
+
+					<div class="row mb-4">
+						<div class="col-xxl-12 col-xl-12 col-lg-12 col-md-12 col-sm-12 col-sm-12">
+							<div class="card h-100">
+								<div class="card-header">
+									Grafik Pengunjung Website
+								</div>
+								<div class="card-body">
+									<div class="panel panel-primary">
+										<div class="panel-body" style="position: relative; height:280px; width:100%;">
+											<canvas id="website_visitor" width="100%" height="30"></canvas>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
 					</div>
 				</div>
 			</main>

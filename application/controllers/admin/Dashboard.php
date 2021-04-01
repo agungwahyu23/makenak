@@ -12,7 +12,7 @@ class Dashboard extends CI_Controller
 	{
 		$data['Pengguna'] = $this->db->get_where('pengguna', ['Id_User' =>
 		$this->session->userdata('Id_User')])->row_array();
-		$cityRecordsCount = $this->db->query("SELECT * FROM transaksi_rumah WHERE  Baru = 1");
+		$cityRecordsCount = $this->db->get_where('transaksi', ['status' => 1]);
 		$totalRecords = $cityRecordsCount->num_rows();
 		$totalTransaksi = $this->db->query("SELECT * FROM transaksi_rumah")->num_rows();
 		$transaksiSelesai = $this->db->query("SELECT * FROM transaksi_rumah WHERE Status = 2")->num_rows();

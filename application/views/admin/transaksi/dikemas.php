@@ -22,7 +22,7 @@
             <div class="page-header-content">
               <h1 class="page-header-title">
                 <div class="page-header-icon"><i data-feather="file-text"></i></div>
-                <span>Pesanan</span>
+                <span>Pesanan yang harus dikemas</span>
               </h1>
             </div>
           </div>
@@ -56,7 +56,7 @@
                   </thead>
                   <tbody>
                     <?php $no = 1;
-                    foreach ($pesanan as $data) { ?>
+                    foreach ($dikemas as $data) { ?>
                       
                         <tr class="table-primary">
                           <td><?= $no++ ?></td>
@@ -68,7 +68,7 @@
                           <a href="<?= base_url('img/BuktiPembayaran/'. $data['buktiTransfer'])?>">Lihat Bukti Pembayaran</a>
                           </td>
                           <td>
-                            <a class="btn btn-datatable btn-icon btn-transparent-dark" href="<?php echo base_url('admin/Transaksi/detailPemesanan/' . $data['idTransaksi']) ?>"><i data-feather="eye"></i></a>
+                            <a class="btn btn-datatable btn-icon btn-transparent-dark" href="<?php echo base_url('admin/Transaksi/detailDikemas/' . $data['idTransaksi']) ?>"><i data-feather="eye"></i></a>
                           </td>
                         </tr>
 

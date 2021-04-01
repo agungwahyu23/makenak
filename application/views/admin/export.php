@@ -14,14 +14,13 @@
       <thead>
         <tr>
           <th>No</th>
-          <th>Nama Lengkap</th>
+          <th>Nama Penerima</th>
           <th>Email</th>
-          <th>Nomor Telepon</th>
+          <th>Nomor WhatsApp</th>
           <th>Alamat</th>
-          <th>Pekerjaan</th>
-          <th>Tipe Rumah</th>
-          <th>Blok</th>
-          <th>Metode Pembayaran</th>
+          <th>Produk</th>
+          <th>Jumlah</th>
+          <th>Total Harga</th>
           <th>Transaksi Tanggal</th>
           <th>Status</th>
         </tr>
@@ -31,33 +30,15 @@
         foreach ($data as $data) { ?>
           <tr class="table-primary">
             <td><?= $no++ ?></td>
-            <td><?= $data['Nama_Lengkap'] ?></td>
-            <td><?= $data['Email'] ?></td>
-            <td><?= $data['No_Telp'] ?></td>
-            <td><?= $data['Alamat'] ?></td>
-            <td><?= $data['Pekerjaan'] ?></td>
-            <?php if ($data['Tipe'] == "36") { ?>
-              <td>36+</td>
-            <?php } else { ?>
-              <td><?= $data['Tipe'] ?></td>
-            <?php } ?>
-            <td><?= $data['Kode_Rumah'] ?></td>
-            <td>
-              <p><?= $data['Pembayaran'] ?></p>
-            </td>
-            <td>
-              <p><?= $data['CreatedDate'] ?></p>
-            </td>
-            <td>
-              <?php if ($data['Status'] == 1) { ?>
-                <div class="badge badge-warning badge-pill">Menunggu</div>
-              <?php } else if ($data['Status'] == 2) { ?>
-                <div class="badge badge-success badge-pill">Pembayaran Selesai</div>
-              <?php } else if ($data['Status'] == 3) { ?>
-                <div class="badge badge-danger badge-pill">Batal</div>
-              <?php } else { ?>
-                <div class="badge badge-orange badge-pill">Pembayaran Berlangsung</div>
-              <?php } ?>
+            <td><?= $data['namaPenerima'] ?></td>
+            <td><?= $data['emailPenerima'] ?></td>
+            <td><?= $data['wa'] ?></td>
+            <td><?= $data['alamatPenerima'] ?>, <?= $data['kelurahan'] ?>, <?= $data['kecamatan'] ?>, <?= $data['kabupaten'] ?></td>
+            <td><?= $data['namaProduk'] ?></td>
+            <td><?= $data['jumlahBeli'] ?></td>
+            <td><?= $data['totalHarga'] ?></td>
+            <td><?= $data['tanggalTransaksi'] ?></td>
+            <td><?= $data['status'] = 3 ? 'Selesai' : 'Belum Selesai' ?></td>
             </td>
 
           </tr>

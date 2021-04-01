@@ -62,12 +62,12 @@
                     <div class="nav-link-icon"><i data-feather="file-text"></i></div>
                     Pesanan
                 </a>
-                <a class="nav-link" href="<?php echo base_url('admin/Produk') ?>">
+                <a class="nav-link" href="<?php echo base_url('admin/Transaksi/dikemas') ?>">
                     <div class="nav-link-icon"><i data-feather="box"></i></div>
                     Dikemas
                 </a>
-                <a class="nav-link" href="<?php echo base_url('admin/Kategori') ?>">
-                    <div class="nav-link-icon"><i data-feather="grid"></i></div>
+                <a class="nav-link" href="<?php echo base_url('admin/Transaksi/selesai') ?>">
+                    <div class="nav-link-icon"><i data-feather="check-square"></i></div>
                     Selesai
                 </a>
                 <!-- <a class="nav-link" href="<?php echo base_url('admin/Interior') ?>">
