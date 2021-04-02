@@ -20,6 +20,11 @@ class Dashboard extends CI_Controller
 		$data['totalTransaksiDitolak'] = $this->db->get_where('transaksi', ['status' => 4])->num_rows();
 
 		// data produk terlaris
+		$this->db->join('detailtransaksi', 'detailtransaksi.idProduk = produk.id');
+		$this->db->join('transaksi', 'transaksi.status = 3');
+		$this->db->select('produk.namaProduk, detailtransaksi.jumlahBeli','(SELECT produk.namaProduk SUM(detailtransaksi.jumlahBeli) FROM detailtransaksi WHERE detailtransaksi.idProduk = produk.id) AS jumlahBeli', TRUE);
+		$data['produkTerlaris'] = $this->db->get('produk', 10)->result_array();
+		
 		// $data['produkTerlaris'] = $this->db->query("SELECT detailtransaksi.idProduk, detailtransaksi.jumlahBeli, 
 		// SUM(detailtransaksi.jumlahBeli) AS jumlahBeli
 		// FROM detailtransaksi LEFT JOIN produk
@@ -29,12 +34,6 @@ class Dashboard extends CI_Controller
 		// FROM produk JOIN detailtransaksi
 		// ON produk.id = detailtransaksi.idProduk
 		// GROUP BY detailTransaksi.jumlahBeli DESC LIMIT 10")->result_array();
-
-		$this->db->join('detailtransaksi', 'detailtransaksi.idProduk = produk.id');
-		$this->db->select('produk.namaProduk, detailtransaksi.jumlahBeli','(SELECT produk.namaProduk SUM(detailtransaksi.jumlahBeli) FROM detailtransaksi WHERE detailtransaksi.idProduk = produk.id) AS jumlahBeli', TRUE);
-		$data['produkTerlaris'] =
-			$this->db->get('produk')->result_array();
-
 		// SUM(jumlahBeli) jumlahBeli FROM detailtransaksi GROUP BY idProduk ORDER BY jumlahBeli DESC LIMIT 3
 
 		// var_dump($data['produkTerlaris']);die;
