@@ -18,8 +18,6 @@
         <li><a class="nav-link active" href="<?= base_url('TentangKami') ?>">Kontak Kami</a></li>
         <li class="dropdown active"><a><span class="active">Transaksi</span> <i class="bi bi-chevron-down active"></i></a>
           <ul>
-            <li><a href="#">Keranjang</a></li>
-            <li><a href="#">Tagihan</a></li>
             <li><a href="#">Dikemas</a></li>
             <li><a href="#">Dikirim</a></li>
             <li><a href="#">Selesai</a></li>
