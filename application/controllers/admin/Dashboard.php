@@ -12,8 +12,31 @@ class Dashboard extends CI_Controller
 	{
 		$data['Pengguna'] = $this->db->get_where('pengguna', ['Id_User' =>
 		$this->session->userdata('Id_User')])->row_array();
-		$cityRecordsCount = $this->db->get_where('transaksi', ['status' => 1]);
-		$totalRecords = $cityRecordsCount->num_rows();
+		
+		// data Transaksi Masuk
+		$data['totalPesananMasuk'] = $this->db->get_where('transaksi', ['status' => 1])->num_rows();
+		$data['totalPesananDikemas'] = $this->db->get_where('transaksi', ['status' => 2])->num_rows();
+		$data['totalTransaksiSelesai'] = $this->db->get_where('transaksi', ['status' => 3])->num_rows();
+		$data['totalTransaksiDitolak'] = $this->db->get_where('transaksi', ['status' => 4])->num_rows();
+
+		// data produk terlaris
+		// $data['produkTerlaris'] = $this->db->query("SELECT detailtransaksi.idProduk, detailtransaksi.jumlahBeli, 
+		// SUM(detailtransaksi.jumlahBeli) AS jumlahBeli
+		// FROM detailtransaksi LEFT JOIN produk
+		// ON detailtransaksi.idProduk = produk.id
+		// GROUP BY detailtransaksi.jumlahBeli DESC LIMIT 10")->result_array();
+		$data['produkTerlaris'] = $this->db->query("SELECT produk.id, produk.namaProduk, SUM(detailtransaksi.jumlahBeli) AS jumlahBeli
+		FROM produk JOIN detailtransaksi
+		ON produk.id = detailtransaksi.idProduk
+		GROUP BY detailTransaksi.jumlahBeli DESC LIMIT 10")->result_array();
+
+		// SUM(jumlahBeli) jumlahBeli FROM detailtransaksi GROUP BY idProduk ORDER BY jumlahBeli DESC LIMIT 3
+
+		// var_dump($data['produkTerlaris']);die;
+
+
+
+
 		$totalTransaksi = $this->db->query("SELECT * FROM transaksi_rumah")->num_rows();
 		$transaksiSelesai = $this->db->query("SELECT * FROM transaksi_rumah WHERE Status = 2")->num_rows();
 		$transaksiBerlangsung = $this->db->query("SELECT * FROM transaksi_rumah WHERE Status = 4")->num_rows();
@@ -44,7 +67,7 @@ class Dashboard extends CI_Controller
 		$data['dataRukotersedia'] = $dataRukotersedia;
 		$data['dataRukoterbooking'] = $dataRukoterbooking;
 		$data['dataRukoterjual'] = $dataRukoterjual;
-		$data['totalResult'] = $totalRecords;
+		// $data['totalResult'] = $totalRecords;
 		$data['totalTransaksi'] = $totalTransaksi;
 		$data['transaksiSelesai'] = $transaksiSelesai;
 		$data['transaksiBerlangsung'] = $transaksiBerlangsung;

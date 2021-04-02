@@ -32,11 +32,11 @@
 
 				<div class="container mt-n10">
 
-					<?php if ($totalResult > 0) { ?>
+					<?php if ($totalPesananMasuk > 0) { ?>
 						<div class="d-flex justify-content-between alert alert-success alert-dismissible fade show mt-5" role="alert">
 							<div class="col-lg-12 md-6 ">
 								<div class="align-items-center">
-									<p><strong>Pemberitahuan!</strong> Terdapat <strong><?= $totalResult ?></strong> Pesanan Terbaru Mohon Konfirmasi.</p>
+									<p><strong>Pemberitahuan!</strong> Terdapat <strong><?= $totalPesananMasuk ?></strong> Pesanan Terbaru Mohon Konfirmasi.</p>
 								</div>
 								<button type="button" class="close" data-dismiss="alert" aria-label="Close">
 									<span aria-hidden="true">&times;</span>
@@ -53,8 +53,8 @@
 								<div class="card-body">
 									<div class="d-flex justify-content-between align-items-center">
 										<div class="mr-3">
-											<div class="text-white-75 small">Total Transaksi</div>
-											<div class="text-lg font-weight-bold"><?= $totalTransaksi ?></div>
+											<div class="text-white-75 small">Pesanan Masuk</div>
+											<div class="text-lg font-weight-bold"><?= $totalPesananMasuk ?></div>
 										</div>
 										<i class="feather-xl text-white-50" data-feather="activity"></i>
 									</div>
@@ -71,8 +71,8 @@
 								<div class="card-body">
 									<div class="d-flex justify-content-between align-items-center">
 										<div class="mr-3">
-											<div class="text-white-75 small">Transaksi Selesai</div>
-											<div class="text-lg font-weight-bold"><?= $transaksiSelesai ?></div>
+											<div class="text-white-75 small">Pesanan Dikemas</div>
+											<div class="text-lg font-weight-bold"><?= $totalPesananDikemas ?></div>
 										</div>
 										<i class="feather-xl text-white-50" data-feather="activity"></i>
 									</div>
@@ -88,8 +88,8 @@
 								<div class="card-body">
 									<div class="d-flex justify-content-between align-items-center">
 										<div class="mr-3">
-											<div class="text-white-75 small">Transaksi Berlangsung</div>
-											<div class="text-lg font-weight-bold"><?= $transaksiBerlangsung ?></div>
+											<div class="text-white-75 small">Transaksi Selesai</div>
+											<div class="text-lg font-weight-bold"><?= $totalTransaksiSelesai ?></div>
 										</div>
 										<i class="feather-xl text-white-50" data-feather="activity"></i>
 									</div>
@@ -105,8 +105,8 @@
 								<div class="card-body">
 									<div class="d-flex justify-content-between align-items-center">
 										<div class="mr-3">
-											<div class="text-white-75 small">Transaksi Menunggu Konfirmasi</div>
-											<div class="text-lg font-weight-bold"><?= $transaksiMenunggu ?></div>
+											<div class="text-white-75 small">Transaksi yang ditolak</div>
+											<div class="text-lg font-weight-bold"><?= $totalTransaksiDitolak ?></div>
 										</div>
 										<i class="feather-xl text-white-50" data-feather="activity"></i>
 									</div>
@@ -125,11 +125,19 @@
 								<div class="card-header">
 									Grafik Produk Terlaris
 								</div>
-								
+
 								<div class="card-body">
-									<input type="hidden" id="inp36tersedia" value="35">
-									<input type="hidden" id="inp36terbooking" value="35">
+									<?php $i=1; foreach ($produkTerlaris as $data) { ?>
+										<input type="hidden" id="produk<?= $i?>" value="<?= $data['jumlahBeli']?>">
+
+									<?php $i++; } ?>
+									<?php $i=1; foreach ($produkTerlaris as $data) { ?>
+										<input type="hidden" id="namaproduk<?= $i?>" value="<?= $data['namaProduk']?>">
+
+									<?php $i++; } ?>
+									<!-- <input type="hidden" id="inp36terbooking" value="35">
 									<input type="hidden" id="inp36terjual" value="35">
+									<input type="hidden" id="inp36terbuang" value="35"> -->
 									<!-- <input type="hidden" id="inp36tersedia" value="<?= $data36tersedia; ?>">
 									<input type="hidden" id="inp36terbooking" value="<?= $data36terbooking; ?>">
 									<input type="hidden" id="inp36terjual" value="<?= $data36terjual; ?>"> -->
@@ -354,20 +362,45 @@
 
 
 	// START 36
-	var data36tersedia = document.getElementById("inp36tersedia").value;
-	var data36terbooking = document.getElementById("inp36terbooking").value;
-	var data36terjual = document.getElementById("inp36terjual").value;
+	var produk1 = document.getElementById("produk1").value;
+	var produk2 = document.getElementById("produk2").value;
+	var produk3 = document.getElementById("produk3").value;
+	var produk4 = document.getElementById("produk4").value;
+	var produk5 = document.getElementById("produk5").value;
+	var produk6 = document.getElementById("produk6").value;
+	var produk7 = document.getElementById("produk7").value;
+	var produk8 = document.getElementById("produk8").value;
+	var produk9 = document.getElementById("produk9").value;
+	var produk10 = document.getElementById("produk10").value;
+
+	var namaproduk1 = document.getElementById("namaproduk1").value;
+	var namaproduk2 = document.getElementById("namaproduk2").value;
+	var namaproduk3 = document.getElementById("namaproduk3").value;
+	var namaproduk4 = document.getElementById("namaproduk4").value;
+	var namaproduk5 = document.getElementById("namaproduk5").value;
+	var namaproduk6 = document.getElementById("namaproduk6").value;
+	var namaproduk7 = document.getElementById("namaproduk7").value;
+	var namaproduk8 = document.getElementById("namaproduk8").value;
+	var namaproduk9 = document.getElementById("namaproduk9").value;
+	var namaproduk10 = document.getElementById("namaproduk10").value;
 	var ctx = document.getElementById("36");
 	var myPieChart = new Chart(ctx, {
 		type: "doughnut",
 		data: {
-			labels: ["Tersedia", "Booking", "Terjual"],
+			labels: [namaproduk1, namaproduk2, namaproduk3, namaproduk4, namaproduk5, namaproduk6, namaproduk7, namaproduk8, namaproduk9, namaproduk10],
 			datasets: [{
-				data: [data36tersedia, data36terbooking, data36terjual],
+				data: [produk1, produk2, produk3, produk4, produk5, produk6, produk7, produk8, produk9, produk10],
 				backgroundColor: [
 					"rgba(0, 97, 242, 1)",
 					"rgba(0, 172, 105, 1)",
-					"rgba(88, 0, 232, 1)"
+					"rgb(158, 156, 13)",
+					"rgb(163, 18, 161)",
+					"rgb(237, 0, 0)",
+					"rgb(189, 123, 25)",
+					"rgb(184, 22, 68)",
+					"rgb(29, 204, 146)",
+					"rgb(130, 74, 194)",
+					"rgb(240, 208, 103)",
 				],
 			}]
 		},
