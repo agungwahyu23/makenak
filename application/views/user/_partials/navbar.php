@@ -8,7 +8,12 @@
     <nav id="navbar" class="navbar">
       <ul>
         <li><a class="nav-link active" href="<?= base_url('Beranda') ?>">Beranda</a></li>
-        <li><a class="nav-link active" href="<?= base_url('Produk') ?>">Produk</a></li>
+        <li class="dropdown active"><a><span class="active">Produk</span> <i class="bi bi-chevron-down active"></i></a>
+          <ul>
+            <li><a href="#">Kue Kering</a></li>
+            <li><a href="#">Forzen Food</a></li>
+          </ul>
+        </li>
         <li><a class="nav-link active" href="<?= base_url('TentangKami') ?>">Tentang Kami</a></li>
         <li><a class="nav-link active" href="<?= base_url('TentangKami') ?>">Kontak Kami</a></li>
         <li class="dropdown active"><a><span class="active">Transaksi</span> <i class="bi bi-chevron-down active"></i></a>
