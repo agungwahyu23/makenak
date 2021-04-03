@@ -6,3 +6,10 @@ function belumlogin()
         redirect("admin/Login");
     }
 }
+
+function belumLoginUser(){
+    $check = get_instance();
+    if (!$check->session->userdata('Id_User')) {
+        redirect('Auth');
+    }
+}
