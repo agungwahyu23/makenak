@@ -46,7 +46,10 @@
 
         <div class="row gx-0">
 
-
+        <header class="section-header">
+          <h2>Kontak</h2>
+          <p>Kontak Kami</p>
+        </header>
 
           <div class="col-lg-6 d-flex align-items-center" data-aos="zoom-out" data-aos-delay="200">
 

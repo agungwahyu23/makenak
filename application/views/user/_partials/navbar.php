@@ -15,7 +15,7 @@
           </ul>
         </li>
         <li><a class="nav-link active" href="<?= base_url('TentangKami') ?>">Tentang Kami</a></li>
-        <li><a class="nav-link active" href="<?= base_url('TentangKami') ?>">Kontak Kami</a></li>
+        <li><a class="nav-link active" href="<?= base_url('KontakKami') ?>">Kontak Kami</a></li>
         <li class="dropdown active"><a><span class="active">Transaksi</span> <i class="bi bi-chevron-down active"></i></a>
           <ul>
             <li><a href="#">Dikemas</a></li>

@@ -7,15 +7,15 @@
 
 <body>
 
-  <?php $this->load->view('user/_partials/static_color_navbar.php') ?>
+  <?php $this->load->view('user/_partials/navbar.php') ?>
 
-  <section id="hero" class="hero-half d-flex align-items-center">
+  <section id="hero" class="hero-half d-flex align-items-center" style="background-image: url(<?= base_url('img/ImageBackGround/tentangKamiHeader.png'); ?>)">
 
     <div class="container">
       <div class="row">
         <div class="col-lg-6 d-flex flex-column justify-content-center">
-          <h1 data-aos="fade-up">River Prawn Residence<br>Kaliurang Jember</h1>
-          <h2 data-aos="fade-up" data-aos-delay="400">Hunian modern bergaya Eropa pertama di Jember</h2>
+          <h1 data-aos="fade-up">Mek Enak Jember</h1>
+          <h2 data-aos="fade-up" data-aos-delay="400">Produsen roti kering khas Jember</h2>
         </div>
       </div>
     </div>
@@ -32,76 +32,35 @@
           <p>Kontak Kami</p>
         </header>
 
-        <div class="row gy-4">
-          <div class="col-lg-12">
-            <?php foreach ($deskripsi as $d) { ?>
-              <div class="row gy-4">
-                <div class="col-md-6">
-                  <div class="info-box">
-                    <i class="bi bi-geo-alt"></i>
-                    <h3>Alamat</h3>
-                    <a href="https://www.google.com/maps?q=-8.165755271911621,113.73561096191406&z=17&hl=en">
-                      <?= $d['Alamat_Kantor'] ?></a>
-                  </div>
-                </div>
-                <div class="col-md-3">
-                  <div class="info-box">
-                    <i class="bi bi-telephone"></i>
-                    <h3>Nomor Telepon</h3>
-                    <a href="https://api.whatsapp.com/send?phone= <?= $d['No_Telp'] ?> &text=Selamat Pagi%21%20Saya%20berminat%20membeli...">
-                      <?= $d['No_Telp'] ?></a>
-                      <br>
-                    <a href="https://api.whatsapp.com/send?phone= <?= $d['No_Telp2'] ?> &text=Selamat Pagi%21%20Saya%20berminat%20membeli...">
-                      <?= $d['No_Telp2'] ?></a>
-                  </div>
-                </div>
-                <div class="col-md-3">
-                  <div class="info-box">
-                    <i class="bi bi-envelope"></i>
-                    <h3>Email</h3>
-                    <a href="mailto:river_prawn@gmail.com">
-                      river_prawn@gmail.com</a>
-                  </div>
-                </div>
-              </div>
-            <?php } ?>
-
-          </div>
-          <?php echo $this->session->flashdata('pesan') ?>
-          <div class="col-lg-6 ">
-            <iframe class="mb-4 mb-lg-0" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3949.3667532172894!2d113.73561099999999!3d-8.165755299999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zOMKwMDknNTYuNyJTIDExM8KwNDQnMDguMiJF!5e0!3m2!1sid!2sid!4v1613392584295!5m2!1sid!2sid" frameborder="0" style="border:0; width: 100%; height: 384px;" allowfullscreen></iframe>
+        <div class="row" data-aos="fade-up">
+          <div class="col-lg-7">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3949.2118530134367!2d113.71718941478072!3d-8.181401394111575!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd6967f747f1973%3A0x152f0c9f7177b876!2sMAK%20ENAK%20JEMBER!5e0!3m2!1sid!2sid!4v1617248498435!5m2!1sid!2sid" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
           </div>
 
-          <div class="col-lg-6">
-            <form action="<?= base_url('KontakKami/send') ?>" method="post">
-              <div class="row gy-4">
-                <div class="col-md-6">
-                  <input type="text" name="name" class="form-control" placeholder="Nama Anda" required>
+          <div class="col-lg-5">
+            <div class="card">
+              <div class="row">
+                <div class="col-lg-6" style="padding-left:50px;">
+                  <h6 style="padding-left:10px; padding-top:15px;">Cotact Our Team</h6>
+                  <img src="<?= base_url('img/user/ic_wa.png') ?>" width="40px" height="40px" alt=""><span>085258179830</span><br>
+                  <img src="<?= base_url('img/user/ic_wa.png') ?>" width="40px" height="40px" alt=""><span>0895411940452</span><br>
+                  <img src="<?= base_url('img/user/ic_wa.png') ?>" width="40px" height="40px" alt=""><span>089517962666</span><br>
+                  <img src="<?= base_url('img/user/ic_wa.png') ?>" width="40px" height="40px" alt=""><span>089607900900</span>
                 </div>
 
-                <div class="col-md-6 ">
-                  <input type="email" class="form-control" name="email" placeholder="Email Anda" required>
+                <div class="col-lg-1 vl" style="border-left: 1px solid #4444;height: 165px;position: absolute;left: 50%;margin-left: -3px;top: 10px; bottom: 10px;"></div>
+
+                <div class="col-lg-5">
+                  <h6 style="padding-top:15px;">Follow Our Media</h6>
+                  <a href="#"><img src="<?= base_url('img/user/ic_ig.png') ?>" width="40px" height="40px" alt=""><span>Mak Enak Official</span></a>
+                  <a href="#"><img src="<?= base_url('img/user/ic_ig.png') ?>" width="40px" height="40px" alt=""><span>Mak Enak Official</span></a>
+                  <a href="#"><img src="<?= base_url('img/user/ic_fb.png') ?>" width="40px" height="40px" alt=""><span>Mak Enak Jember</span></a>
                 </div>
-
-                <div class="col-md-12">
-                  <input type="text" class="form-control" name="subject" placeholder="Subjek" required>
-                </div>
-
-                <div class="col-md-12">
-                  <textarea class="form-control" name="description" rows="6" placeholder="Deskripsi" required></textarea>
-                </div>
-
-                <div class="col-md-12 text-center">
-                  <button type="submit" class="btn btn-dark">Kirim Pesan</button>
-
-                </div>
-
               </div>
-            </form>
 
+            </div>
           </div>
         </div>
-
       </div>
 
     </section>
