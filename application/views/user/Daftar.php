@@ -39,7 +39,9 @@
                       <label for="inputState" class="form-label">Provinsi</label>
                       <select id="inputState" name="provinsi" class="form-select">
                         <option selected>--PILIH--</option>
-                        <option>...</option>
+                        <option value="Jawa Timur">Jawa Timur</option>
+                        <option value="Jawa Tengah">Jawa Tengah</option>
+                        <option value="Jawa Barat">Jawa Barat</option>
                       </select>
                     </div>
                     <div class="col-md-6">

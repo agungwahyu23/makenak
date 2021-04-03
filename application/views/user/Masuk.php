@@ -22,6 +22,7 @@
               </div>
               <div class="card-body">
                 <div class="col">
+                <?php echo $this->session->flashdata('message') ?>
                   <form action="" method="post">
                     <div class="col-md-12"><label class=" mb-1" for="password">Email</label>
                       <input type="email" class="form-control mb-3" name="email" placeholder="Email" required>
