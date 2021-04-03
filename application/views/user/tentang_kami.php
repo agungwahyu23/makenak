@@ -1,26 +1,16 @@
 <!DOCTYPE html>
-
 <html lang="en">
 
-
-
 <head>
-
   <?php $this->load->view('user/_partials/head.php') ?>
-
 </head>
-
-
 
 <body>
 
+  <?php $this->load->view('user/_partials/navbar.php') ?>
 
 
-  <?php $this->load->view('user/_partials/static_color_navbar.php') ?>
-
-
-
-  <section id="hero" class="hero-half d-flex align-items-center">
+  <section id="hero" class="hero-half d-flex align-items-center" style="background-image: url(<?= base_url('img/ImageBackGround/tentangKamiHeader.png'); ?>)">
 
 
 
@@ -30,9 +20,9 @@
 
         <div class="col-lg-6 d-flex flex-column justify-content-center">
 
-          <h1 data-aos="fade-up">River Prawn Residence<br>Kaliurang Jember</h1>
+          <h1 data-aos="fade-up">Mak Enak Jember</h1>
 
-          <h2 data-aos="fade-up" data-aos-delay="400">Hunian modern bergaya Eropa pertama di Jember</h2>
+          <h2 data-aos="fade-up" data-aos-delay="400">Produsen roti kering khas Jember</h2>
 
         </div>
 
@@ -48,7 +38,7 @@
 
   <main id="main">
 
-    <section id="about-us" class="about-us">
+    <section id="about-home" class="about-home">
 
 
 
@@ -60,7 +50,7 @@
 
           <div class="col-lg-6 d-flex align-items-center" data-aos="zoom-out" data-aos-delay="200">
 
-            <img src="<?= base_url('img/user/bg-about.jpg') ?>" class="img-fluid" alt="">
+            <img src="<?= base_url('img/ImageBackGround/tentangKami.png') ?>" class="img-fluid" alt="">
 
           </div>
 
@@ -70,20 +60,19 @@
 
             <div class="content">
 
-              <?php foreach ($deskripsi as $d) { ?>
-
-                <h2><?= $d['Nama_Kantor'] ?></h2>
-
-                <p>
-
-                  <?= $d['Deskripsi'] ?>
-
-                </p>
-
-              <?php } ?>
-
+              <h3>Who We Are</h3>
+              <h2>Mak Enak Jember</h2>
+              <p>
+                Mak Enak Jember merupakan produsen kue kering khas Jember yang berdiri sejak tahun 2015.
+                Mak Enak Jember memiliki outlet di Jalan Letjen S Parman X/21 Jember dan gudang yang
+                berada di Jalan Letjen Sutoyo 115 Jember. Berawal dari 1 varian kue yaitu kue kacang,
+                Mak Enak Jember kini memiliki 40 lebih varian kue kering.
+                Dengan menggunakan bahan yang halal dan berkualitas, produk Mak Enak memiliki cita rasa
+                kekinian yang nikmat. Seiring dengan pengembangan zaman dan permintaan pasar akan
+                jaminan keamanan produk pangan, Mak Enak Jember telah menjalankan Sistem
+                Manajemen Keamanan Pangan yakni Sertifikat PIRT NO : 0219993918391.
+              </p>
             </div>
-
           </div>
 
 
