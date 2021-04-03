@@ -916,6 +916,7 @@ section {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: 30px;
 }
 
 .checkout {
@@ -1028,7 +1029,7 @@ section {
 }
 
 .sign-in .copyright {
-  position: fixed;
+  position: absolute;
   bottom: 15px;
   display: flex;
   justify-content: center;
