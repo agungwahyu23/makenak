@@ -1,6 +1,11 @@
 <?php
 class Models extends CI_Model
 {
+    // function get_produk_list($limit, $start){
+    //     // $query = $this->db->get('produk', $limit, $start);
+    //     // return $query;
+    //     return $this->db->query("SELECT COUNT(*) From $tb")->result_array();
+    // }
 
     public function getData($tb)
     {

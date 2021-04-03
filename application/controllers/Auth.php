@@ -55,8 +55,9 @@ class Auth extends CI_Controller
 		}
 	}
 
-	public function Daftar()
+	public function daftar()
 	{
+<<<<<<< Updated upstream
 
 		$this->form_validation->set_rules('nama', 'Nama Lengkap', 'required');
 		$this->form_validation->set_rules('email', 'Email', 'required|valid_email|is_unique[pengguna.Email]');
@@ -104,5 +105,13 @@ class Auth extends CI_Controller
 			'<div class="alert alert-success" role="alert">Berhasil Keluar!</div>'
 		);
 		redirect(base_url());
+=======
+		$this->load->view('user/daftar');
+	}
+
+	public function masuk()
+	{
+		$this->load->view('user/masuk');
+>>>>>>> Stashed changes
 	}
 }

@@ -16,7 +16,7 @@
 
 
 
-  <?php $this->load->view('user/_partials/navbar.php') ?>
+  <?php $this->load->view('user/_partials/static_color_navbar.php') ?>
 
 
 
