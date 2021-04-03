@@ -1876,6 +1876,24 @@ section {
   box-shadow: 0px 0 30px rgba(1, 41, 112, 0.1);
 }
 
+.product-show .box-header{
+  height: 170px;
+  overflow: hidden;
+  margin: 0px;
+  position: relative;
+}
+
+.product-show .box-header img{
+  position: absolute;
+  left: -1000%;
+  right: -1000%;
+  top: -1000%;
+  bottom: -1000%;
+  margin: auto;
+  min-height: 100%;
+  min-width: 100%;
+}
+
 .product-show .btn-detail {
   display: inline-block;
   padding: 5px 90px 5px 90px;

@@ -37,20 +37,20 @@ class Auth extends CI_Controller
 						'message',
 						'<div class="alert alert-danger mb-3" role="alert">Selamat datang di Mak Enak</div>'
 					);
-					redirect(base_url());
+					redirect(base_url()); //arahkan ke halaman pengguna
 				} else {
 					$this->session->set_flashdata(
 						'message',
 						'<div class="alert alert-danger mb-3" role="alert">Password Salah!</div>'
 					);
-					redirect('Auth');
+					redirect('Auth'); //kembali ke halaman login
 				}
 			} else {
 				$this->session->set_flashdata(
 					'message',
 					'<div class="alert alert-danger mb-3" role="alert">Email Tidak Terdaftar</div>'
 				);
-				redirect('Auth');
+				redirect('Auth'); //kembali ke halaman login
 			}
 		}
 	}

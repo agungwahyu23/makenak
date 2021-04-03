@@ -32,7 +32,11 @@
                     <?php foreach ($product as $data) { ?>
                     <div class="col-lg-3 col-md-3" data-aos="zoom-in" data-aos-delay="200">
                         <div class="box">
-                            <img src="<?= base_url('img/Produk/'.$data['gambar']) ?>" class="img-fluid" alt="">
+                            <div class="box-header">
+                                <img src="<?= base_url('img/Produk/'.$data['gambar']) ?>" class="img-fluid" alt="">
+                            </div>
+                            
+
                             <div class="nama-product"><span><?= $data['namaProduk']?></span></div>
                             <ul>
                                 <li>Rp <?= number_format($data['harga'], 2, ",", ".") ?></li>
