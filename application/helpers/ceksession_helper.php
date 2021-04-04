@@ -9,7 +9,9 @@ function belumlogin()
 
 function belumLoginUser(){
     $check = get_instance();
-    if (!$check->session->userdata('Id_User')) {
+    if (!$check->session->userdata('idCustomer')) {
         redirect('Auth');
+    }else{
+        redirect(base_url());
     }
 }

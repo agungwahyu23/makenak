@@ -8,7 +8,7 @@ class Auth extends CI_Controller
 		parent::__construct();
 		$this->load->library('form_validation');
 		$this->load->model('Models');
-		// belumlogin();
+		belumLoginUser();
 	}
 	public function index()
 	{
@@ -28,9 +28,9 @@ class Auth extends CI_Controller
 			if ($user) {
 				if ($password === $user['Password']) {
 					$data = [
-						'Id_User' => $user['Id_User'],
-						'Nama' => $user['Nama'],
-						'Email' => $user['Email'],
+						'idCustomer' => $user['Id_User'],
+						'namaCustomer' => $user['Nama'],
+						'EmailCustomer' => $user['Email'],
 					];
 					$this->session->set_userdata($data);
 					$this->session->set_flashdata(
