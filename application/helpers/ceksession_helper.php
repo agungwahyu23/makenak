@@ -11,7 +11,12 @@ function belumLoginUser(){
     $check = get_instance();
     if (!$check->session->userdata('idCustomer')) {
         redirect('Auth');
-    }else{
+    }
+}
+
+function sudahLoginUser(){
+    $check = get_instance();
+    if ($check->session->userdata('idCustomer')) {
         redirect(base_url());
     }
 }

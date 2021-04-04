@@ -18,7 +18,7 @@ class Beranda extends CI_Controller
 		$datanya = [
 			'tanggal' => date('Y-m-d'),
 		];
-		// var_dump($data['produkBeranda']);die;
+		// var_dump($this->session->userdata());die;
 		$this->db->insert('pengunjung', $datanya);
 
 		$this->load->view('user/beranda', $data);
