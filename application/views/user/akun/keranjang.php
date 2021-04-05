@@ -14,8 +14,18 @@
         <section class="dasbor">
         <div class="container">
           <div class="row">
-            
-            <div class="col-lg-12">
+            <div class="col-lg-4">
+              
+              <div class="list-group">
+                <div class="text-center list-group-item pb-3">
+                  <img class="profile-user-img img-fluid img-circle" src="<?= base_url('img/admin/user.png') ?>" width="50px" height="50px" alt="User profile picture">
+                </div>
+                <a href="<?php echo base_url('Dashboard')?>" class="list-group-item">Status Pesanan Anda</a>
+                <a href="<?php echo base_url()?>" class="list-group-item">Keranjang Belanja</a>
+              </div>
+
+            </div>
+            <div class="col-lg-8">
               
               <div class="card">
                 <div class="card-header p-2">

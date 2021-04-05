@@ -21,7 +21,6 @@
 
 
 <link href="<?= base_url('css/user/style.css')?>" rel="stylesheet">
-<link href="<?= base_url('css/user/util.css')?>" rel="stylesheet">
 <!-- Custom styles for this template -->
 
 <!-- Menyisipkan library Google Maps -->
