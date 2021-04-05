@@ -40,7 +40,7 @@ class Auth extends CI_Controller
 							'message',
 							'<div class="alert alert-danger mb-3" role="alert">Selamat datang di Mak Enak</div>'
 						);
-						redirect(base_url()); //arahkan ke halaman pengguna
+						redirect('Dashboard'); //arahkan ke halaman pengguna
 					} else {
 						$this->session->set_flashdata(
 							'message',
@@ -57,6 +57,13 @@ class Auth extends CI_Controller
 				}
 			}
 		}
+	}
+
+	public function akun()
+	{
+		
+		redirect('Dashboard');
+		
 	}
 
 	public function daftar()

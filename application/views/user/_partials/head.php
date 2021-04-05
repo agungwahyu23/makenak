@@ -12,14 +12,16 @@
 <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
 <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
-<link href="<?= base_url('assets/user/bootstrap/css/bootstrap.min.css')?>" rel="stylesheet">
+<link href="<?= base_url('assets/user/bootstrap/css/bootstrap.css')?>" rel="stylesheet">
 <link href="<?= base_url('assets/user/bootstrap-icons/bootstrap-icons.css')?>" rel="stylesheet">
 <link href="<?= base_url('assets/user/aos/aos.css')?>" rel="stylesheet">
 <link href="<?= base_url('assets/user/remixicon/remixicon.css')?>" rel="stylesheet">
 <link href="<?= base_url('assets/user/swiper/swiper-bundle.min.css')?>" rel="stylesheet">
 <link href="<?= base_url('assets/user/glightbox/css/glightbox.min.css')?>" rel="stylesheet">
 
+
 <link href="<?= base_url('css/user/style.css')?>" rel="stylesheet">
+<!-- Custom styles for this template -->
 
 <!-- Menyisipkan library Google Maps -->
 <!-- <script src="http://maps.googleapis.com/maps/api/js"></script>

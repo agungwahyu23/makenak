@@ -75,6 +75,9 @@
               <p class="mt-3 text-danger" >
                 Minimal pembelian di luar Jember <br> 1. Jawa Timur minimal order 1 dus atau 32 toples. <br> 2. Jawa Tengah dan Jawa Barat minimal order 3 dus atau 32 x 3 toples. <br>
               </p>
+              <div class="d-grid gap-10">
+                <button class="btn btn-success" type="button">Pesan sekarang</button>
+              </div>
             </div>
 
             <!-- <div class="alert alert-light" role="alert">
