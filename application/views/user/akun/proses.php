@@ -30,7 +30,7 @@
                         <div id="datatable-user">
                             <div class="card mb-4">
                                 <div class="card-header">
-                                    <h4>Data Pesanan Belum Terkonfirmasi</h4>
+                                    <h4>Data Pesanan Diproses</h4>
                                 </div>
                                 <div class="card-body">
                                     <div class="col">
@@ -49,17 +49,14 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <?php $i = 1;
-                                                foreach ($konfirmasi as $data) { ?>
                                                     <tr>
-                                                        <td><?= $i?></td>
-                                                        <td><?= $data['namaProduk']?></td>
-                                                        <td><?= $data['jumlahBeli']?></td>
-                                                        <td><?= $data['totalHarga']?></td>
-                                                        <td>Menunggu Konfirmasi</td>
+                                                        <td>1</td>
+                                                        <td>Nastar</td>
+                                                        <td>10</td>
+                                                        <td>100.000</td>
+                                                        <td>Diproses</td>
                                                     </tr>
-                                                <?php $i++;
-                                                } ?>
+                                                
                                             </tbody>
                                         </table>
                                         <div class="modal fade" id="modalDelete" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
