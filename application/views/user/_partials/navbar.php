@@ -15,7 +15,7 @@
           <li><a class="nav-link active" href="<?= base_url('Auth/Daftar') ?>">Daftar</a></li>
           <li><a class="getstarted scrollto" href="<?= base_url('Auth') ?>">Masuk</a></li>
         <?php } else { ?>
-          <li><a class="getstarted scrollto" href="<?= base_url('Auth/Akun') ?>">Akun</a></li>
+          <li><a class="nav-link active" href="<?= base_url('Auth/Akun') ?>"><i class="bi bi-person-circle" style='color:white;font-size:16px'></i></a></li>
           <li><a class="getstarted scrollto" href="<?= base_url('Auth/Keluar') ?>">Keluar</a></li>
 
         <?php } ?>

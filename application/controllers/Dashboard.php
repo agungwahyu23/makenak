@@ -10,6 +10,13 @@ class Dashboard extends CI_Controller
         ;
     }
 
+    public function keranjang()
+    {
+        
+        $this->load->view('user/akun/keranjang', $data);
+        
+    }
+
     public function konfirmasi()
     {
         $this->load->view('user/akun/menunggukonfirmasi', $data);
