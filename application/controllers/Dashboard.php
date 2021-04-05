@@ -18,8 +18,14 @@ class Dashboard extends CI_Controller
 
     public function keranjang()
     {
-        
-        $this->load->view('user/akun/keranjang');
+        $data['deskripsi'] = $this->db->query("SELECT * FROM profile WHERE Id_Profile = '1'")->result_array();
+        $user = $this->session->userdata('idCustomer');
+
+        $data['keranjang'] = $this->db->join('detailtransaksi', 'detailtransaksi.idTransaksi = transaksi.idTransaksi')->join('produk', 'produk.id = detailtransaksi.idProduk')->get_where('transaksi', ['transaksi.status' => 0, 'idUser' => $user])->result_array();
+
+        // var_dump($data['keranjang']);die;
+
+        $this->load->view('user/akun/keranjang', $data);
         
     }
 
