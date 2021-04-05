@@ -43,7 +43,7 @@
                             <div class="d-flex justify-content-between align-items-center">
                               <div class="mr-3">
                                 <div class="text-white-75 small">Menunggu Konfirmasi</div>
-                                <div class="text-lg font-weight-bold">5</div>
+                                <div class="text-lg font-weight-bold"><?= $transaksiMenunggu?></div>
                               </div>
                               <i class="feather-xl text-white-50" data-feather="activity"></i>
                             </div>
@@ -62,7 +62,7 @@
                             <div class="d-flex justify-content-between align-items-center">
                               <div class="mr-3">
                                 <div class="text-white-75 small">Pesanan Diproses</div>
-                                <div class="text-lg font-weight-bold">5</div>
+                                <div class="text-lg font-weight-bold"><?= $transaksiDiproses?></div>
                               </div>
                               <i class="feather-xl text-white-50" data-feather="activity"></i>
                             </div>
@@ -81,7 +81,7 @@
                             <div class="d-flex justify-content-between align-items-center">
                               <div class="mr-3">
                                 <div class="text-white-75 small">Pesanan Dikirim</div>
-                                <div class="text-lg font-weight-bold">5</div>
+                                <div class="text-lg font-weight-bold"><?= $transaksiDikirim?></div>
                               </div>
                               <i class="feather-xl text-white-50" data-feather="activity"></i>
                             </div>
