@@ -68,7 +68,7 @@
                             </div>
                           </div>
                           <div class="card-footer d-flex align-items-center justify-content-between">
-                            <a class="small text-white stretched-link" href="<?= base_url('admin/Transaksi') ?>">Lihat
+                            <a class="small text-white stretched-link" href="<?= base_url('Dashboard/proses') ?>">Lihat
                               Detail</a>
                             <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                           </div>
@@ -87,7 +87,7 @@
                             </div>
                           </div>
                           <div class="card-footer d-flex align-items-center justify-content-between">
-                            <a class="small text-white stretched-link" href="<?= base_url('admin/Transaksi') ?>">Lihat
+                            <a class="small text-white stretched-link" href="<?= base_url('Dashboard/dikirim') ?>">Lihat
                               Detail</a>
                             <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                           </div>

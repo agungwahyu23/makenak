@@ -45,6 +45,7 @@
                                                 <th>Nama Produk</th>
                                                 <th>Jumlah</th>
                                                 <th>Total Harga</th>
+                                                <th>Nomor Resi</th>
                                                 <th>Status</th>
                                                 <!-- <th>Deskripsi</th> -->
                                             </tr>
@@ -55,7 +56,8 @@
                                                 <td>Kue Nastar</td>
                                                 <td>30</td>
                                                 <td>1.000.000</td>
-                                                <td>Menunggu Konfirmasi</td>
+                                                <td>JNE1239918219</td>
+                                                <td>Dikirim</td>
                                             </tr>
                                         </tbody>
                                     </table>

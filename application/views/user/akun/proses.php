@@ -55,7 +55,7 @@
                                                 <td>Kue Nastar</td>
                                                 <td>30</td>
                                                 <td>1.000.000</td>
-                                                <td>Menunggu Konfirmasi</td>
+                                                <td>Diproses</td>
                                             </tr>
                                         </tbody>
                                     </table>
