@@ -57,4 +57,10 @@ class Dashboard extends CI_Controller
 
         $this->load->view('user/akun/kirim');
     }
+
+    public function checkout()
+    {
+        $data['deskripsi'] = $this->db->query("SELECT * FROM profile WHERE Id_Profile = '1'")->result_array();
+        $this->load->view('user/akun/checkout', $data);
+    }
 }
