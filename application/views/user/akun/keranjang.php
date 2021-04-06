@@ -44,23 +44,35 @@
                               <th width="12%">Gambar</th>
                               <th width="30%">Product</th>
                               <th width="8%">Jumlah</th>
-                              <th width="30%">Harga</th>
+                              <th width="20%">Harga</th>
                               <th width="20%">Subtotal</th>
+                              <th width="10%">Aksi</th>
+
                             </tr>
                           </thead>
                           <tbody>
                             <?php foreach ($keranjang as $data) { ?>
                               <tr>
-                                <td><img class="img-responsive" src="<?= base_url('img/produk/') . $data['gambar']?>" alt="Image"></td>
+                                <td><img style="size: 50px; width: 50px;" class="img-responsive" src="<?= base_url('img/produk/') . $data['gambar'] ?>" alt="Image"></td>
                                 <td><?= $data['namaProduk'] ?></td>
                                 <td><input type="text" class="form-control input-sm" name="jumlahBeli" value="<?= $data['jumlahBeli'] ?>" /></td>
-                                <td><?= $data['harga']?></td>
-                                <td><?= $data['totalHarga']?></td>
+                                <td><?= $data['harga'] ?></td>
+                                <td><?= $data['totalHarga'] ?></td>
+                                <td><a href="<?= base_url('Dashboard/hapusKeranjang/' . $data['idDetailTransaksi']) ?>">
+                                    <span class="badge rounded-pill bg-danger">Hapus</span>
+                                  </a></td>
                               </tr>
                             <?php } ?>
                           </tbody>
                         </table>
                       </div>
+                      <?php if ($keranjang) { ?>
+                        <button type="button" class="btn btn-success">Bayar Sekarang</button>
+                      <?php } else { ?>
+                        <div class="alert alert-light text-center" role="alert">
+                         Tidak ada produk didalam keranjang
+                        </div>
+                      <?php } ?>
                       <!-- /.col -->
                     </div>
                     <!-- /.row -->
