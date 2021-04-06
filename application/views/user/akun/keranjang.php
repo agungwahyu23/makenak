@@ -67,7 +67,7 @@
                         </table>
                       </div>
                       <?php if ($keranjang) { ?>
-                        <button type="button" class="btn btn-success">Bayar Sekarang</button>
+                        <a href="<?= base_url('Dashboard/checkout')?>" class="btn btn-success">Bayar Sekarang</a>
                       <?php } else { ?>
                         <div class="alert alert-light text-center" role="alert">
                          Tidak ada produk didalam keranjang

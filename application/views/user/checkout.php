@@ -28,7 +28,7 @@
                       <input type="hidden" name="no_telp_wa" value="<?= $d['No_Telp'] ?>">
                     <?php } ?>
 
-                    <h3 class="sub-title">Data Calon Pembeli</h3>
+                    <h3 class="sub-title">Data Penerima</h3>
                     <div class="row">
                       <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12"><label class="small mb-1" for="nama_lengkap">Nama Lengkap</label>
                         <input type="text" class="form-control mb-3" id="nama_lengkap" name="nama_lengkap" placeholder="Nama Lengkap" required>

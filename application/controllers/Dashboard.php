@@ -59,6 +59,13 @@ class Dashboard extends CI_Controller
     public function checkout()
     {
         $data['deskripsi'] = $this->db->query("SELECT * FROM profile WHERE Id_Profile = '1'")->result_array();
+
+        $user = $this->session->userdata('idCustomer');
+
+        $data['user'] = $this->db->get_where('pengguna', ['Id_User' => $user, 'Pekerjaan' => 'User'])->row_array();
+        $data['keranjang'] = $this->db->get_where('transaksi', ['idUser' => $user, 'Status' => 0])->row_array();
+        $data['provinsi'] = $this->db->get('provinces')->result_array();
+
         $this->load->view('user/akun/checkout', $data);
     }
 
@@ -71,4 +78,5 @@ class Dashboard extends CI_Controller
             redirect('Dashboard/keranjang');
         }
     }
+
 }
