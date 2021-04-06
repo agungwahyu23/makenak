@@ -10,7 +10,7 @@
         <li><a class="nav-link active" href="<?= base_url('Beranda') ?>">Beranda</a></li>
         <li><a class="nav-link active" href="<?= base_url('Produk') ?>">Produk</a></li>
         <li><a class="nav-link active" href="<?= base_url('TentangKami') ?>">Tentang Kami</a></li>
-        <li><a class="nav-link active" href="<?= base_url('TentangKami') ?>">Kontak Kami</a></li>
+        <li><a class="nav-link active" href="<?= base_url('KontakKami') ?>">Kontak Kami</a></li>
         <?php if (!$this->session->userdata('idCustomer')) { ?>
           <li><a class="nav-link active" href="<?= base_url('Auth/Daftar') ?>">Daftar</a></li>
           <li><a class="getstarted scrollto" href="<?= base_url('Auth') ?>">Masuk</a></li>

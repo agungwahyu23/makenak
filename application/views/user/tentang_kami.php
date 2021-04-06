@@ -40,12 +40,10 @@
           </div>
           <div class="col-lg-6 d-flex flex-column justify-content-center" data-aos="fade-up" data-aos-delay="200">
             <div class="content">
-              <?php foreach ($deskripsi as $d) { ?>
-                <h2><?= $d['Nama_Kantor'] ?></h2>
+                <h2><?= $tentangKami['namaKantor'] ?></h2>
                 <p>
-                  <?= $d['Deskripsi'] ?>
+                  <?= $tentangKami['deskripsi'] ?>
                 </p>
-              <?php } ?>
             </div>
           </div>
         </div>

@@ -12,8 +12,7 @@ class Dashboard extends CI_Controller
         $data['transaksiDiproses'] = $this->db->get_where('transaksi', ['status' => 2, 'idUser' => $user])->num_rows();
         $data['transaksiDikirim'] = $this->db->get_where('transaksi', ['status' => 3, 'idUser' => $user])->num_rows();
 
-        $this->load->view('user/akun/dashboard', $data);
-        ;
+        $this->load->view('user/akun/dashboard', $data);;
     }
 
     public function keranjang()
@@ -26,7 +25,6 @@ class Dashboard extends CI_Controller
         // var_dump($data['keranjang']);die;
 
         $this->load->view('user/akun/keranjang', $data);
-        
     }
 
     public function konfirmasi()
@@ -62,5 +60,13 @@ class Dashboard extends CI_Controller
     {
         $data['deskripsi'] = $this->db->query("SELECT * FROM profile WHERE Id_Profile = '1'")->result_array();
         $this->load->view('user/akun/checkout', $data);
+    public function hapusKeranjang($id)
+    {
+        if ($id) {
+            $this->db->delete('detailtransaksi', ['idDetailTransaksi' => $id]);
+            redirect('Dashboard/keranjang');
+        } else {
+            redirect('Dashboard/keranjang');
+        }
     }
 }

@@ -4,7 +4,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no">
-  <title>Hostify</title>
+  <title><?= SITE_NAME ?></title>
+  <link href="<?= base_url('img/Icon/Logo.png') ?>" rel="icon" type="image/x-icon">
+  <link href="<?= base_url('img/Icon/Logo.png') ?>" rel="apple-touch-icon">
   <link rel="stylesheet" type="text/css" href="<?= base_url('css/auth/bootstrap.min.css') ?>">
   <link rel="stylesheet" type="text/css" href="<?= base_url('css/auth/bootstrap-slider.min.css') ?>">
   <link rel="stylesheet" type="text/css" href="<?= base_url('css/auth/fontawesome-all.min.css') ?>">
@@ -26,12 +28,13 @@
       <div class="form-holder">
         <div class="menu-holder">
           <ul class="main-links">
-            <li><a class="normal-link" href="<?= base_url('Auth/Daftar')?>">Belum Punya Akun?</a></li>
-            <li><a class="sign-button" href="<?= base_url('Auth/Daftar')?>">Daftar</a></li>
+            <li><a class="normal-link" href="<?= base_url('Auth/Daftar') ?>">Belum Punya Akun?</a></li>
+            <li><a class="sign-button" href="<?= base_url('Auth/Daftar') ?>">Daftar</a></li>
           </ul>
         </div>
         <div class="signin-signup-form">
           <div class="form-items">
+            <?php echo $this->session->flashdata('message') ?>
             <div class="form-title">Masuk dan mulai berbelanja</div>
             <form id="signinform" method="POST">
               <div class="form-text">
@@ -41,7 +44,7 @@
                 <input type="password" name="password" placeholder="Masukan Password Anda" required>
               </div>
               <div class="form-button">
-                <button id="submit" type="submit" class="ybtn ybtn-accent-color">Sign in</button>
+                <button id="submit" type="submit" class="ybtn ybtn-accent-color">Masuk</button>
               </div>
             </form>
           </div>

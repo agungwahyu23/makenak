@@ -111,12 +111,12 @@ class Produk extends CI_Controller
             $produk = $this->db->get_where('produk', ['id' => $id])->row_array();
             $user = $this->session->userdata('idCustomer');
 
-            if ($user) {
-                $this->form_validation->set_rules('jumlah', 'Jumlah Beli', 'required|numeric');
-                $jumlahBeli = $this->input->post('jumlah');
-                if ($this->form_validation->run() == false) {
-                    $this->load->view('user/detail_produk',    $data);
-                } else {
+            $this->form_validation->set_rules('jumlah', 'Jumlah Beli', 'required|numeric');
+            $jumlahBeli = $this->input->post('jumlah');
+            if ($this->form_validation->run() == false) {
+                $this->load->view('user/detail_produk',    $data);
+            } else {
+                if ($user) {
                     $idKeranjang = $this->db->get_where('transaksi', ['status' => 0, 'idUser' => $user])->row_array();
 
                     if ($idKeranjang) {
@@ -163,9 +163,13 @@ class Produk extends CI_Controller
                         $this->db->insert('transaksi', $dataTransaksi);
                         redirect('Dashboard/keranjang');
                     }
+                } else {
+                    $this->session->set_flashdata(
+                        'message',
+                        '<div class="alert alert-danger mb-3" role="alert">Silahkan Login Terlebih Dahulu</div>'
+                    );
+                    redirect(base_url('Auth'));
                 }
-            } else {
-                redirect(base_url());
             }
         } else {
             redirect(base_url());
