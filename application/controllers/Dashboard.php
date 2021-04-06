@@ -60,6 +60,8 @@ class Dashboard extends CI_Controller
     {
         $data['deskripsi'] = $this->db->query("SELECT * FROM profile WHERE Id_Profile = '1'")->result_array();
         $this->load->view('user/akun/checkout', $data);
+    }
+
     public function hapusKeranjang($id)
     {
         if ($id) {
