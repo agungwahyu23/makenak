@@ -105,9 +105,9 @@
 
                     <hr>
 
-                    <div class="row justify-content-center">
+                    <div class="row justify-content-center mb-4">
                         <div class="col-lg-12 col-sm-12 text-center">
-                            <h3 class="sub-title">Data Calon Pembeli</h3>
+                            <h3 class="sub-title">Upload Data Pembayaran</h3>
                         </div>
                     </div>
 
