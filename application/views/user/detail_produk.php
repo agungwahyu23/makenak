@@ -37,7 +37,7 @@
             <!-- untuk melakukan zoom out -->
             <a href="<?= base_url('img/Produk/' . $detailProduk['gambar']) ?>" data-gallery="portfolioGallery" class="portfokio-lightbox">
 
-            <img style="width: 720px; height: 500px; object-position: center;" src="<?= base_url('img/Produk/' . $detailProduk['gambar']) ?>" class="img-fluid" alt="">
+              <img style="width: 720px; height: 500px; object-position: center;" src="<?= base_url('img/Produk/' . $detailProduk['gambar']) ?>" class="img-fluid" alt="">
 
             </a>
 
@@ -72,35 +72,36 @@
                 <?= $detailProduk['deskripsi'] ?>
 
               </p>
-              <p class="mt-3 text-danger" >
+              <p class="mt-3 text-danger">
                 Minimal pembelian di luar Jember <br> 1. Jawa Timur minimal order 1 dus atau 32 toples. <br> 2. Jawa Tengah dan Jawa Barat minimal order 3 dus atau 32 x 3 toples. <br>
               </p>
               <div class="d-grid gap-10">
+                <form method="POST">
 
-                <div class="flex-r-m flex-w p-t-10">
-                  <div class="w-size16 flex-m flex-w">
-                    <div class="flex-w bo5 of-hidden m-r-22 m-t-10 m-b-10">
-                      <button class="btn-num-product-down bg8 color1 flex-c-m size7 eff2">
-                        <i class="fs-12 fa fa-minus" aria-hidden="true"></i>
-                      </button>
 
-                      <input class="size8 m-text18 t-center num-product" type="number" name="qty" value="1">
+                  <div class="flex-r-m flex-w p-t-10">
+                    <div class="w-size16 flex-m flex-w">
+                      <div class="flex-w bo5 of-hidden m-r-22 m-t-10 m-b-10">
+                        <button class="btn-num-product-down bg8 color1 flex-c-m size7 eff2">
+                          <i class="fs-12 fa fa-minus" aria-hidden="true"></i>
+                        </button>
 
-                      <button class="btn-num-product-up color1 flex-c-m size7 bg8 eff2">
-                        <i class="fs-12 fa fa-plus" aria-hidden="true"></i>
-                      </button>
-                    </div>
+                        <input class="size8 m-text18 t-center num-product" type="number" name="jumlah" value="1">
 
-                    <div class="btn-addcart-product-detail size9 trans-0-4 m-t-10 m-b-10">
-                      <!-- Button -->
-                      <button type="submit" name="submit" value="submit"
-                        class="flex-c-m sizefull bg1 bo-rad-23 hov1 s-text1 trans-0-4">
-                        Add to Cart
-                      </button>
+                        <button class="btn-num-product-up color1 flex-c-m size7 bg8 eff2">
+                          <i class="fs-12 fa fa-plus" aria-hidden="true"></i>
+                        </button>
+                      </div>
+
+                      <div class="btn-addcart-product-detail size9 trans-0-4 m-t-10 m-b-10">
+                        <!-- Button -->
+                        <button type="submit" name="submit" value="submit" class="flex-c-m sizefull bg1 bo-rad-23 hov1 s-text1 trans-0-4">
+                          Add to Cart
+                        </button>
+                      </div>
                     </div>
                   </div>
-                </div>
-
+                </form>
               </div>
             </div>
 

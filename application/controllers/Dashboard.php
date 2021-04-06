@@ -42,6 +42,11 @@ class Dashboard extends CI_Controller
     public function proses()
     {
         $data['deskripsi'] = $this->db->query("SELECT * FROM profile WHERE Id_Profile = '1'")->result_array();
+
+        $user = $this->session->userdata('idCustomer');
+
+        $data['proses'] = $this->db->join('detailtransaksi', 'detailtransaksi.idTransaksi = transaksi.idTransaksi')->join('produk', 'produk.id = detailtransaksi.idProduk')->get_where('transaksi', ['transaksi.status' => 2, 'idUser' => $user])->result_array();
+
         $this->load->view('user/akun/proses', $data);
     }
 
@@ -53,4 +58,3 @@ class Dashboard extends CI_Controller
         $this->load->view('user/akun/kirim');
     }
 }
-?>

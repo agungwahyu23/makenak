@@ -19,7 +19,7 @@
           <li><a class="getstarted scrollto" href="<?= base_url('Auth/Keluar') ?>">Keluar</a></li>
 
         <?php } ?>
-        <li><a class="nav-link active" href="<?= base_url('Keranjang') ?>"><i class="bi bi-cart-fill" style='color:white;font-size:16px'></i></a></li>
+        <li><a class="nav-link active" href="<?= base_url('Dashboard/keranjang') ?>"><i class="bi bi-cart-fill" style='color:white;font-size:16px'></i></a></li>
 
         <li class="dropdown-search">
           <a onclick="myFunction()"><i class="bi bi-search dropbtn" style='color:white;font-size:16px'></i></a>

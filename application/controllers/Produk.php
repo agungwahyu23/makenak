@@ -3,22 +3,23 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class Produk extends CI_Controller
 {
-	function __construct(){
+    function __construct()
+    {
         parent::__construct();
         //load libary pagination
         $this->load->library('pagination');
- 
+        $this->load->model('Models');
         //load the department_model
         $this->load->model('models');
     }
 
-	public function index()
-	{
-		$data['deskripsi'] = $this->db->query("SELECT * FROM profile WHERE Id_Profile = '1'")->result_array();
-		// $data['product'] = $this->db->get('produk', $limit, $start)->result_array();
-		// $data['detailProduk'] = $this->db->get_where('produk', ['id' => $id])->row_array();
-		
-		// //konfigurasi pagination
+    public function index()
+    {
+        $data['deskripsi'] = $this->db->query("SELECT * FROM profile WHERE Id_Profile = '1'")->result_array();
+        // $data['product'] = $this->db->get('produk', $limit, $start)->result_array();
+        // $data['detailProduk'] = $this->db->get_where('produk', ['id' => $id])->row_array();
+
+        // //konfigurasi pagination
         // $config['base_url'] = site_url('produk/index'); //site url
         // $config['total_rows'] = $this->db->count_all('produk'); //total row
         // $config['per_page'] = 4;  //show record per halaman
@@ -26,8 +27,8 @@ class Produk extends CI_Controller
         // $choice = $config["total_rows"] / $config["per_page"];
         // $config["num_links"] = floor($choice);
 
-		// // Membuat Style pagination untuk BootStrap v4
-		// $config['first_link']       = 'First';
+        // // Membuat Style pagination untuk BootStrap v4
+        // $config['first_link']       = 'First';
         // $config['last_link']        = 'Last';
         // $config['next_link']        = 'Next';
         // $config['prev_link']        = 'Prev';
@@ -46,32 +47,32 @@ class Produk extends CI_Controller
         // $config['last_tag_open']    = '<li class="page-item"><span class="page-link">';
         // $config['last_tagl_close']  = '</span></li>';
 
-		// $this->pagination->initialize($config);
+        // $this->pagination->initialize($config);
         // $data['page'] = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
- 
+
         // //panggil function get_mahasiswa_list yang ada pada mmodel mahasiswa_model. 
         // $data['data'] = $this->models->get_produk_list($config["per_page"], $data['page']);           
- 
+
         // $data['pagination'] = $this->pagination->create_links();
 
 
-		// $this->load->model('Models');
-		
-		//ambil data total
-		$total = $this->db->query("SELECT COUNT(*) FROM produk WHERE status='1'");
-		
-		//pagi
-		$this->load->library('pagination'); // Load librari paginationnya
-    
-		//konfigurasi pagination
-        $config['base_url']				= base_url().'produk/index/';
-    	$config['total_rows']			= $this->db->count_all('produk');//$total;
-    	$config['use_page_numbers']		= TRUE;
-    	$config['per_page']				= 12;
-    	$config['uri_segment']			= 3;
-    	$config['num_links']			= 5;
-		
-    	$config['first_link']       = 'First';
+        // $this->load->model('Models');
+
+        //ambil data total
+        $total = $this->db->query("SELECT COUNT(*) FROM produk WHERE status='1'");
+
+        //pagi
+        $this->load->library('pagination'); // Load librari paginationnya
+
+        //konfigurasi pagination
+        $config['base_url']                = base_url() . 'produk/index/';
+        $config['total_rows']            = $this->db->count_all('produk'); //$total;
+        $config['use_page_numbers']        = TRUE;
+        $config['per_page']                = 12;
+        $config['uri_segment']            = 3;
+        $config['num_links']            = 5;
+
+        $config['first_link']       = 'First';
         $config['last_link']        = 'Last';
         $config['next_link']        = 'Next';
         $config['prev_link']        = 'Prev';
@@ -90,25 +91,84 @@ class Produk extends CI_Controller
         $config['last_tag_open']    = '<li class="page-item"><span class="page-link">';
         $config['last_tagl_close']  = '</span></li>';
 
-    	$config['first_url']			= base_url().'produk/index';
+        $config['first_url']            = base_url() . 'produk/index';
 
-		$this->pagination->initialize($config); // Set konfigurasi paginationnya
-		$page 		= ($this->uri->segment(3)) ? ($this->uri->segment(3)-1) * $config['per_page']:0;
-    	//$produk 	= $this->models->get_produk_list($config['per_page'],$page);
-		$data['product'] = $this->db->get('produk', $config['per_page'],$page)->result_array();
-    
-		$data['pagination'] = $this->pagination->create_links();
+        $this->pagination->initialize($config); // Set konfigurasi paginationnya
+        $page         = ($this->uri->segment(3)) ? ($this->uri->segment(3) - 1) * $config['per_page'] : 0;
+        //$produk 	= $this->models->get_produk_list($config['per_page'],$page);
+        $data['product'] = $this->db->get('produk', $config['per_page'], $page)->result_array();
 
-		$this->load->view('user/produk',	$data);
-	}
-	public function DetailProduk($id = null)
-	{
-		if ($id) {
-			$data['deskripsi'] = $this->db->query("SELECT * FROM profile WHERE Id_Profile = '1'")->result_array();
-			$data['detailProduk'] = $this->db->get_where('produk', ['id' => $id])->row_array();
-			$this->load->view('user/detail_produk',	$data);
-		}else{
-			redirect(base_url());
-		}
-	}
+        $data['pagination'] = $this->pagination->create_links();
+
+        $this->load->view('user/produk',    $data);
+    }
+    public function DetailProduk($id = null)
+    {
+        if ($id) {
+            $data['deskripsi'] = $this->db->query("SELECT * FROM profile WHERE Id_Profile = '1'")->result_array();
+            $data['detailProduk'] = $this->db->get_where('produk', ['id' => $id])->row_array();
+
+            $produk = $this->db->get_where('produk', ['id' => $id])->row_array();
+            $user = $this->session->userdata('idCustomer');
+
+            if ($user) {
+                $this->form_validation->set_rules('jumlah', 'Jumlah Beli', 'required|numeric');
+                $jumlahBeli = $this->input->post('jumlah');
+                if ($this->form_validation->run() == false) {
+                    $this->load->view('user/detail_produk',    $data);
+                } else {
+                    $idKeranjang = $this->db->get_where('transaksi', ['status' => 0, 'idUser' => $user])->row_array();
+
+                    if ($idKeranjang) {
+                        $idTransaksi = $idKeranjang['idTransaksi'];
+                        $cekProduk = $this->db->get_where('detailtransaksi', ['idTransaksi' => $idTransaksi, 'idProduk' => $id])->row_array();
+
+                        if ($cekProduk) {
+                            $this->db->set(['jumlahBeli' => $jumlahBeli + $cekProduk['jumlahBeli']]);
+                            $this->db->where(['idDetailTransaksi' => $cekProduk['idDetailTransaksi']]);
+                            $this->db->update('detailtransaksi');
+                            redirect('Dashboard/keranjang');
+                        } else {
+                            $detailKeranjang = [
+                                'idDetailTransaksi' => $this->Models->randomkode(32),
+                                'idTransaksi' => $idTransaksi,
+                                'idProduk' => $id,
+                                'jumlahBeli' => $jumlahBeli,
+                                'hargaSatuan' => $produk['harga'],
+                                'totalharga' => $jumlahBeli * $produk['harga'],
+                            ];
+
+                            $this->db->insert('detailtransaksi', $detailKeranjang);
+                            redirect('Dashboard/keranjang');
+                        }
+                    } else {
+                        $idDetailTransaksi = $this->Models->randomkode(32);
+                        $detailKeranjang = [
+                            'idDetailTransaksi' => $idDetailTransaksi,
+                            'idTransaksi' => $idDetailTransaksi,
+                            'idProduk' => $id,
+                            'jumlahBeli' => $jumlahBeli,
+                            'hargaSatuan' => $produk['harga'],
+                            'totalharga' => $jumlahBeli * $produk['harga'],
+                        ];
+
+                        $this->db->insert('detailtransaksi', $detailKeranjang);
+
+
+                        $dataTransaksi = [
+                            'idTransaksi' => $this->Models->randomkode(32),
+                            'idUser' => $user,
+                            'status' => 0,
+                        ];
+                        $this->db->insert('transaksi', $dataTransaksi);
+                        redirect('Dashboard/keranjang');
+                    }
+                }
+            } else {
+                redirect(base_url());
+            }
+        } else {
+            redirect(base_url());
+        }
+    }
 }

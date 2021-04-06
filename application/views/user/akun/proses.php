@@ -21,7 +21,7 @@
                                 <img class="profile-user-img img-fluid img-circle" src="<?= base_url('img/admin/user.png') ?>" width="50px" height="50px" alt="User profile picture">
                             </div>
                             <a href="<?php echo base_url('Dashboard') ?>" class="list-group-item">Status Pesanan Anda</a>
-                            <a href="<?php echo base_url() ?>" class="list-group-item">Keranjang Belanja</a>
+                            <a href="<?php echo base_url('Dashboard/keranjang') ?>" class="list-group-item">Keranjang Belanja</a>
                         </div>
 
                     </div>
@@ -49,14 +49,16 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
+                                                <?php $i = 1;
+                                                foreach ($proses as $data) { ?>
                                                     <tr>
-                                                        <td>1</td>
-                                                        <td>Nastar</td>
-                                                        <td>10</td>
-                                                        <td>100.000</td>
+                                                        <td><?= $i++?></td>
+                                                        <td><?= $data['namaProduk']?></td>
+                                                        <td><?= $data['jumlahBeli']?></td>
+                                                        <td><?= $data['totalHarga']?></td>
                                                         <td>Diproses</td>
                                                     </tr>
-                                                
+                                                <?php $i++; } ?>
                                             </tbody>
                                         </table>
                                         <div class="modal fade" id="modalDelete" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
