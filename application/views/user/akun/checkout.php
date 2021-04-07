@@ -70,11 +70,11 @@
                         <?= form_error('desa', '<small class="text-danger pl-2">', '</small>'); ?>
                         <input type="text" class="form-control mb-3" name="desa" placeholder="Desa">
                       </div>
-                      <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12"><label class="small mb-1" for="alamat">ongkir</label>
+                      <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12">
                         <!-- <?= form_error('ongkir', '<small class="text-danger pl-2">', '</small>'); ?> -->
                         <input type="hidden" class="form-control mb-3" id="inputOngkir" name="ongkir">
                       </div>
-                      <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12"><label class="small mb-1" for="alamat">Id Transaksi</label>
+                      <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12">
                         <!-- <?= form_error('idTransaksi', '<small class="text-danger pl-2">', '</small>'); ?> -->
                         <input type="hidden" class="form-control mb-3" name="idTransaksi" value="<?= $keranjang['idTransaksi'] ?>">
                       </div>
@@ -280,45 +280,66 @@
           success: function(data) {
             console.log(data);
 
-            if (data.wilayah[0].province_id === "35" && data.wilayah[0].id === "999") {
+            if (data.wilayah[0].province_id === "35" && data.wilayah[0].id === "999") { // kota jember
               $('#ongkir').html('Rp. ' + Intl.NumberFormat().format(data.ongkirJember[0].harga));
               $('#inputOngkir').val(data.ongkirJember[0].harga);
               $('#total').html("Rp. " + Intl.NumberFormat().format((parseInt(data.transaksi[0].totalBayar) + parseInt(data.ongkirJember[0].harga))));
-            } else if (data.wilayah[0].province_id === "35") {
+            } else if (data.wilayah[0].province_id === "35") { // jawa timur
               for (i = 0; i < data.produk.length; i++) {
-                if (parseInt(data.produk[i].jumlahBeli) < parseInt(data.produk[i].isiDus)) {
+                if (parseInt(data.produk[i].jumlahBeli) < parseInt(data.produk[i].isiDus)) { // kurang dari 1 dus
                   Swal.fire({
                     icon: 'error',
-                    title: 'Pembelian',
+                    title: 'Peringatan Untuk Produk '+ data.produk[i].namaProduk +'',
                     text: 'Jumlah produk yang anda beli tidak sesuai dengan ketentuan',
                     footer: '<a href="<?= base_url('Dashboard/keranjang') ?>">Lihat Keranjang</a>'
                   }).then(function() {
                     window.location = "<?= base_url('Dashboard/checkout') ?>";
                   });
-                } else {
+                } else { 
 
-                  $('#ongkir').html("Rp. " + Intl.NumberFormat().format(data.ongkir[0].harga));
-                  $('#inputOngkir').val(data.ongkir[0].harga);
-                  $('#total').html("Rp. " + Intl.NumberFormat().format((parseInt(data.transaksi[0].totalBayar) + parseInt(data.ongkir[0].harga))));
+                  if ((parseInt(data.produk[i].jumlahBeli) % parseInt(data.produk[i].isiDus)) !== 0) { // bukan kelipatan 1 dus
+                    Swal.fire({
+                      icon: 'error',
+                      title: 'Peringatan Untuk Produk '+ data.produk[i].namaProduk +'',
+                      text: 'Pembelian Hanya Berlaku Kelipatan 1 Dus',
+                      footer: '<a href="<?= base_url('Dashboard/keranjang') ?>">Lihat Keranjang</a>'
+                    }).then(function() {
+                      window.location = "<?= base_url('Dashboard/checkout') ?>";
+                    });
+                  } else {
+                    $('#ongkir').html("Rp. " + Intl.NumberFormat().format(data.ongkir[0].harga));
+                    $('#inputOngkir').val(data.ongkir[0].harga);
+                    $('#total').html("Rp. " + Intl.NumberFormat().format((parseInt(data.transaksi[0].totalBayar) + parseInt(data.ongkir[0].harga))));
+
+                  }
                 }
               }
-            } else {
+            } else { // jawa barat dan jawa tengah
               for (i = 0; i < data.produk.length; i++) {
-                if (parseInt(data.produk[i].jumlahBeli) < (parseInt(data.produk[i].isiDus) * 3)) {
+                if (parseInt(data.produk[i].jumlahBeli) < (parseInt(data.produk[i].isiDus) * 3)) { //gak sampai 3 dus
                   Swal.fire({
                     icon: 'error',
-                    title: 'Pembelian',
+                    title: 'Peringatan Untuk Produk '+ data.produk[i].namaProduk +'',
                     text: 'Jumlah produk yang anda beli tidak sesuai dengan ketentuan',
                     footer: '<a href="<?= base_url('Dashboard/keranjang') ?>">Lihat Keranjang</a>'
                   }).then(function() {
                     window.location = "<?= base_url('Dashboard/checkout') ?>";
                   });
                 } else {
-
-                  $('#ongkir').html("Rp. " + Intl.NumberFormat().format(data.ongkir[0].harga));
-                  $('#inputOngkir').val(data.ongkir[0].harga);
-                  $('#total').html("Rp. " + Intl.NumberFormat().format((parseInt(data.transaksi[0].totalBayar) + parseInt(data.ongkir[0].harga))));
-
+                  if ((parseInt(data.produk[i].jumlahBeli) % parseInt(data.produk[i].isiDus)) !== 0) { // bukan kelipatan 1 dus
+                    Swal.fire({
+                      icon: 'error',
+                      title: 'Peringatan '+ data.produk[i].namaProduk +'',
+                      text: 'Pembelian Hanya Berlaku Kelipatan 1 Dus',
+                      footer: '<a href="<?= base_url('Dashboard/keranjang') ?>">Lihat Keranjang</a>'
+                    }).then(function() {
+                      window.location = "<?= base_url('Dashboard/checkout') ?>";
+                    });
+                  } else {
+                    $('#ongkir').html("Rp. " + Intl.NumberFormat().format(data.ongkir[0].harga));
+                    $('#inputOngkir').val(data.ongkir[0].harga);
+                    $('#total').html("Rp. " + Intl.NumberFormat().format((parseInt(data.transaksi[0].totalBayar) + parseInt(data.ongkir[0].harga))));
+                  }
                 }
               }
             }

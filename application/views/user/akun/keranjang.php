@@ -56,7 +56,7 @@
                                 <td><img style="size: 50px; width: 50px;" class="img-responsive" src="<?= base_url('img/produk/') . $data['gambar'] ?>" alt="Image"></td>
                                 <td><?= $data['namaProduk'] ?></td>
                                 <td><input type="text" class="form-control input-sm" name="jumlahBeli" value="<?= $data['jumlahBeli'] ?>" /></td>
-                                <td><?= $data['harga'] ?></td>
+                                <td><?= $data['hargaSatuan'] ?></td>
                                 <td><?= $data['totalHarga'] ?></td>
                                 <td><a href="<?= base_url('Dashboard/hapusKeranjang/' . $data['idDetailTransaksi']) ?>">
                                     <span class="badge rounded-pill bg-danger">Hapus</span>
