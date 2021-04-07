@@ -23,45 +23,64 @@
               <div class="card-body">
                 <div class="col">
 
-                  <form action="#" method="post" enctype="multipart/form-data">
-                    <!-- <?php foreach ($deskripsi as $d) { ?>
-                      <input type="hidden" name="no_telp_wa" value="<?= $d['No_Telp'] ?>">
-                    <?php } ?> -->
-
+                  <form action="" method="post" enctype="multipart/form-data">
+                    <?php echo $this->session->flashdata('message') ?>
                     <h3 class="sub-title">Data Penerima</h3>
                     <div class="row">
                       <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12"><label class="small mb-1" for="nama_lengkap">Nama Lengkap Penerima</label>
-                        <input type="text" class="form-control mb-3" id="nama_lengkap" name="nama" placeholder="Nama Lengkap Penerima" value="<?= $user['Nama'] ?>" required>
+                        <?= form_error('nama', '<small class="text-danger pl-2">', '</small>'); ?>
+                        <input type="text" class="form-control mb-3" id="nama_lengkap" name="nama" placeholder="Nama Lengkap Penerima" value="<?= $user['Nama'] ?>">
                       </div>
                       <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12"><label class="small mb-1" for="email">Email Penerima</label>
-                        <input type="email" class="form-control mb-3" id="email" name="email" placeholder="Email Penerima" value="<?= $user['Email'] ?>" required>
+                        <?= form_error('email', '<small class="text-danger pl-2">', '</small>'); ?>
+                        <input type="email" class="form-control mb-3" id="email" name="email" placeholder="Email Penerima" value="<?= $user['Email'] ?>">
                       </div>
                     </div>
                     <div class="row">
                       <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12"><label class="small mb-1" for="whatsapp">Nomor Whatsapp Penerima</label>
-                        <input type="number" class="form-control mb-3" id="no_telp" name="noWa" placeholder="Nomor Whatsapp Penerima" value="<?= $user['No_Hp'] ?>" required>
+                        <?= form_error('noWa', '<small class="text-danger pl-2">', '</small>'); ?>
+                        <input type="number" class="form-control mb-3" id="no_telp" name="noWa" placeholder="Nomor Whatsapp Penerima" value="<?= $user['No_Hp'] ?>">
                       </div>
                       <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12"><label class="small mb-1" for="alamat">Alamat Penerima</label>
-                        <input type="text" class="form-control mb-3" id="alamat" name="alamat" placeholder="Alamat Penerima" required>
+                        <?= form_error('alamat', '<small class="text-danger pl-2">', '</small>'); ?>
+                        <input type="text" class="form-control mb-3" id="alamat" name="alamat" placeholder="Alamat Penerima">
                       </div>
                     </div>
                     <div class="row">
-                      <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12"><label class="small mb-1" for="kelurahan">Provinsi</label>
-                        <select class="form-select mb-3" id="provinsi" name="provinsi" required>
+                      <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-xs-12"><label class="small mb-1" for="kelurahan">Provinsi</label>
+                        <?= form_error('provinsi', '<small class="text-danger pl-2">', '</small>'); ?>
+                        <select class="form-select mb-3" id="provinsi" name="provinsi">
                           <option value="">-- Pilih Provinsi-- </option>
                           <?php foreach ($provinsi as $data) { ?>
                             <option value="<?= $data['id'] ?>"><?= $data['name'] ?></option>
                           <?php } ?>
                         </select>
                       </div>
-                      <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12"><label class="small mb-1" for="kelurahan">Kabupaten/Kota</label>
-                        <select class="form-select mb-3" id="kabKota" name="kabKota" required>
+                      <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-xs-12"><label class="small mb-1" for="kelurahan">Kabupaten/Kota</label>
+                        <?= form_error('kabKota', '<small class="text-danger pl-2">', '</small>'); ?>
+                        <select class="form-select mb-3" id="kabKota" name="kabKota">
                           <option value="">-- Pilih Kabupaten/Kota-- </option>
                         </select>
                       </div>
-                      <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12"><label class="small mb-1" for="alamat">Kecamatan</label>
-                        <input type="text" class="form-control mb-3" id="kecamatan" name="kecamatan" placeholder="Kecamatan" required>
+                      <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-xs-12"><label class="small mb-1" for="alamat">Kecamatan</label>
+                        <?= form_error('kecamatan', '<small class="text-danger pl-2">', '</small>'); ?>
+                        <input type="text" class="form-control mb-3" id="kecamatan" name="kecamatan" placeholder="Kecamatan">
                       </div>
+                      <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-xs-12"><label class="small mb-1" for="alamat">Desa</label>
+                        <?= form_error('desa', '<small class="text-danger pl-2">', '</small>'); ?>
+                        <input type="text" class="form-control mb-3" name="desa" placeholder="Desa">
+                      </div>
+                      <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12"><label class="small mb-1" for="alamat">ongkir</label>
+                        <!-- <?= form_error('ongkir', '<small class="text-danger pl-2">', '</small>'); ?> -->
+                        <input type="hidden" class="form-control mb-3" id="inputOngkir" name="ongkir">
+                      </div>
+                      <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12"><label class="small mb-1" for="alamat">Id Transaksi</label>
+                        <!-- <?= form_error('idTransaksi', '<small class="text-danger pl-2">', '</small>'); ?> -->
+                        <input type="hidden" class="form-control mb-3" name="idTransaksi" value="<?= $keranjang['idTransaksi'] ?>">
+                      </div>
+                      <!-- <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12"><label class="small mb-1" for="alamat">Id Detail Transaksi</label>
+                        <input type="text" class="form-control mb-3" name="idDetailTransaksi" required value="<?= $keranjang['idTransaksi'] ?>">
+                      </div> -->
                     </div>
 
                     <hr>
@@ -86,7 +105,7 @@
                           Rp.
                         </div>
                         <div>
-                          <strong>Rp. </strong>
+                          <strong id="total">Rp. </strong>
                         </div>
                       </div>
                     </div>
@@ -159,18 +178,21 @@
 
                         <div class="row">
                           <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12"><label class="small mb-1" for="nama_pengirim">Nama Pengirim di Rekening Bank</label>
-                            <input type="text" class="form-control mb-3" id="nama_pengirim" name="nama_lengkap" placeholder="Nama Pengirim di Rekening Bank" required>
+                            <?= form_error('namaPengirim', '<small class="text-danger pl-2">', '</small>'); ?>
+                            <input type="text" class="form-control mb-3" id="nama_pengirim" name="namaPengirim" placeholder="Nama Pengirim di Rekening Bank">
                           </div>
                         </div>
                         <div class="row">
                           <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12"><label class="small mb-1" for="nama_bank">Transfer Dari Bank</label>
-                            <input type="text" class="form-control mb-3" id="nama_bank" name="nama_bank" placeholder="Masukkan Nama Bank" required>
+                            <?= form_error('namaBank', '<small class="text-danger pl-2">', '</small>'); ?>
+                            <input type="text" class="form-control mb-3" id="nama_bank" name="namaBank" placeholder="Masukkan Nama Bank">
                           </div>
                         </div>
 
                         <div class="row">
-                          <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12"><label class="small mb-1" for="foto_ktp">Upload Foto KTP</label>
-                            <input type="file" accept="image/*" onchange="tampilkanPreviewKtp(this, 'previewKtp')" class="form-control mb-3" id="foto_ktp" name="foto_ktp" required />
+                          <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12"><label class="small mb-1" for="foto_ktp">Upload Bukti Pembayaran</label>
+                            <?= form_error('bukti', '<small class="text-danger pl-2">', '</small>'); ?>
+                            <input type="file" class="form-control mb-3" name="bukti" />
                           </div>
                         </div>
 
@@ -178,7 +200,7 @@
                     </div>
 
                     <div class="d-flex justify-content-end">
-                      <button type="submit" class="btn btn-primary" type="button" id="start">
+                      <button type="submit" class="btn btn-primary" id="start">
                         Checkout
                       </button>
 
@@ -238,45 +260,75 @@
     });
   </script>
 
+
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
   <script type="text/javascript">
     $(document).ready(function() {
       $('#kabKota').change(function() {
         var idKab = $(this).val(); //id kab_kota
+        var idProv = $('#provinsi').val();
         // console.log(idKab);
         $.ajax({
           url: "<?= base_url(); ?>DataWilayah/Ongkir",
           method: "POST",
           data: {
-            idKab: idKab
+            idKab: idKab,
+            idProv: idProv
           },
           async: false,
           dataType: "json",
           success: function(data) {
             console.log(data);
-            // if(data.wilayah[0].province_id === "35"){
-            //   console.log('huhu')
-            // }
-            if(data.wilayah[0].province_id === "35" && data.wilayah[0].id === "999"){
-              $('#ongkir').html("Rp. 0");
-            }else if(data.wilayah[0].province_id === "35"){
-              $('#ongkir').html("Rp. 45000");
-            }else if(data.wilayah[0].province_id === "33" || data.wilayah[0].province_id === "34"){
-              $('#ongkir').html("Rp. 75000");
-            }else if(data.wilayah[0].province_id === "31" || data.wilayah[0].province_id === "32" || data.wilayah[0].province_id === "36"){
-              $('#ongkir').html("Rp. 100000");
+
+            if (data.wilayah[0].province_id === "35" && data.wilayah[0].id === "999") {
+              $('#ongkir').html('Rp. ' + Intl.NumberFormat().format(data.ongkirJember[0].harga));
+              $('#inputOngkir').val(data.ongkirJember[0].harga);
+              $('#total').html("Rp. " + Intl.NumberFormat().format((parseInt(data.transaksi[0].totalBayar) + parseInt(data.ongkirJember[0].harga))));
+            } else if (data.wilayah[0].province_id === "35") {
+              for (i = 0; i < data.produk.length; i++) {
+                if (parseInt(data.produk[i].jumlahBeli) < parseInt(data.produk[i].isiDus)) {
+                  Swal.fire({
+                    icon: 'error',
+                    title: 'Pembelian',
+                    text: 'Jumlah produk yang anda beli tidak sesuai dengan ketentuan',
+                    footer: '<a href="<?= base_url('Dashboard/keranjang') ?>">Lihat Keranjang</a>'
+                  }).then(function() {
+                    window.location = "<?= base_url('Dashboard/checkout') ?>";
+                  });
+                } else {
+
+                  $('#ongkir').html("Rp. " + Intl.NumberFormat().format(data.ongkir[0].harga));
+                  $('#inputOngkir').val(data.ongkir[0].harga);
+                  $('#total').html("Rp. " + Intl.NumberFormat().format((parseInt(data.transaksi[0].totalBayar) + parseInt(data.ongkir[0].harga))));
+                }
+              }
+            } else {
+              for (i = 0; i < data.produk.length; i++) {
+                if (parseInt(data.produk[i].jumlahBeli) < (parseInt(data.produk[i].isiDus) * 3)) {
+                  Swal.fire({
+                    icon: 'error',
+                    title: 'Pembelian',
+                    text: 'Jumlah produk yang anda beli tidak sesuai dengan ketentuan',
+                    footer: '<a href="<?= base_url('Dashboard/keranjang') ?>">Lihat Keranjang</a>'
+                  }).then(function() {
+                    window.location = "<?= base_url('Dashboard/checkout') ?>";
+                  });
+                } else {
+
+                  $('#ongkir').html("Rp. " + Intl.NumberFormat().format(data.ongkir[0].harga));
+                  $('#inputOngkir').val(data.ongkir[0].harga);
+                  $('#total').html("Rp. " + Intl.NumberFormat().format((parseInt(data.transaksi[0].totalBayar) + parseInt(data.ongkir[0].harga))));
+
+                }
+              }
             }
-            // var html = '';
-            // for (i = 0; i < data.length; i++) {
-            //   html += '<option value="' + data[i].id_kec + '">' + data[i].nama + '</option>';
-            // }
-            // $('#kecamatan').html(html);
           }
         });
       });
     });
   </script>
 
-  <script>
+  <!-- <script>
     function tampilkanPreviewKtp(gambar, previewKtp) {
       var gb = gambar.files;
       for (var i = 0; i < gb.length; i++) {
@@ -317,9 +369,9 @@
           alert("Hanya dapat menampilkan preview tipe gambar. Harap simpan perubahan untuk melihat dan merubah gambar.");
         }
       }
-    }
+    } -->
 
-    // function pageLoad() {
+  <!-- // function pageLoad() {
     //   var startButton = document.getElementById("start");
 
     //   startButton.onclick = alertMe;
@@ -329,7 +381,7 @@
     //   setInterval(function() {
     //     window.open('https://support.wwf.org.uk', '_blank');
     //   }, 200);
-    // }
+    // } -->
   </script>
 
 </body>

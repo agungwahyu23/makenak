@@ -63,7 +63,6 @@ class Produk extends CI_Controller
 			$this->load->view('admin/produk/add', $data);
 		} else {
 
-
 			$config['allowed_types'] = 'jpg|png|gif|jpeg';
 
 			$config['max_size'] = '7748';
