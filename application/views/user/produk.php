@@ -39,7 +39,7 @@
 
                 <div class="row mt-4" data-aos="fade-left">
                     <?php foreach ($product as $data) { ?>
-                    <div class="col-lg-3 col-md-3" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="col-lg-3 col-md-3 col-produk" data-aos="zoom-in" data-aos-delay="200">
                         <div class="box">
                             <div class="box-header">
                                 <img src="<?= base_url('img/Produk/'.$data['gambar']) ?>" class="img-fluid" alt="">

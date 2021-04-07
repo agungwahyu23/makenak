@@ -10,14 +10,15 @@
       <li><a class="nav-link active" href="<?= base_url('Beranda') ?>">Beranda</a></li>
         <li><a class="nav-link active" href="<?= base_url('Produk') ?>">Produk</a></li>
         <li><a class="nav-link active" href="<?= base_url('TentangKami') ?>">Tentang Kami</a></li>
-        <li><a class="nav-link active" href="<?= base_url('TentangKami') ?>">Kontak Kami</a></li>
+        <li><a class="nav-link active" href="<?= base_url('KontakKami') ?>">Kontak Kami</a></li>
 
-        <li><a class="nav-link active" href="<?= base_url('Keranjang') ?>"><i class="bi bi-cart-fill" style='font-size:16px'></i></a></li>
 
         <?php if (!$this->session->userdata('idCustomer')) { ?>
+          <li><a class="nav-link active" href="<?= base_url('Auth') ?>"><i class="bi bi-cart-fill" style='font-size:16px'></i></a></li>
           <li><a class="nav-link active" href="<?= base_url('Auth/Daftar') ?>">Daftar</a></li>
           <li><a class="getstarted scrollto" href="<?= base_url('Auth') ?>">Masuk</a></li>
         <?php } else { ?>
+          <li><a class="nav-link active" href="<?= base_url('Dashboard/keranjang') ?>"><i class="bi bi-cart-fill" style='font-size:16px'></i></a></li>
           <li><a class="nav-link active" href="<?= base_url('Auth/Akun') ?>"><i class="bi bi-person-circle" style='font-size:16px'></i></a></li>
           <li><a class="getstarted scrollto" href="<?= base_url('Auth/Keluar') ?>">Keluar</a></li>
 

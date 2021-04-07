@@ -848,7 +848,7 @@ section {
 
 @media (max-width: 991px) {
   .hero-half {
-    background: url(../../img/user/bg-hero-half-2.jpg) top no-repeat fixed;
+    background: url(../../img/ImageBackGround/tentangkami.png) top no-repeat fixed;
     height: 20vh;
     padding: 60px 0 60px 0;
     margin-top: 80px;
@@ -871,7 +871,7 @@ section {
 
 @media (max-width: 768px) {
   .hero-half {
-    background: url(../../img/user/bg-hero-half-2.jpg) top no-repeat fixed;
+    background: url(../../img/ImageBackGround/tentangkami.png) top no-repeat fixed;
     height: 20vh;
     padding: 60px 0 60px 0;
     margin-top: 80px;
@@ -1990,6 +1990,165 @@ section {
   font-size: 14px;
   font-weight: 400;
   color: #5c5c5c;
+}
+
+@media (max-width: 991px) {
+  .product-show .box{
+    margin-top: 5px;
+  }
+}
+
+@media (max-width: 768px) {
+  .product-show .box{
+    margin-top: 10px;
+  }
+}
+
+@media (max-width: 1199px) {
+  .product-show .nama-product span{
+    font-size: 13px;
+    padding-top: 10px;
+    color: #444444;
+    font-weight: 600;
+    font-family: 'Poppins';
+    padding-left: 10px;
+    align-items: left;
+    display: flex;
+  }
+
+  .product-show ul {
+    padding: 0;
+    list-style: none;
+    color: #444444;
+    text-align: left;
+    padding-left: 10px;
+    line-height: 26px;
+    font-size: 12px;
+    margin-bottom: 10px;
+  }
+
+  .product-show .btn-detail {
+    display: inline-block;
+    padding: 5px 50px 5px 50px;
+    margin-bottom: 10px;
+    border-radius: 50px;
+    color: #000000;
+    transition: none;
+    font-size: 12px;
+    font-weight: 400;
+    font-family: 'Poppins';
+    transition: 0.3s;
+    border: 1px solid #c4c4c4;
+    background: #ffffff;
+  }
+  
+  .product-show .btn-detail:hover {
+    color: #ffffff;
+    background: #000000;
+    font-size: 12px;
+    font-weight: 400;
+  }
+  
+  .product-show .btn-choose {
+    display: inline-block;
+    padding: 5px 30px 5px 30px;
+    margin-bottom: 40px;
+    border-radius: 50px;
+    color: #000000;
+    background: #d4af37;
+    transition: none;
+    font-size: 12px;
+    font-weight: 400;
+    font-family: 'Poppins';
+    transition: 0.3s;
+  }
+  
+  .product-show .btn-choose:hover {
+    color: #000000;
+    background: #caa11a;
+    font-size: 12px;
+    font-weight: 400;
+  }
+}
+
+@media (min-width: 0px) and (max-width: 575px){
+  .product-show .col-produk{
+    max-width: 50%;
+    min-width: 50%;
+  }
+
+  .product-show .nama-product span {
+    font-size: 13px;
+    padding-top: 10px;
+    color: #444444;
+    font-weight: 600;
+    font-family: 'Poppins';
+    padding-left: 10px;
+    align-items: left;
+    display: flex;
+  }
+
+  .product-show .box-header{
+    height: 140px;
+    overflow: hidden;
+    margin: 0px;
+    position: relative;
+  }
+
+  .product-show .btn-detail {
+    display: inline-block;
+    padding: 5px 50px 5px 50px;
+    margin-bottom: 10px;
+    border-radius: 50px;
+    color: #000000;
+    transition: none;
+    font-size: 12px;
+    font-weight: 400;
+    font-family: 'Poppins';
+    transition: 0.3s;
+    border: 1px solid #c4c4c4;
+    background: #ffffff;
+  }
+  
+  .product-show .btn-detail:hover {
+    color: #ffffff;
+    background: #000000;
+    font-size: 12px;
+    font-weight: 400;
+  }
+  
+  .product-show .btn-choose {
+    display: inline-block;
+    padding: 5px 30px 5px 30px;
+    margin-bottom: 40px;
+    border-radius: 50px;
+    color: #000000;
+    background: #d4af37;
+    transition: none;
+    font-size: 12px;
+    font-weight: 400;
+    font-family: 'Poppins';
+    transition: 0.3s;
+  }
+  
+  .product-show .btn-choose:hover {
+    color: #000000;
+    background: #caa11a;
+    font-size: 12px;
+    font-weight: 400;
+  }
+
+  .product-show ul {
+    padding: 0;
+    list-style: none;
+    color: #444444;
+    text-align: left;
+    padding-left: 10px;
+    line-height: 26px;
+    font-size: 12px;
+    margin-bottom: 10px;
+  }
+
 }
 /*--------------------------------------------------------------
 # Type

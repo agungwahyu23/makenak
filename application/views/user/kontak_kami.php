@@ -7,9 +7,9 @@
 
 <body>
 
-  <?php $this->load->view('user/_partials/navbar.php') ?>
+  <?php $this->load->view('user/_partials/static_color_navbar.php') ?>
 
-  <section id="hero" class="hero-half d-flex align-items-center" style="background-image: url(<?= base_url('img/ImageBackGround/tentangKamiHeader.png'); ?>)">
+  <section id="hero" class="hero-half d-flex align-items-center" style="background-image: url(<?= base_url('img/ImageBackGround/tentangkami.png'); ?>)">
 
     <div class="container">
       <div class="row">
@@ -42,19 +42,22 @@
               <div class="row">
                 <div class="col-lg-6" style="padding-left:50px;">
                   <h6 style="padding-left:10px; padding-top:15px;">Cotact Our Team</h6>
-                  <img src="<?= base_url('img/user/ic_wa.png') ?>" width="40px" height="40px" alt=""><span>085258179830</span><br>
-                  <img src="<?= base_url('img/user/ic_wa.png') ?>" width="40px" height="40px" alt=""><span>0895411940452</span><br>
-                  <img src="<?= base_url('img/user/ic_wa.png') ?>" width="40px" height="40px" alt=""><span>089517962666</span><br>
-                  <img src="<?= base_url('img/user/ic_wa.png') ?>" width="40px" height="40px" alt=""><span>089607900900</span>
+                  <a href=""> <img src="<?= base_url('img/user/ic_wa.png') ?>" width="40px" height="40px"
+                    alt=""><span>085258179830</span></a> <br>
+                  <a href=""> <img src="<?= base_url('img/user/ic_wa.png') ?>" width="40px" height="40px"
+                    alt=""><span>0895411940452</span></a><br>
+                  <a href=""> <img src="<?= base_url('img/user/ic_wa.png') ?>" width="40px" height="40px"
+                    alt=""><span>089517962666</span></a><br>
+                  <a href=""> <img src="<?= base_url('img/user/ic_wa.png') ?>" width="40px" height="40px"
+                    alt=""><span>089607900900</span></a>
                 </div>
 
-                <div class="col-lg-1 vl" style="border-left: 1px solid #4444;height: 165px;position: absolute;left: 50%;margin-left: -3px;top: 10px; bottom: 10px;"></div>
 
-                <div class="col-lg-5">
+                <div class="col-lg-6" style="padding-left:50px;">
                   <h6 style="padding-top:15px;">Follow Our Media</h6>
-                  <a href="#"><img src="<?= base_url('img/user/ic_ig.png') ?>" width="40px" height="40px" alt=""><span>Mak Enak Official</span></a>
-                  <a href="#"><img src="<?= base_url('img/user/ic_ig.png') ?>" width="40px" height="40px" alt=""><span>Mak Enak Official</span></a>
-                  <a href="#"><img src="<?= base_url('img/user/ic_fb.png') ?>" width="40px" height="40px" alt=""><span>Mak Enak Jember</span></a>
+                  <a href="https://www.instagram.com/mak_enak_jember/"> <img src="<?= base_url('img/user/ic_ig.png') ?>" width="40px" height="40px" alt=""><span>Mak Enak Jember</span></a><br>
+                  <a href="https://www.instagram.com/mak_enak_official/"> <img src="<?= base_url('img/user/ic_ig.png') ?>" width="40px" height="40px" alt=""><span>Mak Enak Official</span></a><br>
+                  <a href="https://www.facebook.com/makenakofficial"> <img src="<?= base_url('img/user/ic_fb.png') ?>" width="40px" height="40px" alt=""><span>Mak Enak Jember</span></a>
                 </div>
               </div>
 
