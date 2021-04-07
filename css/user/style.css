@@ -890,6 +890,9 @@ section {
   .hero-half h2 {
     font-size: 1.5vh;
   }
+  .hero-half h5{
+    font-size: 1.2vh;
+  }
 }
 
 /*--------------------------------------------------------------
@@ -2087,16 +2090,16 @@ section {
   font-size: 16px;
   font-weight: 400;
   font-family: 'Poppins';
-  font-weight: 600;
   transition: 0.3s;
-  border: 1px solid #9e9e9e;
+  border: 1px solid #c4c4c4;
   background: #ffffff;
 }
 
 .type .btn-detail:hover {
-  color: #000000;
-  background: #d4af37;
-  border: 1px solid #d4af37;
+  color: #ffffff;
+  background: #000000;
+  font-size: 16px;
+  font-weight: 400;
 }
 
 .type .btn-choose {
@@ -2110,15 +2113,15 @@ section {
   font-size: 16px;
   font-weight: 400;
   font-family: 'Poppins';
-  font-weight: 600;
   transition: 0.3s;
   border: 1px solid #d4af37;
 }
 
 .type .btn-choose:hover {
   color: #000000;
-  background: #d4af37;
-  border: 1px solid #d4af37;
+  background: #caa11a;
+  font-size: 16px;
+  font-weight: 400;
 }
 
 .type .featured {

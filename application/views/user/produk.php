@@ -28,7 +28,16 @@
 
             <div class="container" data-aos="fade-up">
 
-                <div class="row gy-4" data-aos="fade-left">
+                <div class="row mt-0">
+                    <div class="col-lg-3">
+                        <form class="d-flex">
+                            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                            <button class="btn btn-outline-secondary" type="submit">Search</button>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="row mt-4" data-aos="fade-left">
                     <?php foreach ($product as $data) { ?>
                     <div class="col-lg-3 col-md-3" data-aos="zoom-in" data-aos-delay="200">
                         <div class="box">
