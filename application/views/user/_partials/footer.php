@@ -30,10 +30,7 @@
         <div class="col-lg-2 col-md-12 footer-contact text-center text-md-start">
           <h4>Kontak Kami</h4>
           <a href="https://www.google.com/maps?q=-8.165755271911621,113.73561096191406&z=17&hl=en">
-            Jl. Kaliurang, Kec. Sumbersari,<br>
-            Kabupaten Jember,<br>
-            Jawa Timur 68124<br><br>
-          </a>
+            Jl. Letjen S.Parman X No.15, Tegal Boto Kidul, Karangrejo, <br> Kec. Sumbersari, Kabupaten Jember, Jawa Timur 68121
           <div class="social-links mt-3">
             <?php foreach ($deskripsi as $d) { ?>
               <a href="https://www.instagram.com/<?= $d['Instagram'] ?>/" class="instagram"><i class="bi bi-instagram bx bxl-instagram"></i></a>

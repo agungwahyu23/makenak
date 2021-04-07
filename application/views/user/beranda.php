@@ -190,7 +190,7 @@
                 <img src="<?= base_url('img/Produk/Pastri.png') ?>" class="img-fluid" alt="">
                 <div class="house-type"><span><?= $data['namaProduk']?></span></div>
                 <ul>
-                  <li>Rp <?= number_format($data['harga'], 2, ",", ".") ?></li>
+                  <li>Rp <?= number_format($data['harga'], 0, ",", ".") ?></li>
                 </ul>
                 <a href="<?= base_url('Produk/DetailProduk/') . $data['id'] ?>" class="btn-detail">Detail</a>
                 <a href="<?= base_url('Produk/DetailProduk/') . $data['id'] ?>" class="btn-choose">Beli Sekarang</a>
@@ -204,6 +204,10 @@
 
     <section id="about-home" class="about-home">
       <div class="container" data-aos="fade-up">
+      <header class="section-header">
+          <h2>P-IRT</h2>
+          <p>Memiliki Izin P-IRT</p>
+        </header>
         <div class="row gx-0">
 
           <div class="col-lg-6 d-flex flex-column justify-content-center" data-aos="fade-up" data-aos-delay="200">
@@ -225,7 +229,7 @@
       </div>
     </section>
 
-    <section id="about-home" class="about-home">
+    <!-- <section id="about-home" class="about-home">
       <div class="container" data-aos="fade-up">
         <div class="row gx-0">
 
@@ -246,14 +250,14 @@
 
         </div>
       </div>
-    </section>
+    </section> -->
 
     <section id="partner" class="partner">
 
       <div class="container" data-aos="fade-up">
 
         <header class="section-header">
-          <h2>Partner</h2>
+          <h2>Marketplace</h2>
           <p>Temukan Kami Di Marketplace</p>
         </header>
 
@@ -294,13 +298,12 @@
                         <img src="<?= base_url('img/user/ic_wa.png') ?>" width="40px" height="40px" alt=""><span>089607900900</span>
                       </div>
 
-                      <div class="col-lg-1 vl" style="border-left: 1px solid #4444;height: 165px;position: absolute;left: 50%;margin-left: -3px;top: 10px; bottom: 10px;"></div>
-
-                      <div class="col-lg-5">
+                      
+                      <div class="col-lg-6" style="padding-left:50px;">
                         <h6 style="padding-top:15px;">Follow Our Media</h6>
-                        <a href="#"><img src="<?= base_url('img/user/ic_ig.png') ?>" width="40px" height="40px" alt=""><span>Mak Enak Official</span></a>
-                        <a href="#"><img src="<?= base_url('img/user/ic_ig.png') ?>" width="40px" height="40px" alt=""><span>Mak Enak Official</span></a>
-                        <a href="#"><img src="<?= base_url('img/user/ic_fb.png') ?>" width="40px" height="40px" alt=""><span>Mak Enak Jember</span></a>
+                        <img src="<?= base_url('img/user/ic_ig.png') ?>" width="40px" height="40px" alt=""><span>Mak Enak Jember</span><br>
+                        <img src="<?= base_url('img/user/ic_ig.png') ?>" width="40px" height="40px" alt=""><span>Mak Enak Official</span><br>
+                        <img src="<?= base_url('img/user/ic_fb.png') ?>" width="40px" height="40px" alt=""><span>Mak Enak Jember</span>
                       </div>
                     </div>
                     

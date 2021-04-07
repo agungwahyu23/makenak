@@ -33,11 +33,11 @@
         <div class="row gx-0">
 
 
-          <div class="col-lg-6 d-flex align-items-center" data-aos="zoom-out" data-aos-delay="200">
+          <div class="col-lg-6 d-flex align-items-center aos-init aos-animate" data-aos="zoom-out" data-aos-delay="200">
             <!-- untuk melakukan zoom out -->
             <a href="<?= base_url('img/Produk/' . $detailProduk['gambar']) ?>" data-gallery="portfolioGallery" class="portfokio-lightbox">
 
-              <img style="width: 720px; height: 500px; object-position: center;" src="<?= base_url('img/Produk/' . $detailProduk['gambar']) ?>" class="img-fluid" alt="">
+              <img src="<?= base_url('img/Produk/' . $detailProduk['gambar']) ?>" class="img-fluid" alt="">
 
             </a>
 
@@ -50,15 +50,15 @@
             <div class="content">
               <div class="d-flex justify-content-start">
 
-                <div class="">
+                <div class="mb-2">
                   <h5><b><?= $detailProduk['namaProduk'] ?></b></h5>
+                  
                 </div>
 
               </div>
 
-              <p>Netto : <?= $detailProduk['netto'] ?> Gram</p>
-
-              <p><strong>Rp <?= number_format($detailProduk['harga'], 2, ",", ".") ?></strong></p>
+              <strong> Rp <?= number_format($detailProduk['harga'], 2, ",", ".") ?></strong>
+              <p> Netto : <?= $detailProduk['netto'] ?> Gram</p>
 
               <p class="mt-3">
 
@@ -72,8 +72,9 @@
                 <?= $detailProduk['deskripsi'] ?>
 
               </p>
+              <br>
               <p class="mt-3 text-danger">
-                Minimal pembelian di luar Jember <br> 1. Jawa Timur minimal order 1 dus atau 32 toples. <br> 2. Jawa Tengah dan Jawa Barat minimal order 3 dus atau 32 x 3 toples. <br>
+                <b> *Catatan :</b> <br> Minimal pembelian di luar Jember <br> 1. Jawa Timur minimal order 1 dus atau 32 toples. <br> 2. Jawa Tengah dan Jawa Barat minimal order 3 dus atau 32 x 3 toples. <br>
               </p>
               <div class="d-grid gap-10">
                 <form method="POST">
@@ -82,13 +83,13 @@
                   <div class="flex-r-m flex-w p-t-10">
                     <div class="w-size16 flex-m flex-w">
                       <div class="flex-w bo5 of-hidden m-r-22 m-t-10 m-b-10">
-                        <button class="btn-num-product-down bg8 color1 flex-c-m size7 eff2">
+                        <button class="btn-num-product-down bomin bg3 color1 flex-c-m size7 eff2">
                           <i class="fs-12 fa fa-minus" aria-hidden="true"></i>
                         </button>
 
                         <input class="size8 m-text18 t-center num-product" type="number" name="jumlah" value="1">
 
-                        <button class="btn-num-product-up color1 flex-c-m size7 bg8 eff2">
+                        <button class="btn-num-product-up boplus bg3 color1 flex-c-m size7 eff2">
                           <i class="fs-12 fa fa-plus" aria-hidden="true"></i>
                         </button>
                       </div>

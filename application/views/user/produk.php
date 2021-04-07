@@ -39,7 +39,7 @@
 
                             <div class="nama-product"><span><?= $data['namaProduk']?></span></div>
                             <ul>
-                                <li>Rp <?= number_format($data['harga'], 2, ",", ".") ?></li>
+                                <li>Rp <?= number_format($data['harga'], 0, ",", ".") ?></li>
                             </ul>
                             <a href="<?= base_url('Produk/DetailProduk/') . $data['id'] ?>"
                                 class="btn-detail">Detail</a>
@@ -49,18 +49,19 @@
                     </div>
                     <?php } ?>
                 </div>
+                <div class="container">
+                    <div class="pagination flex-m flex-w p-t-26 justify-content-center">
+                        <?php
+                    // Tampilkan link-link paginationnya
+                    echo $pagination;
+                    ?>
+                    </div>
+                 </div>
             </div>
             
         </section>
         <section id="pagin">
-            <div class="container">
-                <div class="pagination flex-m flex-w p-t-26">
-                    <?php
-                    // Tampilkan link-link paginationnya
-                    echo $pagination;
-                    ?>
-                </div>
-            </div>
+            
         </section>
     </main>
 

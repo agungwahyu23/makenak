@@ -24,6 +24,9 @@
 <link href="<?= base_url('css/user/style.css')?>" rel="stylesheet">
 <link href="<?= base_url('css/user/util.css')?>" rel="stylesheet">
 <link href="<?= base_url('css/user/main.css')?>" rel="stylesheet">
+
+    <script data-search-pseudo-elements defer src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/all.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.24.1/feather.min.js" crossorigin="anonymous"></script>
 <!-- Custom styles for this template -->
 
 <!-- Menyisipkan library Google Maps -->
