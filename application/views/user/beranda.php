@@ -32,7 +32,7 @@
     </div>
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <section id="hero" class="hero d-flex align-items-center" style="background-image: url(<?= base_url('img/ImageBackGround/Union.jpg'); ?>)">
+        <section id="hero" class="hero d-flex align-items-center" style="background-image: url(<?= base_url('img/ImageBackGround/bg-slide.png'); ?>)">
           <div class="container">
             <div class="row justify-content-center">
               <div class="col-lg-12 d-flex flex-column text-center">
@@ -47,7 +47,7 @@
           </div>
         </section>
       </div>
-      <!-- <!-- <div class="carousel-item">
+      <div class="carousel-item">
         <section id="hero" class="hero d-flex align-items-center" style="background-image: url(<?= base_url('img/assets_images/Slider/Slide2.jpeg'); ?>)">
           <div class="container">
             <div class="row">
@@ -60,7 +60,7 @@
             </div>
           </div>
         </section>
-      </div> -->
+      </div>
       <div class="carousel-item">
         <section id="hero" class="hero d-flex align-items-center" style="background-image: url(<?= base_url('img/assets_images/Slider/Slide3.jpeg'); ?>)">
           <div class="container">
@@ -74,16 +74,16 @@
             </div>
           </div>
         </section>
-      </div> -->
+      </div>
     </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+    <!-- <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
       <span class="carousel-control-prev-icon" aria-hidden="true"></span>
       <span class="visually-hidden">Previous</span>
     </button>
     <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
       <span class="carousel-control-next-icon" aria-hidden="true"></span>
       <span class="visually-hidden">Next</span>
-    </button>
+    </button> -->
   </div>
 
   <main id="main">
