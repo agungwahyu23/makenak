@@ -31,8 +31,8 @@
                 <div class="row mt-0">
                     <div class="col-lg-3">
                         <form class="d-flex">
-                            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                            <button class="btn btn-outline-secondary" type="submit">Search</button>
+                            <input class="form-control me-2" type="search" placeholder="Cari Produk" aria-label="Search">
+                            <button class="btn btn-outline-secondary" type="submit">Cari</button>
                         </form>
                     </div>
                 </div>
