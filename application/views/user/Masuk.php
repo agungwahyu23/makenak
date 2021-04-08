@@ -42,9 +42,11 @@
             <div class="form-title">Masuk dan mulai berbelanja</div>
             <form id="signinform" method="POST">
               <div class="form-text">
+                <?= form_error('email', '<small class="text-danger pl-2">', '</small>'); ?>
                 <input type="text" name="email" placeholder="Masukan Email Anda" required>
               </div>
               <div class="form-text">
+                <?= form_error('password', '<small class="text-danger pl-2">', '</small>'); ?>
                 <input type="password" name="password" placeholder="Masukan Password Anda" required>
               </div>
               <div class="form-button">

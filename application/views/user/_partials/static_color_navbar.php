@@ -13,7 +13,7 @@
         <li><a class="nav-link active" href="<?= base_url('KontakKami') ?>">Kontak Kami</a></li>
 
         <?php if (!$this->session->userdata('idCustomer')) { ?>
-          <li><a class="nav-link active" href="<?= base_url('Auth') ?>"><i class="bi bi-cart-fill" style='font-size:16px'></i></a></li>
+          <li><a class="nav-link active" href="<?= base_url('Dashboard/keranjang') ?>"><i class="bi bi-cart-fill" style='font-size:16px'></i></a></li>
           <li><a class="getstarted scrollto" href="<?= base_url('Auth') ?>">Masuk</a></li>
         <?php } else { ?>
           <li><a class="nav-link active" href="<?= base_url('Dashboard/keranjang') ?>"><i class="bi bi-cart-fill" style='font-size:16px'></i></a></li>

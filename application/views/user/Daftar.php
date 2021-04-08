@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no">
   <title><?= SITE_NAME ?></title>
-  
+
   <link href="<?= base_url('img/Icon/Logo.png') ?>" rel="icon" type="image/x-icon">
   <link href="<?= base_url('img/Icon/Logo.png') ?>" rel="apple-touch-icon">
   <link rel="stylesheet" type="text/css" href="<?= base_url('css/auth/bootstrap.min.css') ?>">
@@ -39,22 +39,28 @@
             <form id="signupform" method="POST">
               <div class="row">
                 <div class="col-md-6 form-text">
+                  <?= form_error('nama', '<small class="text-danger pl-2">', '</small>'); ?>
                   <input type="text" name="nama" placeholder="Nama Lengkap" required />
                 </div>
                 <div class="col-md-6 form-text">
+                  <?= form_error('noWa', '<small class="text-danger pl-2">', '</small>'); ?>
                   <input type="number" name="noWa" placeholder="Nomor WhatsApp" required />
                 </div>
               </div>
               <div class="form-text">
+                <?= form_error('email', '<small class="text-danger pl-2">', '</small>'); ?>
                 <input type="text" name="email" placeholder="Email" required />
               </div>
               <div class="form-text">
+                <?= form_error('alamat', '<small class="text-danger pl-2">', '</small>'); ?>
                 <input type="text" name="alamat" placeholder="Alamat Rumah" required />
               </div>
               <div class="form-text">
+                <?= form_error('password', '<small class="text-danger pl-2">', '</small>'); ?>
                 <input type="password" name="password" placeholder="Password" required />
               </div>
               <div class="form-text">
+                <?= form_error('konfirmasiPassword', '<small class="text-danger pl-2">', '</small>'); ?>
                 <input type="password" name="konfirmasiPassword" placeholder="Konfirmasi Password" required />
               </div>
               <div class="form-button">
