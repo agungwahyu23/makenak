@@ -57,7 +57,7 @@
 
               </div>
 
-              <strong> Rp <?= number_format($detailProduk['harga'], 2, ",", ".") ?></strong>
+              <strong> Rp <?= number_format($detailProduk['harga']) ?></strong>
               <p> Netto : <?= $detailProduk['netto'] ?> Gram</p>
 
               <p class="mt-3">
@@ -74,7 +74,7 @@
               </p>
               <br>
               <p class="mt-3 text-danger">
-                <b> *Catatan :</b> <br> Minimal pembelian di luar Jember <br> 1. Jawa Timur minimal order 1 dus atau 32 toples. <br> 2. Jawa Tengah dan Jawa Barat minimal order 3 dus atau 32 x 3 toples. <br>
+                <b> *Catatan :</b> <br> Minimal pembelian di luar Jember <br> 1. Jawa Timur minimal order 1 dus atau <?= $detailProduk['isiDus']?> toples. <br> 2. Jawa Tengah dan Jawa Barat minimal order 3 dus atau <?= $detailProduk['isiDus'] * 3?> toples. <br>
               </p>
               <div class="d-grid gap-10">
                 <form method="POST">
