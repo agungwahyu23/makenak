@@ -238,7 +238,7 @@ section {
 # Header
 --------------------------------------------------------------*/
 .header {
-  background: rgba(0, 0, 0, 0.0);
+  background: rgba(0, 0, 0, 0.26);
   /* background: #000000; */
   transition: all 0.5s;
   z-index: 997;
@@ -687,9 +687,9 @@ section {
   text-align: right;
 }
 
-/* .hero .container {
+.hero .container {
   margin-left: 12vw;
-} */
+}
 
 @media (min-width: 1024px) {
   .hero {

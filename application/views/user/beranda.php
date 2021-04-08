@@ -33,10 +33,10 @@
     <div class="carousel-inner">
       <div class="carousel-item active">
         <section id="hero" class="hero d-flex align-items-center" style="background-image: url(<?= base_url('img/ImageBackGround/bg-slide.png'); ?>)">
-          <div class="container">
-            <div class="row justify-content-center">
-              <div class="col-lg-12 d-flex flex-column text-center">
-                <h1 data-aos="fade-up">Mak Enak</h1>
+        <div class="container">
+            <div class="row">
+              <div class="col-lg-6 d-flex flex-column justify-content-center">
+                <h1 data-aos="fade-up">Mak Enak Jember</h1>
                 <h2 data-aos="fade-up" data-aos-delay="400">Oleh - oleh Khas Jember. Berbagai varian kue kering dan frozen food
                   kami hadirkan untuk anda sebagai sajian hari istimewa dan
                   camilan untuk menemani hari anda.</h2>
@@ -48,12 +48,12 @@
         </section>
       </div>
       <div class="carousel-item">
-        <section id="hero" class="hero d-flex align-items-center" style="background-image: url(<?= base_url('img/assets_images/Slider/Slide2.jpeg'); ?>)">
+        <section id="hero" class="hero d-flex align-items-center" style="background-image: url(<?= base_url('img/ImageBackGround/bg-2.webp'); ?>)">
           <div class="container">
             <div class="row">
               <div class="col-lg-6 d-flex flex-column justify-content-center">
-                <h1 data-aos="fade-up">River Prawn Residence 2<br>Kaliurang Jember 2</h1>
-                <h2 data-aos="fade-up" data-aos-delay="400">Hunian modern bergaya Eropa pertama di Jember 2</h2>
+                <h1 data-aos="fade-up">Aneka Kue Kering</h1>
+                <h2 data-aos="fade-up" data-aos-delay="400">Kami hadirkan aneka olahan kue kering khas Jember untuk menemani hari istimewa Anda.</h2>
                 <div data-aos="fade-up" data-aos-delay="600">
                 </div>
               </div>
@@ -62,12 +62,14 @@
         </section>
       </div>
       <div class="carousel-item">
-        <section id="hero" class="hero d-flex align-items-center" style="background-image: url(<?= base_url('img/assets_images/Slider/Slide3.jpeg'); ?>)">
+        <section id="hero" class="hero d-flex align-items-center" style="background-image: url(<?= base_url('img/ImageBackGround/bg-3.jpg'); ?>)">
           <div class="container">
             <div class="row">
               <div class="col-lg-6 d-flex flex-column justify-content-center">
-                <h1 data-aos="fade-up">River Prawn Residence 3<br>Kaliurang Jember 3</h1>
-                <h2 data-aos="fade-up" data-aos-delay="400">Hunian modern bergaya Eropa pertama di Jember 3</h2>
+                <h1 data-aos="fade-up">Mak Enak Jember</h1>
+                <h2 data-aos="fade-up" data-aos-delay="400">Oleh - oleh Khas Jember. Berbagai varian kue kering dan frozen food
+                  kami hadirkan untuk anda sebagai sajian hari istimewa dan
+                  camilan untuk menemani hari anda.</h2>
                 <div data-aos="fade-up" data-aos-delay="600">
                 </div>
               </div>
