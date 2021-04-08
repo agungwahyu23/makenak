@@ -127,14 +127,18 @@
 								</div>
 
 								<div class="card-body">
-									<?php $i=1; foreach ($produkTerlaris as $data) { ?>
-										<input type="hidden" id="produk<?= $i?>" value="<?= $data['jumlahBeli']?>">
+									<?php $i = 1;
+									foreach ($produkTerlaris as $data) { ?>
+										<input type="hidden" id="produk<?= $i ?>" value="<?= $data['jumlahBeli'] ?>">
 
-									<?php $i++; } ?>
-									<?php $i=1; foreach ($produkTerlaris as $data) { ?>
-										<input type="hidden" id="namaproduk<?= $i?>" value="<?= $data['namaProduk']?>">
+									<?php $i++;
+									} ?>
+									<?php $i = 1;
+									foreach ($produkTerlaris as $data) { ?>
+										<input type="hidden" id="namaproduk<?= $i ?>" value="<?= $data['namaProduk'] ?>">
 
-									<?php $i++; } ?>
+									<?php $i++;
+									} ?>
 									<!-- <input type="hidden" id="inp36terbooking" value="35">
 									<input type="hidden" id="inp36terjual" value="35">
 									<input type="hidden" id="inp36terbuang" value="35"> -->
@@ -262,7 +266,7 @@
 			],
 			// labels: cData.tanggal,
 			datasets: [{
-				label: "Earnings ",
+				label: "Pengunjung ",
 				lineTension: 0.3,
 				backgroundColor: "rgba(0, 97, 242, 0.05)",
 				borderColor: "rgba(0, 97, 242, 1)",

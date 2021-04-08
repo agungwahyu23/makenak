@@ -52,15 +52,15 @@
                     </div>
                     <div class="form-group col-lg-3 col-sm-12">
                       <label>Nomor whatsapp 2</label>
-                      <input class="form-control" id="no_telp" name="wa2" type="text" placeholder="Nomor Telepon" value="<?= $k['wa1'] ?>" />
+                      <input class="form-control" id="no_telp" name="wa2" type="text" placeholder="Nomor Telepon" value="<?= $k['wa2'] ?>" />
                     </div>
                     <div class="form-group col-lg-3 col-sm-12">
                       <label>Nomor whatsapp 3</label>
-                      <input class="form-control" id="no_telp" name="wa3" type="text" placeholder="Nomor Telepon" value="<?= $k['wa1'] ?>" />
+                      <input class="form-control" id="no_telp" name="wa3" type="text" placeholder="Nomor Telepon" value="<?= $k['wa3'] ?>" />
                     </div>
                     <div class="form-group col-lg-3 col-sm-12">
                       <label>Nomor whatsapp 4</label>
-                      <input class="form-control" id="no_telp" name="wa4" type="text" placeholder="Nomor Telepon" value="<?= $k['wa1'] ?>" />
+                      <input class="form-control" id="no_telp" name="wa4" type="text" placeholder="Nomor Telepon" value="<?= $k['wa4'] ?>" />
                     </div>
                   </div>
                   <div class="row">
