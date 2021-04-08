@@ -37,7 +37,7 @@
 	1. General Styles
 -------------------------------------------------------------------*/
 *, body {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Poppins';
     font-weight: 400;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
@@ -4195,11 +4195,9 @@ svg.logo text {
 
 .info-slider-holder .info-holder {
     position: relative;
-    top: 50%;
-    -webkit-transform: translateY(-50%);
-    -moz-transform: translateY(-50%);
-    -ms-transform: translateY(-50%);
-    transform: translateY(-50%);
+    top: 10%;
+   
+    
 }
 
 .info-slider-holder .bg-animation {
@@ -4220,10 +4218,10 @@ svg.logo text {
 }
 
 .info-slider-holder h6 {
-    font-size: 16px;
-    font-family: "Rubik", sans-serif;
+    font-size: 18px;
+    font-family: 'Poppins';
     color: #ffffff;
-    font-weight: 500;
+    font-weight: 600;
     margin-bottom: 20px;
 }
 
@@ -4329,7 +4327,7 @@ svg.logo text {
     color: #ffffff;
     font-size: 15px;
     font-weight: 700;
-    text-transform: uppercase;
+    
     padding: 8px 20px;
     border-radius: 10px;
     background-color: #b91010;

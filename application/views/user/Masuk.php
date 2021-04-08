@@ -15,9 +15,10 @@
   <link rel="stylesheet" type="text/css" href="<?= base_url('css/auth/custom.css') ?>">
 </head>
 
-<body class="fullpage">
-  <div id="form-section" class="container-fluid signin">
+<body>
+  <div id="form-section" class="container-fluid signin align-item-center">
     <div class="row">
+    <div class="col">
       <div class="info-slider-holder">
         <div class="info-holder">
           <h6>Mak Enak Jember</h6>
@@ -25,7 +26,10 @@
             Untuk Menemani <span>Harimu</span></div>
         </div>
       </div>
-      <div class="form-holder">
+    </div>
+
+    <div class="col">
+    <div class="form-holder">
         <div class="menu-holder">
           <ul class="main-links">
             <li><a class="normal-link" href="<?= base_url('Auth/Daftar') ?>">Belum Punya Akun?</a></li>
@@ -51,7 +55,24 @@
         </div>
       </div>
     </div>
+
+
+      
+      
+    </div>
   </div>
+
+<!-- <section class="signin">
+  <div class="row justify-content-center">
+    <div class="col-lg-5">
+      ilustrasi
+    </div>
+    <div class="col-lg-7">
+      form
+    </div>
+  </div>
+</section> -->
+
   <script src="<?= base_url() ?>js/auth/jquery.min.js"></script>
   <script src="<?= base_url() ?>js/auth/bootstrap.min.js"></script>
   <script src="<?= base_url() ?>js/auth/bootstrap-slider.min.js"></script>
