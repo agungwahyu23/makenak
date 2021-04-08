@@ -54,7 +54,7 @@ $dataWa = substr($dataPenerima['wa'], 1);
                   </div>
                   <div class="form-group col-lg-6 col-sm-6">
                     <h3>Alamat</h3>
-                    <p><?= $dataPenerima['alamatPenerima'] ?>, <?= $dataPenerima['kelurahan'] ?>, <?= $dataPenerima['kecamatan'] ?>, <?= $dataPenerima['kabupaten'] ?></p>
+                    <p><?= $dataPenerima['alamatPenerima'] ?>, <?= $dataPenerima['desa'] ?>, <?= $dataPenerima['kecamatan'] ?>, <?= $dataPenerima['name'] ?>, <?= $provinsi['name'] ?></p>
                   </div>
                 </div>
                 <!-- <div class="row">

@@ -50,11 +50,11 @@ $dataWa = substr($dataPenerima['wa'], 1);
                 <div class="row mt-3">
                   <div class="form-group col-lg-6 col-sm-6">
                     <h3>Nomor WhatsApp</h3>
-                    <p><a href="https://api.whatsapp.com/send?phone=62<?= $dataWa?>&text=Hai%20kakak!%20Saya%20dari%20Admin%20Mak%20Enak%20ingin%20menginformasikan%20bahwa%20pesanan%20yang%20anda%20buat%20dengan%20data%20berikut%3A%20%0A1.%20nama%20rekening%20pengirim%20<?= $dataPenerima['namaPengirim']?>%0A2.%20tanggal%20pemesanan%20<?= $dataPenerima['tanggalTransaksi']?>%20%0A3.%20total%20pembayaran%20<?= number_format($dataPenerima['totalBayar'], 2, ",", ".") ?>"><?= $dataPenerima['wa'] ?></a></p>
+                    <p><a href="https://api.whatsapp.com/send?phone=62<?= $dataWa ?>&text=Hai%20kakak!%20Saya%20dari%20Admin%20Mak%20Enak%20ingin%20menginformasikan%20bahwa%20pesanan%20yang%20anda%20buat%20dengan%20data%20berikut%3A%20%0A1.%20nama%20rekening%20pengirim%20<?= $dataPenerima['namaPengirim'] ?>%0A2.%20tanggal%20pemesanan%20<?= $dataPenerima['tanggalTransaksi'] ?>%20%0A3.%20total%20pembayaran%20<?= number_format($dataPenerima['totalBayar'], 2, ",", ".") ?>"><?= $dataPenerima['wa'] ?></a></p>
                   </div>
                   <div class="form-group col-lg-6 col-sm-6">
                     <h3>Alamat</h3>
-                    <p><?= $dataPenerima['alamatPenerima'] ?>, <?= $dataPenerima['kelurahan'] ?>, <?= $dataPenerima['kecamatan'] ?>, <?= $dataPenerima['kabupaten'] ?></p>
+                    <p><?= $dataPenerima['alamatPenerima'] ?>, <?= $dataPenerima['desa'] ?>, <?= $dataPenerima['kecamatan'] ?>, <?= $dataPenerima['name'] ?>, <?= $provinsi['name'] ?></p>
                   </div>
                 </div>
                 <!-- <div class="row">
@@ -130,7 +130,7 @@ $dataWa = substr($dataPenerima['wa'], 1);
                         <?php $i++;
                         } ?>
                         <tr>
-                          <td colspan="4" ></td>
+                          <td colspan="4"></td>
                           <td>Rp. <?= number_format($dataPenerima['totalBayar'], 2, ",", ".") ?></td>
                         </tr>
 
@@ -141,14 +141,20 @@ $dataWa = substr($dataPenerima['wa'], 1);
                 </div>
 
 
-
-                <div class="row mr-3">
-                  <div class="col-lg-12 col-sm-12 ">
-                    <a href="<?= base_url('admin/Transaksi/selesaiDikemas/' . $dataPenerima['idTransaksi']) ?>" class="btn btn-success btn-sm">Selesai Dikemas</a>
-                    <a href="<?= base_url('admin/Transaksi/dikemas') ?>" class="btn btn-danger btn-sm">Kembali</a>
-
+                <form action="<?= base_url('admin/Transaksi/selesaiDikemas')?>" method="POST">
+                  <div class="row mr-3">
+                    <div class="form-group col-lg-4 col-sm-4">
+                      <label>Masukan Resi</label>
+                      <?= form_error('resi', '<small class="text-danger pl-2">', '</small>'); ?>
+                      <input class="form-control" name="resi" type="text" placeholder="Resi Pengiriman" required/>
+                      <input class="form-control" name="idTransaksi" type="hidden" value="<?= $dataPenerima['idTransaksi']?>"/>
+                    </div>
+                    <div class="col-lg-12 col-sm-12 ">
+                      <button type="submit" class="btn btn-success btn-sm">Selesai Dikemas</button>
+                      <a href="<?= base_url('admin/Transaksi/dikemas') ?>" class="btn btn-danger btn-sm">Kembali</a>
+                    </div>
                   </div>
-                </div>
+                </form>
 
 
               </div>

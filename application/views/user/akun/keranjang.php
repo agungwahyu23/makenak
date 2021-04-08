@@ -67,10 +67,10 @@
                         </table>
                       </div>
                       <?php if ($keranjang) { ?>
-                        <a href="<?= base_url('Dashboard/checkout')?>" class="btn btn-success">Bayar Sekarang</a>
+                            <a href="<?= base_url('Dashboard/checkout') ?>" class="btn btn-success">Bayar Sekarang</a>
                       <?php } else { ?>
                         <div class="alert alert-light text-center" role="alert">
-                         Tidak ada produk didalam keranjang
+                          Tidak ada produk didalam keranjang
                         </div>
                       <?php } ?>
                       <!-- /.col -->

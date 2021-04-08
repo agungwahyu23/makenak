@@ -26,7 +26,9 @@ class Transaksi extends CI_Controller
 		$data['Pengguna'] = $this->db->get_where('pengguna', ['Id_User' =>
 		$this->session->userdata('Id_User')])->row_array();
 
-		$data['dataPenerima'] = $this->db->join('detailTransaksi', 'detailTransaksi.idTransaksi = transaksi.idTransaksi')->get_where('transaksi', ['transaksi.idTransaksi' => $id])->row_array();
+		$data['provinsi'] = $this->db->join('provinces', 'provinces.id = datapenerima.provinsi')->get_where('datapenerima', ['datapenerima.idTransaksi' => $id])->row_array();
+
+		$data['dataPenerima'] = $this->db->join('datapenerima', 'datapenerima.idDataPenerima = transaksi.idDataPenerima')->join('regencies', 'regencies.id = datapenerima.kabupaten')->get_where('transaksi', ['transaksi.idTransaksi' => $id])->row_array();
 
 		$data['detailPemesanan'] = $this->db->join('detailTransaksi', 'detailTransaksi.idTransaksi = transaksi.idTransaksi')->join('produk', 'produk.id = detailTransaksi.idProduk')->get_where('transaksi', ['transaksi.idTransaksi' => $id, 'transaksi.status' => 1])->result_array();
 
@@ -51,7 +53,7 @@ class Transaksi extends CI_Controller
 				$this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert">
         	Data Pemesanan Berhasil Diterima!
      		</div>');
-			redirect('admin/Transaksi');
+				redirect('admin/Transaksi');
 			} else {
 				$this->session->set_flashdata('pesan', '<div class="alert alert-danger" role="alert">
         	Data Pemesanan Gagal Diterima!
@@ -67,7 +69,8 @@ class Transaksi extends CI_Controller
 	}
 
 
-	public function dikemas(){
+	public function dikemas()
+	{
 		$data['Pengguna'] = $this->db->get_where('pengguna', ['Id_User' =>
 		$this->session->userdata('Id_User')])->row_array();
 
@@ -80,46 +83,50 @@ class Transaksi extends CI_Controller
 
 	public function detailDikemas($id)
 	{
-		$data['Pengguna'] = $this->db->get_where('pengguna', ['Id_User' =>
-		$this->session->userdata('Id_User')])->row_array();
 
-		$data['dataPenerima'] = $this->db->join('detailTransaksi', 'detailTransaksi.idTransaksi = transaksi.idTransaksi')->get_where('transaksi', ['transaksi.idTransaksi' => $id])->row_array();
+		$this->form_validation->set_rules('resi', 'Resi', 'required');
 
-		$data['detailPemesanan'] = $this->db->join('detailTransaksi', 'detailTransaksi.idTransaksi = transaksi.idTransaksi')->join('produk', 'produk.id = detailTransaksi.idProduk')->get_where('transaksi', ['transaksi.idTransaksi' => $id, 'transaksi.status' => 2])->result_array();
+		if ($this->form_validation->run() == false) {
 
+			$data['Pengguna'] = $this->db->get_where('pengguna', ['Id_User' =>
+			$this->session->userdata('Id_User')])->row_array();
 
+			$data['provinsi'] = $this->db->join('provinces', 'provinces.id = datapenerima.provinsi')->get_where('datapenerima', ['datapenerima.idTransaksi' => $id])->row_array();
 
-		// var_dump($data['detailPemesanan']);die;
-		$this->load->view('admin/transaksi/detailDikemas', $data);
-	}
+			$data['dataPenerima'] = $this->db->join('datapenerima', 'datapenerima.idDataPenerima = transaksi.idDataPenerima')->join('regencies', 'regencies.id = datapenerima.kabupaten')->get_where('transaksi', ['transaksi.idTransaksi' => $id])->row_array();
 
-	public function selesaiDikemas($id)
-	{
-		$data['Pengguna'] = $this->db->get_where('pengguna', ['Id_User' =>
-		$this->session->userdata('Id_User')])->row_array();
+			$data['detailPemesanan'] = $this->db->join('detailTransaksi', 'detailTransaksi.idTransaksi = transaksi.idTransaksi')->join('produk', 'produk.id = detailTransaksi.idProduk')->get_where('transaksi', ['transaksi.idTransaksi' => $id, 'transaksi.status' => 2])->result_array();
 
-		$pesanan = $this->db->get_where('transaksi', ['idTransaksi' => $id])->row_array();
+			$this->load->view('admin/transaksi/detailDikemas', $data);
+		} else {
+			$resi = $this->input->post('resi');
+			$pesanan = $this->db->get_where('transaksi', ['idTransaksi' => $id])->row_array();
 
-		if ($pesanan) {
-			$this->db->set(['status' => '3']);
-			$update = $this->db->update('transaksi', ['idTransaksi' => $id]);
+			if ($pesanan) {
+				$this->db->set([
+					'status' => '3',
+					'resi' => $resi
+				]);
+				$this->db->where(['idTransaksi' => $id]);
+				$update = $this->db->update('transaksi');
 
-			if ($update) {
-				$this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert">
-        		Barang Selesai Dikemas!
-     			</div>');
-			redirect('admin/Transaksi/dikemas');
+				if ($update) {
+					$this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert">
+					Barang Selesai Dikemas!
+					 </div>');
+					redirect('admin/Transaksi/dikemas');
+				} else {
+					$this->session->set_flashdata('pesan', '<div class="alert alert-danger" role="alert">
+					Terjadi Kesalahan, Silahkan Ulangi Kembali!
+					 </div>');
+					redirect('admin/Transaksi/dikemas');
+				}
 			} else {
 				$this->session->set_flashdata('pesan', '<div class="alert alert-danger" role="alert">
-        		Terjadi Kesalahan, Silahkan Ulangi Kembali!
-     			</div>');
+				Data Pemesanan Tidak Ditemukan!
+				 </div>');
 				redirect('admin/Transaksi/dikemas');
 			}
-		} else {
-			$this->session->set_flashdata('pesan', '<div class="alert alert-danger" role="alert">
-        	Data Pemesanan Tidak Ditemukan!
-     		</div>');
-			redirect('admin/Transaksi/dikemas');
 		}
 	}
 
@@ -133,7 +140,8 @@ class Transaksi extends CI_Controller
 	// 	$data['data'] = $this->db->query("SELECT transaksi_rumah.* , kode_rumah.Kode_Rumah , rumah.Tipe , rumah.Harga , rumah.Banner , bank.* , blok_rumah.Id_Blok FROM transaksi_rumah , blok_rumah , rumah , kode_rumah , bank WHERE transaksi_rumah.Id_Bank = bank.Id_Bank AND transaksi_rumah.Id_Blok = blok_rumah.Id_Blok AND blok_rumah.Id_Rumah = rumah.Id_Rumah AND blok_rumah.Id_Kode_Rumah = kode_rumah.Id_Kode AND transaksi_rumah.Id_Transaksi = '$id'")->result_array();
 	// 	$this->load->view('admin/transaksi/detail', $data);
 	// }
-	public function selesai(){
+	public function selesai()
+	{
 		$data['Pengguna'] = $this->db->get_where('pengguna', ['Id_User' =>
 		$this->session->userdata('Id_User')])->row_array();
 
@@ -149,7 +157,9 @@ class Transaksi extends CI_Controller
 		$data['Pengguna'] = $this->db->get_where('pengguna', ['Id_User' =>
 		$this->session->userdata('Id_User')])->row_array();
 
-		$data['dataPenerima'] = $this->db->join('detailTransaksi', 'detailTransaksi.idTransaksi = transaksi.idTransaksi')->get_where('transaksi', ['transaksi.idTransaksi' => $id])->row_array();
+		$data['provinsi'] = $this->db->join('provinces', 'provinces.id = datapenerima.provinsi')->get_where('datapenerima', ['datapenerima.idTransaksi' => $id])->row_array();
+
+		$data['dataPenerima'] = $this->db->join('datapenerima', 'datapenerima.idDataPenerima = transaksi.idDataPenerima')->join('regencies', 'regencies.id = datapenerima.kabupaten')->get_where('transaksi', ['transaksi.idTransaksi' => $id])->row_array();
 
 		$data['detailPemesanan'] = $this->db->join('detailTransaksi', 'detailTransaksi.idTransaksi = transaksi.idTransaksi')->join('produk', 'produk.id = detailTransaksi.idProduk')->get_where('transaksi', ['transaksi.idTransaksi' => $id, 'transaksi.status' => 3])->result_array();
 
@@ -213,8 +223,7 @@ class Transaksi extends CI_Controller
 
 		// var_dump($data['data']);die;
 
-		
-		$this->load->view('admin/export', $data);
 
+		$this->load->view('admin/export', $data);
 	}
 }

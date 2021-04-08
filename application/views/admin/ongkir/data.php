@@ -56,7 +56,7 @@
                   <?php $i= 1; foreach($kategori as $data ) {?>
                       <tr>
                         <td><?= $i;?></td>
-                        <td><?= $data['provinsi']?></td>
+                        <td><?= $data['nama']?></td>
                         <td>Rp. <?= number_format($data['harga'], 2, ",", ".") ?></td>
                         <!-- <td>IDR <?= number_format($d['Harga'], 2, ",", ".") ?></td> -->
                         <td>
