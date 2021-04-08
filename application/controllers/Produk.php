@@ -58,15 +58,29 @@ class Produk extends CI_Controller
 
         // $this->load->model('Models');
 
-        //ambil data total
-        $total = $this->db->query("SELECT COUNT(*) FROM produk WHERE status='1'");
+
+        if ($this->input->post('cari')) {
+            $cari = $this->input->post('cari');
+            $this->db->like('namaProduk', $cari);
+            $total = $this->db->get_where('produk', ['status' => 1])->num_rows();
+        } else {
+            //ambil data total
+            $total = $this->db->count_all('produk');
+            $cari = null;
+        }
+
+        // $this->db->like('namaProduk', 'kue');
+        // $total = $this->db->get('produk')->num_rows();
+
+        // var_dump($total);die;
 
         //pagi
         $this->load->library('pagination'); // Load librari paginationnya
 
+
         //konfigurasi pagination
         $config['base_url']                = base_url() . 'produk/index/';
-        $config['total_rows']            = $this->db->count_all('produk'); //$total;
+        $config['total_rows']            =  $total;
         $config['use_page_numbers']        = TRUE;
         $config['per_page']                = 12;
         $config['uri_segment']            = 3;
@@ -96,7 +110,19 @@ class Produk extends CI_Controller
         $this->pagination->initialize($config); // Set konfigurasi paginationnya
         $page         = ($this->uri->segment(3)) ? ($this->uri->segment(3) - 1) * $config['per_page'] : 0;
         //$produk 	= $this->models->get_produk_list($config['per_page'],$page);
-        $data['product'] = $this->db->get('produk', $config['per_page'], $page)->result_array();
+        if ($cari) {
+            $this->db->like('namaProduk', $cari);
+            $data['product'] = $this->db->get('produk', $config['per_page'], $page)->result_array();
+            // if (!$data['product']) {
+            //     $this->session->set_flashdata(
+            //         'message',
+            //         '<div class="alert alert-danger mb-3" role="alert">d</div>'
+            //     );
+            //     redirect(base_url('Auth'));
+            // }
+        } else {
+            $data['product'] = $this->db->get('produk', $config['per_page'], $page)->result_array();
+        }
 
         $data['pagination'] = $this->pagination->create_links();
 
@@ -239,7 +265,7 @@ class Produk extends CI_Controller
                             ];
                             $this->db->insert('transaksi', $dataTransaksi);
                             redirect('Dashboard/keranjang');
-                        }else if($jumlahBeli >= $produk['isiDus']){//harga 1 dus
+                        } else if ($jumlahBeli >= $produk['isiDus']) { //harga 1 dus
                             $idDetailTransaksi = $this->Models->randomkode(32);
                             $idTransaksi = $this->Models->randomkode(32);
                             $detailKeranjang = [
@@ -261,8 +287,7 @@ class Produk extends CI_Controller
                             ];
                             $this->db->insert('transaksi', $dataTransaksi);
                             redirect('Dashboard/keranjang');
-                            
-                        }else if($jumlahBeli >= 50){ // harga 50 Pcs
+                        } else if ($jumlahBeli >= 50) { // harga 50 Pcs
                             $idDetailTransaksi = $this->Models->randomkode(32);
                             $idTransaksi = $this->Models->randomkode(32);
                             $detailKeranjang = [
@@ -284,7 +309,7 @@ class Produk extends CI_Controller
                             ];
                             $this->db->insert('transaksi', $dataTransaksi);
                             redirect('Dashboard/keranjang');
-                        }else if ($jumlahBeli < 50){// harga ecer
+                        } else if ($jumlahBeli < 50) { // harga ecer
                             $idDetailTransaksi = $this->Models->randomkode(32);
                             $idTransaksi = $this->Models->randomkode(32);
                             $detailKeranjang = [

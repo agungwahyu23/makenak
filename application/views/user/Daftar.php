@@ -42,7 +42,7 @@
                   <input type="text" name="nama" placeholder="Nama Lengkap" required />
                 </div>
                 <div class="col-md-6 form-text">
-                  <input type="text" name="noWa" placeholder="Nomor WhatsApp" required />
+                  <input type="number" name="noWa" placeholder="Nomor WhatsApp" required />
                 </div>
               </div>
               <div class="form-text">

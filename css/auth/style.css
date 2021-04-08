@@ -4470,7 +4470,7 @@ svg.logo text {
     border-radius: 8px;
     background-color: #fff1f1;
     font-size: 13px;
-    color: #ffa0a0;
+    color: #000000;
     -webkit-transition: all 0.3s ease 0s;
     transition: all 0.3s ease 0s;
 }
