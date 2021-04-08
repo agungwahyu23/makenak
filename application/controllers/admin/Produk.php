@@ -47,6 +47,9 @@ class Produk extends CI_Controller
 		$this->form_validation->set_rules('komposisiProduk', 'Komposisi Produk', 'required');
 		$this->form_validation->set_rules('nettoProduk', 'Netto Produk', 'required|numeric');
 		$this->form_validation->set_rules('hargaProduk', 'Harga Produk', 'required|numeric');
+		$this->form_validation->set_rules('harga50Pcs', 'Harga 50Pcs', 'required|numeric');
+		$this->form_validation->set_rules('harga1Dus', 'Harga 1 Dus', 'required|numeric');
+		$this->form_validation->set_rules('harga10Dus', 'Harga 10 Dus', 'required|numeric');
 		$this->form_validation->set_rules('perDus', 'Isi Per Dus', 'required|numeric');
 		$this->form_validation->set_rules('stokProduk', 'Stok Produk', 'required|numeric');
 		$this->form_validation->set_rules('deskripsiProduk', 'Deskripsi Produk', 'required|max_length[500]');
@@ -83,6 +86,9 @@ class Produk extends CI_Controller
 					'idKategori' => $this->input->post('kategoriProduk'),
 					'komposisi' => $this->input->post('komposisiProduk'),
 					'harga' => $this->input->post('hargaProduk'),
+					'harga50Pcs' => $this->input->post('harga50Pcs'),
+					'harga1Dus' => $this->input->post('harga1Dus'),
+					'harga10Dus' => $this->input->post('harga10Dus'),
 					'deskripsi' => $this->input->post('deskripsiProduk'),
 					'gambar' => $foto_namaBaru,
 					'status' => 1,
@@ -236,6 +242,9 @@ class Produk extends CI_Controller
 		$this->form_validation->set_rules('nettoProduk', 'Netto Produk', 'required|numeric');
 		$this->form_validation->set_rules('perDus', 'Isi Per Dus', 'required|numeric');
 		$this->form_validation->set_rules('hargaProduk', 'Harga Produk', 'required|numeric');
+		$this->form_validation->set_rules('harga50Pcs', 'Harga 50Pcs', 'required|numeric');
+		$this->form_validation->set_rules('harga1Dus', 'Harga 1 Dus', 'required|numeric');
+		$this->form_validation->set_rules('harga10Dus', 'Harga10Dus', 'required|numeric');
 		$this->form_validation->set_rules('stokProduk', 'Stok Produk', 'required|numeric');
 		$this->form_validation->set_rules('statusProduk', 'Status Produk', 'required|numeric');
 		$this->form_validation->set_rules('deskripsiProduk', 'Deskripsi Produk', 'required|max_length[500]');
@@ -263,6 +272,9 @@ class Produk extends CI_Controller
 				'isiDus' => $this->input->post('perDus'),
 				'idKategori' => $this->input->post('kategoriProduk'),
 				'harga' => $this->input->post('hargaProduk'),
+				'harga50Pcs' => $this->input->post('harga50Pcs'),
+				'harga1Dus' => $this->input->post('harga1Dus'),
+				'harga10Dus' => $this->input->post('harga10Dus'),
 				'stok' => $this->input->post('stokProduk'),
 				'deskripsi' => $this->input->post('deskripsiProduk'),
 				'status' => $this->input->post('statusProduk')

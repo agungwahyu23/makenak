@@ -44,8 +44,11 @@
                       <th>No</th>
                       <th>Nama Produk</th>
                       <th>Netto</th>
-                      <th>Komposisi</th>
+                      <!-- <th>Komposisi</th> -->
                       <th>Harga</th>
+                      <th>Harga 50Pcs</th>
+                      <th>Harga 1 Dus</th>
+                      <th>Harga 10 Dus</th>
                       <th>Status</th>
                       <!-- <th>Deskripsi</th> -->
                       <th>Action</th>
@@ -57,8 +60,11 @@
                         <td><?= $i;?></td>
                         <td><?= $data['namaProduk']?></td>
                         <td><?= $data['netto']?></td>
-                        <td><?= $data['komposisi']?></td>
-                        <td>Rp. <?= number_format($data['harga'], 2, ",", ".") ?></td>
+                        <!-- <td><?= $data['komposisi']?></td> -->
+                        <td>Rp. <?= number_format($data['harga']) ?></td>
+                        <td>Rp. <?= number_format($data['harga50Pcs']) ?></td>
+                        <td>Rp. <?= number_format($data['harga1Dus']) ?></td>
+                        <td>Rp. <?= number_format($data['harga10Dus']) ?></td>
                         <td><?= $data['status'] == 1 ? 'Tampil' : 'Tidak Tampil' ?></td>
                         <!-- <td><?= $data['deskripsi']?></td> -->
                         <!-- <td>IDR <?= number_format($d['Harga'], 2, ",", ".") ?></td> -->

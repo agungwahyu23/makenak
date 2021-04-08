@@ -75,7 +75,7 @@ class Auth extends CI_Controller
 			$this->form_validation->set_rules('nama', 'Nama Lengkap', 'required');
 			$this->form_validation->set_rules('email', 'Email', 'required|valid_email|is_unique[pengguna.Email]');
 			$this->form_validation->set_rules('noWa', 'Nomor Telepon / WhatsApp', 'required|numeric|min_length[11]');
-			$this->form_validation->set_rules('provinsi', 'Provinsi', 'required');
+			$this->form_validation->set_rules('alamat', 'Provinsi', 'required');
 			$this->form_validation->set_rules('password', 'Password', 'required|min_length[5]');
 			$this->form_validation->set_rules('konfirmasiPassword', 'Konfirmasi Password', 'required|min_length[5]|matches[password]');
 
@@ -90,7 +90,7 @@ class Auth extends CI_Controller
 					'Email' => $this->input->post('email'),
 					'Password' => md5($this->input->post('password')),
 					'Pekerjaan' => 'User',
-					'Alamat' => $this->input->post('provinsi'),
+					'Alamat' => $this->input->post('alamat'),
 					'No_Hp' => $this->input->post('noWa'),
 					'CreatedDate' => date("Y-m-d H:i:s"),
 					'Status' => 1,

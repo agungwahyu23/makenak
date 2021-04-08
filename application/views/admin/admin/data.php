@@ -44,7 +44,7 @@
                       <th>No</th>
                       <th>Nama</th>
                       <th>Email</th>
-                      <th>Bagian</th>
+                      <th>Status</th>
                       <th>Alamat</th>
                       <th>Nomor Hp</th>
                       <th>Action</th>
@@ -64,7 +64,8 @@
                         <td>
                           <a class="btn btn-datatable btn-icon btn-transparent-dark" href="<?php echo base_url('admin/Admin/detail/' . $d['Id_User']) ?>"><i data-feather="eye"></i></a>
                           <!-- <a class="btn btn-datatable btn-icon btn-transparent-dark" href="<?php echo base_url('admin/Admin/edit/' . $d['Id_User']) ?>"><i data-feather="edit-2"></i></a> -->
-                          <?php if ($d['Pekerjaan'] === 'Karyawan') { ?>
+                          <?php if ($d['Pekerjaan'] !== 'Admin') { ?>
+                            <a class="btn btn-datatable btn-icon btn-transparent-dark" href="<?php echo base_url('admin/Admin/edit/' . $d['Id_User']) ?>"><i data-feather="settings"></i></a>
                             <a class="btn btn-datatable btn-icon btn-transparent-dark" href="" onclick="confirm_hapus('<?php echo base_url('admin/Admin/hapus/' . $d['Id_User']) ?>')" data-toggle="modal" data-target="#modalDelete"><i data-feather="trash-2"></i></a>
                           <?php } ?>
                         </td>
