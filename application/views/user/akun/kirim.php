@@ -50,15 +50,17 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
+                                                <?php $i = 1;
+                                                foreach ($dikirim as $data) { ?>
                                                     <tr>
-                                                        <td>1</td>
-                                                        <td>Nastar</td>
-                                                        <td>10</td>
-                                                        <td>100.000</td>
-                                                        <td>JNE1239918333</td>
+                                                        <td><?= $i?></td>
+                                                        <td><?= $data['namaProduk']?></td>
+                                                        <td><?= $data['jumlahBeli']?></td>
+                                                        <td><?= $data['totalHarga']?></td>
+                                                        <td><?= $data['resi']?></td>
                                                         <td>Dikrim</td>
                                                     </tr>
-                                                
+                                                <?php $i++; } ?>
                                             </tbody>
                                         </table>
                                         <div class="modal fade" id="modalDelete" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">

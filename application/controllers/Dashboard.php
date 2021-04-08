@@ -17,55 +17,107 @@ class Dashboard extends CI_Controller
 
     public function index()
     {
-        $data['deskripsi'] = $this->db->query("SELECT * FROM profile WHERE Id_Profile = '1'")->result_array();
+        if (!$this->session->userdata('idCustomer')) {
+            $this->session->set_flashdata('message', '<div class="alert alert-alert text-danger" role="alert">
 
-        $user = $this->session->userdata('idCustomer');
-        $data['transaksiMenunggu'] = $this->db->get_where('transaksi', ['status' => 1, 'idUser' => $user])->num_rows();
-        $data['transaksiDiproses'] = $this->db->get_where('transaksi', ['status' => 2, 'idUser' => $user])->num_rows();
-        $data['transaksiDikirim'] = $this->db->get_where('transaksi', ['status' => 3, 'idUser' => $user])->num_rows();
+					  Silahkan Login Terlebih Dahulu
 
-        $this->load->view('user/akun/dashboard', $data);;
+					</div>');
+
+            redirect('Auth');
+        } else {
+            $data['deskripsi'] = $this->db->query("SELECT * FROM profile WHERE Id_Profile = '1'")->result_array();
+
+            $user = $this->session->userdata('idCustomer');
+            $data['transaksiMenunggu'] = $this->db->get_where('transaksi', ['status' => 1, 'idUser' => $user])->num_rows();
+            $data['transaksiDiproses'] = $this->db->get_where('transaksi', ['status' => 2, 'idUser' => $user])->num_rows();
+            $data['transaksiDikirim'] = $this->db->get_where('transaksi', ['status' => 3, 'idUser' => $user])->num_rows();
+
+            $this->load->view('user/akun/dashboard', $data);;
+        }
     }
 
     public function keranjang()
     {
-        $data['deskripsi'] = $this->db->query("SELECT * FROM profile WHERE Id_Profile = '1'")->result_array();
-        $user = $this->session->userdata('idCustomer');
+        if (!$this->session->userdata('idCustomer')) {
+            $this->session->set_flashdata('message', '<div class="alert alert-alert text-danger" role="alert">
 
-        $data['keranjang'] = $this->db->join('detailtransaksi', 'detailtransaksi.idTransaksi = transaksi.idTransaksi')->join('produk', 'produk.id = detailtransaksi.idProduk')->get_where('transaksi', ['transaksi.status' => 0, 'idUser' => $user])->result_array();
+					  Silahkan Login Terlebih Dahulu
 
-        // var_dump($data['keranjang']);die;
+					</div>');
 
-        $this->load->view('user/akun/keranjang', $data);
+            redirect('Auth');
+        } else {
+            $data['deskripsi'] = $this->db->query("SELECT * FROM profile WHERE Id_Profile = '1'")->result_array();
+            $user = $this->session->userdata('idCustomer');
+
+            $data['keranjang'] = $this->db->join('detailtransaksi', 'detailtransaksi.idTransaksi = transaksi.idTransaksi')->join('produk', 'produk.id = detailtransaksi.idProduk')->get_where('transaksi', ['transaksi.status' => 0, 'idUser' => $user])->result_array();
+
+            // var_dump($data['keranjang']);die;
+
+            $this->load->view('user/akun/keranjang', $data);
+        }
     }
 
     public function konfirmasi()
     {
-        $data['deskripsi'] = $this->db->query("SELECT * FROM profile WHERE Id_Profile = '1'")->result_array();
-        $user = $this->session->userdata('idCustomer');
+        if (!$this->session->userdata('idCustomer')) {
+            $this->session->set_flashdata('message', '<div class="alert alert-alert text-danger" role="alert">
 
-        $data['konfirmasi'] = $this->db->join('detailtransaksi', 'detailtransaksi.idTransaksi = transaksi.idTransaksi')->join('produk', 'produk.id = detailtransaksi.idProduk')->get_where('transaksi', ['transaksi.status' => '1', 'idUser' => $user])->result_array();
+					  Silahkan Login Terlebih Dahulu
 
-        $this->load->view('user/akun/menunggukonfirmasi', $data);
+					</div>');
+
+            redirect('Auth');
+        } else {
+            $data['deskripsi'] = $this->db->query("SELECT * FROM profile WHERE Id_Profile = '1'")->result_array();
+            $user = $this->session->userdata('idCustomer');
+
+            $data['konfirmasi'] = $this->db->join('detailtransaksi', 'detailtransaksi.idTransaksi = transaksi.idTransaksi')->join('produk', 'produk.id = detailtransaksi.idProduk')->get_where('transaksi', ['transaksi.status' => '1', 'idUser' => $user])->result_array();
+
+            $this->load->view('user/akun/menunggukonfirmasi', $data);
+        }
     }
 
     public function proses()
     {
-        $data['deskripsi'] = $this->db->query("SELECT * FROM profile WHERE Id_Profile = '1'")->result_array();
+        if (!$this->session->userdata('idCustomer')) {
+            $this->session->set_flashdata('message', '<div class="alert alert-alert text-danger" role="alert">
 
-        $user = $this->session->userdata('idCustomer');
+					  Silahkan Login Terlebih Dahulu
 
-        $data['proses'] = $this->db->join('detailtransaksi', 'detailtransaksi.idTransaksi = transaksi.idTransaksi')->join('produk', 'produk.id = detailtransaksi.idProduk')->get_where('transaksi', ['transaksi.status' => 2, 'idUser' => $user])->result_array();
+					</div>');
 
-        $this->load->view('user/akun/proses', $data);
+            redirect('Auth');
+        } else {
+            $data['deskripsi'] = $this->db->query("SELECT * FROM profile WHERE Id_Profile = '1'")->result_array();
+
+            $user = $this->session->userdata('idCustomer');
+
+            $data['proses'] = $this->db->join('detailtransaksi', 'detailtransaksi.idTransaksi = transaksi.idTransaksi')->join('produk', 'produk.id = detailtransaksi.idProduk')->get_where('transaksi', ['transaksi.status' => 2, 'idUser' => $user])->result_array();
+
+            $this->load->view('user/akun/proses', $data);
+        }
     }
 
     public function dikirim()
     {
-        $data['deskripsi'] = $this->db->query("SELECT * FROM profile WHERE Id_Profile = '1'")->result_array();
-        $this->load->view('user/akun/kirim', $data);
+        if (!$this->session->userdata('idCustomer')) {
+            $this->session->set_flashdata('message', '<div class="alert alert-alert text-danger" role="alert">
 
-        $this->load->view('user/akun/kirim');
+					  Silahkan Login Terlebih Dahulu
+
+					</div>');
+
+            redirect('Auth');
+        } else {
+            $user = $this->session->userdata('idCustomer');
+            $data['deskripsi'] = $this->db->query("SELECT * FROM profile WHERE Id_Profile = '1'")->result_array();
+
+            $data['dikirim'] = $this->db->join('detailtransaksi', 'detailtransaksi.idTransaksi = transaksi.idTransaksi')->join('produk', 'produk.id = detailtransaksi.idProduk')->get_where('transaksi', ['transaksi.status' => 3, 'idUser' => $user])->result_array();
+
+            $this->load->view('user/akun/kirim', $data);
+        }
     }
 
     public function checkout()
@@ -168,9 +220,9 @@ class Dashboard extends CI_Controller
 
                 //     $this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert">
 
-				// 	  Data Produk Berhasil Ditambahkan.
+                // 	  Data Produk Berhasil Ditambahkan.
 
-				// 	</div>');
+                // 	</div>');
 
                 //     redirect('admin/Produk');
                 // } else {
