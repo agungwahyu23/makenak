@@ -2284,6 +2284,52 @@ section {
   font-weight: 400;
 }
 
+.type .btn-selengkapnya{
+  display: inline-block;
+  padding: 7px 50px 7px 50px;
+  margin-bottom: 10px;
+  border-radius: 50px;
+  color: #000000;
+  transition: none;
+  font-size: 16px;
+  font-weight: 400;
+  font-family: 'Poppins';
+  transition: 0.3s;
+  box-shadow: 0px 0 10px rgba(1, 42, 112, 0.144);
+  background: #ffffff;
+}
+
+.type .btn-selengkapnya:hover {
+  color: #000000;
+  background: #fbff00;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+@media (min-width: 0px) and (max-width: 575px){
+  .type .btn-selengkapnya{
+    display: inline-block;
+    padding: 5px 50px 5px 50px;
+    margin-bottom: 10px;
+    border-radius: 50px;
+    color: #000000;
+    transition: none;
+    font-size: 12px;
+    font-weight: 400;
+    font-family: 'Poppins';
+    transition: 0.3s;
+    box-shadow: 0px 0 10px rgba(1, 42, 112, 0.144);
+    background: #ffffff;
+  }
+  
+  .type .btn-selengkapnya:hover {
+    color: #000000;
+    background: #fbff00;
+    font-size: 16px;
+    font-weight: 400;
+  }
+}
+
 .type .featured {
   width: 200px;
   position: absolute;

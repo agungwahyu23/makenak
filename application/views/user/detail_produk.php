@@ -139,9 +139,43 @@
 
 
           <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-6 col-xs-6 portfolio-item">
-
-
-
+            <div class="portfolio-wrap">
+              <img src="<?= base_url('uploads/Produk/_MG_8820.jpg') ?>" class="img-galeri" alt="">
+              <div class="portfolio-info">
+                <!-- <h4>App 1</h4>
+                <p>App</p> -->
+                <div class="portfolio-links">
+                  <a href="<?= base_url('uploads/Produk/_MG_8820.jpg') ?>" data-gallery="portfolioGallery"
+                    class="portfokio-lightbox"><i class="bi bi-zoom-in"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-6 col-xs-6 portfolio-item">
+            <div class="portfolio-wrap">
+              <img src="<?= base_url('uploads/Produk/_MG_8820.jpg') ?>" class="img-galeri" alt="">
+              <div class="portfolio-info">
+                <!-- <h4>App 1</h4>
+                <p>App</p> -->
+                <div class="portfolio-links">
+                  <a href="<?= base_url('uploads/Produk/_MG_8820.jpg') ?>" data-gallery="portfolioGallery"
+                    class="portfokio-lightbox"><i class="bi bi-zoom-in"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-6 col-xs-6 portfolio-item">
+            <div class="portfolio-wrap">
+              <img src="<?= base_url('uploads/Produk/_MG_8841.jpg') ?>" class="img-galeri" alt="">
+              <div class="portfolio-info">
+                <!-- <h4>App 1</h4>
+                <p>App</p> -->
+                <div class="portfolio-links">
+                  <a href="<?= base_url('uploads/Produk/_MG_8823.jpg') ?>" data-gallery="portfolioGallery"
+                    class="portfokio-lightbox"><i class="bi bi-zoom-in"></i></a>
+                </div>
+              </div>
+            </div>
           </div>
 
 

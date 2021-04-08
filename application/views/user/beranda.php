@@ -200,6 +200,11 @@
             </div>
           <?php } ?>
         </div>
+        <div class="row mt-4" data-aos="fade-left">
+          <div class="d-grid gap-2 col-3 mx-auto">
+          <a href="<?= base_url('Produk') ?>" class="btn-selengkapnya text-center">Produk Lainnya</a>
+          </div>
+        </div>
       </div>
     </section>
 

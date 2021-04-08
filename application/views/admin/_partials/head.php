@@ -5,7 +5,7 @@
     <meta name="description" content="" />
     <meta name="author" content="" />
     <title>Admin - <?= SITE_NAME ?></title>
-    <link rel="icon" type="image/x-icon" href="<?= base_url('img/logo.png') ?>" />
+    <link rel="icon" type="image/x-icon" href="<?= base_url('img/icon/logo1.png') ?>" />
     <link href="<?= base_url('css/admin/styles.css') ?>" rel="stylesheet" />
     <link href="<?= base_url('assets/admin/glightbox/css/glightbox.min.css')?>" rel="stylesheet">
     <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />

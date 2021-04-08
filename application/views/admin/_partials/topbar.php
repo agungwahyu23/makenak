@@ -1,4 +1,4 @@
-<nav class="topnav navbar navbar-expand shadow navbar-light bg-white" id="sidenavAccordion">
+<nav class="topnav navbar navbar-expand shadow navbar-light bg-yellow" id="sidenavAccordion">
     <div class="logo d-none d-sm-block">
         <a class="navbar-brand my-auto" href="<?php echo base_url('admin/Dashboard') ?>">
             <?php echo SITE_NAME ?>
