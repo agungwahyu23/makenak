@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+
 <!-- Head -->
 <?php $this->load->view("admin/_partials/head.php") ?>
 
@@ -27,7 +27,7 @@ $dataWa = substr($dataPenerima['wa'], 1);
             <div class="page-header-content">
               <h1 class="page-header-title">
                 <div class="page-header-icon"><i></i></div>
-                <span>Detail Pemesanan</span>
+                <span>Barang yang ditolak</span>
               </h1>
             </div>
           </div>
@@ -35,7 +35,7 @@ $dataWa = substr($dataPenerima['wa'], 1);
         <div class="container-fluid mt-n10">
           <form action="" method="post" enctype="multipart/form-data">
             <div class="card mb-4">
-              <div class="card-header">Detail Pemesanan</div>
+              <div class="card-header">Barang yang sudah ditolak</div>
               <div class="card-body">
                 <div class="row">
                   <div class="form-group col-lg-6 col-sm-6">
@@ -50,11 +50,11 @@ $dataWa = substr($dataPenerima['wa'], 1);
                 <div class="row mt-3">
                   <div class="form-group col-lg-6 col-sm-6">
                     <h3>Nomor WhatsApp</h3>
-                    <p><a href="https://api.whatsapp.com/send?phone=62<?= $dataWa ?>&text=Hai%20kakak!%20Saya%20dari%20Admin%20Mak%20Enak%20ingin%20menginformasikan%20bahwa%20pesanan%20yang%20anda%20buat%20dengan%20data%20berikut%3A%20%0A1.%20nama%20rekening%20pengirim%20<?= $dataPenerima['namaPengirim'] ?>%0A2.%20tanggal%20pemesanan%20<?= $dataPenerima['tanggalTransaksi'] ?>%20%0A3.%20total%20pembayaran%20<?= number_format($dataPenerima['totalBayar'], 2, ",", ".") ?>"><?= $dataPenerima['wa'] ?></a></p>
+                    <p><a href="https://api.whatsapp.com/send?phone=62<?= $dataWa?>&text=Hai%20kakak!%20Saya%20dari%20Admin%20Mak%20Enak%20ingin%20menginformasikan%20bahwa%20pesanan%20yang%20anda%20buat%20dengan%20data%20berikut%3A%20%0A1.%20nama%20rekening%20pengirim%20<?= $dataPenerima['namaPengirim']?>%0A2.%20tanggal%20pemesanan%20<?= $dataPenerima['tanggalTransaksi']?>%20%0A3.%20total%20pembayaran%20<?= number_format($dataPenerima['totalBayar'], 2, ",", ".") ?>"><?= $dataPenerima['wa'] ?></a></p>
                   </div>
                   <div class="form-group col-lg-6 col-sm-6">
                     <h3>Alamat</h3>
-                    <p><?= $dataPenerima['alamatPenerima'] ?>, <?= $dataPenerima['desa'] ?>, <?= $dataPenerima['kecamatan'] ?>, <?= $dataPenerima['name'] ?>, <?= $provinsi['name'] ?>.</p>
+                    <p><?= $dataPenerima['alamatPenerima'] ?>, <?= $dataPenerima['desa'] ?>, <?= $dataPenerima['kecamatan'] ?>, <?= $dataPenerima['name'] ?>, <?= $provinsi['name'] ?></p>
                   </div>
                 </div>
                 <!-- <div class="row">
@@ -123,14 +123,14 @@ $dataWa = substr($dataPenerima['wa'], 1);
                           <tr class="table-primary">
                             <td><?= $i ?></td>
                             <td><?= $data['namaProduk'] ?></td>
-                            <td>Rp. <?= number_format($data['hargaSatuan'], 2, ",", ".") ?></td>
+                            <td>Rp. <?= number_format($data['harga'], 2, ",", ".") ?></td>
                             <td><?= $data['jumlahBeli'] ?> Toples</td>
                             <td>Rp. <?= number_format($data['totalHarga'], 2, ",", ".") ?></td>
                           </tr>
                         <?php $i++;
                         } ?>
                         <tr>
-                          <td colspan="4"></td>
+                          <td colspan="4" ></td>
                           <td>Rp. <?= number_format($dataPenerima['totalBayar'], 2, ",", ".") ?></td>
                         </tr>
 
@@ -141,36 +141,15 @@ $dataWa = substr($dataPenerima['wa'], 1);
                 </div>
 
 
-
+<!-- 
                 <div class="row mr-3">
                   <div class="col-lg-12 col-sm-12 ">
-                    <a href="<?= base_url('admin/Transaksi/pesananDiterima/' . $dataPenerima['idTransaksi']) ?>" class="btn btn-success btn-sm">Terima Pembayaran</a>
-                    <a href="<?= base_url('admin/Transaksi/') ?>" class="btn btn-danger btn-sm">Kembali</a>
-                    <button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                      Tolak Pemesanan
-                    </button>
+                    <a href="<?= base_url('admin/Transaksi/selesaiDikemas/' . $dataPenerima['idTransaksi']) ?>" class="btn btn-success btn-sm">Selesai Dikemas</a>
+                    <a href="<?= base_url('admin/Transaksi/dikemas') ?>" class="btn btn-danger btn-sm">Kembali</a>
 
                   </div>
-                </div>
+                </div> -->
 
-                <!-- Modal -->
-                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                  <div class="modal-dialog">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                      </div>
-                      <div class="modal-body">
-                        Apakah Anda Yakin Ingin Menolak Pesanan Ini?
-                      </div>
-                      <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tidak</button>
-                        <a href="<?= base_url('admin/Transaksi/pesananDitolak/' . $dataPenerima['idTransaksi']) ?>" class="btn btn-primary">Ya, Tolak.</a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
 
               </div>
             </div>
@@ -189,7 +168,6 @@ $dataWa = substr($dataPenerima['wa'], 1);
   <?php $this->load->view("admin/_partials/js.php") ?>
 
 </body>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
 <script>
   function readURL(input) {
     if (input.files && input.files[0]) {

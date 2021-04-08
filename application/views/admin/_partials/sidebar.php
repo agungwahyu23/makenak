@@ -74,6 +74,10 @@
                     <div class="nav-link-icon"><i data-feather="check-square"></i></div>
                     Selesai
                 </a>
+                <a class="nav-link" href="<?php echo base_url('admin/Transaksi/ditolak') ?>">
+                    <div class="nav-link-icon"><i data-feather="x-square"></i></div>
+                    Ditolak
+                </a>
                 <!-- <a class="nav-link" href="<?php echo base_url('admin/Interior') ?>">
                     <div class="nav-link-icon"><i data-feather="home"></i></div>
                     Desain Interior

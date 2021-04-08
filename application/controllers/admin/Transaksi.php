@@ -70,6 +70,38 @@ class Transaksi extends CI_Controller
 	}
 
 
+	public function pesananDitolak($id)
+	{
+		$data['Pengguna'] = $this->db->get_where('pengguna', ['Id_User' =>
+		$this->session->userdata('Id_User')])->row_array();
+
+		$pesanan = $this->db->get_where('transaksi', ['idTransaksi' => $id])->row_array();
+
+		if ($pesanan) {
+			$this->db->set(['status' => '4']);
+			$this->db->where(['idTransaksi' => $id]);
+			$update = $this->db->update('transaksi');
+
+			if ($update) {
+				$this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert">
+        	Data Pemesanan Berhasil Ditolak!
+     		</div>');
+				redirect('admin/Transaksi');
+			} else {
+				$this->session->set_flashdata('pesan', '<div class="alert alert-danger" role="alert">
+        	Data Pemesanan Gagal Ditolak!
+     		</div>');
+				redirect('admin/Transaksi');
+			}
+		} else {
+			$this->session->set_flashdata('pesan', '<div class="alert alert-danger" role="alert">
+        	Data Pemesanan Tidak Ditemukan!
+     		</div>');
+			redirect('admin/Transaksi');
+		}
+	}
+
+
 	public function dikemas()
 	{
 		$data['Pengguna'] = $this->db->get_where('pengguna', ['Id_User' =>
@@ -170,25 +202,33 @@ class Transaksi extends CI_Controller
 		$this->load->view('admin/transaksi/detailSelesai', $data);
 	}
 
-	public function Berlangsung($id)
+	public function ditolak()
 	{
-		//ubah di db
-		$this->db->set('Status', 4);
-		$this->db->where('Id_Transaksi', $id);
-		$this->db->update('transaksi_rumah');
-		//ubah di status blok rumah
-		$data = $this->db->query("SELECT * FROM transaksi_rumah WHERE Id_Transaksi = '$id'")->row_array();
-		$idblok = $data['Id_Blok'];
-		// echo json_encode($idblok);
-		$this->db->set('status', 2);
-		$this->db->where('Id_Blok', $idblok);
-		$this->db->update('blok_rumah');
+		$data['Pengguna'] = $this->db->get_where('pengguna', ['Id_User' =>
+		$this->session->userdata('Id_User')])->row_array();
 
-		$this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert">
-        Transaksi Berhasil Diterima
-     </div>');
-		redirect('admin/Transaksi');
+		$data['ditolak'] = $this->db->get_where('transaksi', ['status' => 4])->result_array();
+
+		// var_dump($data['pesanan']);die;
+
+		$this->load->view('admin/transaksi/ditolak', $data);
 	}
+
+	public function detailDitolak($id)
+	{
+		$data['Pengguna'] = $this->db->get_where('pengguna', ['Id_User' =>
+		$this->session->userdata('Id_User')])->row_array();
+
+		$data['provinsi'] = $this->db->join('provinces', 'provinces.id = datapenerima.provinsi')->get_where('datapenerima', ['datapenerima.idTransaksi' => $id])->row_array();
+
+		$data['dataPenerima'] = $this->db->join('datapenerima', 'datapenerima.idDataPenerima = transaksi.idDataPenerima')->join('regencies', 'regencies.id = datapenerima.kabupaten')->get_where('transaksi', ['transaksi.idTransaksi' => $id])->row_array();
+
+		$data['detailPemesanan'] = $this->db->join('detailTransaksi', 'detailTransaksi.idTransaksi = transaksi.idTransaksi')->join('produk', 'produk.id = detailTransaksi.idProduk')->get_where('transaksi', ['transaksi.idTransaksi' => $id, 'transaksi.status' => 4])->result_array();
+
+		$this->load->view('admin/transaksi/detailDitolak', $data);
+	}
+
+	
 	public function Tolak($id)
 	{
 		$this->db->set('Status', 3);

@@ -78,7 +78,7 @@
 									</div>
 								</div>
 								<div class="card-footer d-flex align-items-center justify-content-between">
-									<a class="small text-white stretched-link" href="<?= base_url('admin/Transaksi') ?>">Lihat Detail</a>
+									<a class="small text-white stretched-link" href="<?= base_url('admin/Transaksi/dikemas') ?>">Lihat Detail</a>
 									<div class="small text-white"><i class="fas fa-angle-right"></i></div>
 								</div>
 							</div>
@@ -95,7 +95,7 @@
 									</div>
 								</div>
 								<div class="card-footer d-flex align-items-center justify-content-between">
-									<a class="small text-white stretched-link" href="<?= base_url('admin/Transaksi') ?>">Lihat Detail</a>
+									<a class="small text-white stretched-link" href="<?= base_url('admin/Transaksi/selesai') ?>">Lihat Detail</a>
 									<div class="small text-white"><i class="fas fa-angle-right"></i></div>
 								</div>
 							</div>
@@ -112,7 +112,7 @@
 									</div>
 								</div>
 								<div class="card-footer d-flex align-items-center justify-content-between">
-									<a class="small text-white stretched-link" href="<?= base_url('admin/Transaksi') ?>">Lihat Detail</a>
+									<a class="small text-white stretched-link" href="<?= base_url('admin/Transaksi/ditolak') ?>">Lihat Detail</a>
 									<div class="small text-white"><i class="fas fa-angle-right"></i></div>
 								</div>
 							</div>
