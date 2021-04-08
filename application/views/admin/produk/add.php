@@ -49,31 +49,46 @@
                   </div>
                 </div>
                 <div class="row">
-                  <div class="form-group col-lg-6 col-sm-6">
+                  <div class="form-group col-lg-4 col-sm-4">
                     <label>Netto Produk</label>
                     <?= form_error('nettoProduk', '<small class="text-danger pl-2">', '</small>'); ?>
                     <input class="form-control" name="nettoProduk" type="number" placeholder="Netto Produk" />
                   </div>
-                  <div class="form-group col-lg-6 col-sm-6">
-                    <label>Harga Produk</label>
-                    <?= form_error('hargaProduk', '<small class="text-danger pl-2">', '</small>'); ?>
-                    <input class="form-control" name="hargaProduk" type="number" placeholder="Harga Produk" />
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="form-group col-lg-6 col-sm-6">
-                    <label>Isi Per Dus</label>
-                    <?= form_error('perDus', '<small class="text-danger pl-2">', '</small>'); ?>
-                    <input class="form-control" name="perDus" type="number" placeholder="isi Per Produk" />
-                  </div>
-                  <div class="form-group col-lg-6 col-sm-6">
+                  <div class="form-group col-lg-4 col-sm-4">
                     <label>Stok Produk</label>
                     <?= form_error('stokProduk', '<small class="text-danger pl-2">', '</small>'); ?>
                     <input class="form-control" name="stokProduk" type="number" placeholder="Stok Produk" />
                   </div>
+                  <div class="form-group col-lg-4 col-sm-4">
+                    <label>Isi Per Dus</label>
+                    <?= form_error('perDus', '<small class="text-danger pl-2">', '</small>'); ?>
+                    <input class="form-control" name="perDus" type="number" placeholder="isi Per Produk" />
+                  </div>
                 </div>
                 <div class="row">
-                <div class="form-group col-lg-12 col-sm-6">
+                  <div class="form-group col-lg-3 col-sm-3">
+                    <label>Harga Produk</label>
+                    <?= form_error('hargaProduk', '<small class="text-danger pl-2">', '</small>'); ?>
+                    <input class="form-control" name="hargaProduk" type="number" placeholder="Harga Produk" />
+                  </div>
+                  <div class="form-group col-lg-3 col-sm-3">
+                    <label>Harga 50Pcs</label>
+                    <?= form_error('hargaProduk', '<small class="text-danger pl-2">', '</small>'); ?>
+                    <input class="form-control" name="harga50Pcs" type="number" placeholder="Harga 50Pcs" />
+                  </div>
+                  <div class="form-group col-lg-3 col-sm-3">
+                    <label>Harga 1 Dus</label>
+                    <?= form_error('hargaProduk', '<small class="text-danger pl-2">', '</small>'); ?>
+                    <input class="form-control" name="harga1Dus" type="number" placeholder="Harga 1 Dus" />
+                  </div>
+                  <div class="form-group col-lg-3 col-sm-3">
+                    <label>Harga 10 Dus</label>
+                    <?= form_error('hargaProduk', '<small class="text-danger pl-2">', '</small>'); ?>
+                    <input class="form-control" name="harga10Dus" type="number" placeholder="Harga 10 Dus" />
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="form-group col-lg-12 col-sm-6">
                     <label>Komposisi</label>
                     <?= form_error('komposisiProduk', '<small class="text-danger pl-2">', '</small>'); ?>
                     <input class="form-control" name="komposisiProduk" type="text" placeholder="Komposisi Produk" />

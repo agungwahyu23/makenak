@@ -33,34 +33,20 @@
               <?php foreach ($data as $d) { ?>
                 <div class="card-body">
                   <div class="row">
-                    <div class="form-group col-lg-6 col-sm-12">
-                      <label>Nama Admin</label>
-                      <input class="form-control" id="name" name="name" type="text" placeholder="Nama Admin" required value="<?= $d['Nama'] ?>" />
-                    </div>
-                    <div class="form-group col-lg-6 col-sm-12">
-                      <label>Email Admin</label>
-                      <input class="form-control" id="email" name="email" type="text" placeholder="Email Admin" required value="<?= $d['Email'] ?>" />
+                    <div class="form-group col-lg-12 col-sm-12">
+                      <label>Nama Lengkap</label>
+                      <input class="form-control" id="name" name="name" type="text" placeholder="Nama Admin" required value="<?= $d['Nama'] ?>" disabled/>
                     </div>
                   </div>
                   <div class="row">
-                    <div class="form-group col-lg-6 col-sm-12">
-                      <label>Password Admin</label>
-                      <input class="form-control" id="password" name="password" type="password" placeholder="Password Admin" />
-                      <?= form_error('password', '<small class="text-danger pl-2">', '</small>'); ?>
-                    </div>
-                    <div class="form-group col-lg-6 col-sm-12">
-                      <label>Pekerjaan</label>
-                      <input class="form-control" id="pekerjaan" name="pekerjaan" type="text" placeholder="Pekerjaan" required value="<?= $d['Pekerjaan'] ?>" />
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="form-group col-lg-6 col-sm-12">
-                      <label>Alamat Rumah</label>
-                      <input class="form-control" id="alamat" name="alamat" type="text" placeholder="Alamat Rumah" required value="<?= $d['Alamat'] ?>" />
-                    </div>
-                    <div class="form-group col-lg-6 col-sm-12">
-                      <label>Nomor Hp</label>
-                      <input class="form-control" id="no_hp" name="no_hp" type="text" placeholder="Nomor Hp" required value="<?= $d['No_Hp'] ?>" />
+                    <div class="form-group col-lg-12 col-sm-12">
+                      <label>Kategori Produk</label>
+                      <?= form_error('kategoriProduk', '<small class="text-danger pl-2">', '</small>'); ?>
+                      <select class="form-control" name="isValid">
+                        <option value="">--- Pilih ---</option>
+                        <option value="1">Aktif</option>
+                        <option value="0">Non Aktif</option>
+                      </select>
                     </div>
                   </div>
                 </div>

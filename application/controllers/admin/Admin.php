@@ -60,8 +60,7 @@ class Admin extends CI_Controller
 
   public function edit($id)
   {
-    $this->form_validation->set_rules('name', 'Nama_Pengguna', 'required|trim');
-    $this->form_validation->set_rules('password', 'Password', 'required|trim');
+    $this->form_validation->set_rules('isValid', 'Status', 'required');
     if ($this->form_validation->run() == false) {
 
       $data['Pengguna'] = $this->db->get_where('pengguna', ['Id_User' =>
@@ -71,13 +70,7 @@ class Admin extends CI_Controller
       $this->load->view('admin/admin/edit', $data);
     } else {
       $data = [
-        'Id_User' => $this->Models->randomkode(32),
-        'Nama' => $this->input->post('name'),
-        'Email' =>  $this->input->post('email'),
-        'Password' => md5($this->input->post('password')),
-        'Pekerjaan' => $this->input->post('pekerjaan'),
-        'Alamat' => $this->input->post('alamat'),
-        'No_Hp' => $this->input->post('no_hp'),
+        'is_Valid' => $this->input->post('isValid'),
       ];
 
 

@@ -52,34 +52,42 @@
                   </div>
                 </div>
                 <div class="row">
-                  <div class="form-group col-lg-6 col-sm-6">
+                  <div class="form-group col-lg-4 col-sm-4">
                     <label>Netto Produk</label>
                     <?= form_error('nettoProduk', '<small class="text-danger pl-2">', '</small>'); ?>
                     <input class="form-control" name="nettoProduk" type="text" placeholder="Netto Produk" value="<?= $produk['netto'] ?>" />
                   </div>
-                  <div class="form-group col-lg-6 col-sm-6">
-                    <label>Harga Produk</label>
-                    <?= form_error('hargaProduk', '<small class="text-danger pl-2">', '</small>'); ?>
-                    <input class="form-control" name="hargaProduk" type="number" placeholder="Harga Produk" value="<?= $produk['harga'] ?>" />
-                  </div>
-                </div>
-                <div class="row">
-                <div class="form-group col-lg-6 col-sm-6">
-                    <label>Isi Per Dus</label>
-                    <?= form_error('perDus', '<small class="text-danger pl-2">', '</small>'); ?>
-                    <input class="form-control" name="perDus" type="number" placeholder="isi Per Produk" value="<?= $produk['isiDus']?>"/>
-                  </div>
-                  <div class="form-group col-lg-6 col-sm-6">
+                  <div class="form-group col-lg-4 col-sm-4">
                     <label>Stok Produk</label>
                     <?= form_error('stokProduk', '<small class="text-danger pl-2">', '</small>'); ?>
                     <input class="form-control" name="stokProduk" type="number" placeholder="Harga Produk" value="<?= $produk['stok'] ?>" />
                   </div>
+                  <div class="form-group col-lg-4 col-sm-4">
+                    <label>Isi Per Dus</label>
+                    <?= form_error('perDus', '<small class="text-danger pl-2">', '</small>'); ?>
+                    <input class="form-control" name="perDus" type="number" placeholder="isi Per Produk" value="<?= $produk['isiDus'] ?>" />
+                  </div>
                 </div>
                 <div class="row">
-                  <div class="form-group col-lg-12 col-sm-6">
-                    <label>Komposisi Produk</label>
-                    <?= form_error('komposisiProduk', '<small class="text-danger pl-2">', '</small>'); ?>
-                    <input class="form-control" name="komposisiProduk" type="text" placeholder="Netto Produk" value="<?= $produk['komposisi'] ?>" />
+                  <div class="form-group col-lg-3 col-sm3">
+                    <label>Harga Produk</label>
+                    <?= form_error('hargaProduk', '<small class="text-danger pl-2">', '</small>'); ?>
+                    <input class="form-control" name="hargaProduk" type="number" placeholder="Harga Produk" value="<?= $produk['harga'] ?>" />
+                  </div>
+                  <div class="form-group col-lg-3 col-sm-3">
+                    <label>Harga 50Pcs</label>
+                    <?= form_error('harga50Pcs', '<small class="text-danger pl-2">', '</small>'); ?>
+                    <input class="form-control" name="harga50Pcs" type="number" placeholder="Harga 50Pcs" value="<?= $produk['harga50Pcs'] ?>" />
+                  </div>
+                  <div class="form-group col-lg-3 col-sm-3">
+                    <label>Harga 1 Dus</label>
+                    <?= form_error('harga1Dus', '<small class="text-danger pl-2">', '</small>'); ?>
+                    <input class="form-control" name="harga1Dus" type="number" placeholder="Harga 1 Dus" value="<?= $produk['harga1Dus'] ?>" />
+                  </div>
+                  <div class="form-group col-lg-3 col-sm-3">
+                    <label>Harga 10Dus</label>
+                    <?= form_error('harga10Dus', '<small class="text-danger pl-2">', '</small>'); ?>
+                    <input class="form-control" name="harga10Dus" type="number" placeholder="Harga 10 Dus" value="<?= $produk['harga10Dus'] ?>" />
                   </div>
                 </div>
                 <div class="row">
@@ -91,6 +99,13 @@
                       <option value="1" <?= $produk['status'] == 1 ? 'selected' : '' ?>>Tampil</option>
                       <option value="2" <?= $produk['status'] == 2 ? 'selected' : '' ?>>Tidak Tampil</option>
                     </select>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="form-group col-lg-12 col-sm-6">
+                    <label>Komposisi Produk</label>
+                    <?= form_error('komposisiProduk', '<small class="text-danger pl-2">', '</small>'); ?>
+                    <input class="form-control" name="komposisiProduk" type="text" placeholder="Netto Produk" value="<?= $produk['komposisi'] ?>" />
                   </div>
                 </div>
                 <div class="row">

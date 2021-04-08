@@ -34,19 +34,19 @@
               <div class="card-body">
                 <div class="row">
                   <div class="form-group col-lg-6 col-sm-12">
-                    <label>Nama Admin</label>
+                    <label>Nama Lengkap</label>
                     <?= form_error('name', '<small class="text-danger pl-2">', '</small>'); ?>
                     <input class="form-control" id="name" name="name" type="text" placeholder="Nama Admin"  />
                   </div>
                   <div class="form-group col-lg-6 col-sm-12">
-                    <label>Email Admin</label>
+                    <label>Email </label>
                     <?= form_error('email', '<small class="text-danger pl-2">', '</small>'); ?>
                     <input class="form-control" id="email" name="email" type="text" placeholder="Email Admin"  />
                   </div>
                 </div>
                 <div class="row">
                   <div class="form-group col-lg-6 col-sm-12">
-                    <label>Password Admin</label>
+                    <label>Password </label>
                     <?= form_error('password', '<small class="text-danger pl-2">', '</small>'); ?>
                     <input class="form-control" id="password" name="password" type="password" placeholder="Password Admin"  />
                   </div>
