@@ -47,7 +47,8 @@ class Transaksi extends CI_Controller
 
 		if ($pesanan) {
 			$this->db->set(['status' => '2']);
-			$update = $this->db->update('transaksi', ['idTransaksi' => $id]);
+			$this->db->where(['idTransaksi' => $id]);
+			$update = $this->db->update('transaksi');
 
 			if ($update) {
 				$this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert">
