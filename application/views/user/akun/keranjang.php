@@ -58,7 +58,8 @@
                                 <td><input type="text" class="form-control input-sm" name="jumlahBeli" value="<?= $data['jumlahBeli'] ?>" /></td>
                                 <td><?= $data['hargaSatuan'] ?></td>
                                 <td><?= $data['totalHarga'] ?></td>
-                                <td><a href="<?= base_url('Dashboard/hapusKeranjang/' . $data['idDetailTransaksi']) ?>">
+                                <td>
+                                  <a href="<?= base_url('Dashboard/hapusKeranjang/' . $data['idDetailTransaksi']) ?>">
                                     <span class="badge rounded-pill bg-danger">Hapus</span>
                                   </a></td>
                               </tr>
@@ -67,7 +68,10 @@
                         </table>
                       </div>
                       <?php if ($keranjang) { ?>
-                            <a href="<?= base_url('Dashboard/checkout') ?>" class="btn btn-success">Bayar Sekarang</a>
+                        <div class="d-grid gap-2 justify-content-md-end">
+                        <a href="<?= base_url('Dashboard/checkout')?>" class="btn btn-success">Bayar Sekarang</a>
+                        </div>
+                       
                       <?php } else { ?>
                         <div class="alert alert-light text-center" role="alert">
                           Tidak ada produk didalam keranjang
