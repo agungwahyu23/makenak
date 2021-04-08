@@ -42,14 +42,10 @@
               <div class="row">
                 <div class="col-lg-6" style="padding-left:50px;">
                   <h6 style="padding-left:10px; padding-top:15px;">Cotact Our Team</h6>
-                  <a href=""> <img src="<?= base_url('img/user/ic_wa.png') ?>" width="40px" height="40px"
-                    alt=""><span>085258179830</span></a> <br>
-                  <a href=""> <img src="<?= base_url('img/user/ic_wa.png') ?>" width="40px" height="40px"
-                    alt=""><span>0895411940452</span></a><br>
-                  <a href=""> <img src="<?= base_url('img/user/ic_wa.png') ?>" width="40px" height="40px"
-                    alt=""><span>089517962666</span></a><br>
-                  <a href=""> <img src="<?= base_url('img/user/ic_wa.png') ?>" width="40px" height="40px"
-                    alt=""><span>089607900900</span></a>
+                  <a href="https://wa.me/6285258179830" target="blank"> <img src="<?= base_url('img/user/ic_wa.png') ?>" width="40px" height="40px" alt=""><span>085258179830</span></a> <br>
+                  <a href="https://wa.me/62895411940452" target="blank"> <img src="<?= base_url('img/user/ic_wa.png') ?>" width="40px" height="40px" alt=""><span>0895411940452</span></a><br>
+                  <a href="https://wa.me/6289517962666" target="blank"> <img src="<?= base_url('img/user/ic_wa.png') ?>" width="40px" height="40px" alt=""><span>089517962666</span></a><br>
+                  <a href="https://wa.me/6289607900900" target="blank"> <img src="<?= base_url('img/user/ic_wa.png') ?>" width="40px" height="40px" alt=""><span>089607900900</span></a>
                 </div>
 
 

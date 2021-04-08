@@ -42,7 +42,7 @@
                           <thead>
                             <tr>
                               <th width="12%">Gambar</th>
-                              <th width="30%">Product</th>
+                              <th width="30%">Produk</th>
                               <th width="8%">Jumlah</th>
                               <th width="20%">Harga</th>
                               <th width="20%">Subtotal</th>
