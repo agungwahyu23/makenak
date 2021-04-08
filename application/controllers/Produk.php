@@ -135,6 +135,7 @@ class Produk extends CI_Controller
         if ($id) {
             $data['deskripsi'] = $this->db->query("SELECT * FROM profile WHERE Id_Profile = '1'")->result_array();
             $data['detailProduk'] = $this->db->get_where('produk', ['id' => $id])->row_array();
+            $data['produkBeranda'] = $this->db->get('produk', 4)->result_array();
 
             $produk = $this->db->get_where('produk', ['id' => $id])->row_array();
             $user = $this->session->userdata('idCustomer');

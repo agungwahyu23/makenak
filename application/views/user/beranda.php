@@ -187,21 +187,26 @@
 
         <div class="row gy-4" data-aos="fade-left">
           <?php foreach ($produkBeranda as $data) { ?>
-            <div class="col-lg-3 col-md-3" data-aos="zoom-in" data-aos-delay="200">
-              <div class="box">
-                <img src="<?= base_url('img/Produk/Pastri.png') ?>" class="img-fluid" alt="">
-                <div class="house-type"><span><?= $data['namaProduk']?></span></div>
-                <ul>
-                  <li>Rp <?= number_format($data['harga'], 0, ",", ".") ?></li>
-                </ul>
-                <a href="<?= base_url('Produk/DetailProduk/') . $data['id'] ?>" class="btn-detail">Detail</a>
-                <a href="<?= base_url('Produk/DetailProduk/') . $data['id'] ?>" class="btn-choose">Beli Sekarang</a>
+          <div class="col-lg-3 col-md-3" data-aos="zoom-in" data-aos-delay="200">
+            <div class="box">
+              <div class="box-header">
+                <img src="<?= base_url('img/Produk/' . $data['gambar']) ?>" class="img-fluid" alt="">
               </div>
+
+
+              <div class="nama-product"><span><?= $data['namaProduk'] ?></span></div>
+              <ul>
+                <li>Rp <?= number_format($data['harga'], 0, ",", ".") ?></li>
+              </ul>
+              <a href="<?= base_url('Produk/DetailProduk/') . $data['id'] ?>" class="btn-detail">Detail</a>
+              <a href="<?= base_url('Produk/DetailProduk/') . $data['id'] ?>" class="btn-choose">Beli
+                Sekarang</a>
             </div>
+          </div>
           <?php } ?>
         </div>
         <div class="row mt-4" data-aos="fade-left">
-          <div class="d-grid gap-2 col-3 mx-auto">
+          <div class="d-grid gap-2 col-lg-3 col-md-3 col-sm-3 col-xs-3 mx-auto">
           <a href="<?= base_url('Produk') ?>" class="btn-selengkapnya text-center">Produk Lainnya</a>
           </div>
         </div>

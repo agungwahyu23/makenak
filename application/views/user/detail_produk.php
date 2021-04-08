@@ -138,25 +138,29 @@
 
 
 
-          <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-6 col-xs-6 portfolio-item">
-            <div class="portfolio-wrap">
-              <img src="<?= base_url('uploads/Produk/_MG_8820.jpg') ?>" class="img-galeri" alt="">
-              <div class="portfolio-info">
-                <!-- <h4>App 1</h4>
-                <p>App</p> -->
-                <div class="portfolio-links">
-                  <a href="<?= base_url('uploads/Produk/_MG_8820.jpg') ?>" data-gallery="portfolioGallery"
-                    class="portfokio-lightbox"><i class="bi bi-zoom-in"></i></a>
-                </div>
+        <?php foreach ($produkBeranda as $data) { ?>
+          <div class="col-lg-3 col-md-3 portfolio-item" data-aos="zoom-in" data-aos-delay="200">
+            <div class="box">
+              <div class="box-header">
+                <img src="<?= base_url('img/Produk/' . $data['gambar']) ?>" class="img-fluid" alt="">
               </div>
+
+
+              <div class="nama-product"><span><?= $data['namaProduk'] ?></span></div>
+              <ul>
+                <li>Rp <?= number_format($data['harga'], 0, ",", ".") ?></li>
+              </ul>
+              <a href="<?= base_url('Produk/DetailProduk/') . $data['id'] ?>" class="btn-detail">Detail</a>
+              <a href="<?= base_url('Produk/DetailProduk/') . $data['id'] ?>" class="btn-choose">Beli
+                Sekarang</a>
             </div>
           </div>
-          <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-6 col-xs-6 portfolio-item">
+          <?php } ?>
+          <!-- <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-6 col-xs-6 portfolio-item">
             <div class="portfolio-wrap">
               <img src="<?= base_url('uploads/Produk/_MG_8820.jpg') ?>" class="img-galeri" alt="">
               <div class="portfolio-info">
-                <!-- <h4>App 1</h4>
-                <p>App</p> -->
+                
                 <div class="portfolio-links">
                   <a href="<?= base_url('uploads/Produk/_MG_8820.jpg') ?>" data-gallery="portfolioGallery"
                     class="portfokio-lightbox"><i class="bi bi-zoom-in"></i></a>
@@ -168,15 +172,14 @@
             <div class="portfolio-wrap">
               <img src="<?= base_url('uploads/Produk/_MG_8841.jpg') ?>" class="img-galeri" alt="">
               <div class="portfolio-info">
-                <!-- <h4>App 1</h4>
-                <p>App</p> -->
+               
                 <div class="portfolio-links">
                   <a href="<?= base_url('uploads/Produk/_MG_8823.jpg') ?>" data-gallery="portfolioGallery"
                     class="portfokio-lightbox"><i class="bi bi-zoom-in"></i></a>
                 </div>
               </div>
             </div>
-          </div>
+          </div> -->
 
 
 
