@@ -40,21 +40,23 @@
           <div class="col-lg-5">
             <div class="card">
               <div class="row">
-                <div class="col-lg-6" style="padding-left:50px;">
-                  <h6 style="padding-left:10px; padding-top:15px;">Cotact Our Team</h6>
-                  <a href="https://wa.me/6285258179830" target="blank"> <img src="<?= base_url('img/user/ic_wa.png') ?>" width="40px" height="40px" alt=""><span>085258179830</span></a> <br>
-                  <a href="https://wa.me/62895411940452" target="blank"> <img src="<?= base_url('img/user/ic_wa.png') ?>" width="40px" height="40px" alt=""><span>0895411940452</span></a><br>
-                  <a href="https://wa.me/6289517962666" target="blank"> <img src="<?= base_url('img/user/ic_wa.png') ?>" width="40px" height="40px" alt=""><span>089517962666</span></a><br>
-                  <a href="https://wa.me/6289607900900" target="blank"> <img src="<?= base_url('img/user/ic_wa.png') ?>" width="40px" height="40px" alt=""><span>089607900900</span></a>
-                </div>
+                <?php foreach ($deskripsi as $data) { ?>
+                  <div class="col-lg-6" style="padding-left:50px;">
+                    <h6 style="padding-left:10px; padding-top:15px;">Cotact Our Team</h6>
+                    <a href="https://wa.me/<?= $data['wa1']?>" target="blank"> <img src="<?= base_url('img/user/ic_wa.png') ?>" width="40px" height="40px" alt=""><span><?= $data['wa1']?></span></a> <br>
+                    <a href="https://wa.me/<?= $data['wa2']?>" target="blank"> <img src="<?= base_url('img/user/ic_wa.png') ?>" width="40px" height="40px" alt=""><span><?= $data['wa2']?></span></a><br>
+                    <a href="https://wa.me/<?= $data['wa3']?>" target="blank"> <img src="<?= base_url('img/user/ic_wa.png') ?>" width="40px" height="40px" alt=""><span><?= $data['wa3']?></span></a><br>
+                    <a href="https://wa.me/<?= $data['wa4']?>" target="blank"> <img src="<?= base_url('img/user/ic_wa.png') ?>" width="40px" height="40px" alt=""><span><?= $data['wa4']?></span></a>
+                  </div>
 
 
-                <div class="col-lg-6" style="padding-left:50px;">
-                  <h6 style="padding-top:15px;">Follow Our Media</h6>
-                  <a href="https://www.instagram.com/mak_enak_jember/"> <img src="<?= base_url('img/user/ic_ig.png') ?>" width="40px" height="40px" alt=""><span>Mak Enak Jember</span></a><br>
-                  <a href="https://www.instagram.com/mak_enak_official/"> <img src="<?= base_url('img/user/ic_ig.png') ?>" width="40px" height="40px" alt=""><span>Mak Enak Official</span></a><br>
-                  <a href="https://www.facebook.com/makenakofficial"> <img src="<?= base_url('img/user/ic_fb.png') ?>" width="40px" height="40px" alt=""><span>Mak Enak Jember</span></a>
-                </div>
+                  <div class="col-lg-6" style="padding-left:50px;">
+                    <h6 style="padding-top:15px;">Follow Our Media</h6>
+                    <a href="https://www.instagram.com/<?= $data['Instagram1']?>/"> <img src="<?= base_url('img/user/ic_ig.png') ?>" width="40px" height="40px" alt=""><span><?= $data['Instagram1']?></span></a><br>
+                    <a href="https://www.instagram.com/<?= $data['Instagram2']?>/"> <img src="<?= base_url('img/user/ic_ig.png') ?>" width="40px" height="40px" alt=""><span><?= $data['Instagram2']?></span></a><br>
+                    <a href="https://www.facebook.com/<?= $data['fb']?>"> <img src="<?= base_url('img/user/ic_fb.png') ?>" width="40px" height="40px" alt=""><span><?= $data['fb']?></span></a>
+                  </div>
+                <?php } ?>
               </div>
 
             </div>

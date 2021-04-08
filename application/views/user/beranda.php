@@ -33,7 +33,7 @@
     <div class="carousel-inner">
       <div class="carousel-item active">
         <section id="hero" class="hero d-flex align-items-center" style="background-image: url(<?= base_url('img/ImageBackGround/bg-slide.png'); ?>)">
-        <div class="container">
+          <div class="container">
             <div class="row">
               <div class="col-lg-6 d-flex flex-column justify-content-center">
                 <h1 data-aos="fade-up">Mak Enak Jember</h1>
@@ -187,27 +187,27 @@
 
         <div class="row gy-4" data-aos="fade-left">
           <?php foreach ($produkBeranda as $data) { ?>
-          <div class="col-lg-3 col-md-3" data-aos="zoom-in" data-aos-delay="200">
-            <div class="box">
-              <div class="box-header">
-                <img src="<?= base_url('img/Produk/' . $data['gambar']) ?>" class="img-fluid" alt="">
+            <div class="col-lg-3 col-md-3" data-aos="zoom-in" data-aos-delay="200">
+              <div class="box">
+                <div class="box-header">
+                  <img src="<?= base_url('img/Produk/' . $data['gambar']) ?>" class="img-fluid" alt="">
+                </div>
+
+
+                <div class="nama-product"><span><?= $data['namaProduk'] ?></span></div>
+                <ul>
+                  <li>Rp <?= number_format($data['harga'], 0, ",", ".") ?></li>
+                </ul>
+                <a href="<?= base_url('Produk/DetailProduk/') . $data['id'] ?>" class="btn-detail">Detail</a>
+                <a href="<?= base_url('Produk/DetailProduk/') . $data['id'] ?>" class="btn-choose">Beli
+                  Sekarang</a>
               </div>
-
-
-              <div class="nama-product"><span><?= $data['namaProduk'] ?></span></div>
-              <ul>
-                <li>Rp <?= number_format($data['harga'], 0, ",", ".") ?></li>
-              </ul>
-              <a href="<?= base_url('Produk/DetailProduk/') . $data['id'] ?>" class="btn-detail">Detail</a>
-              <a href="<?= base_url('Produk/DetailProduk/') . $data['id'] ?>" class="btn-choose">Beli
-                Sekarang</a>
             </div>
-          </div>
           <?php } ?>
         </div>
         <div class="row mt-4" data-aos="fade-left">
           <div class="d-grid gap-2 col-lg-3 col-md-3 col-sm-3 col-xs-3 mx-auto">
-          <a href="<?= base_url('Produk') ?>" class="btn-selengkapnya text-center">Produk Lainnya</a>
+            <a href="<?= base_url('Produk') ?>" class="btn-selengkapnya text-center">Produk Lainnya</a>
           </div>
         </div>
       </div>
@@ -216,7 +216,7 @@
 
     <section id="about-home" class="about-home">
       <div class="container" data-aos="fade-up">
-      <header class="section-header">
+        <header class="section-header">
           <h2>P-IRT</h2>
           <p>Memiliki Izin P-IRT</p>
         </header>
@@ -226,9 +226,9 @@
             <div class="content">
               <h2>Bersertifikat P-IRT</h2>
               <p>
-              Seiring dengan pengembangan zaman dan permintaan pasar akan 
-              jaminan keamanan produk pangan, Mak Enak Jember telah menjalankan Sistem 
-              Manajemen Keamanan Pangan yakni Sertifikat PIRT NO : 0219993918391.
+                Seiring dengan pengembangan zaman dan permintaan pasar akan
+                jaminan keamanan produk pangan, Mak Enak Jember telah menjalankan Sistem
+                Manajemen Keamanan Pangan yakni Sertifikat PIRT NO : 0219993918391.
               </p>
             </div>
           </div>
@@ -292,38 +292,39 @@
     </section>
 
     <section id="map" class="map">
-            <div class="container" data-aos="fade-up">
+      <div class="container" data-aos="fade-up">
 
-              <div class="row" data-aos="fade-up">
-                <div class="col-lg-7">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3949.2118530134367!2d113.71718941478072!3d-8.181401394111575!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd6967f747f1973%3A0x152f0c9f7177b876!2sMAK%20ENAK%20JEMBER!5e0!3m2!1sid!2sid!4v1617248498435!5m2!1sid!2sid" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-                </div>
+        <div class="row" data-aos="fade-up">
+          <div class="col-lg-7">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3949.2118530134367!2d113.71718941478072!3d-8.181401394111575!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd6967f747f1973%3A0x152f0c9f7177b876!2sMAK%20ENAK%20JEMBER!5e0!3m2!1sid!2sid!4v1617248498435!5m2!1sid!2sid" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+          </div>
 
-                <div class="col-lg-5">
-                  <div class="card">
-                    <div class="row">
-                      <div class="col-lg-6" style="padding-left:50px;">
-                        <h6 style="padding-left:10px; padding-top:15px;">Cotact Our Team</h6>
-                        <a href="https://wa.me/6285258179830" target="blank"> <img src="<?= base_url('img/user/ic_wa.png') ?>" width="40px" height="40px" alt=""><span>085258179830</span></a> <br>
-                        <a href="https://wa.me/62895411940452" target="blank"> <img src="<?= base_url('img/user/ic_wa.png') ?>" width="40px" height="40px" alt=""><span>0895411940452</span></a><br>
-                        <a href="https://wa.me/6289517962666" target="blank"> <img src="<?= base_url('img/user/ic_wa.png') ?>" width="40px" height="40px" alt=""><span>089517962666</span></a><br>
-                        <a href="https://wa.me/6289607900900" target="blank"> <img src="<?= base_url('img/user/ic_wa.png') ?>" width="40px" height="40px" alt=""><span>089607900900</span></a>
-                      </div>
-
-                      
-                      <div class="col-lg-6" style="padding-left:50px;">
-                        <h6 style="padding-top:15px;">Follow Our Media</h6>
-                        <a href="https://www.instagram.com/mak_enak_jember/" target="blank"> <img src="<?= base_url('img/user/ic_ig.png') ?>" width="40px" height="40px" alt=""><span>Mak Enak Jember</span></a><br>
-                        <a href="https://www.instagram.com/mak_enak_official/" target="blank"> <img src="<?= base_url('img/user/ic_ig.png') ?>" width="40px" height="40px" alt=""><span>Mak Enak Official</span></a><br>
-                        <a href="https://www.facebook.com/makenakofficial" target="blank"> <img src="<?= base_url('img/user/ic_fb.png') ?>" width="40px" height="40px" alt=""><span>Mak Enak Jember</span></a>
-                      </div>
-                    </div>
-                    
+          <div class="col-lg-5">
+            <div class="card">
+              <div class="row">
+                <?php foreach ($deskripsi as $data) { ?>
+                  <div class="col-lg-6" style="padding-left:50px;">
+                    <h6 style="padding-left:10px; padding-top:15px;">Cotact Our Team</h6>
+                    <a href="https://wa.me/<?= $data['wa1']?>" target="blank"> <img src="<?= base_url('img/user/ic_wa.png') ?>" width="40px" height="40px" alt=""><span><?= $data['wa1']?></span></a> <br>
+                    <a href="https://wa.me/<?= $data['wa2']?>" target="blank"> <img src="<?= base_url('img/user/ic_wa.png') ?>" width="40px" height="40px" alt=""><span><?= $data['wa2']?></span></a><br>
+                    <a href="https://wa.me/<?= $data['wa3']?>" target="blank"> <img src="<?= base_url('img/user/ic_wa.png') ?>" width="40px" height="40px" alt=""><span><?= $data['wa3']?></span></a><br>
+                    <a href="https://wa.me/<?= $data['wa4']?>" target="blank"> <img src="<?= base_url('img/user/ic_wa.png') ?>" width="40px" height="40px" alt=""><span><?= $data['wa4']?></span></a>
                   </div>
+                
+
+                <div class="col-lg-6" style="padding-left:50px;">
+                  <h6 style="padding-top:15px;">Follow Our Media</h6>
+                  <a href="https://www.instagram.com/<?= $data['Instagram1']?>/" target="blank"> <img src="<?= base_url('img/user/ic_ig.png') ?>" width="40px" height="40px" alt=""><span><?= $data['Instagram1']?></span></a><br>
+                  <a href="https://www.instagram.com/<?= $data['Instagram2']?>/" target="blank"> <img src="<?= base_url('img/user/ic_ig.png') ?>" width="40px" height="40px" alt=""><span><?= $data['Instagram2']?></span></a><br>
+                  <a href="https://www.facebook.com/makenakofficial" target="blank"> <img src="<?= base_url('img/user/ic_fb.png') ?>" width="40px" height="40px" alt=""><span>Mak Enak Jember</span></a>
                 </div>
               </div>
-
+              <?php } ?>
             </div>
+          </div>
+        </div>
+
+      </div>
     </section>
 
   </main>

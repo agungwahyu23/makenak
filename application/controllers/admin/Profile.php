@@ -24,9 +24,13 @@ class Profile extends CI_Controller
         'Nama_Kantor' => $this->input->post("nama"),
         'Alamat_Kantor' => $this->input->post("alamat"),
         'Email' => $this->input->post("email"),
-        'No_Telp' => $this->input->post("no_telp"),
-        'No_Telp2' => $this->input->post("no_telp2"),
-        'Instagram' => $this->input->post("ig"),
+        'wa1' => $this->input->post("wa1"),
+        'wa2' => $this->input->post("wa2"),
+        'wa3' => $this->input->post("wa3"),
+        'wa4' => $this->input->post("wa4"),
+        'Instagram1' => $this->input->post("ig1"),
+        'Instagram2' => $this->input->post("ig2"),
+        'fb' => $this->input->post("fb"),
         'Deskripsi' => $this->input->post("deskripsi"),
       ), "Id_Profile", "profile", 1);
       if ($update) {

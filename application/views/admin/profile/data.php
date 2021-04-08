@@ -46,24 +46,41 @@
                     </div>
                   </div>
                   <div class="row">
-
-                    <div class="form-group col-lg-6 col-sm-12">
-                      <label>Nomor Telepon</label>
-                      <input class="form-control" id="no_telp" name="no_telp" type="text" placeholder="Nomor Telepon" value="<?= $k['No_Telp'] ?>" />
+                    <div class="form-group col-lg-3 col-sm-12">
+                      <label>Nomor whatsapp 1</label>
+                      <input class="form-control" id="no_telp" name="wa1" type="text" placeholder="Nomor Telepon" value="<?= $k['wa1'] ?>" />
                     </div>
-                    <div class="form-group col-lg-6 col-sm-12">
-                      <label>Nomor Telepon 2</label>
-                      <input class="form-control" id="no_telp2" name="no_telp2" type="text" placeholder="Nomor Telepon" value="<?= $k['No_Telp2'] ?>" />
+                    <div class="form-group col-lg-3 col-sm-12">
+                      <label>Nomor whatsapp 2</label>
+                      <input class="form-control" id="no_telp" name="wa2" type="text" placeholder="Nomor Telepon" value="<?= $k['wa1'] ?>" />
+                    </div>
+                    <div class="form-group col-lg-3 col-sm-12">
+                      <label>Nomor whatsapp 3</label>
+                      <input class="form-control" id="no_telp" name="wa3" type="text" placeholder="Nomor Telepon" value="<?= $k['wa1'] ?>" />
+                    </div>
+                    <div class="form-group col-lg-3 col-sm-12">
+                      <label>Nomor whatsapp 4</label>
+                      <input class="form-control" id="no_telp" name="wa4" type="text" placeholder="Nomor Telepon" value="<?= $k['wa1'] ?>" />
                     </div>
                   </div>
                   <div class="row">
                     <div class="form-group col-lg-6 col-sm-12">
-                      <label>Email</label>
-                      <input class="form-control" id="email" name="email" type="text" placeholder="Email" value="<?= $k['Email'] ?>" />
+                      <label>Instagram 1</label>
+                      <input class="form-control" id="ig" name="ig1" type="text" placeholder="Instagram" value="<?= $k['Instagram1'] ?>" />
                     </div>
                     <div class="form-group col-lg-6 col-sm-12">
-                      <label>Instagram</label>
-                      <input class="form-control" id="ig" name="ig" type="text" placeholder="Instagram" value="<?= $k['Instagram'] ?>" />
+                      <label>Instagram 2</label>
+                      <input class="form-control" id="ig" name="ig2" type="text" placeholder="Instagram" value="<?= $k['Instagram2'] ?>" />
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="form-group col-lg-6 col-sm-12">
+                      <label>Facebook</label>
+                      <input class="form-control" id="ig" name="fb" type="text" placeholder="Instagram" value="<?= $k['fb'] ?>" />
+                    </div>
+                    <div class="form-group col-lg-6 col-sm-12">
+                      <label>Email</label>
+                      <input class="form-control" id="email" name="email" type="text" placeholder="Email" value="<?= $k['Email'] ?>" />
                     </div>
                   </div>
                   <div class="row">

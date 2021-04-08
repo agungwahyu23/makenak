@@ -34,9 +34,9 @@
             Jl. Letjen S.Parman X No.15, Tegal Boto Kidul, Karangrejo, <br> Kec. Sumbersari, Kabupaten Jember, Jawa Timur 68121
           <div class="social-links mt-3">
             <?php foreach ($deskripsi as $d) { ?>
-              <a href="https://www.instagram.com/<?= $d['Instagram'] ?>/" class="instagram"><i class="bi bi-instagram bx bxl-instagram"></i></a>
-              <a href="https://api.whatsapp.com/send?phone=<?= $d['No_Telp'] ?>" class="whatsapp"><i class="bi bi-whatsapp"></i></a>
-              <a href="mailto:<?= $d['Email'] ?>?Subject=RiverPrawn&Body=" class="envelope"><i class="bi bi-envelope"></i></a>
+              <a href="https://www.instagram.com/<?= $d['Instagram1'] ?>/" class="instagram"><i class="bi bi-instagram bx bxl-instagram"></i></a>
+              <a href="https://api.whatsapp.com/send?phone=<?= $d['wa1'] ?>" class="whatsapp"><i class="bi bi-whatsapp"></i></a>
+              <a href="mailto:<?= $d['Email'] ?>?Subject=MakEnak&Body=" class="envelope"><i class="bi bi-envelope"></i></a>
               <!-- <a href="mailto:<?= $d['Email'] ?>?Subject=RiverPrawn&Body=">
                 <img src="https://www.kursuswebsite.org/wp-content/uploads/2017/03/email.png" alt="Email" />
               </a> -->
