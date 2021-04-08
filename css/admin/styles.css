@@ -10290,7 +10290,7 @@ button.bg-orange:focus {
 }
 
 .bg-yellow {
-	background-color: #f4a100 !important;
+	background-color: #F3DB00 !important;
 }
 
 a.bg-yellow:hover,
@@ -20464,6 +20464,38 @@ body {
 	font-weight: 500;
 }
 
+.sidenav-yellow {
+	background-color: #e4e000;
+	color: rgba(0, 0, 0, 0.5);
+}
+.sidenav-yellow .sidenav-menu .sidenav-menu-heading {
+	color: rgba(0, 0, 0, 0.25);
+}
+.sidenav-yellow .sidenav-menu .nav-link {
+	color: rgba(0, 0, 0, 0.5);
+}
+.sidenav-yellow .sidenav-menu .nav-linsk .nav-link-icon {
+	color: rgba(0, 0, 0, 0.25);
+}
+.sidenav-yellow .sidenav-menu .nav-link .sidenav-collapse-arrow {
+	color: rgba(0, 0, 0, 0.25);
+}
+.sidenav-yellow .sidenav-menu .nav-link:hover {
+	color: rgb(0, 0, 0);
+}
+.sidenav-yellow .sidenav-menu .nav-link.active {
+	color: rgb(0, 0, 0);
+}
+.sidenav-yellow .sidenav-menu .nav-link.active .nav-link-icon {
+	color: rgb(0, 0, 0);
+}
+.sidenav-yellow .sidenav-menu-nested {
+	border-left-color: rgba(0, 0, 0, 0.15);
+}
+.sidenav-yellow .sidenav-footer {
+	background-color: rgba(0, 0, 0, 0.25);
+}
+
 .sidenav-dark {
 	background-color: #1f2d41;
 	color: rgba(255, 255, 255, 0.5);
@@ -20497,7 +20529,7 @@ body {
 }
 
 .sidenav-light {
-	background-color: #fff;
+	background-color: rgb(240, 240, 240);
 	color: #1f2d41;
 }
 .sidenav-light .sidenav-menu .sidenav-menu-heading {
