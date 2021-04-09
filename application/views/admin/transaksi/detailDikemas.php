@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
 <!-- Head -->
 <?php $this->load->view("admin/_partials/head.php") ?>
 
@@ -141,20 +141,42 @@ $dataWa = substr($dataPenerima['wa'], 1);
                 </div>
 
 
-                <form action="<?= base_url('admin/Transaksi/selesaiDikemas')?>" method="POST">
+                <form action="<?= base_url('admin/Transaksi/selesaiDikemas') ?>" method="POST">
                   <div class="row mr-3">
                     <div class="form-group col-lg-4 col-sm-4">
                       <label>Masukan Resi</label>
                       <?= form_error('resi', '<small class="text-danger pl-2">', '</small>'); ?>
-                      <input class="form-control" name="resi" type="text" placeholder="Resi Pengiriman" required/>
-                      <input class="form-control" name="idTransaksi" type="hidden" value="<?= $dataPenerima['idTransaksi']?>"/>
+                      <input class="form-control" name="resi" type="text" placeholder="Resi Pengiriman" required />
+                      <input class="form-control" name="idTransaksi" type="hidden" value="<?= $dataPenerima['idTransaksi'] ?>" />
                     </div>
                     <div class="col-lg-12 col-sm-12 ">
-                      <button type="submit" class="btn btn-success btn-sm">Selesai Dikemas</button>
+                      <button type="button" class="btn btn-success btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal1">
+                        Terima Pemesanan
+                      </button>
                       <a href="<?= base_url('admin/Transaksi/dikemas') ?>" class="btn btn-danger btn-sm">Kembali</a>
                     </div>
                   </div>
+                  <!-- Modal -->
+                  <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                          Apakah Anda Yakin Ingin Menerima Pesanan Ini?
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tidak</button>
+                          <button type="submit" class="btn btn-primary">Ya</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </form>
+
+
 
 
               </div>
@@ -174,6 +196,7 @@ $dataWa = substr($dataPenerima['wa'], 1);
   <?php $this->load->view("admin/_partials/js.php") ?>
 
 </body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
 <script>
   function readURL(input) {
     if (input.files && input.files[0]) {

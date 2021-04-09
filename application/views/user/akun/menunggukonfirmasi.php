@@ -13,6 +13,7 @@
         <div class="gap-80"></div>
         <section class="dasbor">
             <div class="container">
+            <?php echo $this->session->flashdata('message') ?>
                 <div class="row">
                     <div class="col-lg-4">
 

@@ -18,21 +18,29 @@ class Login extends CI_Controller
 			$user = $this->db->get_where('pengguna', ['Email' => $email])->row_array();
 
 			if ($user) {
-				if ($password === $user['Password']) {
-					$data = [
-						'Id_User' => $user['Id_User'],
-						'Nama' => $user['Nama'],
-						'Email' => $user['Email'],
-					];
-					$this->session->set_userdata($data);
-					// echo json_encode($data);
-					redirect('admin/Dashboard');
-				} else {
+				if($user['Pekerjaan'] === 'User'){
 					$this->session->set_flashdata(
 						'message',
-						'<div class="alert alert-danger mb-3" role="alert">Wrong Password!</div>'
+						'<div class="alert alert-danger mb-3" role="alert">Email Not Registered</div>'
 					);
 					redirect('admin/Login');
+				}else{
+					if ($password === $user['Password']) {
+						$data = [
+							'Id_User' => $user['Id_User'],
+							'Nama' => $user['Nama'],
+							'Email' => $user['Email'],
+						];
+						$this->session->set_userdata($data);
+						// echo json_encode($data);
+						redirect('admin/Dashboard');
+					} else {
+						$this->session->set_flashdata(
+							'message',
+							'<div class="alert alert-danger mb-3" role="alert">Wrong Password!</div>'
+						);
+						redirect('admin/Login');
+					}
 				}
 			} else {
 				$this->session->set_flashdata(
