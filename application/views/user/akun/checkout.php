@@ -85,11 +85,36 @@
 
                     <hr>
 
-                    <div class="row mb-5">
-                      <div class="house-type"><span>Total Belanja</span>Rp. 100.000</div>
-                      <div class="house-type"><span>Ongkir</span>Rp. 750.000</div>
-                      <div class="house-type"><span>Total Bayat</span>Rp. 175.000</div>
+                    <div class="row justify-content-end">
+
+                      <div class="mb-5 col-md-4">
+                        <table class="table"> 
+                          <tbody>
+                            <tr>
+                              <td>Total Belanja</td>
+                              <td><b>Rp. <?= $keranjang['totalBayar'] ?></b></td>
+                            </tr>
+                          </tbody>
+                          <tbody>
+                            <tr>
+                              <td>Ongkir</td>
+                              <td><b id="ongkir"></b></td>
+                            </tr>
+                          </tbody>
+                          <tbody>
+                            <tr>
+                              <td>Total Bayar </td>
+                              <td><b id="total"></b></td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
                     </div>
+                    <!-- <div class="row mb-5">
+                      <div>Total Belanja <b>Rp. <?= $keranjang['totalBayar'] ?></b></div>
+                      <div>Ongkir <b id="ongkir"></b></div>
+                      <div>Total Bayar <b id="total"></b></div>
+                    </div> -->
                     <!-- <div class="row justify-content-end">
                       <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-xs-12">
                         <div>
@@ -114,7 +139,7 @@
                         </div>
                       </div>
                     </div> -->
-                          
+
                     <hr>
 
                     <div class="row justify-content-center mb-4">
@@ -293,18 +318,18 @@
                 if (parseInt(data.produk[i].jumlahBeli) < parseInt(data.produk[i].isiDus)) { // kurang dari 1 dus
                   Swal.fire({
                     icon: 'error',
-                    title: '<h4>Peringatan Untuk Produk '+ data.produk[i].namaProduk +'</h4>',
-                    text: 'Minimal pembelian daerah jawa timur '+ (parseInt(data.produk[i].isiDus) * 3) +' Toples/Bal',
+                    title: '<h4>Peringatan Untuk Produk ' + data.produk[i].namaProduk + '</h4>',
+                    text: 'Minimal pembelian daerah jawa timur ' + (parseInt(data.produk[i].isiDus) * 3) + ' Toples/Bal',
                     footer: '<a href="<?= base_url('Dashboard/keranjang') ?>">Lihat Keranjang</a>'
                   }).then(function() {
                     window.location = "<?= base_url('Dashboard/checkout') ?>";
                   });
-                } else { 
+                } else {
 
                   if ((parseInt(data.produk[i].jumlahBeli) % parseInt(data.produk[i].isiDus)) !== 0) { // bukan kelipatan 1 dus
                     Swal.fire({
                       icon: 'error',
-                      title: '<h4>Peringatan Untuk Produk '+ data.produk[i].namaProduk +'</h4>',
+                      title: '<h4>Peringatan Untuk Produk ' + data.produk[i].namaProduk + '</h4>',
                       text: 'Pembelian Hanya Berlaku Kelipatan 1 Dus',
                       footer: '<a href="<?= base_url('Dashboard/keranjang') ?>">Lihat Keranjang</a>'
                     }).then(function() {
@@ -323,8 +348,8 @@
                 if (parseInt(data.produk[i].jumlahBeli) < (parseInt(data.produk[i].isiDus) * 3)) { //gak sampai 3 dus
                   Swal.fire({
                     icon: 'error',
-                    title: '<h4>Peringatan Untuk Produk '+ data.produk[i].namaProduk +'</h4>',
-                    text: 'Minimal pembelian di luar jawa timur '+ (parseInt(data.produk[i].isiDus) * 3) +' Toples/Bal',
+                    title: '<h4>Peringatan Untuk Produk ' + data.produk[i].namaProduk + '</h4>',
+                    text: 'Minimal pembelian di luar jawa timur ' + (parseInt(data.produk[i].isiDus) * 3) + ' Toples/Bal',
                     footer: '<a href="<?= base_url('Dashboard/keranjang') ?>">Lihat Keranjang</a>'
                   }).then(function() {
                     window.location = "<?= base_url('Dashboard/checkout') ?>";
@@ -333,7 +358,7 @@
                   if ((parseInt(data.produk[i].jumlahBeli) % parseInt(data.produk[i].isiDus)) !== 0) { // bukan kelipatan 1 dus
                     Swal.fire({
                       icon: 'error',
-                      title: '<h4>Peringatan Untuk Produk '+ data.produk[i].namaProduk +'</h4>',
+                      title: '<h4>Peringatan Untuk Produk ' + data.produk[i].namaProduk + '</h4>',
                       text: 'Pembelian Hanya Berlaku Kelipatan 1 Dus',
                       footer: '<a href="<?= base_url('Dashboard/keranjang') ?>">Lihat Keranjang</a>'
                     }).then(function() {
