@@ -14,37 +14,113 @@ class User_Profile extends CI_Controller
   {
     $data['Pengguna'] = $this->db->get_where('pengguna', ['Id_User' =>
     $this->session->userdata('Id_User')])->row_array();
-    $q = $data['Pengguna']['Id_User'];
-    $data['akun'] = $this->db->query("SELECT * FROM pengguna WHERE Id_User = '$q'")->row();
     $this->load->view('admin/akun/data', $data);
-    // echo json_encode($data['akun']);
   }
+
+
   public function post()
   {
-    $data['Pengguna'] = $this->db->get_where('pengguna', ['Id_User' =>
-    $this->session->userdata('Id_User')])->row_array();
-    $q = $data['Pengguna']['Id_User'];
     $data = array(
       'Nama' => $this->input->post('name'),
-      'Email' => $this->input->post('email'),
-      'Password' => md5($this->input->post('password')),
-      'Pekerjaan' => $this->input->post('pekerjaan'),
       'Alamat' => $this->input->post('alamat'),
       'No_Hp' => $this->input->post('no_hp'),
     );
-
-    $this->db->where('Id_User', $q);
+    $user = $this->session->userdata('Id_User');
+    $this->db->where('Id_User', $user);
     $update = $this->db->update('pengguna', $data);
     if ($update) {
       $this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert">
-      Berhasil Update Data
+      Berhasil Mengubah Data
     </div>');
       redirect('admin/User_Profile');
     } else {
       $this->session->set_flashdata('pesan', '<div class="alert alert-danger" role="alert">
-      Gagal Update Data
+      Gagal Mengubah Data
     </div>');
       redirect('admin/User_Profile');
+    }
+  }
+
+  public function gantiEmail()
+  {
+    $this->form_validation->set_rules('email', 'Email', 'required|valid_email|is_unique[pengguna.Email]');
+    $this->form_validation->set_rules('password', 'Password', 'required');
+
+    $data['Pengguna'] = $this->db->get_where('pengguna', ['Id_User' =>
+    $this->session->userdata('Id_User')])->row_array();
+
+    $id = $this->session->userdata('Id_User');
+    $passwordSekarang = $data['Pengguna']['Password'];
+
+    if ($this->form_validation->run() == false) {
+      $this->load->view('admin/akun/gantiEmail', $data);
+    } else {
+      $email = $this->input->post('email');
+      $password = md5($this->input->post('password'));
+
+      if ($password == $passwordSekarang) {
+        $this->db->where('Id_User', $id);
+        $update = $this->db->update('pengguna', ['Email' => $email]);
+
+        if ($update) {
+          $this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert">
+          Berhasil Mengubah Email
+        </div>');
+          redirect('admin/User_Profile/gantiEmail');
+        } else {
+          $this->session->set_flashdata('pesan', '<div class="alert alert-danger" role="alert">
+          Gagal Mengubah Email
+        </div>');
+          redirect('admin/User_Profile/gantiEmail');
+        }
+      } else {
+        $this->session->set_flashdata('pesan', '<div class="alert alert-danger" role="alert">
+          Password yang anda masukan salah
+        </div>');
+        redirect('admin/User_Profile/gantiEmail');
+      }
+    }
+  }
+
+  public function gantiPassword()
+  {
+    $this->form_validation->set_rules('password', 'Password', 'required');
+    $this->form_validation->set_rules('passwordBaru', 'Password Baru', 'required');
+    $this->form_validation->set_rules('konfirmasiPassword', 'Konfirmasi Password', 'required|matches[passwordBaru]');
+
+    $data['Pengguna'] = $this->db->get_where('pengguna', ['Id_User' =>
+    $this->session->userdata('Id_User')])->row_array();
+
+    $id = $this->session->userdata('Id_User');
+    $passwordSekarang = $data['Pengguna']['Password'];
+
+    if ($this->form_validation->run() == false) {
+      $this->load->view('admin/akun/gantiPassword', $data);
+    } else {
+      $passwordBaru = $this->input->post('passwordBaru');
+      $password = md5($this->input->post('password'));
+
+      if ($password == $passwordSekarang) {
+        $this->db->where('Id_User', $id);
+        $update = $this->db->update('pengguna', ['Password' => md5($passwordBaru)]);
+
+        if ($update) {
+          $this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert">
+          Berhasil Mengubah Password
+        </div>');
+          redirect('admin/User_Profile/gantiPassword');
+        } else {
+          $this->session->set_flashdata('pesan', '<div class="alert alert-danger" role="alert">
+          Gagal Mengubah Password
+        </div>');
+          redirect('admin/User_Profile/gantiPassword');
+        }
+      } else {
+        $this->session->set_flashdata('pesan', '<div class="alert alert-danger" role="alert">
+          Password yang anda masukan salah
+        </div>');
+        redirect('admin/User_Profile/gantiPassword');
+      }
     }
   }
 }

@@ -44,9 +44,9 @@
                               <th width="12%">Gambar</th>
                               <th width="30%">Produk</th>
                               <th width="8%">Jumlah</th>
-                              <th width="20%">Harga</th>
-                              <th width="20%">Subtotal</th>
-                              <th width="10%">Aksi</th>
+                              <th width="15%">Harga</th>
+                              <th width="15%">Subtotal</th>
+                              <th width="20%">Aksi</th>
 
                             </tr>
                           </thead>
@@ -56,12 +56,16 @@
                                 <td><img style="size: 50px; width: 50px;" class="img-responsive" src="<?= base_url('img/produk/') . $data['gambar'] ?>" alt="Image"></td>
                                 <td><?= $data['namaProduk'] ?></td>
                                 <td><input type="text" class="form-control input-sm" name="jumlahBeli" value="<?= $data['jumlahBeli'] ?>" /></td>
-                                <td><?= $data['hargaSatuan'] ?></td>
-                                <td><?= $data['totalHarga'] ?></td>
+                                <td>Rp. <?= number_format($data['hargaSatuan']) ?></td>
+                                <td>Rp. <?= number_format($data['totalHarga']) ?></td>
                                 <td>
                                   <a href="<?= base_url('Dashboard/hapusKeranjang/' . $data['idDetailTransaksi']) ?>">
                                     <span class="badge rounded-pill bg-danger">Hapus</span>
-                                  </a></td>
+                                  </a>
+                                  <a href="<?= base_url('Dashboard/hapusKeranjang/' . $data['idDetailTransaksi']) ?>">
+                                    <span class="badge rounded-pill bg-success">Edit</span>
+                                  </a>
+                                </td>
                               </tr>
                             <?php } ?>
                           </tbody>
@@ -69,9 +73,9 @@
                       </div>
                       <?php if ($keranjang) { ?>
                         <div class="d-grid gap-2 justify-content-md-end">
-                        <a href="<?= base_url('Dashboard/checkout')?>" class="btn btn-success">Bayar Sekarang</a>
+                          <a href="<?= base_url('Dashboard/checkout') ?>" class="btn btn-success">Bayar Sekarang</a>
                         </div>
-                       
+
                       <?php } else { ?>
                         <div class="alert alert-light text-center" role="alert">
                           Tidak ada produk didalam keranjang

@@ -22,33 +22,38 @@
             <div class="page-header-content">
               <h1 class="page-header-title">
                 <div class="page-header-icon"><i data-feather="user"></i></div>
-                <span>Edit Akun Anda</span>
+                <span>Ganti Password</span>
               </h1>
             </div>
           </div>
         </div>
         <div class="container-fluid mt-n10">
-          <form action="<?= base_url('admin/User_Profile/post') ?>" method="post">
+          <form action="" method="post">
             <div class="card mb-4">
-              <div class="card-header">Edit Akun Admin</div>
+              <div class="card-header">Ganti Password</div>
               <div class="card-body">
                 <div class="col">
                   <?php echo $this->session->flashdata('pesan') ?>
                 </div>
                 <div class="row">
-                  <div class="form-group col-lg-6 col-sm-12">
-                    <label>Nama Admin</label>
-                    <input class="form-control" id="name" name="name" type="text" placeholder="Nama Admin" required value="<?= $Pengguna['Nama']?>" />
-                  </div>
-                  <div class="form-group col-lg-6 col-sm-12">
-                    <label>Alamat Rumah</label>
-                    <input class="form-control" id="alamat" name="alamat" type="text" placeholder="Alamat Rumah" required value="<?= $Pengguna['Alamat'] ?>" />
+                <div class="form-group col-lg-12 col-sm-12">
+                    <label>Password Sekarang</label>
+                    <?= form_error('password', '<small class="text-danger pl-2">', '</small>'); ?>
+                    <input class="form-control" id="no_hp" name="password" type="password" placeholder="Password Sekarang" required/>
                   </div>
                 </div>
                 <div class="row">
                   <div class="form-group col-lg-12 col-sm-12">
-                    <label>Nomor Hp</label>
-                    <input class="form-control" id="no_hp" name="no_hp" type="number" placeholder="Nomor Hp" required value="<?= $Pengguna['No_Hp'] ?>" />
+                    <label>Password baru</label>
+                    <?= form_error('passwordBaru', '<small class="text-danger pl-2">', '</small>'); ?>
+                    <input class="form-control" id="no_hp" name="passwordBaru" type="password" placeholder="Password Baru" required/>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="form-group col-lg-12 col-sm-12">
+                    <label>Konfirmasi Password baru</label>
+                    <?= form_error('konfirmasiPassword', '<small class="text-danger pl-2">', '</small>'); ?>
+                    <input class="form-control" id="no_hp" name="konfirmasiPassword" type="password" placeholder="Konfirmasi Password Baru" required/>
                   </div>
                 </div>
               </div>

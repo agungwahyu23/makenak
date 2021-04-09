@@ -7,7 +7,7 @@ class TentangKami extends CI_Controller
 	{
 		$data['deskripsi'] = $this->db->query("SELECT * FROM profile WHERE Id_Profile = '1'")->result_array();
 
-		$data['tentangKami'] = $this->db->get('companyprofile')->row_array();
+		$data['tentangKami'] = $this->db->get('profile')->row_array();
 		$this->load->view('user/tentang_kami', 	$data);
 	}
 }
