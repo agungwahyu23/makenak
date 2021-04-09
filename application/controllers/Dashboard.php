@@ -110,6 +110,31 @@ class Dashboard extends CI_Controller
         }
     }
 
+    public function validasi()
+    {
+        $user = $this->session->userdata('idCustomer');
+
+        $data = $this->db->join('detailtransaksi', 'detailtransaksi.idTransaksi = transaksi.idTransaksi')->join('produk', 'produk.id = detailtransaksi.idProduk')->get_where('transaksi', ['idUser' => $user, 'transaksi.Status' => 0])->result_array();
+
+        $jumlah = $this->db->join('detailtransaksi', 'detailtransaksi.idTransaksi = transaksi.idTransaksi')->get_where('transaksi', ['idUser' => $user, 'Status' => 0])->num_rows();
+        $wa = $this->db->get('profile')->row_array();
+        $link = 'https://api.whatsapp.com/send?phone=';
+        for ($i = 0; $i < $jumlah; $i++) {
+            if ($data[$i]['jumlahBeli'] > ($data[$i]['isiDus'] * 30)) {
+                $this->session->set_flashdata('message', '<div class="alert alert-success text-center" role="alert">
+
+					  Untuk Pemesanan Di Atas 30 Dus, Silahkan Melakukan Transaksi Melalui WA Admin Mak Enak Berikut.<br>
+                        <a class="btn btn-success" href="'.$link.''. $wa['wa2'] .'">Pesan Sekarang</a>
+
+					</div>');
+
+                redirect('Dashboard/keranjang');
+            }
+        }
+
+        redirect('Dashboard/checkout');
+    }
+
     public function checkout()
     {
         $data['deskripsi'] = $this->db->query("SELECT * FROM profile WHERE Id_Profile = '1'")->result_array();

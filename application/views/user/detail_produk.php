@@ -57,7 +57,7 @@
 
               </div>
 
-              <strong> Rp <?= number_format($detailProduk['harga']) ?></strong>
+              <strong> Rp <?= number_format($detailProduk['harga'], 0, ",", ".") ?></strong>
               <p> Netto : <?= $detailProduk['netto'] ?> Gram</p>
 
               <p class="mt-3">
@@ -130,7 +130,7 @@
 
 
 
-        <span>Produk Terkait</span>
+        <span>Produk Lainnya</span>
 
 
 
