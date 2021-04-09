@@ -224,7 +224,6 @@
               document.write(new Date().getFullYear());
             </script>
           </div>
-
         </div>
 
     </section>
@@ -294,8 +293,8 @@
                 if (parseInt(data.produk[i].jumlahBeli) < parseInt(data.produk[i].isiDus)) { // kurang dari 1 dus
                   Swal.fire({
                     icon: 'error',
-                    title: 'Peringatan Untuk Produk '+ data.produk[i].namaProduk +'',
-                    text: 'Jumlah produk yang anda beli tidak sesuai dengan ketentuan',
+                    title: '<h4>Peringatan Untuk Produk '+ data.produk[i].namaProduk +'</h4>',
+                    text: 'Minimal pembelian daerah jawa timur '+ (parseInt(data.produk[i].isiDus) * 3) +' Toples/Bal',
                     footer: '<a href="<?= base_url('Dashboard/keranjang') ?>">Lihat Keranjang</a>'
                   }).then(function() {
                     window.location = "<?= base_url('Dashboard/checkout') ?>";
@@ -305,7 +304,7 @@
                   if ((parseInt(data.produk[i].jumlahBeli) % parseInt(data.produk[i].isiDus)) !== 0) { // bukan kelipatan 1 dus
                     Swal.fire({
                       icon: 'error',
-                      title: 'Peringatan Untuk Produk '+ data.produk[i].namaProduk +'',
+                      title: '<h4>Peringatan Untuk Produk '+ data.produk[i].namaProduk +'</h4>',
                       text: 'Pembelian Hanya Berlaku Kelipatan 1 Dus',
                       footer: '<a href="<?= base_url('Dashboard/keranjang') ?>">Lihat Keranjang</a>'
                     }).then(function() {
@@ -324,8 +323,8 @@
                 if (parseInt(data.produk[i].jumlahBeli) < (parseInt(data.produk[i].isiDus) * 3)) { //gak sampai 3 dus
                   Swal.fire({
                     icon: 'error',
-                    title: 'Peringatan Untuk Produk '+ data.produk[i].namaProduk +'',
-                    text: 'Jumlah produk yang anda beli tidak sesuai dengan ketentuan',
+                    title: '<h4>Peringatan Untuk Produk '+ data.produk[i].namaProduk +'</h4>',
+                    text: 'Minimal pembelian di luar jawa timur '+ (parseInt(data.produk[i].isiDus) * 3) +' Toples/Bal',
                     footer: '<a href="<?= base_url('Dashboard/keranjang') ?>">Lihat Keranjang</a>'
                   }).then(function() {
                     window.location = "<?= base_url('Dashboard/checkout') ?>";
@@ -334,7 +333,7 @@
                   if ((parseInt(data.produk[i].jumlahBeli) % parseInt(data.produk[i].isiDus)) !== 0) { // bukan kelipatan 1 dus
                     Swal.fire({
                       icon: 'error',
-                      title: 'Peringatan '+ data.produk[i].namaProduk +'',
+                      title: '<h4>Peringatan Untuk Produk '+ data.produk[i].namaProduk +'</h4>',
                       text: 'Pembelian Hanya Berlaku Kelipatan 1 Dus',
                       footer: '<a href="<?= base_url('Dashboard/keranjang') ?>">Lihat Keranjang</a>'
                     }).then(function() {

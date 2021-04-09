@@ -13,9 +13,9 @@
     <div class="gap-80"></div>
     <section class="dasbor">
       <div class="container">
+      <?php echo $this->session->flashdata('message') ?>
         <div class="row">
-          <div class="col-lg-4">
-
+          <div class="col-lg-4 mb-4">
             <div class="list-group">
               <div class="text-center list-group-item pb-3">
                 <img class="profile-user-img img-fluid img-circle" src="<?= base_url('img/admin/user.png') ?>" width="50px" height="50px" alt="User profile picture">
@@ -25,6 +25,7 @@
             </div>
 
           </div>
+          
           <div class="col-lg-8">
 
             <div class="card">
@@ -73,7 +74,7 @@
                       </div>
                       <?php if ($keranjang) { ?>
                         <div class="d-grid gap-2 justify-content-md-end">
-                          <a href="<?= base_url('Dashboard/checkout') ?>" class="btn btn-success">Bayar Sekarang</a>
+                          <a href="<?= base_url('Dashboard/validasi') ?>" class="btn btn-success">Bayar Sekarang</a>
                         </div>
 
                       <?php } else { ?>
