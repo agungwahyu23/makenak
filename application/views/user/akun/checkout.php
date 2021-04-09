@@ -158,9 +158,9 @@
                           </div>
                           <div class="col bank">
                             <div>
-                              Bank Central Asia <br>
-                              2000423290 <br>
-                              Dono Febriono
+                              <?= $bca['namaBank']?> <br>
+                              <?= $bca['nomorRekening']?> <br>
+                              <?= $bca['namaTabungan']?>
                             </div>
                           </div>
                           <div class="col-auto align-self-center">
@@ -170,9 +170,9 @@
                           </div>
                           <div class="col bank">
                             <div>
-                              Bank Mandiri <br>
-                              1430017476514 <br>
-                              Dono Febriono
+                            <?= $mandiri['namaBank']?> <br>
+                              <?= $mandiri['nomorRekening']?> <br>
+                              <?= $mandiri['namaTabungan']?>
                             </div>
                           </div>
                         </div>
@@ -184,9 +184,9 @@
                           </div>
                           <div class="col bank">
                             <div>
-                              Bank Rakyat Indonesia <br>
-                              774901005607539 <br>
-                              Dono Febriono
+                            <?= $bri['namaBank']?> <br>
+                              <?= $bri['nomorRekening']?> <br>
+                              <?= $bri['namaTabungan']?>
                             </div>
                           </div>
                           <div class="col-auto align-self-center">
@@ -196,9 +196,9 @@
                           </div>
                           <div class="col bank">
                             <div>
-                              Bank Negara Indonesia <br>
-                              0450220002 <br>
-                              Dono Febriono
+                            <?= $bni['namaBank']?> <br>
+                              <?= $bni['nomorRekening']?> <br>
+                              <?= $bni['namaTabungan']?>
                             </div>
                           </div>
                         </div>

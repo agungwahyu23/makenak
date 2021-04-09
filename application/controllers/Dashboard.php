@@ -139,6 +139,10 @@ class Dashboard extends CI_Controller
     {
         $data['deskripsi'] = $this->db->query("SELECT * FROM profile WHERE Id_Profile = '1'")->result_array();
 
+        $data['bca'] = $this->db->get_where('rekening', ['idRekening' => 1])->row_array();
+        $data['bni'] = $this->db->get_where('rekening', ['idRekening' => 2])->row_array();
+        $data['bri'] = $this->db->get_where('rekening', ['idRekening' => 4])->row_array();
+        $data['mandiri'] = $this->db->get_where('rekening', ['idRekening' => 3])->row_array();
         $user = $this->session->userdata('idCustomer');
 
         $data['user'] = $this->db->get_where('pengguna', ['Id_User' => $user, 'Pekerjaan' => 'User'])->row_array();
