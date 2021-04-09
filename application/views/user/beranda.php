@@ -199,7 +199,7 @@
                   <li>Rp <?= number_format($data['harga'], 0, ",", ".") ?></li>
                 </ul>
                 <a href="<?= base_url('Produk/DetailProduk/') . $data['id'] ?>" class="btn-detail">Detail</a>
-                <a href="<?= base_url('Produk/DetailProduk/') . $data['id'] ?>" class="btn-choose">Beli
+                <a href="<?= base_url('Produk/Beli/') . $data['id'] ?>" class="btn-choose">Beli
                   Sekarang</a>
               </div>
             </div>
