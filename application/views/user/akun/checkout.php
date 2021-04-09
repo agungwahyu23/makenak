@@ -85,8 +85,13 @@
 
                     <hr>
 
-                    <div class="row justify-content-end">
-                      <div class="col-3">
+                    <div class="row mb-5">
+                      <div class="house-type"><span>Total Belanja</span>Rp. 100.000</div>
+                      <div class="house-type"><span>Ongkir</span>Rp. 750.000</div>
+                      <div class="house-type"><span>Total Bayat</span>Rp. 175.000</div>
+                    </div>
+                    <!-- <div class="row justify-content-end">
+                      <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-xs-12">
                         <div>
                           Total Belanja
                         </div>
@@ -97,7 +102,7 @@
                           <strong>Total Bayar</strong>
                         </div>
                       </div>
-                      <div class="col-3">
+                      <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-xs-12">
                         <div>
                           Rp. <?= $keranjang['totalBayar'] ?>
                         </div>
@@ -108,8 +113,8 @@
                           <strong id="total">Rp. </strong>
                         </div>
                       </div>
-                    </div>
-
+                    </div> -->
+                          
                     <hr>
 
                     <div class="row justify-content-center mb-4">
@@ -119,7 +124,7 @@
                     </div>
 
                     <div class="row justify-content-center">
-                      <div class="col-lg-6 col-sm-6">
+                      <div class="col-lg-6 col-sm-6 mb-4">
                         <div class="row">
                           <div class="col-auto align-self-center">
                             <div>
@@ -174,7 +179,7 @@
                         </div>
                       </div>
 
-                      <div class="col-lg-6 col-sm-6">
+                      <div class="col-tf col-lg-6 col-sm-6">
 
                         <div class="row">
                           <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12"><label class="small mb-1" for="nama_pengirim">Nama Pengirim di Rekening Bank</label>

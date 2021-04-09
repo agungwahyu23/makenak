@@ -18380,8 +18380,8 @@ body {
 	background-color: #0d3056;
 	background-image: linear-gradient(
 		#0d3056,
-		#0d3056 0%,
-		rgba(0, 0, 0, 0.8) 100%
+		#ff0000 0%,
+		rgba(122, 0, 0, 0.8) 100%
 	);
 }
 

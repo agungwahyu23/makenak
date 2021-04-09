@@ -29,7 +29,7 @@
       <div class="form-holder">
         <div class="menu-holder">
           <ul class="main-links">
-            <li><a class="normal-link" href="<?= base_url('Auth/Daftar') ?>">Sudah Punya Akun?</a></li>
+            <li><a class="normal-link" href="<?= base_url('Auth') ?>">Sudah Punya Akun?</a></li>
             <li><a class="sign-button" href="<?= base_url('Auth') ?>">Masuk</a></li>
           </ul>
         </div>

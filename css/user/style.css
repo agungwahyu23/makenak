@@ -969,7 +969,7 @@ section {
   }
   .checkout .house-type span {
     font-size: 1vh !important;
-  }
+  } 
 }
 
 @media (max-width: 768px) {
