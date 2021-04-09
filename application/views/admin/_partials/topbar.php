@@ -22,12 +22,20 @@
                 </h6>
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="<?php echo base_url('admin/User_Profile') ?>">
-                    <div class="dropdown-item-icon"><i data-feather="settings"></i></div>
-                    Account
+                    <div class="dropdown-item-icon"><i data-feather="user"></i></div>
+                    Akun
+                </a>
+                <a class="dropdown-item" href="<?php echo base_url('admin/User_Profile/gantiEmail') ?>">
+                    <div class="dropdown-item-icon"><i data-feather="mail"></i></div>
+                    Ganti Email
+                </a>
+                <a class="dropdown-item" href="<?php echo base_url('admin/User_Profile/gantiPassword') ?>">
+                    <div class="dropdown-item-icon"><i data-feather="lock"></i></div>
+                    Ganti Password
                 </a>
                 <a class="dropdown-item" href="onclick=" confirm_modal() data-toggle="modal" data-target="#modalLogout">
                     <div class="dropdown-item-icon"><i data-feather="log-out"></i></div>
-                    Logout
+                    Keluar
                 </a>
             </div>
         </li>
