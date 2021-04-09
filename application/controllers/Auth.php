@@ -29,24 +29,32 @@ class Auth extends CI_Controller
 				$user = $this->db->get_where('pengguna', ['Email' => $email, 'Pekerjaan' => 'User'])->row_array();
 
 				if ($user) {
-					if ($password === $user['Password']) {
-						$data = [
-							'idCustomer' => $user['Id_User'],
-							'namaCustomer' => $user['Nama'],
-							'EmailCustomer' => $user['Email'],
-						];
-						$this->session->set_userdata($data);
+					if ($user['is_valid'] == 0) {
 						$this->session->set_flashdata(
 							'message',
-							'<div class="alert alert-danger mb-3" role="alert">Selamat datang di Mak Enak</div>'
-						);
-						redirect('Dashboard'); //arahkan ke halaman pengguna
-					} else {
-						$this->session->set_flashdata(
-							'message',
-							'<div class="alert alert-danger mb-3" role="alert">Password Salah!</div>'
+							'<div class="alert alert-danger mb-3" role="alert">Akun Anda Terblokir, Silahkan Hubungi Admin Jika Anda Tidak Melakukan Kesalahan</div>'
 						);
 						redirect('Auth'); //kembali ke halaman login
+					} else {
+						if ($password === $user['Password']) {
+							$data = [
+								'idCustomer' => $user['Id_User'],
+								'namaCustomer' => $user['Nama'],
+								'EmailCustomer' => $user['Email'],
+							];
+							$this->session->set_userdata($data);
+							$this->session->set_flashdata(
+								'message',
+								'<div class="alert alert-danger mb-3" role="alert">Selamat datang di Mak Enak</div>'
+							);
+							redirect('Dashboard'); //arahkan ke halaman pengguna
+						} else {
+							$this->session->set_flashdata(
+								'message',
+								'<div class="alert alert-danger mb-3" role="alert">Password Salah!</div>'
+							);
+							redirect('Auth'); //kembali ke halaman login
+						}
 					}
 				} else {
 					$this->session->set_flashdata(
@@ -61,9 +69,8 @@ class Auth extends CI_Controller
 
 	public function akun()
 	{
-		
+
 		redirect('Dashboard');
-		
 	}
 
 	public function daftar()

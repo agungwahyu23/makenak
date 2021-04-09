@@ -18,12 +18,10 @@ class Dashboard extends CI_Controller
     public function index()
     {
         if (!$this->session->userdata('idCustomer')) {
-            $this->session->set_flashdata('message', '<div class="alert alert-alert text-danger" role="alert">
-
-					  Silahkan Login Terlebih Dahulu
-
-					</div>');
-
+            $this->session->set_flashdata(
+                'message',
+                '<div class="alert alert-danger mb-3" role="alert">Silahkan Login Terlebih Dahulu</div>'
+            );
             redirect('Auth');
         } else {
             $data['deskripsi'] = $this->db->query("SELECT * FROM profile WHERE Id_Profile = '1'")->result_array();
@@ -40,12 +38,10 @@ class Dashboard extends CI_Controller
     public function keranjang()
     {
         if (!$this->session->userdata('idCustomer')) {
-            $this->session->set_flashdata('message', '<div class="alert alert-alert text-danger" role="alert">
-
-					  Silahkan Login Terlebih Dahulu
-
-					</div>');
-
+            $this->session->set_flashdata(
+                'message',
+                '<div class="alert alert-danger mb-3" role="alert">Silahkan Login Terlebih Dahulu</div>'
+            );
             redirect('Auth');
         } else {
             $data['deskripsi'] = $this->db->query("SELECT * FROM profile WHERE Id_Profile = '1'")->result_array();
@@ -62,12 +58,10 @@ class Dashboard extends CI_Controller
     public function konfirmasi()
     {
         if (!$this->session->userdata('idCustomer')) {
-            $this->session->set_flashdata('message', '<div class="alert alert-alert text-danger" role="alert">
-
-					  Silahkan Login Terlebih Dahulu
-
-					</div>');
-
+            $this->session->set_flashdata(
+                'message',
+                '<div class="alert alert-danger mb-3" role="alert">Silahkan Login Terlebih Dahulu</div>'
+            );
             redirect('Auth');
         } else {
             $data['deskripsi'] = $this->db->query("SELECT * FROM profile WHERE Id_Profile = '1'")->result_array();
@@ -82,12 +76,10 @@ class Dashboard extends CI_Controller
     public function proses()
     {
         if (!$this->session->userdata('idCustomer')) {
-            $this->session->set_flashdata('message', '<div class="alert alert-alert text-danger" role="alert">
-
-					  Silahkan Login Terlebih Dahulu
-
-					</div>');
-
+            $this->session->set_flashdata(
+                'message',
+                '<div class="alert alert-danger mb-3" role="alert">Silahkan Login Terlebih Dahulu</div>'
+            );
             redirect('Auth');
         } else {
             $data['deskripsi'] = $this->db->query("SELECT * FROM profile WHERE Id_Profile = '1'")->result_array();
@@ -103,12 +95,10 @@ class Dashboard extends CI_Controller
     public function dikirim()
     {
         if (!$this->session->userdata('idCustomer')) {
-            $this->session->set_flashdata('message', '<div class="alert alert-alert text-danger" role="alert">
-
-					  Silahkan Login Terlebih Dahulu
-
-					</div>');
-
+            $this->session->set_flashdata(
+                'message',
+                '<div class="alert alert-danger mb-3" role="alert">Silahkan Login Terlebih Dahulu</div>'
+            );
             redirect('Auth');
         } else {
             $user = $this->session->userdata('idCustomer');
