@@ -144,7 +144,9 @@ $dataWa = substr($dataPenerima['wa'], 1);
 
                 <div class="row mr-3">
                   <div class="col-lg-12 col-sm-12 ">
-                    <a href="<?= base_url('admin/Transaksi/pesananDiterima/' . $dataPenerima['idTransaksi']) ?>" class="btn btn-success btn-sm">Terima Pembayaran</a>
+                    <button type="button" class="btn btn-success btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal1">
+                      Terima Pemesanan
+                    </button>
                     <a href="<?= base_url('admin/Transaksi/') ?>" class="btn btn-danger btn-sm">Kembali</a>
                     <button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal">
                       Tolak Pemesanan
@@ -153,6 +155,24 @@ $dataWa = substr($dataPenerima['wa'], 1);
                   </div>
                 </div>
 
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                      </div>
+                      <div class="modal-body">
+                        Apakah Anda Yakin Ingin Menerima Pesanan Ini?
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tidak</button>
+                        <a href="<?= base_url('admin/Transaksi/pesananDiterima/' . $dataPenerima['idTransaksi']) ?>" class="btn btn-primary">Ya, Terima.</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
                 <!-- Modal -->
                 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                   <div class="modal-dialog">

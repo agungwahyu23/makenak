@@ -27,9 +27,14 @@
     <section id="about" class="about mt-5">
 
 
-
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-md-6">
+            <?php echo $this->session->flashdata('message') ?>
+          </div>
+        </div>
+      </div>
       <div class="container" data-aos="fade-up">
-
         <div class="row gx-0">
 
 
@@ -52,7 +57,7 @@
 
                 <div class="mb-2">
                   <h5><b><?= $detailProduk['namaProduk'] ?></b></h5>
-                  
+
                 </div>
 
               </div>
@@ -73,8 +78,9 @@
 
               </p>
               <br>
+
               <p class="mt-3 text-danger">
-                <b> *Catatan :</b> <br> Minimal pembelian di luar Jember <br> 1. Jawa Timur minimal order 1 dus atau <?= $detailProduk['isiDus']?> toples. <br> 2. Jawa Tengah dan Jawa Barat minimal order 3 dus atau <?= $detailProduk['isiDus'] * 3?> toples. <br>
+                <b> *Catatan :</b> <br> Minimal pembelian di luar Jember <br> 1. Jawa Timur minimal order 1 dus atau <?= $detailProduk['isiDus'] ?> <?= $detailProduk['namaSatuan'] ?>. <br> 2. Jawa Tengah dan Jawa Barat minimal order 3 dus atau <?= $detailProduk['isiDus'] * 3 ?> <?= $detailProduk['namaSatuan'] ?>. <br>
               </p>
               <div class="d-grid gap-10">
                 <form method="POST">
@@ -87,7 +93,7 @@
                           <i class="fs-12 fa fa-minus" aria-hidden="true"></i>
                         </button>
 
-                        <input class="size8 m-text18 t-center num-product" type="number" name="jumlah" value="1">
+                        <input class="size8 m-text18 t-center num-product" value="1" type="number" name="jumlah" min="1">
 
                         <button class="btn-num-product-up boplus bg3 color1 flex-c-m size7 eff2">
                           <i class="fs-12 fa fa-plus" aria-hidden="true"></i>
@@ -138,23 +144,23 @@
 
 
 
-        <?php foreach ($produkBeranda as $data) { ?>
-          <div class="col-lg-3 col-md-3 portfolio-item" data-aos="zoom-in" data-aos-delay="200">
-            <div class="box">
-              <div class="box-header">
-                <img src="<?= base_url('img/Produk/' . $data['gambar']) ?>" class="img-fluid" alt="">
+          <?php foreach ($produkBeranda as $data) { ?>
+            <div class="col-lg-3 col-md-3 portfolio-item" data-aos="zoom-in" data-aos-delay="200">
+              <div class="box">
+                <div class="box-header">
+                  <img src="<?= base_url('img/Produk/' . $data['gambar']) ?>" class="img-fluid" alt="">
+                </div>
+
+
+                <div class="nama-product"><span><?= $data['namaProduk'] ?></span></div>
+                <ul>
+                  <li>Rp <?= number_format($data['harga'], 0, ",", ".") ?></li>
+                </ul>
+                <a href="<?= base_url('Produk/DetailProduk/') . $data['id'] ?>" class="btn-detail">Detail</a>
+                <a href="<?= base_url('Produk/DetailProduk/') . $data['id'] ?>" class="btn-choose">Beli
+                  Sekarang</a>
               </div>
-
-
-              <div class="nama-product"><span><?= $data['namaProduk'] ?></span></div>
-              <ul>
-                <li>Rp <?= number_format($data['harga'], 0, ",", ".") ?></li>
-              </ul>
-              <a href="<?= base_url('Produk/DetailProduk/') . $data['id'] ?>" class="btn-detail">Detail</a>
-              <a href="<?= base_url('Produk/DetailProduk/') . $data['id'] ?>" class="btn-choose">Beli
-                Sekarang</a>
             </div>
-          </div>
           <?php } ?>
           <!-- <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-6 col-xs-6 portfolio-item">
             <div class="portfolio-wrap">

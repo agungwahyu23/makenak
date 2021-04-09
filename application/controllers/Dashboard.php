@@ -119,12 +119,13 @@ class Dashboard extends CI_Controller
         $jumlah = $this->db->join('detailtransaksi', 'detailtransaksi.idTransaksi = transaksi.idTransaksi')->get_where('transaksi', ['idUser' => $user, 'Status' => 0])->num_rows();
         $wa = $this->db->get('profile')->row_array();
         $link = 'https://api.whatsapp.com/send?phone=';
+
         for ($i = 0; $i < $jumlah; $i++) {
             if ($data[$i]['jumlahBeli'] > ($data[$i]['isiDus'] * 30)) {
                 $this->session->set_flashdata('message', '<div class="alert alert-success text-center" role="alert">
 
 					  Untuk Pemesanan Di Atas 30 Dus, Silahkan Melakukan Transaksi Melalui WA Admin Mak Enak Berikut.<br>
-                        <a class="btn btn-success" href="'.$link.''. $wa['wa2'] .'">Pesan Sekarang</a>
+                        <a class="btn btn-success" href="' . $link . '' . $wa['wa2'] . '">Pesan Sekarang</a>
 
 					</div>');
 
@@ -132,8 +133,29 @@ class Dashboard extends CI_Controller
             }
         }
 
+        for ($i = 0; $i < $jumlah; $i++) {
+            if($data[$i]['stok'] == 0){
+                $this->session->set_flashdata('message', '<div class="alert alert-danger text-center" role="alert">
+                        Stok '. $data[$i]['namaProduk'] .' telah habis, silahkan hubungi admin untuk menanyakan ketersediaan stok. <br>
+                        <a class="btn btn-success" href="' . $link . '' . $wa['wa2'] . '">Hubungi Admin</a>
+					</div>');
+
+                redirect('Dashboard/keranjang');
+            }else{
+                if ($data[$i]['jumlahBeli'] > $data[$i]['stok']) {
+                    $this->session->set_flashdata('message', '<div class="alert alert-danger text-center" text-center" role="alert">
+                            Stok '. $data[$i]['namaProduk'] .' tidak mencukupi, silahkan hubungi admin untuk menanyakan ketersediaan stok. <br>
+                            <a class="btn btn-success" href="' . $link . '' . $wa['wa2'] . '">Hubungi Admin</a>
+                        </div>');
+    
+                    redirect('Dashboard/keranjang');
+                }
+            }
+        }
+
         redirect('Dashboard/checkout');
     }
+    
 
     public function checkout()
     {
@@ -168,7 +190,25 @@ class Dashboard extends CI_Controller
         if ($this->form_validation->run() == false) {
             $this->load->view('user/akun/checkout', $data);
         } else {
-            // var_dump('huhu');die;
+
+            $cekdetail = $this->db->join('detailtransaksi', 'detailtransaksi.idTransaksi = transaksi.idTransaksi')->join('produk', 'produk.id = detailtransaksi.idProduk')->get_where('transaksi', ['idUser' => $user, 'transaksi.Status' => 0])->result_array();
+
+            $wa = $this->db->get('profile')->row_array();
+            $link = 'https://api.whatsapp.com/send?phone=';
+
+            $jumlah = $this->db->join('detailtransaksi', 'detailtransaksi.idTransaksi = transaksi.idTransaksi')->get_where('transaksi', ['idUser' => $user, 'Status' => 0])->num_rows();
+
+            for ($i = 0; $i < $jumlah; $i++) {
+                if ($cekdetail[$i]['jumlahBeli'] > $cekdetail[$i]['stok']) {
+                    $this->session->set_flashdata('message', '<div class="alert alert-danger text-center" text-center" role="alert">
+                            Stok '. $cekdetail[$i]['namaProduk'] .' tidak mencukupi atau telah habis, silahkan hubungi admin untuk menanyakan detail lebih lanjut. <br>
+                            <a class="btn btn-success" href="' . $link . '' . $wa['wa2'] . '">Hubungi Admin</a>
+                        </div>');
+    
+                    redirect('Dashboard/keranjang');
+                }
+            }
+
             $nama = $this->input->post('nama');
             $email = $this->input->post('email');
             $noWa = $this->input->post('noWa');
@@ -180,9 +220,7 @@ class Dashboard extends CI_Controller
             $ongkir = $this->input->post('ongkir');
             $namaPengirim = $this->input->post('namaPengirim');
             $namabank = $this->input->post('namaBank');
-            // $bukti = $this->input->post('bukti');
             $idTransaksi = $this->input->post('idTransaksi');
-            // $idDetailTransaksi = $this->input->post('idDetailTransaksi');
 
 
             $config['allowed_types'] = 'jpg|png|gif|jpeg';
@@ -227,13 +265,13 @@ class Dashboard extends CI_Controller
 
                 $this->db->insert('datapenerima', $dataPenerima);
 
-                $this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert">
+                $this->session->set_flashdata('message', '<div class="alert alert-success text-center" role="alert">
 
-					  Pesanan Anda Berhasil Dikirim.
+					  Pesanan Anda Berhasil Dikirim, Mohon Tunggu Konfirmasi Dari Admin.
 
 					</div>');
 
-                redirect('Dashboard');
+                redirect('Dashboard/konfirmasi');
 
                 // if ($this->db->insert('produk', $data)) {
 
