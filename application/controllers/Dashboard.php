@@ -55,6 +55,72 @@ class Dashboard extends CI_Controller
         }
     }
 
+
+
+    public function keranjangUpdate()
+    {
+        $id = $this->input->post('id[]');
+        $jumlahBeli = $this->input->post('jumlahBeli[]');
+        $i = 1;
+        foreach ($jumlahBeli as $updateJumlah) {
+            if ($updateJumlah) {
+
+                echo $id[$i];
+
+                $updateJumlah = $jumlahBeli[$i];
+
+                $produk = $this->db->join('produk', 'produk.id = detailtransaksi.idProduk')->get_where('detailTransaksi', ['idDetailTransaksi' => $id[$i]])->row_array();
+                // var_dump($produk);die;
+
+                if ($produk['stok'] > $updateJumlah) {
+                    if ($updateJumlah >= ($produk['isiDus'] * 10)) { //harga 10 dus
+                        $this->db->set([
+                            'jumlahBeli' => $updateJumlah,
+                            'hargaSatuan' => $produk['harga10Dus'],
+                            'totalharga' => $updateJumlah * $produk['harga10Dus'],
+                            'dus' => $updateJumlah / $produk['isiDus'],
+                        ]);
+                        $this->db->where(['idDetailTransaksi' => $produk['idDetailTransaksi']]);
+                        $this->db->update('detailtransaksi');
+                        $i++;
+                    } else if ($updateJumlah >= $produk['isiDus']) { //harga 1 Dus
+                        $this->db->set([
+                            'jumlahBeli' => $updateJumlah,
+                            'hargaSatuan' => $produk['harga1Dus'],
+                            'totalharga' => $updateJumlah * $produk['harga1Dus'],
+                            'dus' => $updateJumlah / $produk['isiDus'],
+                        ]);
+                        $this->db->where(['idDetailTransaksi' => $produk['idDetailTransaksi']]);
+                        $this->db->update('detailtransaksi');
+                        $i++;
+                    } else if ($updateJumlah >= 50) {
+                        $this->db->set([
+                            'jumlahBeli' => $updateJumlah,
+                            'hargaSatuan' => $produk['harga50Pcs'],
+                            'totalharga' => $updateJumlah * $produk['harga50Pcs'],
+                            'dus' => $updateJumlah / $produk['isiDus'],
+                        ]);
+                        $this->db->where(['idDetailTransaksi' => $produk['idDetailTransaksi']]);
+                        $this->db->update('detailtransaksi');
+                        $i++;
+                    } else if ($updateJumlah < 50) {
+                        $this->db->set([
+                            'jumlahBeli' => $updateJumlah,
+                            'hargaSatuan' => $produk['harga'],
+                            'totalharga' => $updateJumlah * $produk['harga'],
+                            'dus' => $updateJumlah / $produk['isiDus'],
+                        ]);
+                        $this->db->where(['idDetailTransaksi' => $produk['idDetailTransaksi']]);
+                        $this->db->update('detailtransaksi');
+                        $i++;
+                    }
+                }
+                // $i++;
+            }
+        }
+        redirect('Dashboard/keranjang');
+    }
+
     public function konfirmasi()
     {
         if (!$this->session->userdata('idCustomer')) {
@@ -116,38 +182,57 @@ class Dashboard extends CI_Controller
 
         $data = $this->db->join('detailtransaksi', 'detailtransaksi.idTransaksi = transaksi.idTransaksi')->join('produk', 'produk.id = detailtransaksi.idProduk')->get_where('transaksi', ['idUser' => $user, 'transaksi.Status' => 0])->result_array();
 
+        $idTransaksi = $data[0]['idTransaksi'];
+
+        $totalBeli = $this->db->query("SELECT SUM(dus) as totalDus FROM detailTransaksi WHERE idTransaksi = '$idTransaksi'")->result_array();
+
+        // var_dump($totalBeli[0]['totalDus']);die;
+        // var_dump(intval($totalBeli[0]['totalDus']));die;
+
         $jumlah = $this->db->join('detailtransaksi', 'detailtransaksi.idTransaksi = transaksi.idTransaksi')->get_where('transaksi', ['idUser' => $user, 'Status' => 0])->num_rows();
         $wa = $this->db->get('profile')->row_array();
         $link = 'https://api.whatsapp.com/send?phone=';
 
-        for ($i = 0; $i < $jumlah; $i++) {
-            if ($data[$i]['jumlahBeli'] > ($data[$i]['isiDus'] * 30)) {
-                $this->session->set_flashdata('message', '<div class="alert alert-success text-center" role="alert">
+
+        if ($totalBeli[0]['totalDus'] > 30) {
+            $this->session->set_flashdata('message', '<div class="alert alert-success text-center" role="alert">
 
 					  Untuk Pemesanan Di Atas 30 Dus, Silahkan Melakukan Transaksi Melalui WA Admin Mak Enak Berikut.<br>
                         <a class="btn btn-success" href="' . $link . '' . $wa['wa2'] . '">Pesan Sekarang</a>
 
 					</div>');
 
-                redirect('Dashboard/keranjang');
-            }
+            redirect('Dashboard/keranjang');
         }
 
+        // for ($i = 0; $i < $jumlah; $i++) {
+        //     if ($data[$i]['jumlahBeli'] > ($data[$i]['isiDus'] * 30)) {
+        //         $this->session->set_flashdata('message', '<div class="alert alert-success text-center" role="alert">
+
+        // 			  Untuk Pemesanan Di Atas 30 Dus, Silahkan Melakukan Transaksi Melalui WA Admin Mak Enak Berikut.<br>
+        //                 <a class="btn btn-success" href="' . $link . '' . $wa['wa2'] . '">Pesan Sekarang</a>
+
+        // 			</div>');
+
+        //         redirect('Dashboard/keranjang');
+        //     }
+        // }
+
         for ($i = 0; $i < $jumlah; $i++) {
-            if($data[$i]['stok'] == 0){
+            if ($data[$i]['stok'] == 0) {
                 $this->session->set_flashdata('message', '<div class="alert alert-danger text-center" role="alert">
-                        Stok '. $data[$i]['namaProduk'] .' telah habis, silahkan hubungi admin untuk menanyakan ketersediaan stok. <br>
+                        Stok ' . $data[$i]['namaProduk'] . ' telah habis, silahkan hubungi admin untuk menanyakan ketersediaan stok. <br>
                         <a class="btn btn-success" href="' . $link . '' . $wa['wa2'] . '">Hubungi Admin</a>
 					</div>');
 
                 redirect('Dashboard/keranjang');
-            }else{
+            } else {
                 if ($data[$i]['jumlahBeli'] > $data[$i]['stok']) {
                     $this->session->set_flashdata('message', '<div class="alert alert-danger text-center" text-center" role="alert">
-                            Stok '. $data[$i]['namaProduk'] .' tidak mencukupi, silahkan hubungi admin untuk menanyakan ketersediaan stok. <br>
+                            Stok ' . $data[$i]['namaProduk'] . ' tidak mencukupi, silahkan hubungi admin untuk menanyakan ketersediaan stok. <br>
                             <a class="btn btn-success" href="' . $link . '' . $wa['wa2'] . '">Hubungi Admin</a>
                         </div>');
-    
+
                     redirect('Dashboard/keranjang');
                 }
             }
@@ -155,7 +240,15 @@ class Dashboard extends CI_Controller
 
         redirect('Dashboard/checkout');
     }
-    
+
+    public function dataDetail()
+    {
+        $id = $this->input->post('idDetail');
+
+        $data['wa'] = $this->db->get('profile')->result();
+        $data['detail'] = $this->db->join('produk', 'produk.id = detailtransaksi.idProduk')->get_where('detailtransaksi', ['idDetailTransaksi' => $id])->result();
+        echo json_encode($data);
+    }
 
     public function checkout()
     {
@@ -201,10 +294,10 @@ class Dashboard extends CI_Controller
             for ($i = 0; $i < $jumlah; $i++) {
                 if ($cekdetail[$i]['jumlahBeli'] > $cekdetail[$i]['stok']) {
                     $this->session->set_flashdata('message', '<div class="alert alert-danger text-center" text-center" role="alert">
-                            Stok '. $cekdetail[$i]['namaProduk'] .' tidak mencukupi atau telah habis, silahkan hubungi admin untuk menanyakan detail lebih lanjut. <br>
+                            Stok ' . $cekdetail[$i]['namaProduk'] . ' tidak mencukupi atau telah habis, silahkan hubungi admin untuk menanyakan detail lebih lanjut. <br>
                             <a class="btn btn-success" href="' . $link . '' . $wa['wa2'] . '">Hubungi Admin</a>
                         </div>');
-    
+
                     redirect('Dashboard/keranjang');
                 }
             }

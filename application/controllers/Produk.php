@@ -95,6 +95,7 @@ class Produk extends CI_Controller
                                 'jumlahBeli' => $updateJumlah,
                                 'hargaSatuan' => $produk['harga10Dus'],
                                 'totalharga' => $updateJumlah * $produk['harga10Dus'],
+                                'dus' => $updateJumlah / $produk['isiDus'],
                             ]);
                             $this->db->where(['idDetailTransaksi' => $cekProduk['idDetailTransaksi']]);
                             $this->db->update('detailtransaksi');
@@ -104,6 +105,7 @@ class Produk extends CI_Controller
                                 'jumlahBeli' => $updateJumlah,
                                 'hargaSatuan' => $produk['harga1Dus'],
                                 'totalharga' => $updateJumlah * $produk['harga1Dus'],
+                                'dus' => $updateJumlah / $produk['isiDus'],
                             ]);
                             $this->db->where(['idDetailTransaksi' => $cekProduk['idDetailTransaksi']]);
                             $this->db->update('detailtransaksi');
@@ -113,6 +115,7 @@ class Produk extends CI_Controller
                                 'jumlahBeli' => $updateJumlah,
                                 'hargaSatuan' => $produk['harga50Pcs'],
                                 'totalharga' => $updateJumlah * $produk['harga50Pcs'],
+                                'dus' => $updateJumlah / $produk['isiDus'],
                             ]);
                             $this->db->where(['idDetailTransaksi' => $cekProduk['idDetailTransaksi']]);
                             $this->db->update('detailtransaksi');
@@ -122,6 +125,7 @@ class Produk extends CI_Controller
                                 'jumlahBeli' => $updateJumlah,
                                 'hargaSatuan' => $produk['harga'],
                                 'totalharga' => $updateJumlah * $produk['harga'],
+                                'dus' => $updateJumlah / $produk['isiDus'],
                             ]);
                             $this->db->where(['idDetailTransaksi' => $cekProduk['idDetailTransaksi']]);
                             $this->db->update('detailtransaksi');
@@ -137,6 +141,7 @@ class Produk extends CI_Controller
                                 'jumlahBeli' => $jumlahBeli,
                                 'hargaSatuan' => $produk['harga10Dus'],
                                 'totalharga' => $jumlahBeli * $produk['harga10Dus'],
+                                'dus' => $jumlahBeli / $produk['isiDus'],
                             ];
 
                             $this->db->insert('detailtransaksi', $detailKeranjang);
@@ -149,6 +154,7 @@ class Produk extends CI_Controller
                                 'jumlahBeli' => $jumlahBeli,
                                 'hargaSatuan' => $produk['harga1Dus'],
                                 'totalharga' => $jumlahBeli * $produk['harga1Dus'],
+                                'dus' => $jumlahBeli / $produk['isiDus'],
                             ];
 
                             $this->db->insert('detailtransaksi', $detailKeranjang);
@@ -161,6 +167,7 @@ class Produk extends CI_Controller
                                 'jumlahBeli' => $jumlahBeli,
                                 'hargaSatuan' => $produk['harga50Pcs'],
                                 'totalharga' => $jumlahBeli * $produk['harga50Pcs'],
+                                'dus' => $jumlahBeli / $produk['isiDus'],
                             ];
 
                             $this->db->insert('detailtransaksi', $detailKeranjang);
@@ -173,6 +180,7 @@ class Produk extends CI_Controller
                                 'jumlahBeli' => $jumlahBeli,
                                 'hargaSatuan' => $produk['harga'],
                                 'totalharga' => $jumlahBeli * $produk['harga'],
+                                'dus' => $jumlahBeli / $produk['isiDus'],
                             ];
 
                             $this->db->insert('detailtransaksi', $detailKeranjang);
@@ -190,6 +198,7 @@ class Produk extends CI_Controller
                             'jumlahBeli' => $jumlahBeli,
                             'hargaSatuan' => $produk['harga10Dus'],
                             'totalharga' => $jumlahBeli * $produk['harga10Dus'],
+                            'dus' => $jumlahBeli / $produk['isiDus'],
                         ];
 
                         $this->db->insert('detailtransaksi', $detailKeranjang);
@@ -212,6 +221,7 @@ class Produk extends CI_Controller
                             'jumlahBeli' => $jumlahBeli,
                             'hargaSatuan' => $produk['harga1Dus'],
                             'totalharga' => $jumlahBeli * $produk['harga1Dus'],
+                            'dus' => $jumlahBeli / $produk['isiDus'],
                         ];
 
                         $this->db->insert('detailtransaksi', $detailKeranjang);
@@ -234,6 +244,7 @@ class Produk extends CI_Controller
                             'jumlahBeli' => $jumlahBeli,
                             'hargaSatuan' => $produk['harga50Pcs'],
                             'totalharga' => $jumlahBeli * $produk['harga50Pcs'],
+                            'dus' => $jumlahBeli / $produk['isiDus'],
                         ];
 
                         $this->db->insert('detailtransaksi', $detailKeranjang);
@@ -256,6 +267,7 @@ class Produk extends CI_Controller
                             'jumlahBeli' => $jumlahBeli,
                             'hargaSatuan' => $produk['harga'],
                             'totalharga' => $jumlahBeli * $produk['harga'],
+                            'dus' => $jumlahBeli / $produk['isiDus'],
                         ];
 
                         $this->db->insert('detailtransaksi', $detailKeranjang);
@@ -317,6 +329,7 @@ class Produk extends CI_Controller
                                         'jumlahBeli' => $updateJumlah,
                                         'hargaSatuan' => $produk['harga10Dus'],
                                         'totalharga' => $updateJumlah * $produk['harga10Dus'],
+                                        'dus' => $updateJumlah / $produk['isiDus'],
                                     ]);
                                     $this->db->where(['idDetailTransaksi' => $cekProduk['idDetailTransaksi']]);
                                     $this->db->update('detailtransaksi');
@@ -326,6 +339,7 @@ class Produk extends CI_Controller
                                         'jumlahBeli' => $updateJumlah,
                                         'hargaSatuan' => $produk['harga1Dus'],
                                         'totalharga' => $updateJumlah * $produk['harga1Dus'],
+                                        'dus' => $updateJumlah / $produk['isiDus'],
                                     ]);
                                     $this->db->where(['idDetailTransaksi' => $cekProduk['idDetailTransaksi']]);
                                     $this->db->update('detailtransaksi');
@@ -335,6 +349,7 @@ class Produk extends CI_Controller
                                         'jumlahBeli' => $updateJumlah,
                                         'hargaSatuan' => $produk['harga50Pcs'],
                                         'totalharga' => $updateJumlah * $produk['harga50Pcs'],
+                                        'dus' => $updateJumlah / $produk['isiDus'],
                                     ]);
                                     $this->db->where(['idDetailTransaksi' => $cekProduk['idDetailTransaksi']]);
                                     $this->db->update('detailtransaksi');
@@ -344,6 +359,7 @@ class Produk extends CI_Controller
                                         'jumlahBeli' => $updateJumlah,
                                         'hargaSatuan' => $produk['harga'],
                                         'totalharga' => $updateJumlah * $produk['harga'],
+                                        'dus' => $updateJumlah / $produk['isiDus'],
                                     ]);
                                     $this->db->where(['idDetailTransaksi' => $cekProduk['idDetailTransaksi']]);
                                     $this->db->update('detailtransaksi');
@@ -359,6 +375,7 @@ class Produk extends CI_Controller
                                         'jumlahBeli' => $jumlahBeli,
                                         'hargaSatuan' => $produk['harga10Dus'],
                                         'totalharga' => $jumlahBeli * $produk['harga10Dus'],
+                                        'dus' => $jumlahBeli / $produk['isiDus'],
                                     ];
 
                                     $this->db->insert('detailtransaksi', $detailKeranjang);
@@ -371,6 +388,7 @@ class Produk extends CI_Controller
                                         'jumlahBeli' => $jumlahBeli,
                                         'hargaSatuan' => $produk['harga1Dus'],
                                         'totalharga' => $jumlahBeli * $produk['harga1Dus'],
+                                        'dus' => $jumlahBeli / $produk['isiDus'],
                                     ];
 
                                     $this->db->insert('detailtransaksi', $detailKeranjang);
@@ -383,6 +401,7 @@ class Produk extends CI_Controller
                                         'jumlahBeli' => $jumlahBeli,
                                         'hargaSatuan' => $produk['harga50Pcs'],
                                         'totalharga' => $jumlahBeli * $produk['harga50Pcs'],
+                                        'dus' => $jumlahBeli / $produk['isiDus'],
                                     ];
 
                                     $this->db->insert('detailtransaksi', $detailKeranjang);
@@ -395,6 +414,7 @@ class Produk extends CI_Controller
                                         'jumlahBeli' => $jumlahBeli,
                                         'hargaSatuan' => $produk['harga'],
                                         'totalharga' => $jumlahBeli * $produk['harga'],
+                                        'dus' => $jumlahBeli / $produk['isiDus'],
                                     ];
 
                                     $this->db->insert('detailtransaksi', $detailKeranjang);
@@ -412,6 +432,7 @@ class Produk extends CI_Controller
                                     'jumlahBeli' => $jumlahBeli,
                                     'hargaSatuan' => $produk['harga10Dus'],
                                     'totalharga' => $jumlahBeli * $produk['harga10Dus'],
+                                    'dus' => $jumlahBeli / $produk['isiDus'],
                                 ];
 
                                 $this->db->insert('detailtransaksi', $detailKeranjang);
@@ -434,6 +455,7 @@ class Produk extends CI_Controller
                                     'jumlahBeli' => $jumlahBeli,
                                     'hargaSatuan' => $produk['harga1Dus'],
                                     'totalharga' => $jumlahBeli * $produk['harga1Dus'],
+                                    'dus' => $jumlahBeli / $produk['isiDus'],
                                 ];
 
                                 $this->db->insert('detailtransaksi', $detailKeranjang);
@@ -456,6 +478,7 @@ class Produk extends CI_Controller
                                     'jumlahBeli' => $jumlahBeli,
                                     'hargaSatuan' => $produk['harga50Pcs'],
                                     'totalharga' => $jumlahBeli * $produk['harga50Pcs'],
+                                    'dus' => $jumlahBeli / $produk['isiDus'],
                                 ];
 
                                 $this->db->insert('detailtransaksi', $detailKeranjang);
@@ -478,6 +501,7 @@ class Produk extends CI_Controller
                                     'jumlahBeli' => $jumlahBeli,
                                     'hargaSatuan' => $produk['harga'],
                                     'totalharga' => $jumlahBeli * $produk['harga'],
+                                    'dus' => $jumlahBeli / $produk['isiDus'],
                                 ];
 
                                 $this->db->insert('detailtransaksi', $detailKeranjang);

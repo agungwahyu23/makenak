@@ -88,7 +88,7 @@
                     <div class="row justify-content-end">
 
                       <div class="mb-5 col-md-4">
-                        <table class="table"> 
+                        <table class="table">
                           <tbody>
                             <tr>
                               <td>Total Belanja</td>
@@ -158,9 +158,9 @@
                           </div>
                           <div class="col bank">
                             <div>
-                              <?= $bca['namaBank']?> <br>
-                              <?= $bca['nomorRekening']?> <br>
-                              <?= $bca['namaTabungan']?>
+                              <?= $bca['namaBank'] ?> <br>
+                              <?= $bca['nomorRekening'] ?> <br>
+                              <?= $bca['namaTabungan'] ?>
                             </div>
                           </div>
                           <div class="col-auto align-self-center">
@@ -170,9 +170,9 @@
                           </div>
                           <div class="col bank">
                             <div>
-                            <?= $mandiri['namaBank']?> <br>
-                              <?= $mandiri['nomorRekening']?> <br>
-                              <?= $mandiri['namaTabungan']?>
+                              <?= $mandiri['namaBank'] ?> <br>
+                              <?= $mandiri['nomorRekening'] ?> <br>
+                              <?= $mandiri['namaTabungan'] ?>
                             </div>
                           </div>
                         </div>
@@ -184,9 +184,9 @@
                           </div>
                           <div class="col bank">
                             <div>
-                            <?= $bri['namaBank']?> <br>
-                              <?= $bri['nomorRekening']?> <br>
-                              <?= $bri['namaTabungan']?>
+                              <?= $bri['namaBank'] ?> <br>
+                              <?= $bri['nomorRekening'] ?> <br>
+                              <?= $bri['namaTabungan'] ?>
                             </div>
                           </div>
                           <div class="col-auto align-self-center">
@@ -196,9 +196,9 @@
                           </div>
                           <div class="col bank">
                             <div>
-                            <?= $bni['namaBank']?> <br>
-                              <?= $bni['nomorRekening']?> <br>
-                              <?= $bni['namaTabungan']?>
+                              <?= $bni['namaBank'] ?> <br>
+                              <?= $bni['nomorRekening'] ?> <br>
+                              <?= $bni['namaTabungan'] ?>
                             </div>
                           </div>
                         </div>
