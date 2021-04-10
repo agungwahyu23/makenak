@@ -38,8 +38,8 @@
 
                     <!-- Table row -->
                     <div class="row">
-                      <div class="col-12 table-responsive">
-                        <table class="table table-striped">
+                      <div class="col-12">
+                        <table class="table table-striped shop-table-responsive">
                           <thead>
                             <tr>
                               <th width="12%">Gambar</th>
@@ -64,7 +64,6 @@
                                     <span class="badge rounded-pill bg-danger">Hapus</span>
                                   </a>
                                   <a href="<?= base_url('Dashboard/hapusKeranjang/' . $data['idDetailTransaksi']) ?>">
-                                    <span class="badge rounded-pill bg-success">Edit</span>
                                   </a>
                                 </td>
                               </tr>
@@ -74,6 +73,9 @@
                       </div>
                       <?php if ($keranjang) { ?>
                         <div class="d-grid gap-2 justify-content-md-end">
+
+                          <span class="btn btn-success">Edit</span>
+                          
                           <a href="<?= base_url('Dashboard/validasi') ?>" class="btn btn-success">Bayar Sekarang</a>
                         </div>
 

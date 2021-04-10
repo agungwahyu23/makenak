@@ -48,7 +48,7 @@
         </section>
       </div>
       <div class="carousel-item">
-        <section id="hero" class="hero d-flex align-items-center" style="background-image: url(<?= base_url('img/ImageBackGround/bg-2.webp'); ?>)">
+        <section id="hero" class="hero d-flex align-items-center" style="background-image: url(<?= base_url('img/ImageBackGround/bg-hero1.JPG'); ?>)">
           <div class="container">
             <div class="row">
               <div class="col-lg-6 d-flex flex-column justify-content-center">
@@ -62,7 +62,7 @@
         </section>
       </div>
       <div class="carousel-item">
-        <section id="hero" class="hero d-flex align-items-center" style="background-image: url(<?= base_url('img/ImageBackGround/bg-3.jpg'); ?>)">
+        <section id="hero" class="hero d-flex align-items-center" style="background-image: url(<?= base_url('img/ImageBackGround/bg-hero2.JPG'); ?>)">
           <div class="container">
             <div class="row">
               <div class="col-lg-6 d-flex flex-column justify-content-center">
@@ -92,7 +92,13 @@
 
     <section id="about-home" class="about-home">
 
-      <div class="container" data-aos="fade-up">
+      <div class="container" data-aos="fade-down">
+
+        <header class="section-header">
+          <p>Pusat Untuk Ragam Olahan Kue Kering</p>
+          <h5>Menemani hari santai anda bersama kerabat dan keluarga </h5>
+        </header>
+
         <div class="row gx-0">
 
           <div class="col-lg-6 d-flex align-items-center" data-aos="zoom-out" data-aos-delay="200">
@@ -198,15 +204,15 @@
                 <ul>
                   <li>Rp <?= number_format($data['harga'], 0, ",", ".") ?></li>
                 </ul>
-                <a href="<?= base_url('Produk/DetailProduk/') . $data['id'] ?>" class="btn-detail">Detail</a>
-                <a href="<?= base_url('Produk/Beli/') . $data['id'] ?>" class="btn-choose">Beli
-                  Sekarang</a>
+                <a href="<?= base_url('Produk/DetailProduk/') . $data['id'] ?>" class="btn-detail">Selengkapnya</a>
+                <!-- <a href="<?= base_url('Produk/Beli/') . $data['id'] ?>" class="btn-choose">Beli
+                  Sekarang</a> -->
               </div>
             </div>
           <?php } ?>
         </div>
         <div class="row mt-4" data-aos="fade-left">
-          <div class="d-grid gap-2 col-lg-3 col-md-3 col-sm-3 col-xs-3 mx-auto">
+          <div class="d-grid gap-2 col-lg-2 col-md-3 col-sm-3 col-xs-3 mx-auto">
             <a href="<?= base_url('Produk') ?>" class="btn-selengkapnya text-center">Produk Lainnya</a>
           </div>
         </div>
@@ -264,7 +270,21 @@
       </div>
     </section> -->
 
-    <section id="partner" class="partner">
+    <section id="partner" class="partner" style="background-image: url(<?= base_url('img/ImageBackGround/bg-slide.png'); ?>)">
+
+      <div class="container" data-aos="fade-up">
+
+        
+          <h1>Inovasi Kue Kering Yang Luar Biasa</h1><br>
+          <h6> HADIRKAN RASA TERISTIMEWA</h6><br>
+        
+        <a href="<?= base_url('Produk/DetailProduk/') . $data['id'] ?>" class="btn-detail">Saya Mau Kue Kacang</a>
+
+      </div>
+
+    </section>
+
+    <!-- <section id="partner" class="partner">
 
       <div class="container" data-aos="fade-up">
 
@@ -289,7 +309,7 @@
         </div>
       </div>
 
-    </section>
+    </section> -->
 
     <section id="contact" class="contact">
 
