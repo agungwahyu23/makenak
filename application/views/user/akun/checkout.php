@@ -345,11 +345,11 @@
               }
             } else { // jawa barat dan jawa tengah
               for (i = 0; i < data.produk.length; i++) {
-                if (parseInt(data.produk[i].jumlahBeli) < (parseInt(data.produk[i].isiDus) * 3)) { //gak sampai 3 dus
+                if (parseInt(data.totalDus[0].totalDus) < 3) { //gak sampai 3 dus
                   Swal.fire({
                     icon: 'error',
-                    title: '<h4>Peringatan Untuk Produk ' + data.produk[i].namaProduk + '</h4>',
-                    text: 'Minimal pembelian di luar jawa timur ' + (parseInt(data.produk[i].isiDus) * 3) + ' Toples/Bal',
+                    title: '<h4>Peringatan</h4>',
+                    text: 'Minimal pembelian di luar jawa timur 3 Koli atau 3 Dus',
                     footer: '<a href="<?= base_url('Dashboard/keranjang') ?>">Lihat Keranjang</a>'
                   }).then(function() {
                     window.location = "<?= base_url('Dashboard/checkout') ?>";
