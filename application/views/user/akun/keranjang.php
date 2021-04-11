@@ -38,16 +38,16 @@
 
                     <!-- Table row -->
                     <div class="row">
-                      <div class="col-12">
-                        <table class="table table-striped shop-table-responsive">
+                      <div class="col-12 table-responsive">
+                        <table class="table table-striped">
                           <thead>
                             <tr>
                               <th width="12%">Gambar</th>
-                              <th width="30%">Produk</th>
+                              <th width="28%">Produk</th>
                               <th width="8%">Jumlah</th>
                               <th width="15%">Harga</th>
-                              <th width="15%">Subtotal</th>
-                              <th width="20%">Aksi</th>
+                              <th width="22%">Subtotal</th>
+                              <th width="15%">Aksi</th>
 
                             </tr>
                           </thead>
@@ -76,21 +76,23 @@
                       <?php if ($keranjang) { ?>
                         <div class="">
                           <div class="d-grid gap-2 justify-content-md-end">
+                            <button type="submit" class="btn btn-warning">Update Keranjang</button>
+                          </div>
+                          <hr>
+                          <div class="d-grid gap-2 justify-content-md-end">
                             <a href="<?= base_url('Dashboard/validasi') ?>" class="btn btn-success">Bayar Sekarang</a>
                           </div>
 
-                          <div class="d-grid gap-2 justify-content-md-end">
-                            <button type="submit" class="btn btn-warning">Update Keranjang</button>
-                          </div>
+                          
                         </div>
                       <?php } else { ?>
                         <div class="alert alert-light text-center" role="alert">
                           Tidak ada produk didalam keranjang
                         </div>
                       <?php } ?>
-                      <!-- /.col -->
+                      
                     </div>
-                    <!-- /.row -->
+                    
                     </form>
                     <div class="row">
                       <col-6></col-6>
