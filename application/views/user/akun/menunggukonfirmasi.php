@@ -15,7 +15,7 @@
             <div class="container">
             <?php echo $this->session->flashdata('message') ?>
                 <div class="row">
-                    <div class="col-lg-4">
+                    <div class="col-lg-4 mb-3">
 
                         <div class="list-group">
                             <div class="text-center list-group-item pb-3">

@@ -50,7 +50,7 @@
                       <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-xs-12"><label class="small mb-1" for="kelurahan">Provinsi</label>
                         <?= form_error('provinsi', '<small class="text-danger pl-2">', '</small>'); ?>
                         <select class="form-select mb-3" id="provinsi" name="provinsi">
-                          <option value="">-- Pilih Provinsi-- </option>
+                          <option value=""> Pilih Provinsi </option>
                           <?php foreach ($provinsi as $data) { ?>
                             <option value="<?= $data['id'] ?>"><?= $data['name'] ?></option>
                           <?php } ?>
@@ -59,7 +59,7 @@
                       <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-xs-12"><label class="small mb-1" for="kelurahan">Kabupaten/Kota</label>
                         <?= form_error('kabKota', '<small class="text-danger pl-2">', '</small>'); ?>
                         <select class="form-select mb-3" id="kabKota" name="kabKota">
-                          <option value="">-- Pilih Kabupaten/Kota-- </option>
+                          <option value="">Pilih Kabupaten/Kota</option>
                         </select>
                       </div>
                       <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-xs-12"><label class="small mb-1" for="alamat">Kecamatan</label>
@@ -276,7 +276,7 @@
           async: false,
           dataType: "json",
           success: function(data) {
-            var html = '<option value="">-- Pilih Kabupaten/Kota-- </option>';
+            var html = '<option value=""> Pilih Kabupaten/Kota </option>';
             for (i = 0; i < data.length; i++) {
               html += '<option value="' + data[i].id + '">' + data[i].name + '</option>';
             }
