@@ -493,7 +493,7 @@ section {
 * Mobile Navigation 
 */
 .mobile-nav-toggle {
-  color: #ffffff;
+  color: #0e0e0e;
   font-size: 28px;
   cursor: pointer;
   display: none;
@@ -502,7 +502,7 @@ section {
 }
 
 .mobile-nav-toggle.bi-x {
-  color: #fff;
+  color: #0e0e0e;
 }
 
 @media (max-width: 991px) {
@@ -1161,6 +1161,13 @@ section {
 
 .about img:hover {
   cursor: zoom-in;
+}
+
+@media (min-width:0px) and (max-width:480px){
+  .about .container img{
+    width: 100%;
+    height: 50%;
+  }
 }
 
 .about .house-type {
@@ -2092,10 +2099,11 @@ section {
   }
 }
 
-@media (min-width: 0px) and (max-width: 575px){
+@media (min-width: 0px) and (max-width: 576px){
   .product-show .col-produk{
-    max-width: 50%;
-    min-width: 50%;
+    /* max-width: 50%;
+    min-width: 50%; */
+    width: 50%;
   }
 
   .product-show .nama-product span {
@@ -2118,7 +2126,7 @@ section {
 
   .product-show .btn-detail {
     display: inline-block;
-    padding: 5px 50px 5px 50px;
+    padding: 5px 35px 5px 35px;
     margin-bottom: 10px;
     border-radius: 50px;
     color: #000000;
@@ -2140,7 +2148,7 @@ section {
   
   .product-show .btn-choose {
     display: inline-block;
-    padding: 5px 30px 5px 30px;
+    padding: 5px 10px 5px 10px;
     margin-bottom: 40px;
     border-radius: 50px;
     color: #000000;
@@ -2947,8 +2955,37 @@ section {
   padding-top: 40px;
 }
 
+.portfolio-details img {
+  width: 100%;
+}
+
 .portfolio-details .portfolio-details-slider img {
   width: 100%;
+}
+
+.swiper {
+  flex-shrink: 0;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transition-property: transform
+}
+
+.portfolio-details .swiper-nav ul {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  list-style: none;
+  align-items: center;
+}
+
+.portfolio-details .swiper-nav li {
+  text-align: center;
+  box-sizing: border-box;
+  padding: 20px;
+  background-color: yellow;
+  border: 1px solid #000;
+  cursor: pointer;
 }
 
 .portfolio-details .portfolio-details-slider .swiper-pagination {

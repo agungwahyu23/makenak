@@ -278,7 +278,7 @@
           <h1>Inovasi Kue Kering Yang Luar Biasa</h1><br>
           <h6> HADIRKAN RASA TERISTIMEWA</h6><br>
         
-        <a href="<?= base_url('Produk/DetailProduk/') . $data['id'] ?>" class="btn-detail">Saya Mau Kue Kacang</a>
+        <a href="<?= base_url('Produk') ?>" class="btn-detail">Saya Mau Kue Kacang</a>
 
       </div>
 

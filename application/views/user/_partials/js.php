@@ -5,9 +5,12 @@
 <script src="<?= base_url('assets/user/purecounter/purecounter.js') ?>"></script>
 <script src="<?= base_url('assets/user/isotope-layout/isotope.pkgd.min.js') ?>"></script>
 <script src="<?= base_url('assets/user/glightbox/js/glightbox.min.js') ?>"></script>
+<script src="<?= base_url('assets/user/slick/slick.min.js') ?>"></script>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js"></script>
 
 <script src="<?= base_url('js/user/main.js') ?>"></script>
+<script src="<?= base_url('js/user/slick-custom.js') ?>"></script>
 
 <script>
   /*[ +/- num product ]
@@ -23,6 +26,23 @@
         var numProduct = Number($(this).prev().val());
         $(this).prev().val(numProduct + 1);
     });
+
+
+    $('.slider-for').slick({
+  slidesToShow: 1,
+  slidesToScroll: 1,
+  arrows: false,
+  // fade: true,
+  asNavFor: '.slider-nav'
+});
+$('.slider-nav').slick({
+  slidesToShow: 3,
+  slidesToScroll: 1,
+  asNavFor: '.slider-for',
+  dots: true,
+  centerMode: true,
+  focusOnSelect: true
+});
 </script>
 
 <!-- <script>
