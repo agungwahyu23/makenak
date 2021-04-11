@@ -319,7 +319,7 @@
                   Swal.fire({
                     icon: 'error',
                     title: '<h4>Peringatan Untuk Produk ' + data.produk[i].namaProduk + '</h4>',
-                    text: 'Minimal pembelian daerah jawa timur ' + (parseInt(data.produk[i].isiDus) * 3) + ' Toples/Bal',
+                    text: 'Minimal pembelian daerah jawa timur ' + data.produk[i].isiDus + ' Toples/Bal, (1 Dus, 1 varian)',
                     footer: '<a href="<?= base_url('Dashboard/keranjang') ?>">Lihat Keranjang</a>'
                   }).then(function() {
                     window.location = "<?= base_url('Dashboard/checkout') ?>";
@@ -330,7 +330,7 @@
                     Swal.fire({
                       icon: 'error',
                       title: '<h4>Peringatan Untuk Produk ' + data.produk[i].namaProduk + '</h4>',
-                      text: 'Pembelian Hanya Berlaku Kelipatan 1 Dus',
+                      text: 'Pembelian Hanya Berlaku Kelipatan 1 Dus, (1 Dus, 1 Varian)',
                       footer: '<a href="<?= base_url('Dashboard/keranjang') ?>">Lihat Keranjang</a>'
                     }).then(function() {
                       window.location = "<?= base_url('Dashboard/checkout') ?>";
@@ -359,7 +359,7 @@
                     Swal.fire({
                       icon: 'error',
                       title: '<h4>Peringatan Untuk Produk ' + data.produk[i].namaProduk + '</h4>',
-                      text: 'Pembelian Hanya Berlaku Kelipatan 1 Dus',
+                      text: 'Pembelian Hanya Berlaku Kelipatan 1 Dus, (1 Dus, 1 Varian)',
                       footer: '<a href="<?= base_url('Dashboard/keranjang') ?>">Lihat Keranjang</a>'
                     }).then(function() {
                       window.location = "<?= base_url('Dashboard/checkout') ?>";
