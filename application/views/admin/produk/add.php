@@ -49,17 +49,26 @@
                   </div>
                 </div>
                 <div class="row">
-                  <div class="form-group col-lg-4 col-sm-4">
+                  <div class="form-group col-lg-3 col-sm-3">
                     <label>Netto Produk</label>
                     <?= form_error('nettoProduk', '<small class="text-danger pl-2">', '</small>'); ?>
                     <input class="form-control" name="nettoProduk" type="number" placeholder="Netto Produk" />
                   </div>
-                  <div class="form-group col-lg-4 col-sm-4">
+                  <div class="form-group col-lg-3 col-sm-3">
                     <label>Stok Produk</label>
                     <?= form_error('stokProduk', '<small class="text-danger pl-2">', '</small>'); ?>
                     <input class="form-control" name="stokProduk" type="number" placeholder="Stok Produk" />
                   </div>
-                  <div class="form-group col-lg-4 col-sm-4">
+                  <div class="form-group col-lg-3 col-sm-3">
+                    <label>Satuan Produk</label>
+                    <?= form_error('satuanProduk', '<small class="text-danger pl-2">', '</small>'); ?>
+                    <select class="form-control" name="satuanProduk">
+                      <option value="">--- Pilih ---</option>
+                      <option value="1" >Toples</option>
+                      <option value="2" >Bal</option>
+                    </select>
+                  </div>
+                  <div class="form-group col-lg-3 col-sm-3">
                     <label>Isi Per Dus</label>
                     <?= form_error('perDus', '<small class="text-danger pl-2">', '</small>'); ?>
                     <input class="form-control" name="perDus" type="number" placeholder="isi Per Produk" />

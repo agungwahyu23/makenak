@@ -44,6 +44,7 @@ class Produk extends CI_Controller
 
 		$this->form_validation->set_rules('namaProduk', 'Nama Produk', 'required|is_unique[produk.namaProduk]');
 		$this->form_validation->set_rules('kategoriProduk', 'Kategori Produk', 'required');
+		$this->form_validation->set_rules('satuanProduk', 'Satuan Produk', 'required');
 		$this->form_validation->set_rules('komposisiProduk', 'Komposisi Produk', 'required');
 		$this->form_validation->set_rules('nettoProduk', 'Netto Produk', 'required|numeric');
 		$this->form_validation->set_rules('hargaProduk', 'Harga Produk', 'required|numeric');
@@ -84,6 +85,7 @@ class Produk extends CI_Controller
 					'netto' => $this->input->post('nettoProduk'),
 					'isiDus' => $this->input->post('perDus'),
 					'idKategori' => $this->input->post('kategoriProduk'),
+					'idSatuan' => $this->input->post('satuanProduk'),
 					'komposisi' => $this->input->post('komposisiProduk'),
 					'harga' => $this->input->post('hargaProduk'),
 					'harga50Pcs' => $this->input->post('harga50Pcs'),
@@ -239,6 +241,7 @@ class Produk extends CI_Controller
 
 		$this->form_validation->set_rules('namaProduk', 'Nama Produk', 'required');
 		$this->form_validation->set_rules('kategoriProduk', 'Kategori Produk', 'required');
+		$this->form_validation->set_rules('satuanProduk', 'Satuan Produk', 'required');
 		$this->form_validation->set_rules('nettoProduk', 'Netto Produk', 'required|numeric');
 		$this->form_validation->set_rules('perDus', 'Isi Per Dus', 'required|numeric');
 		$this->form_validation->set_rules('hargaProduk', 'Harga Produk', 'required|numeric');
@@ -271,6 +274,7 @@ class Produk extends CI_Controller
 				'netto' => $this->input->post('nettoProduk'),
 				'isiDus' => $this->input->post('perDus'),
 				'idKategori' => $this->input->post('kategoriProduk'),
+				'idSatuan' => $this->input->post('satuanProduk'),
 				'harga' => $this->input->post('hargaProduk'),
 				'harga50Pcs' => $this->input->post('harga50Pcs'),
 				'harga1Dus' => $this->input->post('harga1Dus'),
