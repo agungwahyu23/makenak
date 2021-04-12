@@ -719,6 +719,9 @@ section {
   .hero {
     background-attachment: fixed;
   }
+  .hero {
+    height: 600px;
+  }
 }
 
 @media (max-width: 991px) {
@@ -2435,7 +2438,7 @@ section {
   }
   
   .type .btn-detail:hover {
-    color: #ffffff;
+    color: #000000;
     background: rgb(255, 208, 0);
     font-weight: 400;
   }
@@ -3473,13 +3476,27 @@ section {
   background-color: #000000;
 }
 
-@media  (min-width: 0px) and (max-width: 575px) {
+@media (max-width:992px) {
+  #partner{
+    height: auto;
+  }
+}
+@media (min-width:1020px) {
+  #partner{
+    height: auto;
+  }
+}
+
+@media  (min-width: 0px) and (max-width: 768px) {
 .partner .col-partner{
   max-width: 50%;
   max-height: 50%;
 }
 .partner{
   height: 100px;
+}
+#partner{
+  height: auto;
 }
 .partner .container{
   margin: auto;

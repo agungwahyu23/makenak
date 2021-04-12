@@ -4172,10 +4172,11 @@ svg.logo text {
 }
 
 .info-slider-holder {
-    display: inline-block;
+    /* display: inline-block; */
     position: absolute;
     top: 0;
     left: 0;
+    margin: auto;
     width: 550px;
     min-height: 700px;
     height: 100%;
@@ -4184,7 +4185,7 @@ svg.logo text {
     background-image: -webkit-linear-gradient(100deg, #0a5dd3, #ff1515);
     background-image: -o-linear-gradient(100deg, #0a5dd3, #e93d3d);
     background-image: linear-gradient(100deg, #ff9494, #c92727);
-    padding: 140px 60px 60px;
+    padding: 160px 60px 60px;
     text-align: center;
     z-index: 999;
     -webkit-transform-style: preserve-3d;
