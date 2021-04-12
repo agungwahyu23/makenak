@@ -13,7 +13,7 @@ class Beranda extends CI_Controller
 	public function index()
 	{
 		$data['deskripsi'] = $this->db->query("SELECT * FROM profile WHERE Id_Profile = '1'")->result_array();
-		$data['produkBeranda'] = $this->db->get('produk', 4)->result_array();
+		$data['produkBeranda'] = $this->db->join('satuanProduk', 'satuanProduk.idSatuan = produk.idSatuan')->get_where('produk', ['status' => 1], 4)->result_array();
 		$datanya = [
 			'tanggal' => date('Y-m-d'),
 		];

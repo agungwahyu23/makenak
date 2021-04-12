@@ -70,57 +70,95 @@ class Dashboard extends CI_Controller
                 $updateJumlah = $jumlahBeli[$i];
 
                 $produk = $this->db->join('produk', 'produk.id = detailtransaksi.idProduk')->get_where('detailTransaksi', ['idDetailTransaksi' => $id[$i]])->row_array();
-                // var_dump($produk);die;
 
                 if ($produk['stok'] > $updateJumlah) {
-                    if ($updateJumlah >= ($produk['isiDus'] * 10)) { //harga 10 dus
-                        $this->db->set([
-                            'jumlahBeli' => $updateJumlah,
-                            'hargaSatuan' => $produk['harga10Dus'],
-                            'totalharga' => $updateJumlah * $produk['harga10Dus'],
-                            'dus' => $updateJumlah / $produk['isiDus'],
-                        ]);
-                        $this->db->where(['idDetailTransaksi' => $produk['idDetailTransaksi']]);
-                        $this->db->update('detailtransaksi');
-                        $i++;
-                    } else if ($updateJumlah >= $produk['isiDus']) { //harga 1 Dus
-                        $this->db->set([
-                            'jumlahBeli' => $updateJumlah,
-                            'hargaSatuan' => $produk['harga1Dus'],
-                            'totalharga' => $updateJumlah * $produk['harga1Dus'],
-                            'dus' => $updateJumlah / $produk['isiDus'],
-                        ]);
-                        $this->db->where(['idDetailTransaksi' => $produk['idDetailTransaksi']]);
-                        $this->db->update('detailtransaksi');
-                        $i++;
-                    } else if ($updateJumlah >= 50) {
-                        $this->db->set([
-                            'jumlahBeli' => $updateJumlah,
-                            'hargaSatuan' => $produk['harga50Pcs'],
-                            'totalharga' => $updateJumlah * $produk['harga50Pcs'],
-                            'dus' => $updateJumlah / $produk['isiDus'],
-                        ]);
-                        $this->db->where(['idDetailTransaksi' => $produk['idDetailTransaksi']]);
-                        $this->db->update('detailtransaksi');
-                        $i++;
-                    } else if ($updateJumlah < 50) {
-                        $this->db->set([
-                            'jumlahBeli' => $updateJumlah,
-                            'hargaSatuan' => $produk['harga'],
-                            'totalharga' => $updateJumlah * $produk['harga'],
-                            'dus' => $updateJumlah / $produk['isiDus'],
-                        ]);
-                        $this->db->where(['idDetailTransaksi' => $produk['idDetailTransaksi']]);
-                        $this->db->update('detailtransaksi');
-                        $i++;
+                    if ($produk['id'] == 44) {
+                        // var_dump($updateJumlah);die;
+                        if ($updateJumlah >= 100) { //harga 1 dus
+                            $this->db->set([
+                                'jumlahBeli' => $updateJumlah,
+                                'hargaSatuan' => $produk['harga1Dus'],
+                                'totalharga' => $updateJumlah * $produk['harga1Dus'],
+                                'dus' => $updateJumlah / $produk['isiDus'],
+                            ]);
+                            $this->db->where(['idDetailTransaksi' => $produk['idDetailTransaksi']]);
+                            $this->db->update('detailtransaksi');
+                            $i++;
+                        } else if ($updateJumlah >= 50) {
+                            $this->db->set([
+                                'jumlahBeli' => $updateJumlah,
+                                'hargaSatuan' => $produk['harga50Pcs'],
+                                'totalharga' => $updateJumlah * $produk['harga50Pcs'],
+                                'dus' => $updateJumlah / $produk['isiDus'],
+                            ]);
+                            $this->db->where(['idDetailTransaksi' => $produk['idDetailTransaksi']]);
+                            $this->db->update('detailtransaksi');
+                            $i++;
+                        } else if ($updateJumlah >= 1) {
+                            $this->db->set([
+                                'jumlahBeli' => $updateJumlah,
+                                'hargaSatuan' => $produk['harga'],
+                                'totalharga' => $updateJumlah * $produk['harga'],
+                                'dus' => $updateJumlah / $produk['isiDus'],
+                            ]);
+                            $this->db->where(['idDetailTransaksi' => $produk['idDetailTransaksi']]);
+                            $this->db->update('detailtransaksi');
+                            $i++;
+                        }
+                    } else {
+
+                        if ($updateJumlah >= ($produk['isiDus'] * 10)) { //harga 10 dus
+                            $this->db->set([
+                                'jumlahBeli' => $updateJumlah,
+                                'hargaSatuan' => $produk['harga10Dus'],
+                                'totalharga' => $updateJumlah * $produk['harga10Dus'],
+                                'dus' => $updateJumlah / $produk['isiDus'],
+                            ]);
+                            $this->db->where(['idDetailTransaksi' => $produk['idDetailTransaksi']]);
+                            $this->db->update('detailtransaksi');
+                            $i++;
+                        } else if ($updateJumlah >= $produk['isiDus']) { //harga 1 Dus
+                            $this->db->set([
+                                'jumlahBeli' => $updateJumlah,
+                                'hargaSatuan' => $produk['harga1Dus'],
+                                'totalharga' => $updateJumlah * $produk['harga1Dus'],
+                                'dus' => $updateJumlah / $produk['isiDus'],
+                            ]);
+                            $this->db->where(['idDetailTransaksi' => $produk['idDetailTransaksi']]);
+                            $this->db->update('detailtransaksi');
+                            $i++;
+                        } else if ($updateJumlah >= 50) {
+                            $this->db->set([
+                                'jumlahBeli' => $updateJumlah,
+                                'hargaSatuan' => $produk['harga50Pcs'],
+                                'totalharga' => $updateJumlah * $produk['harga50Pcs'],
+                                'dus' => $updateJumlah / $produk['isiDus'],
+                            ]);
+                            $this->db->where(['idDetailTransaksi' => $produk['idDetailTransaksi']]);
+                            $this->db->update('detailtransaksi');
+                            $i++;
+                        } else if ($updateJumlah < 50) {
+                            $this->db->set([
+                                'jumlahBeli' => $updateJumlah,
+                                'hargaSatuan' => $produk['harga'],
+                                'totalharga' => $updateJumlah * $produk['harga'],
+                                'dus' => $updateJumlah / $produk['isiDus'],
+                            ]);
+                            $this->db->where(['idDetailTransaksi' => $produk['idDetailTransaksi']]);
+                            $this->db->update('detailtransaksi');
+                            $i++;
+                        }
                     }
-                }else{
+                } else {
                     $this->session->set_flashdata(
                         'message',
-                        '<div class="alert alert-danger text-center mb-3" role="alert">Stok Tidak Mencukupi</div>'
+                        '<div class="alert alert-danger text-center mb-3" role="alert">Stok '. $produk['namaProduk'] .' Tidak Mencukupi</div>'
                     );
                     redirect('Dashboard/keranjang');
                 }
+
+
+
                 // $i++;
             }
         }
