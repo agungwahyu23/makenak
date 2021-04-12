@@ -232,7 +232,7 @@ class Dashboard extends CI_Controller
 
         $idTransaksi = $data[0]['idTransaksi'];
 
-        $totalBeli = $this->db->query("SELECT SUM(dus) as totalDus FROM detailTransaksi WHERE idTransaksi = '$idTransaksi'")->result_array();
+        $totalBeli = $this->db->query("SELECT SUM(dus) as totalDus FROM detailtransaksi WHERE idTransaksi = '$idTransaksi'")->result_array();
 
         // var_dump($totalBeli[0]['totalDus']);die;
         // var_dump(intval($totalBeli[0]['totalDus']));die;
@@ -316,7 +316,7 @@ class Dashboard extends CI_Controller
 
 
         $idT = $data['keranjang']['idTransaksi'];
-        $data['totalBayar'] = $this->db->query("SELECT SUM(totalHarga) as totalBayar FROM detailTransaksi WHERE idTransaksi = '$idT'")->row_array();
+        $data['totalBayar'] = $this->db->query("SELECT SUM(totalHarga) as totalBayar FROM detailtransaksi WHERE idTransaksi = '$idT'")->row_array();
 
         $this->form_validation->set_rules('idTransaksi', 'Id Transaksi', 'required');
         // $this->form_validation->set_rules('idDetailTransaksi', 'Id Detail Transaksi', 'required');
