@@ -20,7 +20,7 @@ class Produk extends CI_Controller
         if ($this->input->post('cari')) {
             $cari = $this->input->post('cari');
             $this->db->like('namaProduk', $cari);
-            $total = $this->db->get_where('produk', ['status' => 1])->num_rows();
+            $total = $this->db->join('satuanProduk', 'satuanProduk.idSatuan = produk.idSatuan')->get_where('produk', ['status' => 1])->num_rows();
         } else {
             //ambil data total
             $total = $this->db->count_all('produk');
@@ -64,9 +64,9 @@ class Produk extends CI_Controller
 
         if ($cari) {
             $this->db->like('namaProduk', $cari);
-            $data['product'] = $this->db->get('produk', $config['per_page'], $page)->result_array();
+            $data['product'] = $this->db->join('satuanProduk', 'satuanProduk.idSatuan = produk.idSatuan')->get_where('produk', ['status' => 1] ,$config['per_page'], $page)->result_array();
         } else {
-            $data['product'] = $this->db->get('produk', $config['per_page'], $page)->result_array();
+            $data['product'] = $this->db->join('satuanProduk', 'satuanProduk.idSatuan = produk.idSatuan')->get_where('produk', ['status' => 1], $config['per_page'], $page)->result_array();
         }
 
         $data['pagination'] = $this->pagination->create_links();
@@ -297,7 +297,7 @@ class Produk extends CI_Controller
     {
         if ($id) {
             $data['deskripsi'] = $this->db->query("SELECT * FROM profile WHERE Id_Profile = '1'")->result_array();
-            $data['detailProduk'] = $this->db->join('satuanproduk', 'satuanproduk.idSatuan = produk.idSatuan')->get_where('produk', ['id' => $id])->row_array();
+            $data['detailProduk'] = $this->db->join('satuanProduk', 'satuanProduk.idSatuan = produk.idSatuan')->get_where('produk', ['id' => $id])->row_array();
 
             $this->db->order_by('rand()');
             $data['produkBeranda'] = $this->db->get('produk', 4)->result_array();
@@ -327,18 +327,8 @@ class Produk extends CI_Controller
                                 $updateJumlah = $jumlahBeli + $cekProduk['jumlahBeli'];
 
 
-                                if ($cekProduk['idProduk'] == 44) { // jika usus crispi
-                                    if ($updateJumlah >= 50) { //harga 50 Pcs
-                                        $this->db->set([
-                                            'jumlahBeli' => $updateJumlah,
-                                            'hargaSatuan' => $produk['harga50Pcs'],
-                                            'totalharga' => $updateJumlah * $produk['harga50Pcs'],
-                                            'dus' => $updateJumlah / $produk['isiDus'],
-                                        ]);
-                                        $this->db->where(['idDetailTransaksi' => $cekProduk['idDetailTransaksi']]);
-                                        $this->db->update('detailtransaksi');
-                                        redirect('Dashboard/keranjang');
-                                    } else if ($updateJumlah >= 100) {
+                                if ($id == 44) { // jika usus crispi
+                                    if ($updateJumlah >= 100) { //harga 50 Pcs
                                         $this->db->set([
                                             'jumlahBeli' => $updateJumlah,
                                             'hargaSatuan' => $produk['harga1Dus'],
@@ -348,7 +338,17 @@ class Produk extends CI_Controller
                                         $this->db->where(['idDetailTransaksi' => $cekProduk['idDetailTransaksi']]);
                                         $this->db->update('detailtransaksi');
                                         redirect('Dashboard/keranjang');
-                                    }else{
+                                    } else if ($updateJumlah >= 50) {
+                                        $this->db->set([
+                                            'jumlahBeli' => $updateJumlah,
+                                            'hargaSatuan' => $produk['harga50Pcs'],
+                                            'totalharga' => $updateJumlah * $produk['harga50Pcs'],
+                                            'dus' => $updateJumlah / $produk['isiDus'],
+                                        ]);
+                                        $this->db->where(['idDetailTransaksi' => $cekProduk['idDetailTransaksi']]);
+                                        $this->db->update('detailtransaksi');
+                                        redirect('Dashboard/keranjang');
+                                    }else if($updateJumlah >= 1){
                                         $this->db->set([
                                             'jumlahBeli' => $updateJumlah,
                                             'hargaSatuan' => $produk['harga'],
@@ -403,21 +403,21 @@ class Produk extends CI_Controller
                                 }
                             } else {
 
-                                if ($cekProduk['idProduk'] == 44) { // jika usus crispi
-                                    if ($jumlahBeli >= 50) { //harga 50 Pcs
+                                if ($id == 44) { // jika usus crispi
+                                    if ($jumlahBeli >= 100) { //harga 50 Pcs
                                         $detailKeranjang = [
                                             'idDetailTransaksi' => $this->Models->randomkode(32),
                                             'idTransaksi' => $idTransaksi,
                                             'idProduk' => $id,
                                             'jumlahBeli' => $jumlahBeli,
-                                            'hargaSatuan' => $produk['harga50Pcs'],
-                                            'totalharga' => $jumlahBeli * $produk['harga50Pcs'],
+                                            'hargaSatuan' => $produk['harga1Dus'],
+                                            'totalharga' => $jumlahBeli * $produk['harga1Dus'],
                                             'dus' => $jumlahBeli / $produk['isiDus'],
                                         ];
 
                                         $this->db->insert('detailtransaksi', $detailKeranjang);
                                         redirect('Dashboard/keranjang');
-                                    } else if ($jumlahBeli >= 100) {
+                                    } else if ($jumlahBeli >= 50) {
                                         $detailKeranjang = [
                                             'idDetailTransaksi' => $this->Models->randomkode(32),
                                             'idTransaksi' => $idTransaksi,
@@ -504,31 +504,8 @@ class Produk extends CI_Controller
                             }
                         } else {
 
-                            if ($cekProduk1['idProduk'] == 44) { // jika usus crispi
-                                if ($jumlahBeli >= 50) { //harga 50 Pcs
-                                    $idDetailTransaksi = $this->Models->randomkode(32);
-                                    $idTransaksi = $this->Models->randomkode(32);
-                                    $detailKeranjang = [
-                                        'idDetailTransaksi' => $idDetailTransaksi,
-                                        'idTransaksi' => $idTransaksi,
-                                        'idProduk' => $id,
-                                        'jumlahBeli' => $jumlahBeli,
-                                        'hargaSatuan' => $produk['harga50Pcs'],
-                                        'totalharga' => $jumlahBeli * $produk['harga50Pcs'],
-                                        'dus' => $jumlahBeli / $produk['isiDus'],
-                                    ];
-
-                                    $this->db->insert('detailtransaksi', $detailKeranjang);
-
-
-                                    $dataTransaksi = [
-                                        'idTransaksi' => $idTransaksi,
-                                        'idUser' => $user,
-                                        'status' => 0,
-                                    ];
-                                    $this->db->insert('transaksi', $dataTransaksi);
-                                    redirect('Dashboard/keranjang');
-                                }else if($jumlahBeli >= 100){
+                            if ($id == 44) { // jika usus crispi
+                                if ($jumlahBeli >= 100) { //harga 50 Pcs
                                     $idDetailTransaksi = $this->Models->randomkode(32);
                                     $idTransaksi = $this->Models->randomkode(32);
                                     $detailKeranjang = [
@@ -551,7 +528,30 @@ class Produk extends CI_Controller
                                     ];
                                     $this->db->insert('transaksi', $dataTransaksi);
                                     redirect('Dashboard/keranjang');
-                                }else{
+                                }else if($jumlahBeli >= 50){
+                                    $idDetailTransaksi = $this->Models->randomkode(32);
+                                    $idTransaksi = $this->Models->randomkode(32);
+                                    $detailKeranjang = [
+                                        'idDetailTransaksi' => $idDetailTransaksi,
+                                        'idTransaksi' => $idTransaksi,
+                                        'idProduk' => $id,
+                                        'jumlahBeli' => $jumlahBeli,
+                                        'hargaSatuan' => $produk['harga50Pcs'],
+                                        'totalharga' => $jumlahBeli * $produk['harga50Pcs'],
+                                        'dus' => $jumlahBeli / $produk['isiDus'],
+                                    ];
+
+                                    $this->db->insert('detailtransaksi', $detailKeranjang);
+
+
+                                    $dataTransaksi = [
+                                        'idTransaksi' => $idTransaksi,
+                                        'idUser' => $user,
+                                        'status' => 0,
+                                    ];
+                                    $this->db->insert('transaksi', $dataTransaksi);
+                                    redirect('Dashboard/keranjang');
+                                }else if($jumlahBeli >= 1){
                                     $idDetailTransaksi = $this->Models->randomkode(32);
                                     $idTransaksi = $this->Models->randomkode(32);
                                     $detailKeranjang = [
@@ -560,7 +560,7 @@ class Produk extends CI_Controller
                                         'idProduk' => $id,
                                         'jumlahBeli' => $jumlahBeli,
                                         'hargaSatuan' => $produk['harga'],
-                                        'totalharga' => $jumlahBeli * $produk['harga1'],
+                                        'totalharga' => $jumlahBeli * $produk['harga'],
                                         'dus' => $jumlahBeli / $produk['isiDus'],
                                     ];
 
