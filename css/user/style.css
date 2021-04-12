@@ -2267,6 +2267,12 @@ section {
   margin-bottom: 15px;
 }
 
+.type h2 {
+  font-size: 24px;
+  font-weight: 600;
+  color: #000000;
+}
+
 .type .nama-product {
   font-size: 16px;
   color: #444444;

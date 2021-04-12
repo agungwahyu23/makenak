@@ -15,7 +15,7 @@
       <div class="row">
         <div class="col-lg-6 d-flex flex-column justify-content-center">
           <h1 data-aos="fade-up">Mak Enak Jember</h1>
-          <h5 data-aos="fade-up" data-aos-delay="400">Produsen roti kering khas Jember</h5>
+          <h5 data-aos="fade-up" data-aos-delay="400">Produsen kue kering khas Jember</h5>
         </div>
       </div>
     </div>
