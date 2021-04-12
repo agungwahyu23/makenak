@@ -48,7 +48,7 @@
 					<?php } ?>
 
 					<div class="row">
-						<div class="col-xxl-3 col-lg-3">
+						<div class="col-xxl-3 col-lg-4">
 							<div class="card bg-success text-white mb-4">
 								<div class="card-body">
 									<div class="d-flex justify-content-between align-items-center">
@@ -66,7 +66,7 @@
 							</div>
 						</div>
 
-						<div class="col-xxl-3 col-lg-3">
+						<div class="col-xxl-3 col-lg-4">
 							<div class="card bg-primary text-white mb-4">
 								<div class="card-body">
 									<div class="d-flex justify-content-between align-items-center">
@@ -83,7 +83,7 @@
 								</div>
 							</div>
 						</div>
-						<div class="col-xxl-3 col-lg-3">
+						<div class="col-xxl-3 col-lg-4">
 							<div class="card bg-warning text-white mb-4">
 								<div class="card-body">
 									<div class="d-flex justify-content-between align-items-center">
@@ -100,7 +100,7 @@
 								</div>
 							</div>
 						</div>
-						<div class="col-xxl-3 col-lg-3">
+						<!-- <div class="col-xxl-3 col-lg-3">
 							<div class="card bg-info text-white mb-4">
 								<div class="card-body">
 									<div class="d-flex justify-content-between align-items-center">
@@ -116,7 +116,7 @@
 									<div class="small text-white"><i class="fas fa-angle-right"></i></div>
 								</div>
 							</div>
-						</div>
+						</div> -->
 					</div>
 
 					<div class="row">

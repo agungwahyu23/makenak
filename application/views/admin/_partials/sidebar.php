@@ -22,10 +22,10 @@
                     <div class="nav-link-icon"><i data-feather="check-square"></i></div>
                     Selesai
                 </a>
-                <a class="nav-link" href="<?php echo base_url('admin/Transaksi/ditolak') ?>">
+                <!-- <a class="nav-link" href="<?php echo base_url('admin/Transaksi/ditolak') ?>">
                     <div class="nav-link-icon"><i data-feather="x-square"></i></div>
                     Ditolak
-                </a>
+                </a> -->
 
                 <div class="sidenav-menu-heading">Data Mak Enak</div>
                 <?php if ($Pengguna['Pekerjaan'] === 'Admin') { ?>
