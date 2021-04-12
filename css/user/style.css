@@ -3666,6 +3666,15 @@ section {
   }
 }
 
+@media (max-width:420px) {
+  .contact a{
+    font-size: 12px;
+  }
+  .contact h6{
+    font-size: 14px;
+  }
+}
+
 @-webkit-keyframes animate-loading {
   0% {
     transform: rotate(0deg);
