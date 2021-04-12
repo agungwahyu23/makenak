@@ -3479,7 +3479,10 @@ section {
   max-height: 50%;
 }
 .partner{
-  height: auto;
+  height: 100px;
+}
+.partner .container{
+  margin: auto;
 }
 .partner h1{
   font-size: 16px;
@@ -4389,10 +4392,6 @@ a i:hover {
   margin-bottom: 30px;
 }
 
-.footer .footer-top .footer-links .sosmed ul li{
-  padding: 0px 0px;
-}
-
 .footer .footer-top .footer-links ul {
   list-style: none;
   padding: 0;
@@ -4400,9 +4399,15 @@ a i:hover {
 }
 
 .footer .footer-top .footer-links ul i {
-  padding-right: 2px;
+  padding-right: 3px;
   color: #000000;
   font-size: 12px;
+  line-height: 0;
+}
+.footer .footer-top .footer-links ul a {
+  padding-right: 5px;
+  color: #000000;
+  font-size: 16px;
   line-height: 0;
 }
 
@@ -4465,6 +4470,11 @@ a i:hover {
     width: 100px;
     margin-right: 6px;
   }
+  .footer .footer-top ul li img{
+    width: 20px;
+    height: 20px;
+    padding-right: 2px;
+  }
 }
 
 @media (max-width:420px) {
@@ -4472,7 +4482,10 @@ a i:hover {
     font-size: 10px;
   }
   .footer .footer-top a{
-    font-size: 11px;
+    font-size: 12px;
+  }
+  .footer .footer-top .footer-links ul li a{
+    font-size: 12px;
   }
 }
 
