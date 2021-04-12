@@ -44,7 +44,7 @@
                 </div>
                 <div class="col-md-6 form-text">
                   <?= form_error('noWa', '<small class="text-danger pl-2">', '</small>'); ?>
-                  <input type="number" name="noWa" placeholder="Nomor WhatsApp" required />
+                  <input type="text" pattern="[0-9]" name="noWa" placeholder="No. WA (Hanya angka)" required />
                 </div>
               </div>
               <div class="form-text">
