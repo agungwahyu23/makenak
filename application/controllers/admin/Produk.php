@@ -277,6 +277,7 @@ class Produk extends CI_Controller
 				'harga10Dus' => $this->input->post('harga10Dus'),
 				'stok' => $this->input->post('stokProduk'),
 				'deskripsi' => $this->input->post('deskripsiProduk'),
+				'komposisi' => $this->input->post('komposisiProduk'),
 				'status' => $this->input->post('statusProduk')
 			];
 			// var_dump($data);die;

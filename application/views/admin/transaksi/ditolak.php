@@ -31,11 +31,11 @@
           <div class="card card-header-actions mb-4">
             <div class="card-header">
               <div class="row"></div>
-              <div class="no-caret">
+              <!-- <div class="no-caret">
                 <a class="btn btn-md btn-primary print_kategori" href="<?= base_url(); ?>admin/Transaksi/getExport">
                   <i data-feather="printer"></i>
                 </a>
-              </div>
+              </div> -->
             </div>
             <div class="card-body">
               <div class="col">

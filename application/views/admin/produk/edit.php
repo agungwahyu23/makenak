@@ -105,7 +105,7 @@
                   <div class="form-group col-lg-12 col-sm-6">
                     <label>Komposisi Produk</label>
                     <?= form_error('komposisiProduk', '<small class="text-danger pl-2">', '</small>'); ?>
-                    <input class="form-control" name="komposisiProduk" type="text" placeholder="Netto Produk" value="<?= $produk['komposisi'] ?>" />
+                    <input class="form-control" name="komposisiProduk" type="text" placeholder="Komposisi" value="<?= $produk['komposisi'] ?>" />
                   </div>
                 </div>
                 <div class="row">

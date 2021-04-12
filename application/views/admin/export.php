@@ -33,7 +33,7 @@
             <td><?= $data['namaPenerima'] ?></td>
             <td><?= $data['emailPenerima'] ?></td>
             <td><?= $data['wa'] ?></td>
-            <td><?= $data['alamatPenerima'] ?>, <?= $data['kelurahan'] ?>, <?= $data['kecamatan'] ?>, <?= $data['kabupaten'] ?></td>
+            <td><?= $data['alamatPenerima'] ?>, <?= $data['desa'] ?>, <?= $data['kecamatan'] ?>, <?= $data['kabupaten'] ?></td>
             <td><?= $data['namaProduk'] ?></td>
             <td><?= $data['jumlahBeli'] ?></td>
             <td><?= $data['totalHarga'] ?></td>

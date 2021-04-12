@@ -313,6 +313,20 @@
               $('#ongkir').html('Rp. ' + Intl.NumberFormat().format(data.ongkirJember[0].harga));
               $('#inputOngkir').val(data.ongkirJember[0].harga);
               $('#total').html("Rp. " + Intl.NumberFormat().format((parseInt(data.transaksi[0].totalBayar) + parseInt(data.ongkirJember[0].harga))));
+              Swal.fire({
+                title: '<p>pemesanan di kota jember akan dikirim oleh gojek/grab (ongkir akan di tanggung oleh penerima)</p>',
+                showDenyButton: true,
+                // showCancelButton: true,
+                confirmButtonText: `Setuju`,
+                denyButtonText: `Tidak Setuju`,
+              }).then((result) => {
+                /* Read more about isConfirmed, isDenied below */
+                if (result.isConfirmed) {
+                  Swal.fire('Anda telah menyetujui ketentuan dari Mak Enak!', '', 'success')
+                } else if (result.isDenied) {
+                  window.location = "<?= base_url('Dashboard/checkout') ?>";
+                }
+              })
             } else if (data.wilayah[0].province_id === "35") { // jawa timur
               for (i = 0; i < data.produk.length; i++) {
                 if (parseInt(data.produk[i].jumlahBeli) < parseInt(data.produk[i].isiDus)) { // kurang dari 1 dus

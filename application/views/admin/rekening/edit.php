@@ -35,7 +35,7 @@
                   <div class="form-group col-lg-12 col-sm-12">
                     <label>Nama Bank</label>
                     <?= form_error('namaBank', '<small class="text-danger pl-2">', '</small>'); ?>
-                    <input class="form-control" name="namaBank" type="text" placeholder="Nama Bank" value="<?= $rekening['namaBank']?>" />
+                    <input class="form-control" disabled name="namaBank" type="text" placeholder="Nama Bank" value="<?= $rekening['namaBank']?>" />
                   </div>
                   <div class="form-group col-lg-12 col-sm-12">
                     <label>Nama Tabungan</label>
