@@ -63,7 +63,7 @@
 
               </div>
 
-              <strong> Rp <?= number_format($detailProduk['harga'], 0, ",", ".") ?></strong>
+              <strong> Rp <?= number_format($detailProduk['harga'], 0, ",", ".") ?> / <?= $detailProduk['namaSatuan']?></strong>
               <p> Netto : <?= $detailProduk['netto'] ?> Gram</p>
 
               <p class="mt-3">
