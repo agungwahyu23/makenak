@@ -317,6 +317,7 @@ class Produk extends CI_Controller
                         $this->session->set_flashdata('message', '<div class="alert text-center alert-danger" role="alert">Jumlah Pembelian Tidak Boleh Melebihi Stok Produk</div>');
                         redirect('Produk/DetailProduk/' . $id . '');
                     } else {
+                        $cekProduk1 = $this->db->get_where('detailtransaksi', ['idTransaksi' => $idKeranjang['idTransaksi'], 'idProduk' => $id])->row_array();
 
                         if ($idKeranjang) {
                             $idTransaksi = $idKeranjang['idTransaksi'];
@@ -324,6 +325,41 @@ class Produk extends CI_Controller
 
                             if ($cekProduk) {
                                 $updateJumlah = $jumlahBeli + $cekProduk['jumlahBeli'];
+
+
+                                if ($cekProduk['idProduk'] == 44) { // jika usus crispi
+                                    if ($updateJumlah >= 50) { //harga 50 Pcs
+                                        $this->db->set([
+                                            'jumlahBeli' => $updateJumlah,
+                                            'hargaSatuan' => $produk['harga50Pcs'],
+                                            'totalharga' => $updateJumlah * $produk['harga50Pcs'],
+                                            'dus' => $updateJumlah / $produk['isiDus'],
+                                        ]);
+                                        $this->db->where(['idDetailTransaksi' => $cekProduk['idDetailTransaksi']]);
+                                        $this->db->update('detailtransaksi');
+                                        redirect('Dashboard/keranjang');
+                                    } else if ($updateJumlah >= 100) {
+                                        $this->db->set([
+                                            'jumlahBeli' => $updateJumlah,
+                                            'hargaSatuan' => $produk['harga1Dus'],
+                                            'totalharga' => $updateJumlah * $produk['harga1Dus'],
+                                            'dus' => $updateJumlah / $produk['isiDus'],
+                                        ]);
+                                        $this->db->where(['idDetailTransaksi' => $cekProduk['idDetailTransaksi']]);
+                                        $this->db->update('detailtransaksi');
+                                        redirect('Dashboard/keranjang');
+                                    }else{
+                                        $this->db->set([
+                                            'jumlahBeli' => $updateJumlah,
+                                            'hargaSatuan' => $produk['harga'],
+                                            'totalharga' => $updateJumlah * $produk['harga'],
+                                            'dus' => $updateJumlah / $produk['isiDus'],
+                                        ]);
+                                        $this->db->where(['idDetailTransaksi' => $cekProduk['idDetailTransaksi']]);
+                                        $this->db->update('detailtransaksi');
+                                        redirect('Dashboard/keranjang');
+                                    }
+                                }
                                 if ($updateJumlah >= ($produk['isiDus'] * 10)) { //harga 10 dus
                                     $this->db->set([
                                         'jumlahBeli' => $updateJumlah,
@@ -366,6 +402,51 @@ class Produk extends CI_Controller
                                     redirect('Dashboard/keranjang');
                                 }
                             } else {
+
+                                if ($cekProduk['idProduk'] == 44) { // jika usus crispi
+                                    if ($jumlahBeli >= 50) { //harga 50 Pcs
+                                        $detailKeranjang = [
+                                            'idDetailTransaksi' => $this->Models->randomkode(32),
+                                            'idTransaksi' => $idTransaksi,
+                                            'idProduk' => $id,
+                                            'jumlahBeli' => $jumlahBeli,
+                                            'hargaSatuan' => $produk['harga50Pcs'],
+                                            'totalharga' => $jumlahBeli * $produk['harga50Pcs'],
+                                            'dus' => $jumlahBeli / $produk['isiDus'],
+                                        ];
+
+                                        $this->db->insert('detailtransaksi', $detailKeranjang);
+                                        redirect('Dashboard/keranjang');
+                                    } else if ($jumlahBeli >= 100) {
+                                        $detailKeranjang = [
+                                            'idDetailTransaksi' => $this->Models->randomkode(32),
+                                            'idTransaksi' => $idTransaksi,
+                                            'idProduk' => $id,
+                                            'jumlahBeli' => $jumlahBeli,
+                                            'hargaSatuan' => $produk['harga50Pcs'],
+                                            'totalharga' => $jumlahBeli * $produk['harga50Pcs'],
+                                            'dus' => $jumlahBeli / $produk['isiDus'],
+                                        ];
+
+                                        $this->db->insert('detailtransaksi', $detailKeranjang);
+                                        redirect('Dashboard/keranjang');
+                                    }else if ($jumlahBeli >= 1){
+                                        $detailKeranjang = [
+                                            'idDetailTransaksi' => $this->Models->randomkode(32),
+                                            'idTransaksi' => $idTransaksi,
+                                            'idProduk' => $id,
+                                            'jumlahBeli' => $jumlahBeli,
+                                            'hargaSatuan' => $produk['harga'],
+                                            'totalharga' => $jumlahBeli * $produk['harga'],
+                                            'dus' => $jumlahBeli / $produk['isiDus'],
+                                        ];
+
+                                        $this->db->insert('detailtransaksi', $detailKeranjang);
+                                        redirect('Dashboard/keranjang');
+                                    }
+                                }
+
+
                                 if ($jumlahBeli >= ($produk['isiDus'] * 10)) { //Harga 10Dus
 
                                     $detailKeranjang = [
@@ -422,6 +503,80 @@ class Produk extends CI_Controller
                                 }
                             }
                         } else {
+
+                            if ($cekProduk1['idProduk'] == 44) { // jika usus crispi
+                                if ($jumlahBeli >= 50) { //harga 50 Pcs
+                                    $idDetailTransaksi = $this->Models->randomkode(32);
+                                    $idTransaksi = $this->Models->randomkode(32);
+                                    $detailKeranjang = [
+                                        'idDetailTransaksi' => $idDetailTransaksi,
+                                        'idTransaksi' => $idTransaksi,
+                                        'idProduk' => $id,
+                                        'jumlahBeli' => $jumlahBeli,
+                                        'hargaSatuan' => $produk['harga50Pcs'],
+                                        'totalharga' => $jumlahBeli * $produk['harga50Pcs'],
+                                        'dus' => $jumlahBeli / $produk['isiDus'],
+                                    ];
+
+                                    $this->db->insert('detailtransaksi', $detailKeranjang);
+
+
+                                    $dataTransaksi = [
+                                        'idTransaksi' => $idTransaksi,
+                                        'idUser' => $user,
+                                        'status' => 0,
+                                    ];
+                                    $this->db->insert('transaksi', $dataTransaksi);
+                                    redirect('Dashboard/keranjang');
+                                }else if($jumlahBeli >= 100){
+                                    $idDetailTransaksi = $this->Models->randomkode(32);
+                                    $idTransaksi = $this->Models->randomkode(32);
+                                    $detailKeranjang = [
+                                        'idDetailTransaksi' => $idDetailTransaksi,
+                                        'idTransaksi' => $idTransaksi,
+                                        'idProduk' => $id,
+                                        'jumlahBeli' => $jumlahBeli,
+                                        'hargaSatuan' => $produk['harga1Dus'],
+                                        'totalharga' => $jumlahBeli * $produk['harga1Dus'],
+                                        'dus' => $jumlahBeli / $produk['isiDus'],
+                                    ];
+
+                                    $this->db->insert('detailtransaksi', $detailKeranjang);
+
+
+                                    $dataTransaksi = [
+                                        'idTransaksi' => $idTransaksi,
+                                        'idUser' => $user,
+                                        'status' => 0,
+                                    ];
+                                    $this->db->insert('transaksi', $dataTransaksi);
+                                    redirect('Dashboard/keranjang');
+                                }else{
+                                    $idDetailTransaksi = $this->Models->randomkode(32);
+                                    $idTransaksi = $this->Models->randomkode(32);
+                                    $detailKeranjang = [
+                                        'idDetailTransaksi' => $idDetailTransaksi,
+                                        'idTransaksi' => $idTransaksi,
+                                        'idProduk' => $id,
+                                        'jumlahBeli' => $jumlahBeli,
+                                        'hargaSatuan' => $produk['harga'],
+                                        'totalharga' => $jumlahBeli * $produk['harga1'],
+                                        'dus' => $jumlahBeli / $produk['isiDus'],
+                                    ];
+
+                                    $this->db->insert('detailtransaksi', $detailKeranjang);
+
+
+                                    $dataTransaksi = [
+                                        'idTransaksi' => $idTransaksi,
+                                        'idUser' => $user,
+                                        'status' => 0,
+                                    ];
+                                    $this->db->insert('transaksi', $dataTransaksi);
+                                    redirect('Dashboard/keranjang');
+                                }
+                            }
+
                             if ($jumlahBeli >= ($produk['isiDus'] * 10)) { //harga 10 dus
                                 $idDetailTransaksi = $this->Models->randomkode(32);
                                 $idTransaksi = $this->Models->randomkode(32);
