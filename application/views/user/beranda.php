@@ -32,7 +32,7 @@
     </div>
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <section id="hero" class="hero d-flex align-items-center" style="background-image: url(<?= base_url('img/ImageBackGround/bg-slide_c.png'); ?>)">
+        <section id="hero" class="hero d-flex align-items-center" style="background-image: url(<?= base_url('img/ImageBackGround/bg-slide_c2.png'); ?>)">
           <div class="container">
             <div class="row">
               <div class="col-lg-6 d-flex flex-column justify-content-center">
@@ -48,7 +48,7 @@
         </section>
       </div>
       <div class="carousel-item">
-        <section id="hero" class="hero d-flex align-items-center" style="background-image: url(<?= base_url('img/ImageBackGround/bg-hero1_c.JPG'); ?>)">
+        <section id="hero" class="hero d-flex align-items-center" style="background-image: url(<?= base_url('img/ImageBackGround/bg-hero2_c2.JPG'); ?>)">
           <div class="container">
             <div class="row">
               <div class="col-lg-6 d-flex flex-column justify-content-center">
@@ -62,7 +62,7 @@
         </section>
       </div>
       <div class="carousel-item">
-        <section id="hero" class="hero d-flex align-items-center" style="background-image: url(<?= base_url('img/ImageBackGround/bg-hero2_c.JPG'); ?>)">
+        <section id="hero" class="hero d-flex align-items-center" style="background-image: url(<?= base_url('img/ImageBackGround/bg-hero2_c2.JPG'); ?>)">
           <div class="container">
             <div class="row">
               <div class="col-lg-6 d-flex flex-column justify-content-center">
