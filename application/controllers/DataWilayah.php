@@ -23,6 +23,8 @@ class DataWilayah extends CI_Controller
         $idT = $data['transaksi'][0]->idTransaksi;
         $data['totalDus'] = $this->db->query("SELECT SUM(dus) as totalDus FROM detailTransaksi WHERE idTransaksi = '$idT'")->result();
 
+        $data['totalBayar'] = $this->db->query("SELECT SUM(totalHarga) as totalBayar FROM detailTransaksi WHERE idTransaksi = '$idT'")->result();
+
         $data['produk'] = $this->db->join('produk', 'produk.id = detailtransaksi.idProduk')->get_where('detailtransaksi', ['idTransaksi' => $data['transaksi'][0]->idTransaksi])->result();
         echo json_encode($data);
     }

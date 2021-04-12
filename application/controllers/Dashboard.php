@@ -260,10 +260,15 @@ class Dashboard extends CI_Controller
         $data['mandiri'] = $this->db->get_where('rekening', ['idRekening' => 3])->row_array();
         $user = $this->session->userdata('idCustomer');
 
+
+
         $data['user'] = $this->db->get_where('pengguna', ['Id_User' => $user, 'Pekerjaan' => 'User'])->row_array();
         $data['keranjang'] = $this->db->get_where('transaksi', ['idUser' => $user, 'Status' => 0])->row_array();
         $data['provinsi'] = $this->db->get('provinces')->result_array();
 
+
+        $idT = $data['keranjang']['idTransaksi'];
+        $data['totalBayar'] = $this->db->query("SELECT SUM(totalHarga) as totalBayar FROM detailTransaksi WHERE idTransaksi = '$idT'")->row_array();
 
         $this->form_validation->set_rules('idTransaksi', 'Id Transaksi', 'required');
         // $this->form_validation->set_rules('idDetailTransaksi', 'Id Detail Transaksi', 'required');
@@ -314,6 +319,7 @@ class Dashboard extends CI_Controller
             $namaPengirim = $this->input->post('namaPengirim');
             $namabank = $this->input->post('namaBank');
             $idTransaksi = $this->input->post('idTransaksi');
+            $totalBayar = $this->input->post('totalBayar1');
 
 
             $config['allowed_types'] = 'jpg|png|gif|jpeg';
@@ -336,7 +342,8 @@ class Dashboard extends CI_Controller
                     'namaPengirim' => $namaPengirim,
                     'namaBank' => $namabank,
                     'ongkir' => $ongkir,
-                    'buktiTransfer' => $foto
+                    'buktiTransfer' => $foto,
+                    'totalBayar' => $totalBayar,
                 ];
 
                 $dataPenerima = [

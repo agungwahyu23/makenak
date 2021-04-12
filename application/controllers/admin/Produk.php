@@ -69,7 +69,9 @@ class Produk extends CI_Controller
 
 			$config['allowed_types'] = 'jpg|png|gif|jpeg';
 
-			$config['max_size'] = '7748';
+			$config['max_size'] = '2048';
+
+			$config['quality'] = '50%'; 
 
 			$config['upload_path'] = './img/Produk';
 
@@ -302,6 +304,8 @@ class Produk extends CI_Controller
 					$config['allowed_types'] = 'jpg|jpeg|png|gif';
 
 					$config['max_size'] = '2048';
+
+					$config['quality'] = '60%'; 
 
 					$config['upload_path'] = './img/Produk/';
 

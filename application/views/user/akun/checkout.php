@@ -78,9 +78,14 @@
                         <!-- <?= form_error('idTransaksi', '<small class="text-danger pl-2">', '</small>'); ?> -->
                         <input type="hidden" class="form-control mb-3" name="idTransaksi" value="<?= $keranjang['idTransaksi'] ?>">
                       </div>
-                      <!-- <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12"><label class="small mb-1" for="alamat">Id Detail Transaksi</label>
-                        <input type="text" class="form-control mb-3" name="idDetailTransaksi" required value="<?= $keranjang['idTransaksi'] ?>">
-                      </div> -->
+                      <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                        <!-- <?= form_error('totalBayar', '<small class="text-danger pl-2">', '</small>'); ?> -->
+                        <input type="hidden" id="totalBayar" class="form-control mb-3" name="totalBayar" value="<?= $totalBayar['totalBayar'] ?>">
+                      </div>
+                      <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                        <!-- <?= form_error('totalBayar1', '<small class="text-danger pl-2">', '</small>'); ?> -->
+                        <input type="hidden" id="totalBayar1" class="form-control mb-3" name="totalBayar1">
+                      </div>
                     </div>
 
                     <hr>
@@ -92,7 +97,7 @@
                           <tbody>
                             <tr>
                               <td>Total Belanja</td>
-                              <td><b>Rp. <?= $keranjang['totalBayar'] ?></b></td>
+                              <td><b>Rp. <?= number_format($totalBayar['totalBayar']) ?></b></td>
                             </tr>
                           </tbody>
                           <tbody>
@@ -110,35 +115,7 @@
                         </table>
                       </div>
                     </div>
-                    <!-- <div class="row mb-5">
-                      <div>Total Belanja <b>Rp. <?= $keranjang['totalBayar'] ?></b></div>
-                      <div>Ongkir <b id="ongkir"></b></div>
-                      <div>Total Bayar <b id="total"></b></div>
-                    </div> -->
-                    <!-- <div class="row justify-content-end">
-                      <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-xs-12">
-                        <div>
-                          Total Belanja
-                        </div>
-                        <div>
-                          Ongkir
-                        </div>
-                        <div>
-                          <strong>Total Bayar</strong>
-                        </div>
-                      </div>
-                      <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-xs-12">
-                        <div>
-                          Rp. <?= $keranjang['totalBayar'] ?>
-                        </div>
-                        <div id="ongkir">
-                          Rp.
-                        </div>
-                        <div>
-                          <strong id="total">Rp. </strong>
-                        </div>
-                      </div>
-                    </div> -->
+                  
 
                     <hr>
 
@@ -296,6 +273,7 @@
       $('#kabKota').change(function() {
         var idKab = $(this).val(); //id kab_kota
         var idProv = $('#provinsi').val();
+        var totalBayar = $('#totalBayar').val();
         // console.log(idKab);
         $.ajax({
           url: "<?= base_url(); ?>DataWilayah/Ongkir",
@@ -312,7 +290,8 @@
             if (data.wilayah[0].province_id === "35" && data.wilayah[0].id === "999") { // kota jember
               $('#ongkir').html('Rp. ' + Intl.NumberFormat().format(data.ongkirJember[0].harga));
               $('#inputOngkir').val(data.ongkirJember[0].harga);
-              $('#total').html("Rp. " + Intl.NumberFormat().format((parseInt(data.transaksi[0].totalBayar) + parseInt(data.ongkirJember[0].harga))));
+              $('#total').html("Rp. " + Intl.NumberFormat().format((parseInt(totalBayar) + parseInt(data.ongkirJember[0].harga))));
+              $('#totalBayar1').val((parseInt(totalBayar) + parseInt(data.ongkirJember[0].harga)));
               Swal.fire({
                 title: '<p>pemesanan di kota jember akan dikirim oleh gojek/grab (ongkir akan di tanggung oleh penerima)</p>',
                 showDenyButton: true,
@@ -352,7 +331,8 @@
                   } else {
                     $('#ongkir').html("Rp. " + Intl.NumberFormat().format(data.ongkir[0].harga));
                     $('#inputOngkir').val(data.ongkir[0].harga);
-                    $('#total').html("Rp. " + Intl.NumberFormat().format((parseInt(data.transaksi[0].totalBayar) + parseInt(data.ongkir[0].harga))));
+                    $('#total').html("Rp. " + Intl.NumberFormat().format((parseInt(totalBayar) + parseInt(data.ongkir[0].harga))));
+                    $('#totalBayar1').val((parseInt(totalBayar) + parseInt(data.ongkir[0].harga)));
 
                   }
                 }
@@ -381,7 +361,8 @@
                   } else {
                     $('#ongkir').html("Rp. " + Intl.NumberFormat().format(data.ongkir[0].harga));
                     $('#inputOngkir').val(data.ongkir[0].harga);
-                    $('#total').html("Rp. " + Intl.NumberFormat().format((parseInt(data.transaksi[0].totalBayar) + parseInt(data.ongkir[0].harga))));
+                    $('#total').html("Rp. " + Intl.NumberFormat().format((parseInt(totalBayar) + parseInt(data.ongkir[0].harga))));
+                    $('#totalBayar1').val((parseInt(totalBayar) + parseInt(data.ongkir[0].harga)));
                   }
                 }
               }

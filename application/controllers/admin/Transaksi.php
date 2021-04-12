@@ -78,9 +78,13 @@ class Transaksi extends CI_Controller
 		$pesanan = $this->db->get_where('transaksi', ['idTransaksi' => $id])->row_array();
 
 		if ($pesanan) {
-			$this->db->set(['status' => '4']);
+
+			
 			$this->db->where(['idTransaksi' => $id]);
-			$update = $this->db->update('transaksi');
+			$this->db->delete('detailTransaksi');
+			
+			$this->db->where(['idTransaksi' => $id]);
+			$update = $this->db->delete('transaksi');
 
 			if ($update) {
 				$this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert">
@@ -228,25 +232,6 @@ class Transaksi extends CI_Controller
 		$this->load->view('admin/transaksi/detailDitolak', $data);
 	}
 
-	
-	public function Tolak($id)
-	{
-		$this->db->set('Status', 3);
-		$this->db->where('Id_Transaksi', $id);
-		$this->db->update('transaksi_rumah');
-		//ubah di status blok rumah
-		$data = $this->db->query("SELECT * FROM transaksi_rumah WHERE Id_Transaksi = '$id'")->row_array();
-		$idblok = $data['Id_Blok'];
-		// echo json_encode($idblok);
-		$this->db->set('status', 1);
-		$this->db->where('Id_Blok', $idblok);
-		$this->db->update('blok_rumah');
-
-		$this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert">
-        Transaksi Berhasil DiTolak
-     </div>');
-		redirect('admin/Transaksi');
-	}
 	public function getExport()
 	{
 
