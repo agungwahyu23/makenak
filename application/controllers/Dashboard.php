@@ -69,7 +69,7 @@ class Dashboard extends CI_Controller
 
                 $updateJumlah = $jumlahBeli[$i];
 
-                $produk = $this->db->join('produk', 'produk.id = detailtransaksi.idProduk')->get_where('detailTransaksi', ['idDetailTransaksi' => $id[$i]])->row_array();
+                $produk = $this->db->join('produk', 'produk.id = detailtransaksi.idProduk')->get_where('detailtransaksi', ['idDetailTransaksi' => $id[$i]])->row_array();
 
                 if ($produk['stok'] > $updateJumlah) {
                     if ($produk['id'] == 44) {
