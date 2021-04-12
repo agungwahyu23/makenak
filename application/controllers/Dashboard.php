@@ -114,10 +114,20 @@ class Dashboard extends CI_Controller
                         $this->db->update('detailtransaksi');
                         $i++;
                     }
+                }else{
+                    $this->session->set_flashdata(
+                        'message',
+                        '<div class="alert alert-danger text-center mb-3" role="alert">Stok Tidak Mencukupi</div>'
+                    );
+                    redirect('Dashboard/keranjang');
                 }
                 // $i++;
             }
         }
+        $this->session->set_flashdata(
+            'message',
+            '<div class="alert alert-success text-center mb-3" role="alert">Keranjang Berhasil Diubah</div>'
+        );
         redirect('Dashboard/keranjang');
     }
 
