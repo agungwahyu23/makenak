@@ -770,7 +770,7 @@ section {
   }
   .hero {
     text-align: center;
-    height: auto;
+    /* height: auto; */
   }
   .hero .container {
     margin-left: 0vw !important;
