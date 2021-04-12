@@ -297,7 +297,7 @@ class Produk extends CI_Controller
     {
         if ($id) {
             $data['deskripsi'] = $this->db->query("SELECT * FROM profile WHERE Id_Profile = '1'")->result_array();
-            $data['detailProduk'] = $this->db->join('satuanproduk', 'satuanproduk.idSatuan = produk.idSatuan')->get_where('produk', ['id' => $id])->row_array();
+            $data['detailProduk'] = $this->db->join('satuanProduk', 'satuanProduk.idSatuan = produk.idSatuan')->get_where('produk', ['id' => $id])->row_array();
 
             $this->db->order_by('rand()');
             $data['produkBeranda'] = $this->db->get('produk', 4)->result_array();
