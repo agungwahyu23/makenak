@@ -155,7 +155,7 @@
 
                 <div class="nama-product"><span><?= $data['namaProduk'] ?></span></div>
                 <ul>
-                  <li>Rp <?= number_format($data['harga'], 0, ",", ".") ?></li>
+                  <li>Rp <?= number_format($data['harga'], 0, ",", ".") ?> /Toples</li>
                 </ul>
                 <a href="<?= base_url('Produk/DetailProduk/') . $data['id'] ?>" class="btn-detail">Detail</a>
                 <!-- <a href="<?= base_url('Produk/DetailProduk/') . $data['id'] ?>" class="btn-choose">Beli

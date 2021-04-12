@@ -202,7 +202,7 @@
 
                 <div class="nama-product"><span><?= $data['namaProduk'] ?></span></div>
                 <ul>
-                  <li>Rp <?= number_format($data['harga'], 0, ",", ".") ?></li>
+                  <li>Rp <?= number_format($data['harga'], 0, ",", ".") ?>/Toples</li>
                 </ul>
                 <a href="<?= base_url('Produk/DetailProduk/') . $data['id'] ?>" class="btn-detail">Selengkapnya</a>
                 <!-- <a href="<?= base_url('Produk/Beli/') . $data['id'] ?>" class="btn-choose">Beli
@@ -278,7 +278,7 @@
           <h1>Inovasi Kue Kering Yang Luar Biasa</h1><br>
           <h6> HADIRKAN RASA TERISTIMEWA</h6><br>
         
-        <a href="<?= base_url('Produk') ?>" class="btn-detail">Saya Mau Kue Kacang</a>
+        <a href="<?= base_url('Produk') ?>" class="btn-detail">Lihat Produk Kami</a>
 
       </div>
 

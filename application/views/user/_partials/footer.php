@@ -19,7 +19,7 @@
           </ul>
         </div>
 
-        <div class="col-lg-3 col-6 footer-links">
+        <div class="col-lg-3 col-6 footer-linkssosmed">
           <h4>Sosial Media Kami</h4>
           <ul>
             <li><img src="<?= base_url('img/user/ic_ig.png') ?>" width="40px" height="40px" alt=""> <a href="https://www.instagram.com/mak_enak_jember/" target="blank"><span>Mak Enak Jember</span></a></li>
