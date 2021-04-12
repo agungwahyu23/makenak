@@ -262,7 +262,7 @@ class Produk extends CI_Controller
 
 			$data['produk'] = $this->db->get_where('produk', ['id' => $id])->row_array();
 			$data['sub'] = $this->db->query("SELECT * FROM produk, kategoriproduk WHERE produk.idKategori = kategoriproduk.idkategori AND produk.id = '$id'")->result();
-			$data['kategori'] = $this->db->get('kategoriProduk')->result_array();
+			$data['kategori'] = $this->db->get('kategoriproduk')->result_array();
 
 			// var_dump($data['kategori']);die;
 			// var_dump($data['sub']);die;

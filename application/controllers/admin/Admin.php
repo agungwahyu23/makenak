@@ -101,7 +101,7 @@ class Admin extends CI_Controller
 
   public function hapus($id)
   {
-    $hapusku = $this->Models->hapusdata("Id_User", "Pengguna", $id);
+    $hapusku = $this->Models->hapusdata("Id_User", "pengguna", $id);
     if ($hapusku) {
       $this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert">
 					Data Berhasil Dihapus

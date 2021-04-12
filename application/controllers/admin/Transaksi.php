@@ -30,7 +30,7 @@ class Transaksi extends CI_Controller
 
 		$data['dataPenerima'] = $this->db->join('datapenerima', 'datapenerima.idDataPenerima = transaksi.idDataPenerima')->join('regencies', 'regencies.id = datapenerima.kabupaten')->get_where('transaksi', ['transaksi.idTransaksi' => $id])->row_array();
 
-		$data['detailPemesanan'] = $this->db->join('detailTransaksi', 'detailTransaksi.idTransaksi = transaksi.idTransaksi')->join('produk', 'produk.id = detailTransaksi.idProduk')->get_where('transaksi', ['transaksi.idTransaksi' => $id, 'transaksi.status' => 1])->result_array();
+		$data['detailPemesanan'] = $this->db->join('detailtransaksi', 'detailtransaksi.idTransaksi = transaksi.idTransaksi')->join('produk', 'produk.id = detailtransaksi.idProduk')->get_where('transaksi', ['transaksi.idTransaksi' => $id, 'transaksi.status' => 1])->result_array();
 
 
 
@@ -81,7 +81,7 @@ class Transaksi extends CI_Controller
 
 			
 			$this->db->where(['idTransaksi' => $id]);
-			$this->db->delete('detailTransaksi');
+			$this->db->delete('detailtransaksi');
 			
 			$this->db->where(['idTransaksi' => $id]);
 			$update = $this->db->delete('transaksi');
@@ -132,7 +132,7 @@ class Transaksi extends CI_Controller
 
 			$data['dataPenerima'] = $this->db->join('datapenerima', 'datapenerima.idDataPenerima = transaksi.idDataPenerima')->join('regencies', 'regencies.id = datapenerima.kabupaten')->get_where('transaksi', ['transaksi.idTransaksi' => $id])->row_array();
 
-			$data['detailPemesanan'] = $this->db->join('detailTransaksi', 'detailTransaksi.idTransaksi = transaksi.idTransaksi')->join('produk', 'produk.id = detailTransaksi.idProduk')->get_where('transaksi', ['transaksi.idTransaksi' => $id, 'transaksi.status' => 2])->result_array();
+			$data['detailPemesanan'] = $this->db->join('detailtransaksi', 'detailtransaksi.idTransaksi = transaksi.idTransaksi')->join('produk', 'produk.id = detailtransaksi.idProduk')->get_where('transaksi', ['transaksi.idTransaksi' => $id, 'transaksi.status' => 2])->result_array();
 
 			$this->load->view('admin/transaksi/detailDikemas', $data);
 		} else {
@@ -198,7 +198,7 @@ class Transaksi extends CI_Controller
 
 		$data['dataPenerima'] = $this->db->join('datapenerima', 'datapenerima.idDataPenerima = transaksi.idDataPenerima')->join('regencies', 'regencies.id = datapenerima.kabupaten')->get_where('transaksi', ['transaksi.idTransaksi' => $id])->row_array();
 
-		$data['detailPemesanan'] = $this->db->join('detailTransaksi', 'detailTransaksi.idTransaksi = transaksi.idTransaksi')->join('produk', 'produk.id = detailTransaksi.idProduk')->get_where('transaksi', ['transaksi.idTransaksi' => $id, 'transaksi.status' => 3])->result_array();
+		$data['detailPemesanan'] = $this->db->join('detailtransaksi', 'detailtransaksi.idTransaksi = transaksi.idTransaksi')->join('produk', 'produk.id = detailtransaksi.idProduk')->get_where('transaksi', ['transaksi.idTransaksi' => $id, 'transaksi.status' => 3])->result_array();
 
 
 
@@ -227,7 +227,7 @@ class Transaksi extends CI_Controller
 
 		$data['dataPenerima'] = $this->db->join('datapenerima', 'datapenerima.idDataPenerima = transaksi.idDataPenerima')->join('regencies', 'regencies.id = datapenerima.kabupaten')->get_where('transaksi', ['transaksi.idTransaksi' => $id])->row_array();
 
-		$data['detailPemesanan'] = $this->db->join('detailTransaksi', 'detailTransaksi.idTransaksi = transaksi.idTransaksi')->join('produk', 'produk.id = detailTransaksi.idProduk')->get_where('transaksi', ['transaksi.idTransaksi' => $id, 'transaksi.status' => 4])->result_array();
+		$data['detailPemesanan'] = $this->db->join('detailtransaksi', 'detailtransaksi.idTransaksi = transaksi.idTransaksi')->join('produk', 'produk.id = detailtransaksi.idProduk')->get_where('transaksi', ['transaksi.idTransaksi' => $id, 'transaksi.status' => 4])->result_array();
 
 		$this->load->view('admin/transaksi/detailDitolak', $data);
 	}
@@ -245,7 +245,7 @@ class Transaksi extends CI_Controller
 
 		// $data['data'] = $this->db->query("SELECT transaksi_rumah.* , kode_rumah.Kode_Rumah , rumah.Tipe , rumah.Harga , rumah.Banner , bank.* , blok_rumah.Id_Blok FROM transaksi_rumah , blok_rumah , rumah , kode_rumah , bank WHERE transaksi_rumah.Id_Bank = bank.Id_Bank AND transaksi_rumah.Id_Blok = blok_rumah.Id_Blok AND blok_rumah.Id_Rumah = rumah.Id_Rumah AND blok_rumah.Id_Kode_Rumah = kode_rumah.Id_Kode")->result_array();
 
-		$data['data'] = $this->db->join('detailTransaksi', 'detailTransaksi.idTransaksi = transaksi.idTransaksi')->join('dataPenerima', 'dataPenerima.idTransaksi = transaksi.idTransaksi')->join('produk', 'produk.id = detailTransaksi.idProduk')->get_where('transaksi', ['transaksi.status' => 3])->result_array();
+		$data['data'] = $this->db->join('detailtransaksi', 'detailtransaksi.idTransaksi = transaksi.idTransaksi')->join('dataPenerima', 'dataPenerima.idTransaksi = transaksi.idTransaksi')->join('produk', 'produk.id = detailtransaksi.idProduk')->get_where('transaksi', ['transaksi.status' => 3])->result_array();
 
 		// var_dump($data['data']);die;
 

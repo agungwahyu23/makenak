@@ -29,11 +29,11 @@ class Satuan extends CI_Controller
 
 		$this->session->userdata('Id_User')])->row_array();
 
-		$data['satuan'] = $this->db->get('satuanproduk')->result_array();
+		$data['satuan'] = $this->db->get('satuanProduk')->result_array();
 
 		// var_dump($data['produk']);die;
 
-		$this->load->view('admin/Satuan/data', $data);
+		$this->load->view('admin/satuan/data', $data);
 	}
 
 
@@ -42,21 +42,21 @@ class Satuan extends CI_Controller
 
 	{
 
-		$this->form_validation->set_rules('namaSatuan', 'Nama Satuan', 'required|is_unique[satuanproduk.namaSatuan]');
+		$this->form_validation->set_rules('namaSatuan', 'Nama Satuan', 'required|is_unique[satuanProduk.namaSatuan]');
 
 		if ($this->form_validation->run() == false) {
 
 			$data['Pengguna'] = $this->db->get_where('pengguna', ['Id_User' =>
 			$this->session->userdata('Id_User')])->row_array();
 
-			$this->load->view('admin/Satuan/add', $data);
+			$this->load->view('admin/satuan/add', $data);
 		} else {
 
 			$data = [
 				'namaSatuan' => $this->input->post('namaSatuan')
 			];
 
-				if ($this->db->insert('satuanproduk', $data)) {
+				if ($this->db->insert('satuanProduk', $data)) {
 
 					$this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert">
 
@@ -80,15 +80,15 @@ class Satuan extends CI_Controller
 
 	{
 
-		$this->form_validation->set_rules('namaSatuan', 'Nama Satuan', 'required|is_unique[satuanproduk.namaSatuan]');
+		$this->form_validation->set_rules('namaSatuan', 'Nama Satuan', 'required|is_unique[satuanProduk.namaSatuan]');
 		if ($this->form_validation->run() == false) {
 
 			$data['Pengguna'] = $this->db->get_where('pengguna', ['Id_User' =>
 
 			$this->session->userdata('Id_User')])->row_array();
-			$data['satuan'] =$this->db->get_where('satuanproduk', ['idSatuan' => $id])->row_array();
+			$data['satuan'] =$this->db->get_where('satuanProduk', ['idSatuan' => $id])->row_array();
 
-			$this->load->view('admin/Satuan/edit', $data);
+			$this->load->view('admin/satuan/edit', $data);
 		} else {
 
 			//update data
@@ -98,7 +98,7 @@ class Satuan extends CI_Controller
 			// var_dump($data);die;
 			$this->db->set($data);
 			$this->db->where(['idSatuan' => $id]);
-			$update = $this->db->update('satuanproduk');
+			$update = $this->db->update('satuanProduk');
 			
 
 		if($update){
