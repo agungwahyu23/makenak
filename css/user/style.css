@@ -3653,6 +3653,19 @@ section {
   color: #000000;
 }
 
+.contact iframe{
+  height: 400px;
+}
+
+@media (max-width:768px) {
+  .contact iframe{
+    height: 200px;
+  }
+  .contact .section-header h2{
+    font-size: 12px;
+  }
+}
+
 @-webkit-keyframes animate-loading {
   0% {
     transform: rotate(0deg);
