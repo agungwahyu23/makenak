@@ -69,9 +69,7 @@ class Produk extends CI_Controller
 
 			$config['allowed_types'] = 'jpg|png|gif|jpeg';
 
-			$config['max_size'] = '2048';
-
-			$config['quality'] = '50%'; 
+			$config['max_size'] = '5000';
 
 			$config['upload_path'] = './img/Produk';
 
@@ -80,6 +78,22 @@ class Produk extends CI_Controller
 			if ($this->upload->do_upload('gambarProduk')) {
 
 				$foto_namaBaru = $this->upload->data('file_name');
+
+
+				$config['image_library']    = 'gd2';
+				$config['source_image']     = './img/Produk/' . $foto_namaBaru;
+				//lokasi folder gbr
+				$config['new_image']    = './img/Produk/';
+				$config['create_thumb']     = TRUE;
+				$config['maintain_ratio']   = TRUE;
+				$config['quality']          = '100%';
+				$config['width']            = 383;
+				$config['height']           = 259;
+				$config['thumb_marker']     = '';
+
+				$this->load->library('image_lib', $config);
+				$this->image_lib->resize();
+
 
 				$data = array(
 
@@ -129,7 +143,7 @@ class Produk extends CI_Controller
 		}
 	}
 
-	
+
 
 	public function unggahGambar($id)
 
@@ -303,9 +317,7 @@ class Produk extends CI_Controller
 
 					$config['allowed_types'] = 'jpg|jpeg|png|gif';
 
-					$config['max_size'] = '2048';
-
-					$config['quality'] = '60%'; 
+					$config['max_size'] = '5000';
 
 					$config['upload_path'] = './img/Produk/';
 
@@ -325,8 +337,23 @@ class Produk extends CI_Controller
 
 							unlink(FCPATH . './img/Produk/' . $fotolama);
 						}
-
 						$fotobaru = $this->upload->data('file_name');
+
+						$config['image_library']    = 'gd2';
+						$config['source_image']     = './img/Produk/' . $fotobaru;
+						//lokasi folder gbr
+						$config['new_image']    = './img/Produk/';
+						$config['create_thumb']     = TRUE;
+						$config['maintain_ratio']   = TRUE;
+						$config['quality']          = '100%';
+						$config['width']            = 383;
+						$config['height']           = 259;
+						$config['thumb_marker']     = '';
+		
+						$this->load->library('image_lib', $config);
+						$this->image_lib->resize();
+
+
 
 						$this->db->set('gambar', $fotobaru);
 
@@ -378,7 +405,7 @@ class Produk extends CI_Controller
 		}
 	}
 
-	
+
 
 	public function hapus($id)
 
@@ -407,5 +434,4 @@ class Produk extends CI_Controller
 			redirect('admin/Produk');
 		}
 	}
-
 }
