@@ -58,7 +58,7 @@
                                 <tr>
                                   <td><img style="size: 50px; width: 50px;" class="img-responsive" src="<?= base_url('img/Produk/') . $data['gambar'] ?>" alt="Image"></td>
                                   <td><?= $data['namaProduk'] ?></td>
-                                  <td><input type="number" id="jumlahBeli" class="form-control input-sm" name="jumlahBeli[<?= $i ?>]" value="<?= $data['jumlahBeli'] ?>" data="<?= $data['idDetailTransaksi'] ?>" /></td>
+                                  <td><input type="number" id="jumlahBeli" class="form-control input-sm" name="jumlahBeli[<?= $i ?>]" min="1" value="<?= $data['jumlahBeli'] ?>" data="<?= $data['idDetailTransaksi'] ?>" /></td>
                                   <td id="hargaSatuan">Rp. <?= number_format($data['hargaSatuan']) ?></td>
                                   <td id="totalHarga">Rp. <?= number_format($data['totalHarga']) ?></td>
                                   <td>

@@ -74,17 +74,17 @@ class Dashboard extends CI_Controller
                 if ($produk['stok'] > $updateJumlah) {
                     if ($produk['id'] == 44) {
                         // var_dump($updateJumlah);die;
-                        if ($updateJumlah >= 100) { //harga 1 dus
+                        if ($updateJumlah >= ($produk['isiDus'] * 10)) { //harga 10 dus
                             $this->db->set([
                                 'jumlahBeli' => $updateJumlah,
-                                'hargaSatuan' => $produk['harga1Dus'],
-                                'totalharga' => $updateJumlah * $produk['harga1Dus'],
+                                'hargaSatuan' => $produk['harga10Dus'],
+                                'totalharga' => $updateJumlah * $produk['harga10Dus'],
                                 'dus' => $updateJumlah / $produk['isiDus'],
                             ]);
                             $this->db->where(['idDetailTransaksi' => $produk['idDetailTransaksi']]);
                             $this->db->update('detailtransaksi');
                             $i++;
-                        } else if ($updateJumlah >= 50) {
+                        } else if ($updateJumlah >= ($produk['isiDus'] * 5)) { //harga 5 Dus
                             $this->db->set([
                                 'jumlahBeli' => $updateJumlah,
                                 'hargaSatuan' => $produk['harga50Pcs'],
@@ -94,7 +94,17 @@ class Dashboard extends CI_Controller
                             $this->db->where(['idDetailTransaksi' => $produk['idDetailTransaksi']]);
                             $this->db->update('detailtransaksi');
                             $i++;
-                        } else if ($updateJumlah >= 1) {
+                        } else if ($updateJumlah >= ($produk['isiDus'] * 1)) {
+                            $this->db->set([
+                                'jumlahBeli' => $updateJumlah,
+                                'hargaSatuan' => $produk['harga1Dus'],
+                                'totalharga' => $updateJumlah * $produk['harga1Dus'],
+                                'dus' => $updateJumlah / $produk['isiDus'],
+                            ]);
+                            $this->db->where(['idDetailTransaksi' => $produk['idDetailTransaksi']]);
+                            $this->db->update('detailtransaksi');
+                            $i++;
+                        }else if($updateJumlah >= 1){
                             $this->db->set([
                                 'jumlahBeli' => $updateJumlah,
                                 'hargaSatuan' => $produk['harga'],
@@ -158,8 +168,6 @@ class Dashboard extends CI_Controller
                 }
 
 
-
-                // $i++;
             }
         }
         $this->session->set_flashdata(
@@ -234,8 +242,6 @@ class Dashboard extends CI_Controller
 
         $totalBeli = $this->db->query("SELECT SUM(dus) as totalDus FROM detailtransaksi WHERE idTransaksi = '$idTransaksi'")->result_array();
 
-        // var_dump($totalBeli[0]['totalDus']);die;
-        // var_dump(intval($totalBeli[0]['totalDus']));die;
 
         $jumlah = $this->db->join('detailtransaksi', 'detailtransaksi.idTransaksi = transaksi.idTransaksi')->get_where('transaksi', ['idUser' => $user, 'Status' => 0])->num_rows();
         $wa = $this->db->get('profile')->row_array();
@@ -253,18 +259,6 @@ class Dashboard extends CI_Controller
             redirect('Dashboard/keranjang');
         }
 
-        // for ($i = 0; $i < $jumlah; $i++) {
-        //     if ($data[$i]['jumlahBeli'] > ($data[$i]['isiDus'] * 30)) {
-        //         $this->session->set_flashdata('message', '<div class="alert alert-success text-center" role="alert">
-
-        // 			  Untuk Pemesanan Di Atas 30 Dus, Silahkan Melakukan Transaksi Melalui WA Admin Mak Enak Berikut.<br>
-        //                 <a class="btn btn-success" href="' . $link . '' . $wa['wa2'] . '">Pesan Sekarang</a>
-
-        // 			</div>');
-
-        //         redirect('Dashboard/keranjang');
-        //     }
-        // }
 
         for ($i = 0; $i < $jumlah; $i++) {
             if ($data[$i]['stok'] == 0) {
@@ -319,7 +313,6 @@ class Dashboard extends CI_Controller
         $data['totalBayar'] = $this->db->query("SELECT SUM(totalHarga) as totalBayar FROM detailtransaksi WHERE idTransaksi = '$idT'")->row_array();
 
         $this->form_validation->set_rules('idTransaksi', 'Id Transaksi', 'required');
-        // $this->form_validation->set_rules('idDetailTransaksi', 'Id Detail Transaksi', 'required');
         $this->form_validation->set_rules('nama', 'Nama Lengkap Penerima', 'required');
         $this->form_validation->set_rules('email', 'Email Penerima', 'required');
         $this->form_validation->set_rules('noWa', 'Nomor WhatsApp Penerima', 'required|numeric');
@@ -331,7 +324,6 @@ class Dashboard extends CI_Controller
         $this->form_validation->set_rules('ongkir', 'Ongkos Kirim', 'required|numeric');
         $this->form_validation->set_rules('namaPengirim', 'Nama Pengirim', 'required');
         $this->form_validation->set_rules('namaBank', 'Nama Pengirim', 'required');
-        // $this->form_validation->set_rules('bukti', 'Bukti Pembayaran', 'required');
 
         if ($this->form_validation->run() == false) {
             $this->load->view('user/akun/checkout', $data);
@@ -420,22 +412,6 @@ class Dashboard extends CI_Controller
 					</div>');
 
                 redirect('Dashboard/konfirmasi');
-
-                // if ($this->db->insert('produk', $data)) {
-
-                //     $this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert">
-
-                // 	  Data Produk Berhasil Ditambahkan.
-
-                // 	</div>');
-
-                //     redirect('admin/Produk');
-                // } else {
-
-                //     $this->session->set_flashdata('pesan', '<div class="alert alert-danger" role="alert">Gagal Menambahkan Produk</div>');
-
-                //     redirect('admin/Produk');
-                // }
             } else {
 
                 $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">'
