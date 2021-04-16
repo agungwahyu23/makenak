@@ -267,7 +267,8 @@
   </script>
 
 
-  <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+  <!-- <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script> -->
+<script src="<?= base_url('')?>/node_modules/sweetalert2/dist/sweetalert2.all.min.js"></script>
   <script type="text/javascript">
     $(document).ready(function() {
       $('#kabKota').change(function() {
