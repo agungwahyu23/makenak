@@ -1,5 +1,5 @@
 <div id="layoutSidenav_nav">
-    <nav class="sidenav shadow-right sidenav-yellow">
+    <nav class="sidenav shadow-right sidenav-light">
         <div class="sidenav-menu">
             <div class="nav accordion" id="accordionSidenav">
 

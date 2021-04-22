@@ -32,7 +32,7 @@
     </div>
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <section id="hero" class="hero d-flex align-items-center" style="background-image: url(<?= base_url('img/ImageBackGround/bg-slide_c2.png'); ?>)">
+        <section id="hero" class="hero d-flex align-items-center" style="background-image: url(<?= base_url('img/ImageBackGround/bg-slide_c3.jpg'); ?>)">
           <div class="container">
             <div class="row">
               <div class="col-lg-6 d-flex flex-column justify-content-center">
@@ -48,7 +48,7 @@
         </section>
       </div>
       <div class="carousel-item">
-        <section id="hero" class="hero d-flex align-items-center" style="background-image: url(<?= base_url('img/ImageBackGround/bg-hero2_c2.JPG'); ?>)">
+        <section id="hero" class="hero d-flex align-items-center" style="background-image: url(<?= base_url('img/ImageBackGround/bg-hero2_c2.jpg'); ?>)">
           <div class="container">
             <div class="row">
               <div class="col-lg-6 d-flex flex-column justify-content-center">
@@ -62,7 +62,7 @@
         </section>
       </div>
       <div class="carousel-item">
-        <section id="hero" class="hero d-flex align-items-center" style="background-image: url(<?= base_url('img/ImageBackGround/bg-hero2_c2.JPG'); ?>)">
+        <section id="hero" class="hero d-flex align-items-center" style="background-image: url(<?= base_url('img/ImageBackGround/bg-hero1_c2.JPG'); ?>)">
           <div class="container">
             <div class="row">
               <div class="col-lg-6 d-flex flex-column justify-content-center">
@@ -102,9 +102,9 @@
         <div class="row gx-0">
 
           <div class="col-lg-6 d-flex align-items-center" data-aos="zoom-out" data-aos-delay="200">
-            <a href="<?= base_url('img/user/dummy-video.mp4') ?>" data-gallery="portfolioGallery" class="portfokio-lightbox">
+            <a href="<?= base_url('img/profil.mp4') ?>" data-gallery="portfolioGallery" class="portfokio-lightbox">
               <video playsinline="playsinline" id="video-content" name="video-content" muted autoplay="autoplay" loop="loop">
-                <source src="<?= base_url('img/user/dummy-video.mp4') ?>" type="video/mp4">
+                <source src="<?= base_url('img/profil.mp4') ?>" type="video/mp4">
               </video>
             </a>
           </div>
@@ -240,7 +240,8 @@
           </div>
 
           <div class="col-lg-6 d-flex align-items-center" data-aos="zoom-out" data-aos-delay="200">
-            <img src="<?= base_url('img/user/Intersect.png') ?>" class="img-fluid" alt="">
+          <a href="<?= base_url('img/pirt.jpg') ?>" data-gallery="portfolioGallery" class="portfokio-lightbox">
+            <img src="<?= base_url('img/pirt.jpg') ?>" class="img-fluid" alt="">
           </div>
 
         </div>
@@ -270,7 +271,7 @@
       </div>
     </section> -->
 
-    <section id="partner" class="partner" style="background-image: url(<?= base_url('img/ImageBackGround/bg-slide_c.png'); ?>)">
+    <section id="partner" class="partner" style="background-image: url(<?= base_url('img/ImageBackGround/bg-slide_c.jpg'); ?>)">
 
       <div class="container" data-aos="fade-up">
 

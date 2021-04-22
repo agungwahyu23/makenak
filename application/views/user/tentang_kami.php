@@ -20,7 +20,7 @@
 
 
 
-  <section id="hero" class="hero-half d-flex align-items-center">
+  <section id="hero" class="hero-half d-flex align-items-center" style="background-image: url(<?= base_url('img/ImageBackGround/bg-about_c.png'); ?>)">
     <div class="container">
       <div class="row justify-content-center">
         <div class="col-lg-12 d-flex flex-column text-center">

@@ -9,7 +9,7 @@
 
   <?php $this->load->view('user/_partials/static_color_navbar.php') ?>
 
-  <section id="hero" class="hero-half d-flex align-items-center" style="background-image: url(<?= base_url('img/ImageBackGround/bg-about.png'); ?>)">
+  <section id="hero" class="hero-half d-flex align-items-center" style="background-image: url(<?= base_url('img/ImageBackGround/bg-slide_c.jpg'); ?>)">
 
     <div class="container">
       <div class="row">
