@@ -130,8 +130,12 @@ $dataWa = substr($dataPenerima['wa'], 1);
                         <?php $i++;
                         } ?>
                         <tr>
-                          <td colspan="4" ></td>
-                          <td>Rp. <?= number_format($dataPenerima['totalBayar'], 2, ",", ".") ?></td>
+                          <td class="text-right" colspan="4">Ongkir</td>
+                          <td>Rp. <?= number_format($dataPenerima['ongkir'], 2, ",", ".") ?></td>
+                        </tr>
+                        <tr>
+                          <td class="text-right" colspan="4"><b>Total Bayar</b></td>
+                          <td><b>Rp. <?= number_format($dataPenerima['totalBayar'], 2, ",", ".") ?></b></td>
                         </tr>
 
                       </tbody>

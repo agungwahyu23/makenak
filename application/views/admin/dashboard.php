@@ -250,21 +250,21 @@
 	var myLineChart = new Chart(ctx, {
 		type: "line",
 		data: {
-			labels: [
-				"Januari",
-				"Februari",
-				"Maret",
-				"April",
-				"Mei",
-				"Juni",
-				"Juli",
-				"Agustus",
-				"September",
-				"Oktober",
-				"November",
-				"Desember"
-			],
-			// labels: cData.tanggal,
+			// labels: [
+			// 	"Januari",
+			// 	"Februari",
+			// 	"Maret",
+			// 	"April",
+			// 	"Mei",
+			// 	"Juni",
+			// 	"Juli",
+			// 	"Agustus",
+			// 	"September",
+			// 	"Oktober",
+			// 	"November",
+			// 	"Desember"
+			// ],
+			labels: cData.tanggal,
 			datasets: [{
 				label: "Pengunjung ",
 				lineTension: 0.3,
