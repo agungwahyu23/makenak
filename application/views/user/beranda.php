@@ -89,18 +89,43 @@
   </div>
 
   <main id="main">
+    <section id="about-us" class="about-us">
+      <div class="container" data-aos="fade-up">
+        <div class="row gx-0">
+          <div class="col-lg-6 d-flex align-items-center" data-aos="zoom-out" data-aos-delay="200">
+            <img src="<?= base_url('img/user/bg_about.jpg') ?>" width="600px" class="img-fluid" alt="">
+          </div>
+          <div class="col-lg-6 d-flex flex-column justify-content-center" data-aos="fade-up" data-aos-delay="200">
+            <div class="content">
+              <h3>Who We Are</h3>
+              <h2>Mak Enak Jember</h2>
+              <p>
+                Mak Enak Jember merupakan produsen kue kering khas Jember yang berdiri sejak tahun 2015.
+                Mak Enak Jember memiliki outlet di Jalan Letjen S Parman X/21 Jember dan gudang yang
+                berada di Jalan Letjen Sutoyo 115 Jember. Berawal dari 1 varian kue yaitu kue kacang,
+                Mak Enak Jember kini .....
+              </p>
+              <div class="text-center text-lg-start">
+                <a href="<?= base_url('TentangKami') ?>"
+                  class="btn-read-more d-inline-flex align-items-center justify-content-center align-self-center">
+                  <span>Selengkapnya</span>
+                  <i class="bi bi-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-    <section id="about-home" class="about-home">
-
+    <!-- <section id="about-home" class="about-home">
       <div class="container" data-aos="fade-down">
-
         <header class="section-header">
           <p>Pusat Untuk Ragam Olahan Kue Kering</p>
           <h5>Menemani hari santai anda bersama kerabat dan keluarga </h5>
         </header>
 
         <div class="row gx-0">
-
           <div class="col-lg-6 d-flex align-items-center" data-aos="zoom-out" data-aos-delay="200">
             <a href="<?= base_url('img/profil.mp4') ?>" data-gallery="portfolioGallery" class="portfokio-lightbox">
               <video playsinline="playsinline" id="video-content" name="video-content" muted autoplay="autoplay" loop="loop">
@@ -108,11 +133,8 @@
               </video>
             </a>
           </div>
-
           <div class="col-lg-6 d-flex flex-column justify-content-center" data-aos="fade-up" data-aos-delay="200">
-
             <div class="content">
-
               <h3>Who We Are</h3>
               <h2>Mak Enak Jember</h2>
               <p>
@@ -129,11 +151,9 @@
               </div>
             </div>
           </div>
-
         </div>
       </div>
-
-    </section>
+    </section> -->
 
     <!-- <section id="service" class="service">
 

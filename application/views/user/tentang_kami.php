@@ -20,7 +20,7 @@
 
 
 
-  <section id="hero" class="hero-half d-flex align-items-center" style="background-image: url(<?= base_url('img/ImageBackGround/bg-about_c.png'); ?>)">
+  <section id="hero" class="hero-half d-flex align-items-center" style="background-image: url(<?= base_url('img/ImageBackGround/bg-hero2_c2.jpg'); ?>)">
     <div class="container">
       <div class="row justify-content-center">
         <div class="col-lg-12 d-flex flex-column text-center">
@@ -32,7 +32,7 @@
   </section>
 
   <main id="main">
-    <section id="about-us" class="about-us">
+    <!-- <section id="about-us" class="about-us">
       <div class="container" data-aos="fade-up">
         <div class="row gx-0">
           <div class="col-lg-6 d-flex align-items-center" data-aos="zoom-out" data-aos-delay="200">
@@ -48,8 +48,36 @@
           </div>
         </div>
       </div>
+    </section> -->
+
+    <section id="about-home" class="about-home">
+      <div class="container" data-aos="fade-down">
+        <header class="section-header">
+          <p>Pusat Untuk Ragam Olahan Kue Kering</p>
+          <h5>Menemani hari santai anda bersama kerabat dan keluarga </h5>
+        </header>
+
+        <div class="row gx-0">
+          <div class="col-lg-6 d-flex align-items-center" data-aos="zoom-out" data-aos-delay="200">
+            <a href="<?= base_url('img/profil1.mp4') ?>" data-gallery="portfolioGallery" class="portfokio-lightbox">
+              <video playsinline="playsinline" id="video-content" name="video-content" muted autoplay="autoplay"
+                loop="loop">
+                <source src="<?= base_url('img/profil1.mp4') ?>" type="video/mp4">
+              </video>
+            </a>
+          </div>
+          <div class="col-lg-6 d-flex flex-column justify-content-center" data-aos="fade-up" data-aos-delay="200">
+            <div class="content">
+              <h2><?= $tentangKami['Nama_Kantor'] ?></h2>
+              <p>
+              <?= $tentangKami['Deskripsi'] ?>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
-  </main>
+    </main>
 
   <?php $this->load->view('user/_partials/footer.php') ?>
   <?php $this->load->view('user/_partials/floating_whatsapp.php') ?>

@@ -766,12 +766,12 @@ section {
   .hero .hero-img img {
     width: 100%;
   }
-  .about-home .btn-read-more {
+  .about-us .btn-read-more {
     line-height: 1 !important;
     padding: 15px 40px !important;
   }
   
-  .about-home .btn-read-more span {
+  .about-us .btn-read-more span {
     font-size: 1vh !important;
     color: #ffffff !important;
 
@@ -804,12 +804,12 @@ section {
   .hero .hero-img img {
     width: 100%;
   }
-  .about-home .btn-read-more {
+  .about-us .btn-read-more {
     line-height: 1 !important;
     padding: 5px 10px !important;
   }
   
-  .about-home .btn-read-more span {
+  .about-us .btn-read-more span {
     font-size: 1.5vh !important;
   }
 }
@@ -1161,7 +1161,7 @@ section {
   line-height: 24px;
 }
 
-.about-home .btn-read-more {
+.about-us .btn-read-more {
   line-height: 1;
   padding: 15px 40px;
   border-radius: 4px;
@@ -1171,25 +1171,25 @@ section {
   box-shadow: 0px 5px 25px rgba(0, 0, 0, 0.1);
 }
 
-.about-home .btn-read-more:hover {
+.about-us .btn-read-more:hover {
   background-color: #d4af37;
   color: #000000;
 }
 
-.about-home .btn-read-more span {
+.about-us .btn-read-more span {
   font-family: 'Poppins';
   font-weight: 600;
   font-size: 16px;
   letter-spacing: 1px;
 }
 
-.about-home .btn-read-more i {
+.about-us .btn-read-more i {
   margin-left: 5px;
   font-size: 18px;
   transition: 0.3s;
 }
 
-.about-home .btn-read-more:hover i {
+.about-us .btn-read-more:hover i {
   transform: translateX(5px);
   color: #000000;
 }
@@ -1303,6 +1303,39 @@ section {
 .about-us .house-type span {
   font-size: 16px;
   padding-right: 20px;
+}
+
+.about-us .btn-read-more {
+  line-height: 1;
+  padding: 15px 40px;
+  border-radius: 4px;
+  transition: 0.5s;
+  color: #fff;
+  background: #000000;
+  box-shadow: 0px 5px 25px rgba(0, 0, 0, 0.1);
+}
+
+.about-us .btn-read-more:hover {
+  background-color: #d4af37;
+  color: #000000;
+}
+
+.about-us .btn-read-more span {
+  font-family: 'Poppins';
+  font-weight: 600;
+  font-size: 16px;
+  letter-spacing: 1px;
+}
+
+.about-us .btn-read-more i {
+  margin-left: 5px;
+  font-size: 18px;
+  transition: 0.3s;
+}
+
+.about-us .btn-read-more:hover i {
+  transform: translateX(5px);
+  color: #000000;
 }
 
 .about h3 {
@@ -1997,7 +2030,7 @@ section {
   display: inline-block;
   padding: 5px 50px 5px 50px;
   margin-bottom: 20px;
-  /* border-radius: 10px; */
+  border-radius: 4px;
   border: 2px solid rgb(255, 208, 0);
   color: #000000;
   transition: none;
@@ -2366,7 +2399,7 @@ section {
   display: inline-block;
   padding: 5px 20px 5px 20px;
   margin-bottom: 20px;
-  /* border-radius: 10px; */
+  border-radius: 4px;
   border: 2px solid rgb(255, 208, 0);
   color: #000000;
   transition: none;
@@ -2409,7 +2442,7 @@ section {
   display: inline-block;
   padding: 7px 0px 7px 0px;
   margin-bottom: 10px;
-  border-radius: 3px;
+  border-radius: 4px;
   color: #000000;
   transition: none;
   font-size: 14px;
@@ -3466,7 +3499,7 @@ section {
   display: inline-block;
   padding: 5px 20px 5px 20px;
   margin-bottom: 10px;
-  /* border-radius: 10px; */
+  border-radius: 4px;
   border: 2px solid rgb(255, 208, 0);
   color: #ffffff;
   transition: none;
@@ -3479,7 +3512,7 @@ section {
 }
 
 .partner .btn-detail:hover {
-  color: #ffffff;
+  color: #000000;
   background: rgb(255, 208, 0);
 }
 

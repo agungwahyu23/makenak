@@ -95,7 +95,7 @@
                           <i class="fs-12 fa fa-minus" aria-hidden="true"></i>
                         </button>
 
-                        <input class="size8 m-text18 t-center num-product" value="1" type="number" name="jumlah" min="1">
+                        <input class="size8 m-text18 t-center num-product" value="1" type="text" onkeypress="return event.charCode >= 48 && event.charCode <=57" name="jumlah" min="1">
 
                         <button class="btn-num-product-up boplus bg3 color1 flex-c-m size7 eff2">
                           <i class="fs-12 fa fa-plus" aria-hidden="true"></i>

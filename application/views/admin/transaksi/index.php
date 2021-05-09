@@ -58,7 +58,7 @@
                     <?php $no = 1;
                     foreach ($pesanan as $data) { ?>
                       
-                        <tr class="table-primary">
+                        <tr class="">
                           <td><?= $no++ ?></td>
                           <td><?= $data['namaPengirim']?></td>
                           <td><?= $data['tanggalTransaksi']?></td>

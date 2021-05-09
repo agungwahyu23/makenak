@@ -120,7 +120,7 @@ $dataWa = substr($dataPenerima['wa'], 1);
                       <tbody>
                         <?php $i = 1;
                         foreach ($detailPemesanan as $data) { ?>
-                          <tr class="table-primary">
+                          <tr>
                             <td><?= $i ?></td>
                             <td><?= $data['namaProduk'] ?></td>
                             <td>Rp. <?= number_format($data['hargaSatuan'], 2, ",", ".") ?></td>
