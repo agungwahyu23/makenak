@@ -67,8 +67,11 @@
                           <td>
                           <a href="<?= base_url('img/BuktiPembayaran/'. $data['buktiTransfer'])?>">Lihat Bukti Pembayaran</a>
                           </td>
-                          <td>Lihat resi</td>
-                          <td>Ekpedisi</td>
+                          <td>
+                          <a href="<?= base_url('img/resi/'. $data['resi'])?>">Lihat resi</a>
+                          </td>
+                          <!-- <td><?= $data['nama_ekspedisi']?></td> -->
+                          <td>Ekspedisi</td>
                           <td>
                             <a class="btn btn-datatable btn-icon btn-transparent-dark" href="<?php echo base_url('admin/Transaksi/detailDikemas/' . $data['idTransaksi']) ?>"><i data-feather="eye"></i></a>
                           </td>
