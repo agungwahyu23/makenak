@@ -39,7 +39,7 @@
                     <div class="row">
                       <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12"><label class="small mb-1" for="whatsapp">Nomor Whatsapp Penerima</label>
                         <?= form_error('noWa', '<small class="text-danger pl-2">', '</small>'); ?>
-                        <input type="number" class="form-control mb-3" id="no_telp" name="noWa" placeholder="Nomor Whatsapp Penerima" value="<?= $user['No_Hp'] ?>">
+                        <input type="text" class="form-control mb-3" id="no_telp" name="noWa" onkeypress="return event.charCode >= 48 && event.charCode <=57" placeholder="Nomor Whatsapp Penerima" value="<?= $user['No_Hp'] ?>">
                       </div>
                       <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12"><label class="small mb-1" for="alamat">Alamat Penerima</label>
                         <?= form_error('alamat', '<small class="text-danger pl-2">', '</small>'); ?>
