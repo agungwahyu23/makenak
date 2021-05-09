@@ -150,7 +150,7 @@ $dataWa = substr($dataPenerima['wa'], 1);
                     <div class="form-group col-lg-4 col-sm-4">
                       <label>Masukan Resi</label>
                       <?= form_error('resi', '<small class="text-danger pl-2">', '</small>'); ?>
-                      <input class="form-control" name="resi" type="text" placeholder="Resi Pengiriman" required />
+                      <input type="file" class="form-control" name="bukti" />
                       <input class="form-control" name="idTransaksi" type="hidden" value="<?= $dataPenerima['idTransaksi'] ?>" />
                     </div>
                     <div class="col-lg-12 col-sm-12 ">
