@@ -34,6 +34,14 @@
                         Data Admin
                     </a>
                 <?php } ?>
+                <a class="nav-link" href="<?php echo base_url('admin/Admin/karyawan') ?>">
+                    <div class="nav-link-icon"><i data-feather="users"></i></div>
+                    Data Karyawan
+                </a>
+                <a class="nav-link" href="<?php echo base_url('admin/Admin/pelanggan') ?>">
+                    <div class="nav-link-icon"><i data-feather="users"></i></div>
+                    Data Pelanggan
+                </a>
                 <a class="nav-link" href="<?php echo base_url('admin/Produk') ?>">
                     <div class="nav-link-icon"><i data-feather="box"></i></div>
                     Data Produk
