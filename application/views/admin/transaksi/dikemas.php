@@ -48,9 +48,10 @@
                       <th>No</th>
                       <th>Nama Pengirim</th>
                       <th>Tanggal transaksi</th>
-                      <th>Transfer Dari Bank</th>
                       <th>Total Bayar</th>
                       <th>Bukti Pembayaran</th>
+                      <th>Resi</th>
+                      <th>Eskpedisi</th>
                       <th>Action</th>
                     </tr>
                   </thead>
@@ -62,11 +63,12 @@
                           <td><?= $no++ ?></td>
                           <td><?= $data['namaPengirim']?></td>
                           <td><?= $data['tanggalTransaksi']?></td>
-                          <td><?= $data['namaBank']?></td>
                           <td>Rp. <?= $data['totalBayar']?></td>
                           <td>
                           <a href="<?= base_url('img/BuktiPembayaran/'. $data['buktiTransfer'])?>">Lihat Bukti Pembayaran</a>
                           </td>
+                          <td>Lihat resi</td>
+                          <td>Ekpedisi</td>
                           <td>
                             <a class="btn btn-datatable btn-icon btn-transparent-dark" href="<?php echo base_url('admin/Transaksi/detailDikemas/' . $data['idTransaksi']) ?>"><i data-feather="eye"></i></a>
                           </td>
