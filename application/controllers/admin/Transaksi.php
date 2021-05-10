@@ -113,6 +113,7 @@ class Transaksi extends CI_Controller
 		$this->session->userdata('Id_User')])->row_array();
 
 		$this->db->order_by('tanggalTransaksi', 'ASC');
+		$this->db->join('datapenerima', 'datapenerima.idDataPenerima = transaksi.idDataPenerima');
 		$data['dikemas'] = $this->db->get_where('transaksi', ['status' => 2])->result_array();
 
 		// var_dump($data['pesanan']);die;

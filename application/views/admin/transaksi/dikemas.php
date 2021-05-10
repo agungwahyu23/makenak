@@ -58,21 +58,29 @@
                   <tbody>
                     <?php $no = 1;
                     foreach ($dikemas as $data) { ?>
-                      
-                        <tr>
-                          <td><?= $no++ ?></td>
-                          <td><?= $data['namaPengirim']?></td>
-                          <td><?= $data['tanggalTransaksi']?></td>
-                          <td>Rp. <?= $data['totalBayar']?></td>
-                          <td>
-                          <a href="<?= base_url('img/BuktiPembayaran/'. $data['buktiTransfer'])?>">Lihat Bukti Pembayaran</a>
-                          </td>
-                          <td>Lihat resi</td>
-                          <td>Ekpedisi</td>
-                          <td>
-                            <a class="btn btn-datatable btn-icon btn-transparent-dark" href="<?php echo base_url('admin/Transaksi/detailDikemas/' . $data['idTransaksi']) ?>"><i data-feather="eye"></i></a>
-                          </td>
-                        </tr>
+
+                      <tr>
+                        <td><?= $no++ ?></td>
+                        <td><?= $data['namaPengirim'] ?></td>
+                        <td><?= $data['tanggalTransaksi'] ?></td>
+                        <td>Rp. <?= $data['totalBayar'] ?></td>
+                        <td>
+                          <a href="<?= base_url('img/BuktiPembayaran/' . $data['buktiTransfer']) ?>">Lihat Bukti Pembayaran</a>
+                        </td>
+                        <td>Lihat resi</td>
+                        <td>
+
+                          <?php if ($data['provinsi'] == 35) { ?>
+                            Platinum
+                          <?php }else{ ?>
+                            One Express
+                          <?php }?>
+
+                        </td>
+                        <td>
+                          <a class="btn btn-datatable btn-icon btn-transparent-dark" href="<?php echo base_url('admin/Transaksi/detailDikemas/' . $data['idTransaksi']) ?>"><i data-feather="eye"></i></a>
+                        </td>
+                      </tr>
 
                     <?php } ?>
 
