@@ -23,12 +23,13 @@ class Dashboard extends CI_Controller
 		// $this->db->join('detailtransaksi', 'detailtransaksi.idProduk = produk.id');
 		// $this->db->join('transaksi', 'transaksi.status = 3');
 		// $data['produkTerlaris'] =  $this->db->select('produk.namaProduk, detailtransaksi.jumlahBeli','(SELECT produk.namaProduk SUM(detailtransaksi.jumlahBeli) FROM detailtransaksi WHERE detailtransaksi.idProduk = produk.id) AS totalBeli', TRUE);
-
-
-
+		
+		
+		
 		// $this->db->join('produk', 'produk.id = detailtransaksi.idProduk');
-		$data['produkTerlaris'] = $this->db->select('idProduk, namaProduk, SUM(jumlahBeli) as jumlahBeli')
-                 ->from('detailtransaksi')
+		$this->db->join('transaksi', 'transaksi.idTransaksi = detailtransaksi.idTransaksi');
+		$data['produkTerlaris'] = $this->db->select('transaksi.idTransaksi, idProduk, namaProduk, SUM(jumlahBeli) as jumlahBeli')
+                 ->from('detailtransaksi')->where('transaksi.status', '3')
 				 ->join('produk', 'produk.id = detailtransaksi.idProduk', 'LEFT')
                  ->order_by('jumlahBeli','desc')
                  ->limit(10)
