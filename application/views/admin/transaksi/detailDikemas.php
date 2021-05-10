@@ -145,12 +145,12 @@ $dataWa = substr($dataPenerima['wa'], 1);
                 </div>
 
 
-                <form action="<?= base_url('admin/Transaksi/selesaiDikemas') ?>" method="POST">
+                <form action="<?= base_url('admin/Transaksi/selesaiDikemas') ?>" method="POST" enctype="multipart/form-data">
                   <div class="row mr-3">
                     <div class="form-group col-lg-4 col-sm-4">
                       <label>Masukan Resi</label>
                       <?= form_error('resi', '<small class="text-danger pl-2">', '</small>'); ?>
-                      <input type="file" class="form-control" name="bukti" />
+                      <input type="file" class="form-control" name="resi" />
                       <input class="form-control" name="idTransaksi" type="hidden" value="<?= $dataPenerima['idTransaksi'] ?>" />
                     </div>
                     <div class="col-lg-12 col-sm-12 ">
