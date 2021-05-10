@@ -13,6 +13,7 @@ class Transaksi extends CI_Controller
 		$data['Pengguna'] = $this->db->get_where('pengguna', ['Id_User' =>
 		$this->session->userdata('Id_User')])->row_array();
 
+		$this->db->order_by('tanggalTransaksi', 'ASC');
 		$data['pesanan'] = $this->db->get_where('transaksi', ['status' => 1])->result_array();
 
 		// var_dump($data['pesanan']);die;
@@ -111,6 +112,7 @@ class Transaksi extends CI_Controller
 		$data['Pengguna'] = $this->db->get_where('pengguna', ['Id_User' =>
 		$this->session->userdata('Id_User')])->row_array();
 
+		$this->db->order_by('tanggalTransaksi', 'ASC');
 		$data['dikemas'] = $this->db->get_where('transaksi', ['status' => 2])->result_array();
 
 		// var_dump($data['pesanan']);die;
@@ -182,6 +184,7 @@ class Transaksi extends CI_Controller
 		$data['Pengguna'] = $this->db->get_where('pengguna', ['Id_User' =>
 		$this->session->userdata('Id_User')])->row_array();
 
+		$this->db->order_by('tanggalTransaksi', 'DESC');
 		$data['selesai'] = $this->db->get_where('transaksi', ['status' => 3])->result_array();
 
 		// var_dump($data['pesanan']);die;

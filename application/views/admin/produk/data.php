@@ -55,28 +55,33 @@
                     </tr>
                   </thead>
                   <tbody>
-                  <?php $i= 1; foreach($produk as $data ) {?>
+                    <?php $i = 1;
+                    foreach ($produk as $data) { ?>
                       <tr>
-                        <td><?= $i;?></td>
-                        <td><?= $data['namaProduk']?></td>
-                        <td><?= $data['netto']?></td>
-                        <!-- <td><?= $data['komposisi']?></td> -->
+                        <td><?= $i; ?></td>
+                        <td><?= $data['namaProduk'] ?></td>
+                        <td><?= $data['netto'] ?></td>
+                        <!-- <td><?= $data['komposisi'] ?></td> -->
                         <td>Rp. <?= number_format($data['harga']) ?></td>
                         <td>Rp. <?= number_format($data['harga50Pcs']) ?></td>
                         <td>Rp. <?= number_format($data['harga1Dus']) ?></td>
                         <td>Rp. <?= number_format($data['harga10Dus']) ?></td>
                         <td><?= $data['status'] == 1 ? 'Tampil' : 'Tidak Tampil' ?></td>
-                        <!-- <td><?= $data['deskripsi']?></td> -->
+                        <!-- <td><?= $data['deskripsi'] ?></td> -->
                         <!-- <td>IDR <?= number_format($d['Harga'], 2, ",", ".") ?></td> -->
                         <td>
                           <!-- <a class="btn btn-datatable btn-icon btn-transparent-dark" href="<?php echo base_url('admin/Rumah/Blok/') ?>"><i data-feather="home"></i></a>
                           <a class="btn btn-datatable btn-icon btn-transparent-dark" href="<?php echo base_url('admin/Rumah/Tambah_Galeri/') ?>"><i data-feather="image"></i></a>
                           <a class="btn btn-datatable btn-icon btn-transparent-dark" href="<?php echo base_url('admin/Rumah/detail/') ?>"><i data-feather="plus"></i></a> -->
-                          <a class="btn btn-datatable btn-icon btn-transparent-dark" href="<?php echo base_url('admin/Produk/edit/'. $data['id']) ?>"><i data-feather="edit-2"></i></a>
-                          <a class="btn btn-datatable btn-icon btn-transparent-dark" onclick="confirm_hapus('<?php echo base_url('admin/Produk/hapus/' . $data['id']) ?>')" data-toggle="modal" data-target="#modalDelete"><i data-feather="trash-2"></i></a>
+                          <a class="btn btn-datatable btn-icon btn-transparent-dark" href="<?php echo base_url('admin/Produk/edit/' . $data['id']) ?>"><i data-feather="edit-2"></i></a>
+
+                          <?php if ($data['id'] != 44) { ?>
+                            <a class="btn btn-datatable btn-icon btn-transparent-dark" onclick="confirm_hapus('<?php echo base_url('admin/Produk/hapus/' . $data['id']) ?>')" data-toggle="modal" data-target="#modalDelete"><i data-feather="trash-2"></i></a>
+                          <?php } ?>
                         </td>
                       </tr>
-                    <?php $i++; }?>
+                    <?php $i++;
+                    } ?>
                   </tbody>
                 </table>
                 <div class="modal fade" id="modalDelete" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
@@ -101,7 +106,7 @@
           </div>
         </div>
       </main>
-        <!-- <div class="modal fade" id="editData" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="false">
+      <!-- <div class="modal fade" id="editData" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="false">
           <div class="modal-dialog modal-dialog-centered modal-xs">
             <div class="modal-content">
               <form method="post" action="<?= base_url('admin/Rumah/editStatus') ?>">
