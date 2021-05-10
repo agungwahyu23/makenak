@@ -16,15 +16,7 @@ class Admin extends CI_Controller
   {
     $data['Pengguna'] = $this->db->get_where('pengguna', ['Id_User' =>
     $this->session->userdata('Id_User')])->row_array();
-    $data['data'] = $this->db->query("SELECT * FROM pengguna WHERE Status = '1' && Pekerjaan = 'Admin'")->result_array();
-    $this->load->view('admin/admin/data', $data);
-  }
-
-  public function karyawan()
-  {
-    $data['Pengguna'] = $this->db->get_where('pengguna', ['Id_User' =>
-    $this->session->userdata('Id_User')])->row_array();
-    $data['data'] = $this->db->query("SELECT * FROM pengguna WHERE Status = '1' && Pekerjaan = 'Karyawan'")->result_array();
+    $data['data'] = $this->db->query("SELECT * FROM pengguna WHERE Status = '1' && Pekerjaan != 'User'")->result_array();
     $this->load->view('admin/admin/data', $data);
   }
   
@@ -33,7 +25,7 @@ class Admin extends CI_Controller
     $data['Pengguna'] = $this->db->get_where('pengguna', ['Id_User' =>
     $this->session->userdata('Id_User')])->row_array();
     $data['data'] = $this->db->query("SELECT * FROM pengguna WHERE Status = '1' && Pekerjaan = 'User'")->result_array();
-    $this->load->view('admin/admin/data', $data);
+    $this->load->view('admin/admin/pelanggan', $data);
   }
 
   public function add()

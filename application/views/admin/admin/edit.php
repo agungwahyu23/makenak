@@ -40,7 +40,7 @@
                   </div>
                   <div class="row">
                     <div class="form-group col-lg-12 col-sm-12">
-                      <label>Kategori Produk</label>
+                      <label>Status Pengguna</label>
                       <?= form_error('kategoriProduk', '<small class="text-danger pl-2">', '</small>'); ?>
                       <select class="form-control" name="isValid">
                         <option value="">--- Pilih ---</option>
