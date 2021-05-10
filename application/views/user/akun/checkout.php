@@ -294,7 +294,7 @@
               $('#total').html("Rp. " + Intl.NumberFormat().format((parseInt(totalBayar) + parseInt(data.ongkirJember[0].harga))));
               $('#totalBayar1').val((parseInt(totalBayar) + parseInt(data.ongkirJember[0].harga)));
               Swal.fire({
-                title: '<p>pemesanan di kota jember akan dikirim oleh gojek/grab (ongkir akan di tanggung oleh penerima)</p>',
+                title: '<p>Untuk pemesanan di kota jember (Kecamatan Patrang, Kecamatan Kaliwates, Kecamatan Sumbersari) akan dikirim oleh gojek/grab (ongkir akan di tanggung oleh penerima)</p>',
                 showDenyButton: true,
                 // showCancelButton: true,
                 confirmButtonText: `Setuju`,

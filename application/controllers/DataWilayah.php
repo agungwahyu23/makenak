@@ -6,7 +6,7 @@ class DataWilayah extends CI_Controller
     public function index()
     {
         $id_prov = $this->input->post('id_prov');
-        $data = $this->db->get_where('regencies', ['province_id' => $id_prov])->result();
+        $data = $this->db->order_by('id', 'DESC')->get_where('regencies', ['province_id' => $id_prov])->result();
         echo json_encode($data);
     }
 
@@ -15,6 +15,7 @@ class DataWilayah extends CI_Controller
         $user = $this->session->userdata('idCustomer');
         $idKab = $this->input->post('idKab');
         $idProv = $this->input->post('idProv');
+        // $this->db->order_by('rand()');
         $data['wilayah'] = $this->db->get_where('regencies', ['id' => $idKab])->result();
         $data['ongkir'] = $this->db->get_where('dataongkir', ['provinsi' => $idProv])->result();
         $data['ongkirJember'] = $this->db->get_where('dataongkir', ['id' => 9])->result();
