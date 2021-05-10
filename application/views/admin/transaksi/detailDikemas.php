@@ -145,7 +145,7 @@ $dataWa = substr($dataPenerima['wa'], 1);
                 </div>
 
 
-                <form action="<?= base_url('admin/Transaksi/selesaiDikemas') ?>" method="POST">
+                <form action="<?= base_url('admin/Transaksi/selesaiDikemas') ?>" method="POST" enctype="multipart/form-data">
                   <div class="row mr-3">
                     <div class="form-group col-lg-4 col-sm-4">
                       <label>Masukan Resi</label>

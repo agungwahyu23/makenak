@@ -136,34 +136,73 @@ class Transaksi extends CI_Controller
 
 			$this->load->view('admin/transaksi/detailDikemas', $data);
 		} else {
-			$resi = $this->input->post('resi');
-			$pesanan = $this->db->get_where('transaksi', ['idTransaksi' => $id])->row_array();
+			$config['allowed_types'] = 'jpg|png|gif|jpeg';
+            $config['max_size'] = '7748';
+            $config['upload_path'] = './img/BuktiPembayaran';
 
-			if ($pesanan) {
-				$this->db->set([
-					'status' => '3',
-					'resi' => $resi
-				]);
-				$this->db->where(['idTransaksi' => $id]);
-				$update = $this->db->update('transaksi');
+            $this->load->library('upload', $config);
 
-				if ($update) {
-					$this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert">
-					Barang Selesai Dikemas!
-					 </div>');
-					redirect('admin/Transaksi/dikemas');
-				} else {
-					$this->session->set_flashdata('pesan', '<div class="alert alert-danger" role="alert">
-					Terjadi Kesalahan, Silahkan Ulangi Kembali!
-					 </div>');
-					redirect('admin/Transaksi/dikemas');
-				}
-			} else {
-				$this->session->set_flashdata('pesan', '<div class="alert alert-danger" role="alert">
-				Data Pemesanan Tidak Ditemukan!
-				 </div>');
-				redirect('admin/Transaksi/dikemas');
-			}
+			if ($this->upload->do_upload('resi')) {
+                $resi = $this->upload->data('file_name');
+
+				$dataTransaksi = [
+                    'idDataPenerima' => $idDataPenerima,
+                    'status' => 3,
+                    'resi' => $resi,
+                ];
+
+				$this->db->set($dataTransaksi);
+                $this->db->where(['idTransaksi' => $idTransaksi]);
+                $this->db->update('transaksi');
+
+				$this->session->set_flashdata('message', '<div class="alert alert-success text-center" role="alert">
+
+					  Pesanan Anda Berhasil Dikirim, Mohon Tunggu Konfirmasi Dari Admin.
+
+					</div>');
+
+                redirect('admin/Transaksi/dikemas');
+            } else {
+
+                $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">'
+
+                    . $this->upload->display_errors() .
+
+                    '</div>');
+
+                redirect('admin/Transaksi/dikemas');
+            }
+				
+			
+
+			// $resi = $this->input->post('resi');
+			// $pesanan = $this->db->get_where('transaksi', ['idTransaksi' => $id])->row_array();
+
+			// if ($pesanan) {
+			// 	$this->db->set([
+			// 		'status' => '3',
+			// 		'resi' => $resi
+			// 	]);
+			// 	$this->db->where(['idTransaksi' => $id]);
+			// 	$update = $this->db->update('transaksi');
+
+			// 	if ($update) {
+			// 		$this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert">
+			// 		Barang Selesai Dikemas!
+			// 		 </div>');
+			// 		redirect('admin/Transaksi/dikemas');
+			// 	} else {
+			// 		$this->session->set_flashdata('pesan', '<div class="alert alert-danger" role="alert">
+			// 		Terjadi Kesalahan, Silahkan Ulangi Kembali!
+			// 		 </div>');
+			// 		redirect('admin/Transaksi/dikemas');
+			// 	}
+			// } else {
+			// 	$this->session->set_flashdata('pesan', '<div class="alert alert-danger" role="alert">
+			// 	Data Pemesanan Tidak Ditemukan!
+			// 	 </div>');
+			// 	redirect('admin/Transaksi/dikemas');
+			// }
 		}
 	}
 
