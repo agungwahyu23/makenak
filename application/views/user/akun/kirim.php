@@ -57,7 +57,7 @@
                                                         <td><?= $data['namaProduk']?></td>
                                                         <td><?= $data['jumlahBeli']?></td>
                                                         <td><?= $data['totalHarga']?></td>
-                                                        <td><?= $data['resi']?></td>
+                                                        <td><a href="<?= base_url('img/resi/' . $data['resi'])?>">Lihat resi</a></td>
                                                         <td>Dikrim</td>
                                                     </tr>
                                                 <?php $i++; } ?>
