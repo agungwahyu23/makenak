@@ -50,7 +50,6 @@
                       <th>Tanggal transaksi</th>
                       <th>Total Bayar</th>
                       <th>Bukti Pembayaran</th>
-                      <th>Resi</th>
                       <th>Eskpedisi</th>
                       <th>Action</th>
                     </tr>
@@ -67,7 +66,7 @@
                         <td>
                           <a href="<?= base_url('img/BuktiPembayaran/' . $data['buktiTransfer']) ?>">Lihat Bukti Pembayaran</a>
                         </td>
-                        <td>Lihat resi</td>
+                        
                         <td>
 
                           <?php if ($data['provinsi'] == 35) { ?>

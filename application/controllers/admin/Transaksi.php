@@ -120,10 +120,11 @@ class Transaksi extends CI_Controller
 		$this->load->view('admin/transaksi/dikemas', $data);
 	}
 
-	public function detailDikemas($id)
+	public function detailDikemas($id = '')
 	{
-
-		$this->form_validation->set_rules('resi', 'Resi', 'required');
+		$idTransaksi = $this->input->post('idTransaksi');
+		// $this->form_validation->set_rules('resi', 'Resi', 'required');
+		$this->form_validation->set_rules('idTransaksi', 'idTransaksi', 'required');
 
 		if ($this->form_validation->run() == false) {
 
@@ -138,9 +139,9 @@ class Transaksi extends CI_Controller
 
 			$this->load->view('admin/transaksi/detailDikemas', $data);
 		} else {
-			$config['allowed_types'] = 'jpg|png|gif|jpeg';
+			$config['allowed_types'] = 'jpg|png|jpeg';
             $config['max_size'] = '7748';
-            $config['upload_path'] = './img/BuktiPembayaran';
+            $config['upload_path'] = './img/resi/';
 
             $this->load->library('upload', $config);
 
@@ -148,7 +149,7 @@ class Transaksi extends CI_Controller
                 $resi = $this->upload->data('file_name');
 
 				$dataTransaksi = [
-                    'idDataPenerima' => $idDataPenerima,
+                    // 'idDataPenerima' => $idDataPenerima,
                     'status' => 3,
                     'resi' => $resi,
                 ];
@@ -165,7 +166,6 @@ class Transaksi extends CI_Controller
 
                 redirect('admin/Transaksi/dikemas');
             } else {
-
                 $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">'
 
                     . $this->upload->display_errors() .

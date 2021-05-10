@@ -50,6 +50,7 @@
                       <th>Tanggal transaksi</th>
                       <th>Transfer Dari Bank</th>
                       <th>Total Bayar</th>
+                      <th>Resi</th>
                       <th>Bukti Pembayaran</th>
                       <th>Action</th>
                     </tr>
@@ -64,6 +65,7 @@
                           <td><?= $data['tanggalTransaksi']?></td>
                           <td><?= $data['namaBank']?></td>
                           <td>Rp. <?= $data['totalBayar']?></td>
+                          <td><a href="<?= base_url('img/resi/' . $data['resi'])?>">Lihat Resi</a></td>
                           <td>
                           <a href="<?= base_url('img/BuktiPembayaran/'. $data['buktiTransfer'])?>">Lihat Bukti Pembayaran</a>
                           </td>
