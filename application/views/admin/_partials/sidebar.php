@@ -2,30 +2,35 @@
     <nav class="sidenav shadow-right sidenav-light">
         <div class="sidenav-menu">
             <div class="nav accordion" id="accordionSidenav">
-
                 <div class="sidenav-menu-heading">Dashboard</div>
-                <a class="nav-link" href="<?php echo base_url('admin/Dashboard') ?>">
+                <a class="nav-link collapsed" href="javascript:void(0);" data-toggle="collapse" data-target="#collapseDashboards" aria-expanded="false" aria-controls="collapseDashboards">
                     <div class="nav-link-icon"><i data-feather="activity"></i></div>
-                    Dashboard
+                    Halaman Utama
+                    <div class="sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                 </a>
+                <div class="collapse show" id="collapseDashboards" data-parent="#accordionSidenav">
+                    <nav class="sidenav-menu-nested nav accordion" id="accordionSidenavPages">
+                        <a class="nav-link" href="<?= base_url("admin/Dashboard") ?>">Dashboard</a>
+                        <a class="nav-link" href="<?= base_url("admin/Transaksi") ?>">Pesanan</a>
+                        <a class="nav-link" href="<?= base_url("admin/Transaksi/dikemas") ?>">Dikemas</a>
+                        <a class="nav-link" href="<?= base_url("admin/Transaksi/selesai") ?>">Selesai</a>
+                        <!-- <a class="nav-link" href="<?= base_url("admin/Transaksi/ditolak") ?>">Ditolak</a> -->
+                    </nav>
+                </div>
 
-                <div class="sidenav-menu-heading">Transaksi</div>
-                <a class="nav-link" href="<?php echo base_url('admin/Transaksi') ?>">
-                    <div class="nav-link-icon"><i data-feather="file-text"></i></div>
-                    Pesanan
+                <div class="sidenav-menu-heading">Laporan</div>
+                <a class="nav-link collapsed" href="javascript:void(0);" data-toggle="collapse" data-target="#collapseLaporan" aria-expanded="false" aria-controls="collapseLaporan">
+                    <div class="nav-link-icon"><i data-feather="activity"></i></div>
+                    Laporan
+                    <div class="sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                 </a>
-                <a class="nav-link" href="<?php echo base_url('admin/Transaksi/dikemas') ?>">
-                    <div class="nav-link-icon"><i data-feather="box"></i></div>
-                    Dikemas
-                </a>
-                <a class="nav-link" href="<?php echo base_url('admin/Transaksi/selesai') ?>">
-                    <div class="nav-link-icon"><i data-feather="check-square"></i></div>
-                    Selesai
-                </a>
-                <!-- <a class="nav-link" href="<?php echo base_url('admin/Transaksi/ditolak') ?>">
-                    <div class="nav-link-icon"><i data-feather="x-square"></i></div>
-                    Ditolak
-                </a> -->
+                <div class="collapse show" id="collapseLaporan" data-parent="#accordionSidenav">
+                    <nav class="sidenav-menu-nested nav accordion" id="accordionSidenavPages">
+                    <a href="<?= base_url('admin/Transaksi/paxel') ?>">Paxel</a>
+                    <a href="<?= base_url('admin/Transaksi/platinum') ?>">Platinum</a>
+                    <a href="<?= base_url('admin/Transaksi/oneex') ?>">One Express</a>
+                    </nav>
+                </div>
 
                 <div class="sidenav-menu-heading">Data Mak Enak</div>
                 <?php if ($Pengguna['Pekerjaan'] === 'Admin') { ?>
@@ -58,19 +63,6 @@
                     <div class="nav-link-icon"><i data-feather="truck"></i></div>
                     Data Ongkir
                 </a>
-
-
-                <div class="sidenav-menu-heading">Laporan</div>
-                <a class="nav-link dropdown-btn"><div class="nav-link-icon"><i data-feather="activity"></i></div>
-                    Laporan
-                    <i class="fa fa-caret-down"></i>
-                </a>
-                <div class="dropdown-container">
-                    <a href="<?php echo base_url('admin/Transaksi/paxel') ?>">Paxel</a>
-                    <a href="<?php echo base_url('admin/Transaksi/platinum') ?>">Platinum</a>
-                    <a href="<?php echo base_url('admin/Transaksi/oneex') ?>">One Express</a>
-                </div>
-
 
                 <div class="sidenav-menu-heading">Setting Akun</div>
                 <a class="nav-link" href="<?php echo base_url('admin/Profile') ?>">
