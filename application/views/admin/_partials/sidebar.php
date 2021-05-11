@@ -60,6 +60,18 @@
                 </a>
 
 
+                <div class="sidenav-menu-heading">Laporan</div>
+                <a class="nav-link dropdown-btn"><div class="nav-link-icon"><i data-feather="activity"></i></div>
+                    Laporan
+                    <i class="fa fa-caret-down"></i>
+                </a>
+                <div class="dropdown-container">
+                    <a href="<?php echo base_url('admin/Transaksi/paxel') ?>">Paxel</a>
+                    <a href="<?php echo base_url('admin/Transaksi/platinum') ?>">Platinum</a>
+                    <a href="<?php echo base_url('admin/Transaksi/oneex') ?>">One Express</a>
+                </div>
+
+
                 <div class="sidenav-menu-heading">Setting Akun</div>
                 <a class="nav-link" href="<?php echo base_url('admin/Profile') ?>">
                     <div class="nav-link-icon"><i data-feather="user"></i></div>
@@ -75,3 +87,42 @@
         </div>
     </nav>
 </div>
+
+<script>
+/* Loop through all dropdown buttons to toggle between hiding and showing its dropdown content - This allows the user to have multiple dropdowns without any conflict */
+var dropdown = document.getElementsByClassName("dropdown-btn");
+var i;
+
+for (i = 0; i < dropdown.length; i++) {
+  dropdown[i].addEventListener("click", function() {
+  this.classList.toggle("active");
+  var dropdownContent = this.nextElementSibling;
+  if (dropdownContent.style.display === "block") {
+  dropdownContent.style.display = "none";
+  } else {
+  dropdownContent.style.display = "block";
+  }
+  });
+}
+</script>
+
+<style>
+/* Style the sidenav links and the dropdown button */
+.sidenav a, .dropdown-btn {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  display: block;
+  border: none;
+  background: none;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  outline: 0px dotted !important;
+  outline: 0px auto -webkit-focus-ring-color !important;
+}
+
+.dropdown-container {
+  display: none;
+  padding-left: 38px;
+}
+</style>

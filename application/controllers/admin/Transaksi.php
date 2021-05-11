@@ -273,6 +273,42 @@ class Transaksi extends CI_Controller
 		$this->load->view('admin/transaksi/detailDitolak', $data);
 	}
 
+	public function platinum()
+	{
+		$data['Pengguna'] = $this->db->get_where('pengguna', ['Id_User' =>
+		$this->session->userdata('Id_User')])->row_array();
+
+		$data['platinum'] = $this->db->get_where('transaksi', ['status' => 3])->result_array();
+
+		// var_dump($data['pesanan']);die;
+
+		$this->load->view('admin/laporan/platinum', $data);
+	}
+	
+	public function paxel()
+	{
+		$data['Pengguna'] = $this->db->get_where('pengguna', ['Id_User' =>
+		$this->session->userdata('Id_User')])->row_array();
+
+		$data['platinum'] = $this->db->get_where('transaksi', ['status' => 3])->result_array();
+
+		// var_dump($data['pesanan']);die;
+
+		$this->load->view('admin/laporan/platinum', $data);
+	}
+	
+	public function oneex()
+	{
+		$data['Pengguna'] = $this->db->get_where('pengguna', ['Id_User' =>
+		$this->session->userdata('Id_User')])->row_array();
+
+		$data['oneex'] = $this->db->get_where('transaksi', ['status' => 3])->result_array();
+
+		// var_dump($data['pesanan']);die;
+
+		$this->load->view('admin/laporan/oneex', $data);
+	}
+
 	public function getExport()
 	{
 
