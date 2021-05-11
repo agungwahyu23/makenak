@@ -278,7 +278,8 @@ class Transaksi extends CI_Controller
 		$data['Pengguna'] = $this->db->get_where('pengguna', ['Id_User' =>
 		$this->session->userdata('Id_User')])->row_array();
 
-		$data['platinum'] = $this->db->get_where('transaksi', ['status' => 3])->result_array();
+		$data['platinum'] = $this->db->join('datapenerima', 'datapenerima.idDataPenerima = transaksi.idDataPenerima')->join('provinces', 'provinces.id = datapenerima.provinsi')->get_where('transaksi', ['transaksi.status' => 3, 'provinsi' => 35])->result_array();
+		// $data['platinum'] = $this->db->get_where('transaksi', ['status' => 3])->result_array();
 
 		// var_dump($data['pesanan']);die;
 
@@ -290,11 +291,13 @@ class Transaksi extends CI_Controller
 		$data['Pengguna'] = $this->db->get_where('pengguna', ['Id_User' =>
 		$this->session->userdata('Id_User')])->row_array();
 
-		$data['platinum'] = $this->db->get_where('transaksi', ['status' => 3])->result_array();
+		// $data['paxel'] = $this->db->join('datapenerima', 'datapenerima.idDataPenerima = transaksi.idDataPenerima')->join('regencies', 'regencies.id = datapenerima.kabupaten')->get_where('transaksi', ['transaksi.status' => 3, 'kabupaten' => 3509])->result_array();
+		//$data['platinum'] = $this->db->get_where('transaksi', ['status' => 3])->result_array();
+		$data['paxel'] = $this->db->query('SELECT * FROM transaksi JOIN datapenerima ON transaksi.idDataPenerima=datapenerima.idDataPenerima JOIN regencies ON regencies.id=datapenerima.kabupaten WHERE datapenerima.kabupaten=999')->result_array();
 
 		// var_dump($data['pesanan']);die;
 
-		$this->load->view('admin/laporan/platinum', $data);
+		$this->load->view('admin/laporan/paxel', $data);
 	}
 	
 	public function oneex()
@@ -302,9 +305,16 @@ class Transaksi extends CI_Controller
 		$data['Pengguna'] = $this->db->get_where('pengguna', ['Id_User' =>
 		$this->session->userdata('Id_User')])->row_array();
 
-		$data['oneex'] = $this->db->get_where('transaksi', ['status' => 3])->result_array();
+		//$data['oneex'] = $this->db->join('datapenerima', 'datapenerima.idDataPenerima = transaksi.idDataPenerima')->join('provinces', 'provinces.id = datapenerima.provinsi')->get_where('transaksi', ['transaksi.status' => 3, 'datapenerima.provinsi' => $kode_prov])->result_array();
 
-		// var_dump($data['pesanan']);die;
+		
+		$data['oneex'] = $this->db->query('SELECT * FROM transaksi JOIN datapenerima ON transaksi.idDataPenerima=datapenerima.idDataPenerima JOIN provinces ON provinces.id=datapenerima.provinsi WHERE datapenerima.provinsi != 35')->result_array();
+		
+		
+		// $data['oneex'] = $this->db->get_where('transaksi', ['status' => 3])->result_array();
+		// $data['prov'] = $this->db->get_where('datapenerima', ['provinsi' => 32])->result_array();
+
+		//   var_dump($data['prov']);die;
 
 		$this->load->view('admin/laporan/oneex', $data);
 	}
