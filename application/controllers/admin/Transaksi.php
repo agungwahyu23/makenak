@@ -278,8 +278,10 @@ class Transaksi extends CI_Controller
 		$data['Pengguna'] = $this->db->get_where('pengguna', ['Id_User' =>
 		$this->session->userdata('Id_User')])->row_array();
 
-		$data['platinum'] = $this->db->join('datapenerima', 'datapenerima.idDataPenerima = transaksi.idDataPenerima')->join('provinces', 'provinces.id = datapenerima.provinsi')->get_where('transaksi', ['transaksi.status' => 3, 'provinsi' => 35])->result_array();
+		// $data['platinum'] = $this->db->join('datapenerima', 'datapenerima.idDataPenerima = transaksi.idDataPenerima')->join('provinces', 'provinces.id = datapenerima.provinsi')->get_where('transaksi', ['transaksi.status' => 3, 'provinsi' => 35])->result_array();
 		// $data['platinum'] = $this->db->get_where('transaksi', ['status' => 3])->result_array();
+
+		$data['platinum'] = $this->db->query('SELECT * FROM transaksi JOIN datapenerima ON transaksi.idDataPenerima=datapenerima.idDataPenerima JOIN regencies ON regencies.id=datapenerima.kabupaten JOIN provinces ON provinces.id=datapenerima.provinsi WHERE datapenerima.provinsi=35 && datapenerima.kabupaten!=999 && datapenerima.kabupaten!=3509')->result_array();
 
 		// var_dump($data['pesanan']);die;
 
