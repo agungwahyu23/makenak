@@ -32,7 +32,7 @@
             <div class="card-header">
               <div class="row"></div>
               <div class="no-caret">
-                <a class="btn btn-md btn-primary print_kategori" href="<?= base_url(); ?>admin/Transaksi/getExport">
+                <a class="btn btn-md btn-primary print_kategori" href="<?= base_url(); ?>admin/Transaksi/getExportPaxel">
                   <i data-feather="printer"></i>
                 </a>
               </div>

@@ -331,23 +331,8 @@ class Transaksi extends CI_Controller
 
 	public function getExport()
 	{
-		// $timestamp = time();
-		// $id = $this->uri->segment(4);
-		// $filename = 'export_transaksi_' . date('Y-m-d') . '.xls';
-
-		// header("Content-Type: application/vnd.ms-excel");
-		// header("Content-Disposition: attachment; filename=\"$filename\"");
-		// header('Cache-Control: max-age=0');
-
-		// $data['data'] = $this->db->join('detailtransaksi', 'detailtransaksi.idTransaksi = transaksi.idTransaksi')->join('dataPenerima', 'dataPenerima.idTransaksi = transaksi.idTransaksi')->join('produk', 'produk.id = detailtransaksi.idProduk')->get_where('transaksi', ['transaksi.status' => 3])->result_array();
-
-		// // var_dump($data['data']);die;
-
-
-		// $this->load->view('admin/export', $data);
 
 		$data = $this->db->join('datapenerima', 'datapenerima.idDataPenerima = transaksi.idDataPenerima')->join('detailtransaksi', 'detailtransaksi.idTransaksi = transaksi.idTransaksi')->join('produk', 'produk.id = detailtransaksi.idProduk')->get_where('transaksi', ['transaksi.status' => 3])->result_array();
-		// $data = $this->db->query('SELECT * FROM transaksi where status = 3')->result_array();
 
 		// var_dump($data);die;
 
@@ -367,22 +352,246 @@ class Transaksi extends CI_Controller
 		$spreadsheet->setActiveSheetIndex(0)
 		->setCellValue('A1', 'ID Transaksi')
 		->setCellValue('B1', 'Nama Penerima')
-		->setCellValue('C1', 'Wa')
-		->setCellValue('D1', 'Alamat')
-		->setCellValue('E1', 'Produk')
-		->setCellValue('F1', 'Jumlah Beli')
-		->setCellValue('G1', 'Total Harga');
+		->setCellValue('C1', 'Tanggal Transaksi')
+		->setCellValue('D1', 'Wa')
+		->setCellValue('E1', 'Alamat')
+		->setCellValue('F1', 'Produk')
+		->setCellValue('G1', 'Jumlah Beli')
+		->setCellValue('H1', 'Total Harga');
 
 		// Miscellaneous glyphs, UTF-8
 		$i=2; foreach($data as $transaksi) {
 			$spreadsheet->setActiveSheetIndex(0)
 			->setCellValue('A'.$i, $transaksi['idTransaksi'])
 			->setCellValue('B'.$i, $transaksi['namaPenerima'])
-			->setCellValue('C'.$i, $transaksi['wa'])
-			->setCellValue('D'.$i, $transaksi['alamatPenerima'])
-			->setCellValue('E'.$i, $transaksi['namaProduk'])
-			->setCellValue('F'.$i, $transaksi['jumlahBeli'])
-			->setCellValue('G'.$i, $transaksi['totalHarga']);
+			->setCellValue('C'.$i, $transaksi['tanggalTransaksi'])
+			->setCellValue('D'.$i, $transaksi['wa'])
+			->setCellValue('E'.$i, $transaksi['alamatPenerima'])
+			->setCellValue('F'.$i, $transaksi['namaProduk'])
+			->setCellValue('G'.$i, $transaksi['jumlahBeli'])
+			->setCellValue('H'.$i, $transaksi['totalHarga']);
+			$i++;
+		}
+
+		// Rename worksheet
+		$spreadsheet->getActiveSheet()->setTitle('Report Excel '.date('d-m-Y H'));
+
+		// Set active sheet index to the first sheet, so Excel opens this as the first sheet
+		$spreadsheet->setActiveSheetIndex(0);
+
+		// Redirect output to a client’s web browser (Xlsx)
+		header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+		header('Content-Disposition: attachment;filename="Report Excel.xls"');
+		header('Cache-Control: max-age=0');
+		// If you're serving to IE 9, then the following may be needed
+		header('Cache-Control: max-age=1');
+		
+		// If you're serving to IE over SSL, then the following may be needed
+		header('Expires: Mon, 26 Jul 1997 05:00:00 GMT'); // Date in the past
+		header('Last-Modified: ' . gmdate('D, d M Y H:i:s') . ' GMT'); // always modified
+		header('Cache-Control: cache, must-revalidate'); // HTTP/1.1
+		header('Pragma: public'); // HTTP/1.0
+
+		$writer = IOFactory::createWriter($spreadsheet, 'Xls');
+		$writer->save('php://output');
+		exit;
+	}
+
+
+	public function getExportPaxel()
+	{
+		// $id = 999;
+
+		// $kabupaten != $id;
+
+		$data = $this->db->join('datapenerima', 'datapenerima.idDataPenerima = transaksi.idDataPenerima')->join('detailtransaksi', 'detailtransaksi.idTransaksi = transaksi.idTransaksi')->join('produk', 'produk.id = detailtransaksi.idProduk')->get_where('transaksi', ['transaksi.status' => 3, 'datapenerima.kabupaten' => '999'])->result_array();
+
+		// var_dump($data);die;
+
+		// Create new Spreadsheet object
+		$spreadsheet = new Spreadsheet();
+
+		// Set document properties
+		$spreadsheet->getProperties()->setCreator('Idris - WebDev')
+		->setLastModifiedBy('Idris - WebDev')
+		->setTitle('Office 2007 XLSX Test Document')
+		->setSubject('Office 2007 XLSX Test Document')
+		->setDescription('Test document for Office 2007 XLSX, generated using PHP classes.')
+		->setKeywords('office 2007 openxml php')
+		->setCategory('Test result file');
+
+		// Add some data
+		$spreadsheet->setActiveSheetIndex(0)
+		->setCellValue('A1', 'ID Transaksi')
+		->setCellValue('B1', 'Nama Penerima')
+		->setCellValue('C1', 'Tanggal Transaksi')
+		->setCellValue('D1', 'Wa')
+		->setCellValue('E1', 'Alamat')
+		->setCellValue('F1', 'Produk')
+		->setCellValue('G1', 'Jumlah Beli')
+		->setCellValue('H1', 'Total Harga');
+
+		// Miscellaneous glyphs, UTF-8
+		$i=2; foreach($data as $transaksi) {
+			$spreadsheet->setActiveSheetIndex(0)
+			->setCellValue('A'.$i, $transaksi['idTransaksi'])
+			->setCellValue('B'.$i, $transaksi['namaPenerima'])
+			->setCellValue('C'.$i, $transaksi['tanggalTransaksi'])
+			->setCellValue('D'.$i, $transaksi['wa'])
+			->setCellValue('E'.$i, $transaksi['alamatPenerima'])
+			->setCellValue('F'.$i, $transaksi['namaProduk'])
+			->setCellValue('G'.$i, $transaksi['jumlahBeli'])
+			->setCellValue('H'.$i, $transaksi['totalHarga']);
+			$i++;
+		}
+
+		// Rename worksheet
+		$spreadsheet->getActiveSheet()->setTitle('Report Excel '.date('d-m-Y H'));
+
+		// Set active sheet index to the first sheet, so Excel opens this as the first sheet
+		$spreadsheet->setActiveSheetIndex(0);
+
+		// Redirect output to a client’s web browser (Xlsx)
+		header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+		header('Content-Disposition: attachment;filename="Report Excel.xls"');
+		header('Cache-Control: max-age=0');
+		// If you're serving to IE 9, then the following may be needed
+		header('Cache-Control: max-age=1');
+		
+		// If you're serving to IE over SSL, then the following may be needed
+		header('Expires: Mon, 26 Jul 1997 05:00:00 GMT'); // Date in the past
+		header('Last-Modified: ' . gmdate('D, d M Y H:i:s') . ' GMT'); // always modified
+		header('Cache-Control: cache, must-revalidate'); // HTTP/1.1
+		header('Pragma: public'); // HTTP/1.0
+
+		$writer = IOFactory::createWriter($spreadsheet, 'Xls');
+		$writer->save('php://output');
+		exit;
+	}
+
+
+	public function getExportPlatinum()
+	{
+		// $id = 999;
+
+		// $kabupaten != $id;
+
+		// $data = $this->db->join('datapenerima', 'datapenerima.idDataPenerima = transaksi.idDataPenerima')->join('detailtransaksi', 'detailtransaksi.idTransaksi = transaksi.idTransaksi')->join('produk', 'produk.id = detailtransaksi.idProduk')->get_where('transaksi', ['transaksi.status' => 3, 'datapenerima.provinsi' => '35', 'datapenerima.kabupaten !=' => '999'])->result_array();
+		$data = $this->db->query('SELECT * FROM transaksi JOIN datapenerima ON transaksi.idDataPenerima=datapenerima.idDataPenerima JOIN regencies ON regencies.id=datapenerima.kabupaten JOIN provinces ON provinces.id=datapenerima.provinsi JOIN detailtransaksi ON detailtransaksi.idTransaksi=transaksi.idTransaksi JOIN produk ON produk.id=detailtransaksi.idproduk WHERE datapenerima.provinsi=35 && datapenerima.kabupaten!=999 && datapenerima.kabupaten!=3509')->result_array();
+
+
+		// datapenerima.provinsi=35 && datapenerima.kabupaten!=999 && datapenerima.kabupaten!=3509
+
+		// var_dump($data);die;
+
+		// Create new Spreadsheet object
+		$spreadsheet = new Spreadsheet();
+
+		// Set document properties
+		$spreadsheet->getProperties()->setCreator('Idris - WebDev')
+		->setLastModifiedBy('Idris - WebDev')
+		->setTitle('Office 2007 XLSX Test Document')
+		->setSubject('Office 2007 XLSX Test Document')
+		->setDescription('Test document for Office 2007 XLSX, generated using PHP classes.')
+		->setKeywords('office 2007 openxml php')
+		->setCategory('Test result file');
+
+		// Add some data
+		$spreadsheet->setActiveSheetIndex(0)
+		->setCellValue('A1', 'ID Transaksi')
+		->setCellValue('B1', 'Nama Penerima')
+		->setCellValue('C1', 'Tanggal Transaksi')
+		->setCellValue('D1', 'Wa')
+		->setCellValue('E1', 'Alamat')
+		->setCellValue('F1', 'Produk')
+		->setCellValue('G1', 'Jumlah Beli')
+		->setCellValue('H1', 'Total Harga');
+
+		// Miscellaneous glyphs, UTF-8
+		$i=2; foreach($data as $transaksi) {
+			$spreadsheet->setActiveSheetIndex(0)
+			->setCellValue('A'.$i, $transaksi['idTransaksi'])
+			->setCellValue('B'.$i, $transaksi['namaPenerima'])
+			->setCellValue('C'.$i, $transaksi['tanggalTransaksi'])
+			->setCellValue('D'.$i, $transaksi['wa'])
+			->setCellValue('E'.$i, $transaksi['alamatPenerima'])
+			->setCellValue('F'.$i, $transaksi['namaProduk'])
+			->setCellValue('G'.$i, $transaksi['jumlahBeli'])
+			->setCellValue('H'.$i, $transaksi['totalHarga']);
+			$i++;
+		}
+
+		// Rename worksheet
+		$spreadsheet->getActiveSheet()->setTitle('Report Excel '.date('d-m-Y H'));
+
+		// Set active sheet index to the first sheet, so Excel opens this as the first sheet
+		$spreadsheet->setActiveSheetIndex(0);
+
+		// Redirect output to a client’s web browser (Xlsx)
+		header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+		header('Content-Disposition: attachment;filename="Report Excel.xls"');
+		header('Cache-Control: max-age=0');
+		// If you're serving to IE 9, then the following may be needed
+		header('Cache-Control: max-age=1');
+		
+		// If you're serving to IE over SSL, then the following may be needed
+		header('Expires: Mon, 26 Jul 1997 05:00:00 GMT'); // Date in the past
+		header('Last-Modified: ' . gmdate('D, d M Y H:i:s') . ' GMT'); // always modified
+		header('Cache-Control: cache, must-revalidate'); // HTTP/1.1
+		header('Pragma: public'); // HTTP/1.0
+
+		$writer = IOFactory::createWriter($spreadsheet, 'Xls');
+		$writer->save('php://output');
+		exit;
+	}
+
+	public function getExportOneEx()
+	{
+		// $id = 999;
+
+		// $kabupaten != $id;
+
+		$data = $this->db->join('datapenerima', 'datapenerima.idDataPenerima = transaksi.idDataPenerima')->join('detailtransaksi', 'detailtransaksi.idTransaksi = transaksi.idTransaksi')->join('produk', 'produk.id = detailtransaksi.idProduk')->get_where('transaksi', ['transaksi.status' => 3, 'datapenerima.provinsi !=' => '35'])->result_array();
+
+
+		// datapenerima.provinsi=35 && datapenerima.kabupaten!=999 && datapenerima.kabupaten!=3509
+
+		// var_dump($data);die;
+
+		// Create new Spreadsheet object
+		$spreadsheet = new Spreadsheet();
+
+		// Set document properties
+		$spreadsheet->getProperties()->setCreator('Idris - WebDev')
+		->setLastModifiedBy('Idris - WebDev')
+		->setTitle('Office 2007 XLSX Test Document')
+		->setSubject('Office 2007 XLSX Test Document')
+		->setDescription('Test document for Office 2007 XLSX, generated using PHP classes.')
+		->setKeywords('office 2007 openxml php')
+		->setCategory('Test result file');
+
+		// Add some data
+		$spreadsheet->setActiveSheetIndex(0)
+		->setCellValue('A1', 'ID Transaksi')
+		->setCellValue('B1', 'Nama Penerima')
+		->setCellValue('C1', 'Tanggal Transaksi')
+		->setCellValue('D1', 'Wa')
+		->setCellValue('E1', 'Alamat')
+		->setCellValue('F1', 'Produk')
+		->setCellValue('G1', 'Jumlah Beli')
+		->setCellValue('H1', 'Total Harga');
+
+		// Miscellaneous glyphs, UTF-8
+		$i=2; foreach($data as $transaksi) {
+			$spreadsheet->setActiveSheetIndex(0)
+			->setCellValue('A'.$i, $transaksi['idTransaksi'])
+			->setCellValue('B'.$i, $transaksi['namaPenerima'])
+			->setCellValue('C'.$i, $transaksi['tanggalTransaksi'])
+			->setCellValue('D'.$i, $transaksi['wa'])
+			->setCellValue('E'.$i, $transaksi['alamatPenerima'])
+			->setCellValue('F'.$i, $transaksi['namaProduk'])
+			->setCellValue('G'.$i, $transaksi['jumlahBeli'])
+			->setCellValue('H'.$i, $transaksi['totalHarga']);
 			$i++;
 		}
 
