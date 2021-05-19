@@ -69,6 +69,10 @@
                     <div class="nav-link-icon"><i data-feather="user"></i></div>
                     Company Profile
                 </a>
+                <a class="nav-link" href="<?php echo base_url('admin/Profile/uploadVideo') ?>">
+                    <div class="nav-link-icon"><i data-feather="upload"></i></div>
+                    Upload Video
+                </a>
             </div>
         </div>
         <div class="sidenav-footer">

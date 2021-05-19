@@ -46,4 +46,12 @@ class Profile extends CI_Controller
       }
     }
   }
+
+  public function uploadVideo()
+  {
+    $data['Pengguna'] = $this->db->get_where('pengguna', ['Id_User' =>
+		$this->session->userdata('Id_User')])->row_array();
+
+    $this->load->view('admin/profile/data_video', $data);
+  }
 }
