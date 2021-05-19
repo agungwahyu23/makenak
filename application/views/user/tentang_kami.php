@@ -62,7 +62,7 @@
             <a href="<?= base_url('img/profil1.mp4') ?>" data-gallery="portfolioGallery" class="portfokio-lightbox">
               <video playsinline="playsinline" id="video-content" name="video-content" muted autoplay="autoplay"
                 loop="loop">
-                <source src="<?= base_url('img/profil1.mp4') ?>" type="video/mp4">
+                <source src="<?= base_url('img/' . $tentangKami['video']) ?>" type="video/mp4">
               </video>
             </a>
           </div>
