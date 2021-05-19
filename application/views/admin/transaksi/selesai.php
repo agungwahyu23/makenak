@@ -58,21 +58,23 @@
                   <tbody>
                     <?php $no = 1;
                     foreach ($selesai as $data) { ?>
-                      
-                        <tr>
-                          <td><?= $no++ ?></td>
-                          <td><?= $data['namaPengirim']?></td>
-                          <td><?= $data['tanggalTransaksi']?></td>
-                          <td><?= $data['namaBank']?></td>
-                          <td>Rp. <?= $data['totalBayar']?></td>
-                          <td><a href="<?= base_url('img/resi/' . $data['resi'])?>">Lihat Resi</a></td>
-                          <td>
-                          <a href="<?= base_url('img/BuktiPembayaran/'. $data['buktiTransfer'])?>">Lihat Bukti Pembayaran</a>
-                          </td>
-                          <td>
-                            <a class="btn btn-datatable btn-icon btn-transparent-dark" href="<?php echo base_url('admin/Transaksi/detailSelesai/' . $data['idTransaksi']) ?>"><i data-feather="eye"></i></a>
-                          </td>
-                        </tr>
+
+                      <tr>
+                        <td><?= $no++ ?></td>
+                        <td><?= $data['namaPengirim'] ?></td>
+                        <td><?= $data['tanggalTransaksi'] ?></td>
+                        <td><?= $data['namaBank'] ?></td>
+                        <td>Rp. <?= $data['totalBayar'] ?></td>
+                        <td>
+                          <a href="<?= base_url('img/resi/' . $data['resi']) ?>">Lihat Resi</a>
+                        </td>
+                        <td>
+                          <a href="<?= base_url('img/BuktiPembayaran/' . $data['buktiTransfer']) ?>">Lihat Bukti Pembayaran</a>
+                        </td>
+                        <td>
+                          <a class="btn btn-datatable btn-icon btn-transparent-dark" href="<?php echo base_url('admin/Transaksi/detailSelesai/' . $data['idTransaksi']) ?>"><i data-feather="eye"></i></a>
+                        </td>
+                      </tr>
 
                     <?php } ?>
 

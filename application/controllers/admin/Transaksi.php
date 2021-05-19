@@ -346,14 +346,17 @@ class Transaksi extends CI_Controller
 
 		// $this->load->view('admin/export', $data);
 
-		$data['transaksi'] = $this->db->query('SELECT * FROM transaksi where status=3')->result_array();
+		$data = $this->db->join('datapenerima', 'datapenerima.idDataPenerima = transaksi.idDataPenerima')->join('detailtransaksi', 'detailtransaksi.idTransaksi = transaksi.idTransaksi')->join('produk', 'produk.id = detailtransaksi.idProduk')->get_where('transaksi', ['transaksi.status' => 3])->result_array();
+		// $data = $this->db->query('SELECT * FROM transaksi where status = 3')->result_array();
+
+		// var_dump($data);die;
 
 		// Create new Spreadsheet object
 		$spreadsheet = new Spreadsheet();
 
 		// Set document properties
-		$spreadsheet->getProperties()->setCreator('Andoyo - Java Web Media')
-		->setLastModifiedBy('Andoyo - Java Web Medi')
+		$spreadsheet->getProperties()->setCreator('Idris - WebDev')
+		->setLastModifiedBy('Idris - WebDev')
 		->setTitle('Office 2007 XLSX Test Document')
 		->setSubject('Office 2007 XLSX Test Document')
 		->setDescription('Test document for Office 2007 XLSX, generated using PHP classes.')
@@ -363,13 +366,23 @@ class Transaksi extends CI_Controller
 		// Add some data
 		$spreadsheet->setActiveSheetIndex(0)
 		->setCellValue('A1', 'ID Transaksi')
-		->setCellValue('B1', 'Nama Pengirim');
+		->setCellValue('B1', 'Nama Penerima')
+		->setCellValue('C1', 'Wa')
+		->setCellValue('D1', 'Alamat')
+		->setCellValue('E1', 'Produk')
+		->setCellValue('F1', 'Jumlah Beli')
+		->setCellValue('G1', 'Total Harga');
 
 		// Miscellaneous glyphs, UTF-8
-		$i=2; foreach($transaksi as $transaksi) {
+		$i=2; foreach($data as $transaksi) {
 			$spreadsheet->setActiveSheetIndex(0)
 			->setCellValue('A'.$i, $transaksi['idTransaksi'])
-			->setCellValue('B'.$i, $transaksi->namaPengirim);
+			->setCellValue('B'.$i, $transaksi['namaPenerima'])
+			->setCellValue('C'.$i, $transaksi['wa'])
+			->setCellValue('D'.$i, $transaksi['alamatPenerima'])
+			->setCellValue('E'.$i, $transaksi['namaProduk'])
+			->setCellValue('F'.$i, $transaksi['jumlahBeli'])
+			->setCellValue('G'.$i, $transaksi['totalHarga']);
 			$i++;
 		}
 
