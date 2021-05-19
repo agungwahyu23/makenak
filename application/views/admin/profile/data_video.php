@@ -45,7 +45,7 @@
                                                 Simpan
                                             </button>
                                             <a class="btn btn-danger" href="<?= base_url('admin/Dashboard') ?>">
-                                                Batalll
+                                                Batal
                                             </a>
                                         </div>
                                     </div>
